@@ -1,0 +1,1684 @@
+body {
+	background-color: $colorWhite;
+}
+
+a {
+	color: $colorBlack;
+}
+
+#globalIframeCloseButton {
+	position: fixed;
+	top: 0;
+	right: 0;
+	padding: 10px;
+	background: $colorWhiteTransparent;
+	z-index: 3;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+}
+
+.text-center {
+	text-align: center;
+}
+
+#avsMainContainer {
+	margin: auto;
+	max-width: 800px;
+
+	.page {
+		@include flexCenter;
+		flex-direction: column;
+		text-align: center;
+		flex-wrap: wrap;
+
+		&.isHidden {
+			display: none;
+		}
+
+		&.layoutHint {
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			z-index: 2;
+			background: $colorWhite;
+			top: 0;
+		}
+
+		&.layoutDocumentProcessing {
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			z-index: 2;
+			background: $colorWhite;
+			top: 0;
+			overflow-y: scroll;
+
+			.imageContainer {
+				height: 266px;
+				width: auto;
+				padding: 20px 20px 0px 20px;
+				box-sizing: border-box;
+				position: relative;
+				overflow: hidden;
+
+				.loadingOverlay {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					background: $colorWhiteTransparent;
+					@include flexCenter;
+
+					i {
+						font-size: 24px;
+						color: $colorWhite;
+					}
+				}
+
+				.documentProcessingCanvas {
+					max-width: 100%;
+					max-height: 100%;
+					border-radius: 20px;
+					background: $colorBlack;
+
+					/* for tests do not delete */
+					/*position: absolute;
+					top: 0;
+					left: 0;
+					width: 370px;
+					height: 236px;
+					z-index: 3;*/
+
+				}
+
+				.documentProcessingCanvasOverlay {
+					display: none;
+
+					/* for tests do not delete */
+					/*position: absolute;
+					width: 370px;
+					height: 236px;
+					top: 0;
+					left: 0;
+					z-index: 4;*/
+				}
+
+			}
+
+			.confirmationArea {
+				@include flexCenter;
+				flex-direction: column;
+				box-sizing: border-box;
+			}
+
+			.processArea {
+				@include flexCenter;
+				flex-direction: column;
+				box-sizing: border-box;
+
+				.checkOutList {
+					padding: 20px;
+
+					.checkOutItem {
+						padding: 5px;
+
+						.statusIcon {
+							color: $colorLightGreen;
+						}
+
+					}
+
+				}
+
+			}
+
+			.submitArea {
+				padding: 10px;
+
+				.button {
+					margin: 0 0 10px 0;
+				}
+
+			}
+
+		}
+
+		&.layoutError {
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			z-index: 2;
+			background: $colorWhite;
+			top: 0;
+			left: 0;
+			overflow: scroll;
+
+			.introText {
+				font-weight: normal;
+			}
+		}
+
+		&.layoutStaticPage {
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			z-index: 2;
+			background: $colorWhite;
+			top: 0;
+			left: 0;
+			overflow: scroll;
+
+			.introText {
+				font-weight: normal;
+			}
+		}
+
+		&.layoutTextBlock {
+			padding: 10px;
+			box-sizing: border-box;
+
+			h1, h2 {
+				font-weight: bold;
+				font-size: 22px;
+				margin: 15px;
+			}
+
+			p {
+				margin: 10px;
+			}
+
+			&:not(.layoutStaticPage) {
+				a {
+					color: $colorWhite;
+				}
+			}
+
+
+		}
+
+		.headerLogo {
+			padding: 20px;
+
+			img {
+				width: 120px;
+			}
+		}
+
+		.introIcon {
+			background: $colorLightBlue;
+			border-radius: 100%;
+			padding: 15px;
+			border: solid 10px $colorLightBlueLighter;
+			overflow: hidden;
+			color: $colorWhite;
+			background-clip: padding-box;
+
+			img {
+				width: 100px;
+				height: 100px;
+			}
+
+			&.layoutFontIcon {
+				i {
+					@include flexCenter;
+					font-size: 100px;
+					width: 100px;
+					height: 100px;
+				}
+
+			}
+
+			&.layoutGreen {
+				background: $colorLightGreen;
+				border: solid 10px $colorLightGreenLighter;
+			}
+
+			&.layoutBlue {
+				background: $colorLightBlue;
+				border: solid 10px $colorLightBlueLighter;
+			}
+
+			&.layoutRed {
+				background: $colorLightRed;
+				border: solid 10px $colorLightRedLighter;
+			}
+
+		}
+
+		.introHeading {
+			font-weight: bold;
+			font-size: 24px;
+			padding: 10px;
+		}
+
+		.introText {
+			font-size: 16px;
+			padding: 10px 20px;
+			line-height: 18px;
+
+			.layoutRedText {
+				color: $colorLightRed;
+			}
+
+			a {
+				color: $colorLightGreen;
+				text-decoration: none;
+			}
+
+			p {
+				margin-bottom: 10px;
+			}
+
+			strong {
+				&.layoutBiggerText {
+					font-size: 18px;
+				}
+			}
+
+			ol {
+				li {
+					line-height: 18px;
+					margin-bottom: 10px;
+				}
+			}
+
+		}
+
+		.selectionArea {
+			@include flexCenter;
+			flex-direction: column;
+			text-align: center;
+			padding: 5px 10px;
+			font-size: 12px;
+
+			.label {
+				padding-bottom: 5px;
+			}
+
+			.select {
+				padding: 7px;
+			}
+
+		}
+
+		.browseArea {
+			@include flexCenter;
+			flex-direction: column;
+			text-align: center;
+			padding: 5px 10px;
+			font-size: 12px;
+
+			i {
+				font-size: 48px;
+				color: $colorLightGrey;
+				cursor: pointer;
+
+				&:hover {
+					opacity: 0.8;
+				}
+
+			}
+
+		}
+
+		.inputArea {
+			@include flexCenter;
+			flex-direction: column;
+			text-align: center;
+			padding: 5px 10px;
+			font-size: 12px;
+
+			.label {
+				padding-bottom: 5px;
+			}
+
+			.inputList {
+
+				.textInput {
+					padding: 10px;
+
+					&.layoutBoldText {
+						font-weight: bold;
+					}
+
+				}
+
+				&.layoutOneInputPerLine .textInput {
+					min-width: 180px;
+				}
+
+				&.layoutTwoInputPerLine .textInput {
+					min-width: 90px;
+				}
+
+				&.layoutCreditCardExpiration .textInput {
+					width: 45px;
+					font-size: 14px;
+					text-align: center;
+				}
+
+				&.layoutCreditCardNumber .textInput {
+					min-width: 180px;
+					font-size: 14px;
+					text-align: center;
+				}
+
+			}
+
+		}
+
+		.iconArea {
+			@include flexCenter;
+			flex-direction: row;
+			text-align: center;
+			padding: 10px;
+			font-size: 12px;
+			align-items: flex-start;
+
+			.iconItem {
+				@include flexCenter;
+				flex-direction: column;
+				text-align: left;
+				width: 90px;
+				margin: 5px;
+				padding: 5px;
+				cursor: pointer;
+
+				@include respond-to(wide-screen) {
+					width: 200px;
+
+					.iconLabel {
+						.verificationTypeRadioButton {
+							margin-right: 5px;
+						}
+
+						.iconDescription {
+							max-width: 170px;
+						}
+					}
+				}
+
+				@include respond-to(medium-screen) {
+					width: 140px;
+
+					.iconLabel {
+						flex-direction: column;
+						margin-top: 5px;
+
+						.verificationTypeRadioButton {
+							margin-right: 5px;
+						}
+
+						.iconDescription {
+							text-align: center;
+							margin-top: 5px;
+						}
+					}
+				}
+
+				@include respond-to(small-screen) {
+
+					.iconLabel {
+						flex-direction: column;
+						margin-top: 5px;
+
+						.verificationTypeRadioButton {
+							margin-right: 5px;
+						}
+
+						.iconDescription {
+							text-align: center;
+							margin-top: 5px;
+						}
+
+					}
+
+				}
+
+				&.isSelected {
+					.iconImage {
+						background-color: $colorLightBlue;
+						border: solid 5px $colorLightBlueLighter;
+
+						svg {
+							fill: $colorWhite;
+						}
+					}
+
+					.iconLabel {
+						.verificationTypeRadioButton {
+							background-color: $colorLightGreen;
+							position: relative;
+
+							&:after {
+								position: absolute;
+								content: " ";
+								display: block;
+								width: 8px;
+								height: 8px;
+								background-color: $colorWhite;
+								border-radius: 50%;
+								top: 5px;
+								left: 5px;
+							}
+
+						}
+					}
+				}
+
+				.iconImage {
+					width: 80px;
+					height: 80px;
+					border-radius: 100%;
+					border: solid 5px $colorWhiteInvisible;
+					padding: 10px;
+					margin-bottom: 10px;
+					@include flexCenter;
+					flex-direction: column;
+					text-align: center;
+					background-clip: padding-box;
+
+					svg {
+						width: 80px;
+						height: 80px;
+						fill: $colorBlack;
+					}
+
+				}
+
+				.iconLabel {
+					@include flexCenter;
+
+					.verificationTypeRadioButton {
+						width: 18px;
+						height: 18px;
+						border: 1px solid $colorLightGreen;
+						background-color: transparent;
+						border-radius: 50%;
+						margin-right: 8px;
+
+						@include respond-to(small-screen) {
+							margin-right: 5px;
+						}
+					}
+				}
+
+				.iconDescription {
+					line-height: 14px;
+
+					@include respond-to(small-screen) {
+						max-width: 60px;
+						text-align: left;
+					}
+				}
+
+			}
+
+		}
+
+		.textArea {
+			@include flexCenter;
+			flex-direction: column;
+			text-align: center;
+			padding: 5px 10px;
+			font-size: 12px;
+			line-height: 16px;
+
+			p.layoutMoreLineHeight {
+				margin-bottom: 10px;
+			}
+
+			a {
+				color: $colorBlack;
+				text-decoration: underline;
+			}
+
+		}
+
+		.documentHelperArea {
+			@include flexCenter;
+			flex-direction: column;
+			text-align: center;
+			padding: 5px 0 10px 0;
+			height: 100px;
+			overflow: hidden;
+
+			img {
+				height: 100%;
+			}
+
+		}
+
+		.submitArea {
+			padding: 10px;
+			@include flexCenter;
+			flex-direction: column;
+			text-align: center;
+
+			.button {
+				color: $colorWhite;
+				background: $colorLightGreen;
+				border-radius: 40px;
+				display: block;
+				padding: 20px 40px;
+				border: solid 10px $colorLightGreenLighter;
+				font-size: 16px;
+				min-width: 180px;
+				cursor: pointer;
+				background-clip: padding-box;
+
+				&:hover {
+					opacity: 0.8;
+				}
+
+				&.layoutRed {
+					background-color: $colorLightRed;
+					border: solid 10px $colorLightRedLighter;
+				}
+
+				&.isDisabled {
+					background-color: $colorLightGrey;
+					border: solid 10px $colorLightGreyLighter;
+				}
+
+				i {
+					margin-right: 5px;
+				}
+
+			}
+
+			.linkButton {
+				padding: 15px;
+				cursor: pointer;
+			}
+
+		}
+
+		.termsArea {
+			font-size: 14px;
+			@include flexCenter;
+			margin-bottom: 15px;
+			margin-top: 10px;
+
+			label {
+
+				input {
+					margin-right: 5px;
+				}
+
+				a {
+					margin: 0 5px;
+					font-weight: bold;
+					color: $colorLightGreen;
+					text-decoration: none;
+				}
+
+			}
+		}
+
+		.qrCodeArea {
+			padding: 10px 0;
+		}
+
+		.videoOverlay {
+			position: fixed;
+			z-index: 1;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.2);
+		}
+
+		.videoSource {
+			position: fixed;
+			z-index: 0;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			overflow: hidden;
+
+			video {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				z-index: 0;
+				background: $colorBlack;
+
+				&.mirrored {
+					transform: rotateY(180deg);
+					-webkit-transform: rotateY(180deg);
+					-moz-transform: rotateY(180deg);
+				}
+
+			}
+
+			.overlayCanvas {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			.resultCanvas {
+				width: 50%;
+				height: auto;
+				position: absolute;
+				right: 0;
+				left: 0;
+			}
+
+		}
+
+		.maskGuide {
+			border: dashed 6px $colorLightGreen;
+			box-sizing: border-box;
+			position: fixed;
+
+			&.layoutFace {
+				position: fixed;
+				opacity: 0.8;
+				border-radius: 100%;
+				@include flexCenter;
+				flex-direction: column;
+				color: $colorWhite;
+				overflow: hidden;
+				text-shadow: 1px 1px 2px $colorBlack;
+
+				.loadingIconArea {
+					font-size: 28px;
+				}
+
+				.statusArea {
+					padding: 15px;
+					font-size: 20px;
+					line-height: 24px;
+				}
+
+				.emoticonArea {
+					@include flexCenter;
+					font-size: 28px;
+					padding-bottom: 25px;
+
+					.layoutSmallerEmoticon {
+						font-size: 18px;
+						padding: 10px;
+					}
+
+				}
+
+				.hintArea {
+					padding-bottom: 15px;
+				}
+
+				.ageGuideArea {
+					@include flexCenter;
+					font-size: 22px;
+					line-height: 24px;
+					flex-direction: column;
+
+					p {
+						padding: 4px;
+					}
+				}
+
+				.hintArea {
+					font-size: 24px;
+					line-height: 24px;
+				}
+
+			}
+
+			&.layoutIdentityCardGeneric {
+				border-radius: 20px;
+			}
+
+		}
+
+		.maskGuideField {
+			position: fixed;
+			/*border: solid 2px $colorWhiteTransparent;*/
+			border: none;
+			box-sizing: border-box;
+		}
+
+		.informationArea {
+			z-index: 1;
+			color: $colorWhite;
+			padding: 30px 20px;
+			position: fixed;
+			/*bottom: 0;*/
+			top: 110px;
+
+			&.layoutTransparent {
+				text-shadow: 1px 1px 2px $colorBlack;
+				opacity: 0.7;
+			}
+
+			&.layoutRelative {
+				position: relative;
+			}
+
+			&.layoutBlack {
+				color: $colorBlack;
+			}
+
+			&.layoutStickyTop {
+				position: fixed;
+				top: 10px;
+				left: 0;
+				width: 100%;
+				padding: 0;
+				max-height: 50px;
+				line-height: 20px;
+				text-shadow: 1px 1px 2px $colorBlack;
+			}
+
+			&.layoutSmallerText {
+				font-size: 14px;
+			}
+
+			.loadingArea {
+				@include flexCenter;
+				flex-direction: column;
+
+				i {
+					font-size: 28px;
+					margin-bottom: 10px;
+				}
+
+				strong {
+					margin-bottom: 10px;
+					font-size: 16px;
+					line-height: 20px;
+				}
+
+			}
+
+			.statusArea {
+				font-size: 14px;
+				padding: 0 30px;
+				line-height: 16px;
+			}
+
+		}
+
+		.imageCaptureArea {
+			@include flexCenter;
+
+			.captureOption {
+				@include flexCenter;
+				flex-direction: column;
+				padding: 30px;
+				cursor: pointer;
+
+				.icon {
+					font-size: 24px;
+					padding: 5px;
+				}
+
+				.text {
+
+				}
+
+			}
+		}
+
+		&#termsAndConditionsArea {
+			text-align: left;
+
+			p {
+				a {
+					/*color: $colorBlack;*/
+					text-decoration: underline;
+				}
+			}
+
+			.introHeading {
+				margin-left: 0;
+			}
+
+		}
+
+	}
+
+	#debugArea {
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 200px;
+		height: 100%;
+		background: $colorBlackTransparent;
+		color: $colorWhite;
+		z-index: 3;
+		padding: 10px 10px 50px 10px;
+		font-size: 12px;
+		overflow-y: scroll;
+		box-sizing: border-box;
+		opacity: 0.7;
+
+		p {
+			padding: 5px 0;
+
+			.green {
+				color: $colorLightGreen;
+			}
+
+			.red {
+				color: $colorLightRed;
+			}
+
+		}
+
+		img {
+			max-height: 60px;
+			height: auto;
+		}
+
+		#debugCloseButton {
+			float: right;
+		}
+
+	}
+
+	.preloader {
+		@include flexCenter;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		font-size: 14px;
+		padding: 10px;
+		text-align: center;
+		background: $colorWhiteTransparent;
+		width: 100%;
+
+		.counter {
+			font-weight: bold;
+			padding-left: 5px;
+		}
+
+	}
+
+	#scanIdAgeVerificationPage, #selfieAgeDetectionPage {
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: auto;
+		text-align: center;
+		width: 100%;
+		height: calc(100%);
+	}
+
+}
+
+@keyframes scanning {
+	50% {
+		transform: translate(0, 200%);
+	}
+}
+
+#staticPage {
+
+	.clear {
+		clear: both;
+	}
+
+	.layoutGreenBackground {
+		background: url("/static/img/staticPage/backTexture.png") center center $colorLightGreenLightest;
+	}
+
+	.headerContainer {
+		width: 100%;
+		height: auto;
+		margin: auto;
+		text-align: center;
+
+		&.error-template {
+			position: relative;
+			margin-top: -15;
+			background: $colorWhite;
+			z-index: 1;
+		}
+
+		.headerTop {
+			width: 1200px;
+			height: auto;
+			margin: auto;
+			text-align: left;
+			min-height: 105px;
+
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			.headerLogoArea {
+				padding: 25px 0 0 10px;
+
+				img {
+					width: 175px;
+				}
+
+			}
+
+			.headerLanguageArea {
+				width: auto;
+				padding: 10px;
+				color: $colorLightGreen;
+				text-align: right;
+				@include flexCenter;
+				font-size: 14px;
+				height: 40px;
+
+				a {
+					text-decoration: none;
+					color: $colorBlack;
+				}
+
+				select {
+					padding: 5px;
+					margin-left: 5px;
+					display: inline;
+					height: 28px;
+					font-family: Arial, Helvetica, sans-serif;
+				}
+
+				.authenticationArea {
+					padding: 10px;
+					font-size: 14px;
+
+					a {
+						margin-left: 15px;
+
+						i {
+							margin-right: 3px;
+						}
+					}
+
+				}
+
+			}
+
+		}
+
+		.headerHeroImage {
+			width: 1200px;
+			height: auto;
+			margin: auto;
+			text-align: left;
+
+			.heroHeadingContainer {
+				position: absolute;
+
+				.heroHeading {
+					font-size: 48px;
+					width: 475px;
+					padding-top: 35px;
+					padding-left: 10px;
+					font-weight: bold;
+					text-align: left;
+
+					strong {
+						color: $colorLightGreen;
+					}
+
+				}
+
+				.heroSubHeading {
+					font-size: 36px;
+					padding-top: 5px;
+					padding-left: 10px;
+				}
+
+			}
+
+			.heroImage {
+				float: right;
+				padding: 50px 0 20px 0;
+			}
+
+		}
+
+	}
+
+	.contentAreaContainer {
+		width: 100%;
+		height: auto;
+		margin: auto;
+		text-align: center;
+
+		&.layoutFloat {
+			float: left;
+		}
+
+		.contentArea {
+			max-width: 1200px;
+			width: 100%;
+			height: auto;
+			margin: auto;
+			text-align: left;
+			padding: 25px 0;
+			@include flexCenter;
+			position: relative;
+			overflow: hidden;
+
+			&.layoutNoPadding {
+				padding: 0;
+			}
+
+			.imageArea {
+				width: 50%;
+				padding: 10px;
+				box-sizing: border-box;
+				text-align: center;
+
+				img {
+					border-radius: 100%;
+				}
+
+			}
+
+			.textBlockArea {
+				width: 50%;
+				padding: 10px;
+				box-sizing: border-box;
+				text-align: left;
+
+				h2 {
+					font-size: 36px;
+					font-weight: bold;
+					padding-bottom: 25px;
+
+					&.no-padding {
+						padding: 0;
+					}
+
+					strong {
+						color: $colorLightGreen;
+					}
+				}
+
+				p {
+					font-size: 16px;
+					line-height: 24px;
+					padding-bottom: 25px;
+				}
+
+			}
+
+			.textBlockAreaWide {
+				width: 100%;
+				padding: 25px 10px;
+				box-sizing: border-box;
+				text-align: left;
+
+				.text-center {
+					text-align: center;
+				}
+
+				h1 {
+					font-size: 36px;
+					font-weight: bold;
+					text-align: left;
+
+					strong {
+						color: $colorLightGreen;
+					}
+				}
+
+				h2 {
+					font-size: 24px;
+					font-weight: bold;
+					padding-bottom: 25px;
+
+					strong {
+						color: $colorLightGreen;
+					}
+				}
+
+				p {
+					font-size: 16px;
+					line-height: 24px;
+					padding-bottom: 25px;
+
+					a {
+						color: $colorBlack;
+						text-decoration: underline;
+						font-weight: bold;
+					}
+				}
+
+				.emailImage {
+					height: 23px;
+					margin-left: -7px;
+				}
+
+				ul {
+					padding: 0 10px 25px 10px;
+					margin-left: 10px;
+
+					li {
+						padding: 0 5px;
+						line-height: 24px;
+						list-style: circle;
+						margin-left: 10px;
+
+						a {
+							color: $colorBlack;
+						}
+
+					}
+				}
+
+				table {
+					margin: 0 0 20px 0;
+					font-size: 14px;
+					line-height: 18px;
+
+					tr {
+						border-bottom: solid 1px $colorLightGreenLighter;
+
+						th {
+							padding: 10px;
+							vertical-align: top;
+							font-weight: bold;
+							background: $colorLightGreen;
+							min-width: 150px;
+						}
+					}
+
+					tr {
+						td {
+							padding: 10px;
+							vertical-align: top;
+							background: $colorLightGreenLightest;
+						}
+					}
+
+				}
+
+				ul.pressList {
+					margin: 0;
+					padding: 0;
+
+					li {
+						list-style: none;
+						margin: 0;
+						padding: 25px;
+						line-height: unset;
+						background-color: #f4ffdb;
+
+						a {
+							text-decoration: underline;
+						}
+
+						p {
+							padding-bottom: 0;
+							margin: 24px 0 0 0;
+
+							&:first-child {
+								margin: 0;
+							}
+
+							a {
+								font-size: 26px;
+								color: $colorLightGreen;
+							}
+
+							strong {
+								font-size: 24px;
+							}
+						}
+
+						p:last-child {
+							margin: 5px 0 0 0;
+
+							a {
+								font-size: 16px;
+								color: #333;
+							}
+						}
+					}
+
+					li:nth-child(odd) {
+						background-color: transparent;
+					}
+				}
+
+				.tesContactLogo {
+					text-decoration: none;
+					display: inline-block;
+					img {
+						width: 100px;
+						padding: 5px;
+					}
+
+				}
+
+				&.loginPage,
+				&.signupPage {
+					.form-top {
+						width: 300px;
+						margin: 0 auto;
+					}
+
+					label {
+						font-size: 14px;
+						margin-bottom: 5px;
+					}
+
+					a {
+						color: $colorLightGreen;
+						text-decoration: none;
+					}
+
+					.submitButton {
+						@include testButton($colorWhite, $colorLightGreenLighter, $colorLightGreen);
+
+						width: 100%;
+						margin: 10px 0;
+					}
+
+					.error {
+						margin-top: 15px;
+						color: $colorLightRed;
+						font-size: 14px;
+					}
+				}
+
+				&.signupPage {
+					#termAcceptance {
+						margin-top: 0;
+					}
+				}
+			}
+
+			&.layoutImageRight {
+				flex-direction: row-reverse;
+
+				.textBlockArea {
+					text-align: right;
+				}
+			}
+
+			.testCallToActionAreaTop {
+				text-align: center;
+				overflow: hidden;
+				padding-top: 20px;
+			}
+
+			.testCallToActionAreaBottom,
+			.testCallToActionAreaHeader {
+				overflow: hidden;
+				position: relative;
+
+				.testCallToActionButtonArea {
+					position: absolute;
+					z-index: 2;
+					width: 100%;
+
+					.testCallToActionButtonAreaAlign {
+						@include flexCenter;
+						padding-top: 25px;
+
+						.testButton {
+							@include testButton($colorWhite, $colorLightGreenLighter, $colorLightGreen);
+
+							i {
+								margin-right: 5px;
+							}
+
+						}
+
+					}
+
+				}
+
+			}
+
+			.testCallToActionAreaHeader > img {
+				visibility: hidden;
+				height: 140px;
+			}
+
+		}
+
+	}
+
+	.footerContainer {
+		width: 100%;
+		height: auto;
+		margin: auto;
+		text-align: center;
+
+		.footerLinkArea {
+			padding: 10px 0;
+
+			a {
+				font-weight: bold;
+				color: $colorBlack;
+				font-size: 14px;
+				padding: 0 10px;
+			}
+		}
+
+		.footerCopyrightArea {
+			padding: 10px;
+			font-size: 12px;
+
+			p {
+				&.layoutBiggerText {
+					font-size: 14px;
+					padding-bottom: 10px;
+				}
+
+				padding-bottom: 5px;
+
+				.emailImage {
+					height: 16px;
+				}
+			}
+		}
+
+		.footerLogoArea {
+			padding: 10px 0;
+
+			img {
+				width: 100px;
+			}
+		}
+	}
+
+}
+
+@media (max-width: 1200px) {
+
+	#staticPage {
+
+		.headerContainer {
+
+			.headerTop {
+				width: 100%;
+
+				.headerLogoArea {
+					padding: 10px 20px;
+
+					img {
+						width: 120px;
+					}
+				}
+			}
+
+			.headerHeroImage {
+				width: 100%;
+
+				.heroHeadingContainer {
+
+					.heroHeading {
+						padding: 35px 20px 0 20px;
+						font-size: 36px;
+						width: 430px;
+					}
+
+					.heroSubHeading {
+						padding: 5px 0 0 20px;
+						font-size: 24px;
+					}
+				}
+
+				.heroImage {
+					width: 75%;
+				}
+			}
+		}
+
+		.contentAreaContainer {
+
+			.contentArea {
+				width: 100%;
+
+				.imageArea {
+					width: 50%;
+
+					img {
+						width: 100%;
+					}
+				}
+
+				.textBlockArea {
+					width: 50%;
+
+					h2 {
+						font-size: 24px;
+					}
+				}
+
+				.testCallToActionAreaTop {
+					text-align: center;
+					overflow: hidden;
+
+					img {
+						width: 100%;
+					}
+				}
+
+			}
+
+		}
+
+		.footerContainer {
+
+			.footerLinkArea {
+
+				ul {
+					li {
+						a {
+							display: block;
+							width: 100%;
+							padding: 7px 0;
+						}
+					}
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+@media (max-width: 768px) {
+
+	#staticPage {
+
+		.headerContainer {
+
+			.headerTop {
+				width: 100%;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+
+				.headerLogoArea {
+					padding: 20px 0;
+
+					img {
+						width: 125px;
+					}
+				}
+
+				.headerLanguageArea {
+					background: url("/static/img/staticPage/backTexture.png") center center $colorLightGreenLightest;
+					margin-bottom: 10px;
+					width: 100%;
+				}
+
+			}
+
+			.headerHeroImage {
+				width: 100%;
+
+				.heroHeadingContainer {
+					position: relative;
+					width: 100%;
+
+					.heroHeading {
+						width: 100%;
+						box-sizing: border-box;
+						font-size: 36px;
+						padding: 0 10px;
+						font-weight: bold;
+
+						strong {
+							color: $colorLightGreen;
+						}
+
+					}
+
+					.heroSubHeading {
+						padding: 0 10px;
+						font-size: 24px;
+					}
+				}
+
+				.heroImage {
+					padding: 0;
+					width: 100%;
+				}
+			}
+		}
+
+		.contentAreaContainer {
+
+			.contentArea {
+				max-width: 1200px;
+				width: 100%;
+				display: block;
+
+				.imageArea {
+					width: 100%;
+
+					img {
+						width: auto;
+					}
+				}
+
+				.textBlockArea {
+					width: 100%;
+					text-align: left !important;
+					padding: 25px;
+
+					h2 {
+						font-size: 24px;
+					}
+				}
+
+				.textBlockAreaWide {
+
+					h2 {
+						font-size: 24px;
+						font-weight: bold;
+
+					}
+
+				}
+
+				.testCallToActionAreaTop {
+					text-align: center;
+					overflow: hidden;
+
+					img {
+						width: 100%;
+					}
+				}
+
+				.testCallToActionAreaBottom {
+
+
+					img {
+						width: 100%;
+					}
+				}
+
+			}
+
+		}
+
+		.footerContainer {
+
+			.footerLinkArea {
+
+				ul {
+					li {
+						a {
+							display: block;
+							width: 100%;
+							padding: 7px 0;
+						}
+					}
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+@media (max-width: 600px) {
+
+	#staticPage {
+
+		.contentAreaContainer {
+
+			.contentArea {
+
+				.testCallToActionAreaBottom {
+
+					.testCallToActionButtonArea {
+
+						.testCallToActionButtonAreaAlign {
+							padding-top: 2.5%;
+
+							.testButton {
+								color: $colorWhite;
+								background: $colorLightGreen;
+								border-radius: 40px;
+								display: block;
+								padding: 15px 20px;
+								border: solid 10px $colorLightGreenLighter;
+								font-size: 14px;
+								min-width: 180px;
+								cursor: pointer;
+								text-align: center;
+							}
+
+						}
+
+						img {
+							width: 100%;
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en" xml:lang="en">
+<head>
+	<meta name="robots" content="noindex">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<script id="app-data" type="application/json">{{ js|json_encode|raw }}</script>
+
+	{% block head %}
+
+	{% endblock %}
+
+</head>
+<body style="background: transparent">
+<div>
+	{% block content %}
+
+	{% endblock %}
+</div>
+
+{% block javascript %}
+
+	<script type="text/javascript" crossorigin="anonymous" src="/static/js/app/avsFactoryIframeCheck.js?{{ cacheBuster }}"></script>
+
+{% endblock %}
+
+</body>
+</html>
+

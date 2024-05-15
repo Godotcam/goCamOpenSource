@@ -1,0 +1,24 @@
+
+Backend unique error code:
+--------------------------
+
+30019:
+30018:
+30017:
+30016:
+30015:
+30014: Failed to save session data
+30013: Invalid token
+30012: Test max allowed time expired
+30011: Invalid step id
+30010: Failed to save session data
+30009: Invalid token
+30008: Test max allowed time expired
+30007: Invalid step id
+30006: Invalid payload
+30005: Invalid payload
+30004: Callback file log error
+30003: Payload state invalid
+30002: Verification payload integrity check failed
+30001: Invalid payload
+30000: Invalid payload config

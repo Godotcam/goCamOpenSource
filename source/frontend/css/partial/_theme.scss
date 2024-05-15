@@ -1,0 +1,45 @@
+
+/*
+
+Define variables (colors, size, etc) about the theme.
+
+*/
+
+$colorWhite: rgba(255, 255, 255, 1);
+$colorBlack: rgba(0, 0, 0, 1);
+$colorWhiteTransparent: rgba(255, 255, 255, 0.7);
+$colorWhiteInvisible: rgba(255, 255, 255, 0);
+$colorBlackTransparent: rgba(0, 0, 0, 0.7);
+$colorBlackTransparentMore: rgba(0, 0, 0, 0.3);
+$colorLightBlue: rgba(31, 191, 205, 1);
+$colorLightBlueLighter: rgba(208, 242, 245, 1);
+$colorLightGreen: rgba(154, 205, 31, 1);
+$colorLightGreenLighter: rgba(244, 240, 184, 1);
+$colorLightGreenLightest: rgba(244, 255, 219, 1);
+$colorLightRed: rgba(205, 31, 31, 1);
+$colorLightRedLighter: rgba(247, 214, 214, 1);
+$colorLightGrey: rgba(181, 181, 181, 1);
+$colorLightGreyLighter: rgba(233, 233, 233, 1);
+
+
+$responsive-break-extra-small: 320px;
+$responsive-break-small: 480px;
+$responsive-break-large: 900px;
+
+/*
+From : http://thesassway.com/intermediate/responsive-web-design-in-sass-using-media-queries-in-sass-32
+ */
+@mixin respond-to($media) {
+	@if $media == extra-small-screen {
+		@media only screen and (max-width: $responsive-break-extra-small) { @content; }
+	}
+	@else if $media == small-screen {
+		@media only screen and (max-width: $responsive-break-small) { @content; }
+	}
+	@else if $media == medium-screen {
+		@media only screen and (min-width: $responsive-break-small + 1) and (max-width: $responsive-break-large - 1) { @content; }
+	}
+	@else if $media == wide-screen {
+		@media only screen and (min-width: $responsive-break-large) { @content; }
+	}
+}

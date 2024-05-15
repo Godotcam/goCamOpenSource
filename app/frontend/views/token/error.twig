@@ -1,0 +1,24 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<div id="avsMainContainer">
+
+		<div id="errorMessageArea" class="page layoutError">
+			<div class="headerLogo">
+				<img src="/static/img/logo.svg"/>
+			</div>
+			<h1 class="introHeading">
+				<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+				Error
+			</h1>
+			<h2 class="introText" id="errorMessageTextArea"></h2>
+			<h2 class="introText" id="errorMessageAdditionalTextArea">
+				{{ code }} : {{ msg }}
+			</h2>
+		</div>
+
+	</div>
+
+{% endblock %}
+

@@ -1,0 +1,1447 @@
+@charset "UTF-8";
+/*
+
+Define variables (colors, size, etc) about the theme.
+
+*/
+/*
+From : http://thesassway.com/intermediate/responsive-web-design-in-sass-using-media-queries-in-sass-32
+ */
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+textarea {
+  padding: 2px;
+  margin: 0px;
+}
+
+.isHidden {
+  display: none !important;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+a {
+  color: rgb(0, 0, 0);
+}
+
+#globalIframeCloseButton {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 3;
+}
+#globalIframeCloseButton:hover {
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center;
+}
+
+#avsMainContainer {
+  margin: auto;
+  max-width: 800px;
+}
+#avsMainContainer .page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  flex-wrap: wrap;
+}
+#avsMainContainer .page.isHidden {
+  display: none;
+}
+#avsMainContainer .page.layoutHint {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 2;
+  background: rgb(255, 255, 255);
+  top: 0;
+}
+#avsMainContainer .page.layoutDocumentProcessing {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 2;
+  background: rgb(255, 255, 255);
+  top: 0;
+  overflow-y: scroll;
+}
+#avsMainContainer .page.layoutDocumentProcessing .imageContainer {
+  height: 266px;
+  width: auto;
+  padding: 20px 20px 0px 20px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+#avsMainContainer .page.layoutDocumentProcessing .imageContainer .loadingOverlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#avsMainContainer .page.layoutDocumentProcessing .imageContainer .loadingOverlay i {
+  font-size: 24px;
+  color: rgb(255, 255, 255);
+}
+#avsMainContainer .page.layoutDocumentProcessing .imageContainer .documentProcessingCanvas {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 20px;
+  background: rgb(0, 0, 0);
+  /* for tests do not delete */
+  /*position: absolute;
+  top: 0;
+  left: 0;
+  width: 370px;
+  height: 236px;
+  z-index: 3;*/
+}
+#avsMainContainer .page.layoutDocumentProcessing .imageContainer .documentProcessingCanvasOverlay {
+  display: none;
+  /* for tests do not delete */
+  /*position: absolute;
+  width: 370px;
+  height: 236px;
+  top: 0;
+  left: 0;
+  z-index: 4;*/
+}
+#avsMainContainer .page.layoutDocumentProcessing .confirmationArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+#avsMainContainer .page.layoutDocumentProcessing .processArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+#avsMainContainer .page.layoutDocumentProcessing .processArea .checkOutList {
+  padding: 20px;
+}
+#avsMainContainer .page.layoutDocumentProcessing .processArea .checkOutList .checkOutItem {
+  padding: 5px;
+}
+#avsMainContainer .page.layoutDocumentProcessing .processArea .checkOutList .checkOutItem .statusIcon {
+  color: rgb(154, 205, 31);
+}
+#avsMainContainer .page.layoutDocumentProcessing .submitArea {
+  padding: 10px;
+}
+#avsMainContainer .page.layoutDocumentProcessing .submitArea .button {
+  margin: 0 0 10px 0;
+}
+#avsMainContainer .page.layoutError {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 2;
+  background: rgb(255, 255, 255);
+  top: 0;
+  left: 0;
+  overflow: scroll;
+}
+#avsMainContainer .page.layoutError .introText {
+  font-weight: normal;
+}
+#avsMainContainer .page.layoutStaticPage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 2;
+  background: rgb(255, 255, 255);
+  top: 0;
+  left: 0;
+  overflow: scroll;
+}
+#avsMainContainer .page.layoutStaticPage .introText {
+  font-weight: normal;
+}
+#avsMainContainer .page.layoutTextBlock {
+  padding: 10px;
+  box-sizing: border-box;
+}
+#avsMainContainer .page.layoutTextBlock h1, #avsMainContainer .page.layoutTextBlock h2 {
+  font-weight: bold;
+  font-size: 22px;
+  margin: 15px;
+}
+#avsMainContainer .page.layoutTextBlock p {
+  margin: 10px;
+}
+#avsMainContainer .page.layoutTextBlock:not(.layoutStaticPage) a {
+  color: rgb(255, 255, 255);
+}
+#avsMainContainer .page .headerLogo {
+  padding: 20px;
+}
+#avsMainContainer .page .headerLogo img {
+  width: 120px;
+}
+#avsMainContainer .page .introIcon {
+  background: rgb(31, 191, 205);
+  border-radius: 100%;
+  padding: 15px;
+  border: solid 10px rgb(208, 242, 245);
+  overflow: hidden;
+  color: rgb(255, 255, 255);
+  background-clip: padding-box;
+}
+#avsMainContainer .page .introIcon img {
+  width: 100px;
+  height: 100px;
+}
+#avsMainContainer .page .introIcon.layoutFontIcon i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+  width: 100px;
+  height: 100px;
+}
+#avsMainContainer .page .introIcon.layoutGreen {
+  background: rgb(154, 205, 31);
+  border: solid 10px rgb(244, 240, 184);
+}
+#avsMainContainer .page .introIcon.layoutBlue {
+  background: rgb(31, 191, 205);
+  border: solid 10px rgb(208, 242, 245);
+}
+#avsMainContainer .page .introIcon.layoutRed {
+  background: rgb(205, 31, 31);
+  border: solid 10px rgb(247, 214, 214);
+}
+#avsMainContainer .page .introHeading {
+  font-weight: bold;
+  font-size: 24px;
+  padding: 10px;
+}
+#avsMainContainer .page .introText {
+  font-size: 16px;
+  padding: 10px 20px;
+  line-height: 18px;
+}
+#avsMainContainer .page .introText .layoutRedText {
+  color: rgb(205, 31, 31);
+}
+#avsMainContainer .page .introText a {
+  color: rgb(154, 205, 31);
+  text-decoration: none;
+}
+#avsMainContainer .page .introText p {
+  margin-bottom: 10px;
+}
+#avsMainContainer .page .introText strong.layoutBiggerText {
+  font-size: 18px;
+}
+#avsMainContainer .page .introText ol li {
+  line-height: 18px;
+  margin-bottom: 10px;
+}
+#avsMainContainer .page .selectionArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+#avsMainContainer .page .selectionArea .label {
+  padding-bottom: 5px;
+}
+#avsMainContainer .page .selectionArea .select {
+  padding: 7px;
+}
+#avsMainContainer .page .browseArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+#avsMainContainer .page .browseArea i {
+  font-size: 48px;
+  color: rgb(181, 181, 181);
+  cursor: pointer;
+}
+#avsMainContainer .page .browseArea i:hover {
+  opacity: 0.8;
+}
+#avsMainContainer .page .inputArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+#avsMainContainer .page .inputArea .label {
+  padding-bottom: 5px;
+}
+#avsMainContainer .page .inputArea .inputList .textInput {
+  padding: 10px;
+}
+#avsMainContainer .page .inputArea .inputList .textInput.layoutBoldText {
+  font-weight: bold;
+}
+#avsMainContainer .page .inputArea .inputList.layoutOneInputPerLine .textInput {
+  min-width: 180px;
+}
+#avsMainContainer .page .inputArea .inputList.layoutTwoInputPerLine .textInput {
+  min-width: 90px;
+}
+#avsMainContainer .page .inputArea .inputList.layoutCreditCardExpiration .textInput {
+  width: 45px;
+  font-size: 14px;
+  text-align: center;
+}
+#avsMainContainer .page .inputArea .inputList.layoutCreditCardNumber .textInput {
+  min-width: 180px;
+  font-size: 14px;
+  text-align: center;
+}
+#avsMainContainer .page .iconArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  text-align: center;
+  padding: 10px;
+  font-size: 12px;
+  align-items: flex-start;
+}
+#avsMainContainer .page .iconArea .iconItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+  width: 90px;
+  margin: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+@media only screen and (min-width: 900px) {
+  #avsMainContainer .page .iconArea .iconItem {
+    width: 200px;
+  }
+  #avsMainContainer .page .iconArea .iconItem .iconLabel .verificationTypeRadioButton {
+    margin-right: 5px;
+  }
+  #avsMainContainer .page .iconArea .iconItem .iconLabel .iconDescription {
+    max-width: 170px;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 899px) {
+  #avsMainContainer .page .iconArea .iconItem {
+    width: 140px;
+  }
+  #avsMainContainer .page .iconArea .iconItem .iconLabel {
+    flex-direction: column;
+    margin-top: 5px;
+  }
+  #avsMainContainer .page .iconArea .iconItem .iconLabel .verificationTypeRadioButton {
+    margin-right: 5px;
+  }
+  #avsMainContainer .page .iconArea .iconItem .iconLabel .iconDescription {
+    text-align: center;
+    margin-top: 5px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  #avsMainContainer .page .iconArea .iconItem .iconLabel {
+    flex-direction: column;
+    margin-top: 5px;
+  }
+  #avsMainContainer .page .iconArea .iconItem .iconLabel .verificationTypeRadioButton {
+    margin-right: 5px;
+  }
+  #avsMainContainer .page .iconArea .iconItem .iconLabel .iconDescription {
+    text-align: center;
+    margin-top: 5px;
+  }
+}
+#avsMainContainer .page .iconArea .iconItem.isSelected .iconImage {
+  background-color: rgb(31, 191, 205);
+  border: solid 5px rgb(208, 242, 245);
+}
+#avsMainContainer .page .iconArea .iconItem.isSelected .iconImage svg {
+  fill: rgb(255, 255, 255);
+}
+#avsMainContainer .page .iconArea .iconItem.isSelected .iconLabel .verificationTypeRadioButton {
+  background-color: rgb(154, 205, 31);
+  position: relative;
+}
+#avsMainContainer .page .iconArea .iconItem.isSelected .iconLabel .verificationTypeRadioButton:after {
+  position: absolute;
+  content: " ";
+  display: block;
+  width: 8px;
+  height: 8px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  top: 5px;
+  left: 5px;
+}
+#avsMainContainer .page .iconArea .iconItem .iconImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 100%;
+  border: solid 5px rgba(255, 255, 255, 0);
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background-clip: padding-box;
+}
+#avsMainContainer .page .iconArea .iconItem .iconImage svg {
+  width: 80px;
+  height: 80px;
+  fill: rgb(0, 0, 0);
+}
+#avsMainContainer .page .iconArea .iconItem .iconLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#avsMainContainer .page .iconArea .iconItem .iconLabel .verificationTypeRadioButton {
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgb(154, 205, 31);
+  background-color: transparent;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+@media only screen and (max-width: 480px) {
+  #avsMainContainer .page .iconArea .iconItem .iconLabel .verificationTypeRadioButton {
+    margin-right: 5px;
+  }
+}
+#avsMainContainer .page .iconArea .iconItem .iconDescription {
+  line-height: 14px;
+}
+@media only screen and (max-width: 480px) {
+  #avsMainContainer .page .iconArea .iconItem .iconDescription {
+    max-width: 60px;
+    text-align: left;
+  }
+}
+#avsMainContainer .page .textArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 16px;
+}
+#avsMainContainer .page .textArea p.layoutMoreLineHeight {
+  margin-bottom: 10px;
+}
+#avsMainContainer .page .textArea a {
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
+}
+#avsMainContainer .page .documentHelperArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 5px 0 10px 0;
+  height: 100px;
+  overflow: hidden;
+}
+#avsMainContainer .page .documentHelperArea img {
+  height: 100%;
+}
+#avsMainContainer .page .submitArea {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+#avsMainContainer .page .submitArea .button {
+  color: rgb(255, 255, 255);
+  background: rgb(154, 205, 31);
+  border-radius: 40px;
+  display: block;
+  padding: 20px 40px;
+  border: solid 10px rgb(244, 240, 184);
+  font-size: 16px;
+  min-width: 180px;
+  cursor: pointer;
+  background-clip: padding-box;
+}
+#avsMainContainer .page .submitArea .button:hover {
+  opacity: 0.8;
+}
+#avsMainContainer .page .submitArea .button.layoutRed {
+  background-color: rgb(205, 31, 31);
+  border: solid 10px rgb(247, 214, 214);
+}
+#avsMainContainer .page .submitArea .button.isDisabled {
+  background-color: rgb(181, 181, 181);
+  border: solid 10px rgb(233, 233, 233);
+}
+#avsMainContainer .page .submitArea .button i {
+  margin-right: 5px;
+}
+#avsMainContainer .page .submitArea .linkButton {
+  padding: 15px;
+  cursor: pointer;
+}
+#avsMainContainer .page .termsArea {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+#avsMainContainer .page .termsArea label input {
+  margin-right: 5px;
+}
+#avsMainContainer .page .termsArea label a {
+  margin: 0 5px;
+  font-weight: bold;
+  color: rgb(154, 205, 31);
+  text-decoration: none;
+}
+#avsMainContainer .page .qrCodeArea {
+  padding: 10px 0;
+}
+#avsMainContainer .page .videoOverlay {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+#avsMainContainer .page .videoSource {
+  position: fixed;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+#avsMainContainer .page .videoSource video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  background: rgb(0, 0, 0);
+}
+#avsMainContainer .page .videoSource video.mirrored {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+}
+#avsMainContainer .page .videoSource .overlayCanvas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#avsMainContainer .page .videoSource .resultCanvas {
+  width: 50%;
+  height: auto;
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+#avsMainContainer .page .maskGuide {
+  border: dashed 6px rgb(154, 205, 31);
+  box-sizing: border-box;
+  position: fixed;
+}
+#avsMainContainer .page .maskGuide.layoutFace {
+  position: fixed;
+  opacity: 0.8;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: rgb(255, 255, 255);
+  overflow: hidden;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+#avsMainContainer .page .maskGuide.layoutFace .loadingIconArea {
+  font-size: 28px;
+}
+#avsMainContainer .page .maskGuide.layoutFace .statusArea {
+  padding: 15px;
+  font-size: 20px;
+  line-height: 24px;
+}
+#avsMainContainer .page .maskGuide.layoutFace .emoticonArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  padding-bottom: 25px;
+}
+#avsMainContainer .page .maskGuide.layoutFace .emoticonArea .layoutSmallerEmoticon {
+  font-size: 18px;
+  padding: 10px;
+}
+#avsMainContainer .page .maskGuide.layoutFace .hintArea {
+  padding-bottom: 15px;
+}
+#avsMainContainer .page .maskGuide.layoutFace .ageGuideArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  line-height: 24px;
+  flex-direction: column;
+}
+#avsMainContainer .page .maskGuide.layoutFace .ageGuideArea p {
+  padding: 4px;
+}
+#avsMainContainer .page .maskGuide.layoutFace .hintArea {
+  font-size: 24px;
+  line-height: 24px;
+}
+#avsMainContainer .page .maskGuide.layoutIdentityCardGeneric {
+  border-radius: 20px;
+}
+#avsMainContainer .page .maskGuideField {
+  position: fixed;
+  /*border: solid 2px $colorWhiteTransparent;*/
+  border: none;
+  box-sizing: border-box;
+}
+#avsMainContainer .page .informationArea {
+  z-index: 1;
+  color: rgb(255, 255, 255);
+  padding: 30px 20px;
+  position: fixed;
+  /*bottom: 0;*/
+  top: 110px;
+}
+#avsMainContainer .page .informationArea.layoutTransparent {
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+  opacity: 0.7;
+}
+#avsMainContainer .page .informationArea.layoutRelative {
+  position: relative;
+}
+#avsMainContainer .page .informationArea.layoutBlack {
+  color: rgb(0, 0, 0);
+}
+#avsMainContainer .page .informationArea.layoutStickyTop {
+  position: fixed;
+  top: 10px;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  max-height: 50px;
+  line-height: 20px;
+  text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+#avsMainContainer .page .informationArea.layoutSmallerText {
+  font-size: 14px;
+}
+#avsMainContainer .page .informationArea .loadingArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#avsMainContainer .page .informationArea .loadingArea i {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+#avsMainContainer .page .informationArea .loadingArea strong {
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 20px;
+}
+#avsMainContainer .page .informationArea .statusArea {
+  font-size: 14px;
+  padding: 0 30px;
+  line-height: 16px;
+}
+#avsMainContainer .page .imageCaptureArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#avsMainContainer .page .imageCaptureArea .captureOption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+  cursor: pointer;
+}
+#avsMainContainer .page .imageCaptureArea .captureOption .icon {
+  font-size: 24px;
+  padding: 5px;
+}
+#avsMainContainer .page#termsAndConditionsArea {
+  text-align: left;
+}
+#avsMainContainer .page#termsAndConditionsArea p a {
+  /*color: $colorBlack;*/
+  text-decoration: underline;
+}
+#avsMainContainer .page#termsAndConditionsArea .introHeading {
+  margin-left: 0;
+}
+#avsMainContainer #debugArea {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: rgb(255, 255, 255);
+  z-index: 3;
+  padding: 10px 10px 50px 10px;
+  font-size: 12px;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  opacity: 0.7;
+}
+#avsMainContainer #debugArea p {
+  padding: 5px 0;
+}
+#avsMainContainer #debugArea p .green {
+  color: rgb(154, 205, 31);
+}
+#avsMainContainer #debugArea p .red {
+  color: rgb(205, 31, 31);
+}
+#avsMainContainer #debugArea img {
+  max-height: 60px;
+  height: auto;
+}
+#avsMainContainer #debugArea #debugCloseButton {
+  float: right;
+}
+#avsMainContainer .preloader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 14px;
+  padding: 10px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.7);
+  width: 100%;
+}
+#avsMainContainer .preloader .counter {
+  font-weight: bold;
+  padding-left: 5px;
+}
+#avsMainContainer #scanIdAgeVerificationPage, #avsMainContainer #selfieAgeDetectionPage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: auto;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes scanning {
+  50% {
+    transform: translate(0, 200%);
+  }
+}
+#staticPage .clear {
+  clear: both;
+}
+#staticPage .layoutGreenBackground {
+  background: url("/static/img/staticPage/backTexture.png") center center rgb(244, 255, 219);
+}
+#staticPage .headerContainer {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  text-align: center;
+}
+#staticPage .headerContainer.error-template {
+  position: relative;
+  margin-top: -15;
+  background: rgb(255, 255, 255);
+  z-index: 1;
+}
+#staticPage .headerContainer .headerTop {
+  width: 1200px;
+  height: auto;
+  margin: auto;
+  text-align: left;
+  min-height: 105px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#staticPage .headerContainer .headerTop .headerLogoArea {
+  padding: 25px 0 0 10px;
+}
+#staticPage .headerContainer .headerTop .headerLogoArea img {
+  width: 175px;
+}
+#staticPage .headerContainer .headerTop .headerLanguageArea {
+  width: auto;
+  padding: 10px;
+  color: rgb(154, 205, 31);
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  height: 40px;
+}
+#staticPage .headerContainer .headerTop .headerLanguageArea a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+#staticPage .headerContainer .headerTop .headerLanguageArea select {
+  padding: 5px;
+  margin-left: 5px;
+  display: inline;
+  height: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#staticPage .headerContainer .headerTop .headerLanguageArea .authenticationArea {
+  padding: 10px;
+  font-size: 14px;
+}
+#staticPage .headerContainer .headerTop .headerLanguageArea .authenticationArea a {
+  margin-left: 15px;
+}
+#staticPage .headerContainer .headerTop .headerLanguageArea .authenticationArea a i {
+  margin-right: 3px;
+}
+#staticPage .headerContainer .headerHeroImage {
+  width: 1200px;
+  height: auto;
+  margin: auto;
+  text-align: left;
+}
+#staticPage .headerContainer .headerHeroImage .heroHeadingContainer {
+  position: absolute;
+}
+#staticPage .headerContainer .headerHeroImage .heroHeadingContainer .heroHeading {
+  font-size: 48px;
+  width: 475px;
+  padding-top: 35px;
+  padding-left: 10px;
+  font-weight: bold;
+  text-align: left;
+}
+#staticPage .headerContainer .headerHeroImage .heroHeadingContainer .heroHeading strong {
+  color: rgb(154, 205, 31);
+}
+#staticPage .headerContainer .headerHeroImage .heroHeadingContainer .heroSubHeading {
+  font-size: 36px;
+  padding-top: 5px;
+  padding-left: 10px;
+}
+#staticPage .headerContainer .headerHeroImage .heroImage {
+  float: right;
+  padding: 50px 0 20px 0;
+}
+#staticPage .contentAreaContainer {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  text-align: center;
+}
+#staticPage .contentAreaContainer.layoutFloat {
+  float: left;
+}
+#staticPage .contentAreaContainer .contentArea {
+  max-width: 1200px;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  text-align: left;
+  padding: 25px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+#staticPage .contentAreaContainer .contentArea.layoutNoPadding {
+  padding: 0;
+}
+#staticPage .contentAreaContainer .contentArea .imageArea {
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+#staticPage .contentAreaContainer .contentArea .imageArea img {
+  border-radius: 100%;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockArea {
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: left;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockArea h2 {
+  font-size: 36px;
+  font-weight: bold;
+  padding-bottom: 25px;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockArea h2.no-padding {
+  padding: 0;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockArea h2 strong {
+  color: rgb(154, 205, 31);
+}
+#staticPage .contentAreaContainer .contentArea .textBlockArea p {
+  font-size: 16px;
+  line-height: 24px;
+  padding-bottom: 25px;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide {
+  width: 100%;
+  padding: 25px 10px;
+  box-sizing: border-box;
+  text-align: left;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide .text-center {
+  text-align: center;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide h1 {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: left;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide h1 strong {
+  color: rgb(154, 205, 31);
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide h2 {
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 25px;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide h2 strong {
+  color: rgb(154, 205, 31);
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide p {
+  font-size: 16px;
+  line-height: 24px;
+  padding-bottom: 25px;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide p a {
+  color: rgb(0, 0, 0);
+  text-decoration: underline;
+  font-weight: bold;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide .emailImage {
+  height: 23px;
+  margin-left: -7px;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul {
+  padding: 0 10px 25px 10px;
+  margin-left: 10px;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul li {
+  padding: 0 5px;
+  line-height: 24px;
+  list-style: circle;
+  margin-left: 10px;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul li a {
+  color: rgb(0, 0, 0);
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide table {
+  margin: 0 0 20px 0;
+  font-size: 14px;
+  line-height: 18px;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide table tr {
+  border-bottom: solid 1px rgb(244, 240, 184);
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide table tr th {
+  padding: 10px;
+  vertical-align: top;
+  font-weight: bold;
+  background: rgb(154, 205, 31);
+  min-width: 150px;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide table tr td {
+  padding: 10px;
+  vertical-align: top;
+  background: rgb(244, 255, 219);
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul.pressList {
+  margin: 0;
+  padding: 0;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul.pressList li {
+  list-style: none;
+  margin: 0;
+  padding: 25px;
+  line-height: unset;
+  background-color: #f4ffdb;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul.pressList li a {
+  text-decoration: underline;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul.pressList li p {
+  padding-bottom: 0;
+  margin: 24px 0 0 0;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul.pressList li p:first-child {
+  margin: 0;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul.pressList li p a {
+  font-size: 26px;
+  color: rgb(154, 205, 31);
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul.pressList li p strong {
+  font-size: 24px;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul.pressList li p:last-child {
+  margin: 5px 0 0 0;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul.pressList li p:last-child a {
+  font-size: 16px;
+  color: #333;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul.pressList li:nth-child(odd) {
+  background-color: transparent;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide .tesContactLogo {
+  text-decoration: none;
+  display: inline-block;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide .tesContactLogo img {
+  width: 100px;
+  padding: 5px;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.loginPage .form-top, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.signupPage .form-top {
+  width: 300px;
+  margin: 0 auto;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.loginPage label, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.signupPage label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.loginPage a, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.signupPage a {
+  color: rgb(154, 205, 31);
+  text-decoration: none;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.loginPage .submitButton, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.signupPage .submitButton {
+  color: rgb(255, 255, 255);
+  background: rgb(154, 205, 31);
+  border-radius: 40px;
+  display: block;
+  padding: 20px 40px;
+  border: solid 10px rgb(244, 240, 184);
+  font-size: 16px;
+  min-width: 180px;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  margin: 10px 0;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.loginPage .error, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.signupPage .error {
+  margin-top: 15px;
+  color: rgb(205, 31, 31);
+  font-size: 14px;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.signupPage #termAcceptance {
+  margin-top: 0;
+}
+#staticPage .contentAreaContainer .contentArea.layoutImageRight {
+  flex-direction: row-reverse;
+}
+#staticPage .contentAreaContainer .contentArea.layoutImageRight .textBlockArea {
+  text-align: right;
+}
+#staticPage .contentAreaContainer .contentArea .testCallToActionAreaTop {
+  text-align: center;
+  overflow: hidden;
+  padding-top: 20px;
+}
+#staticPage .contentAreaContainer .contentArea .testCallToActionAreaBottom,
+#staticPage .contentAreaContainer .contentArea .testCallToActionAreaHeader {
+  overflow: hidden;
+  position: relative;
+}
+#staticPage .contentAreaContainer .contentArea .testCallToActionAreaBottom .testCallToActionButtonArea,
+#staticPage .contentAreaContainer .contentArea .testCallToActionAreaHeader .testCallToActionButtonArea {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+}
+#staticPage .contentAreaContainer .contentArea .testCallToActionAreaBottom .testCallToActionButtonArea .testCallToActionButtonAreaAlign,
+#staticPage .contentAreaContainer .contentArea .testCallToActionAreaHeader .testCallToActionButtonArea .testCallToActionButtonAreaAlign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 25px;
+}
+#staticPage .contentAreaContainer .contentArea .testCallToActionAreaBottom .testCallToActionButtonArea .testCallToActionButtonAreaAlign .testButton,
+#staticPage .contentAreaContainer .contentArea .testCallToActionAreaHeader .testCallToActionButtonArea .testCallToActionButtonAreaAlign .testButton {
+  color: rgb(255, 255, 255);
+  background: rgb(154, 205, 31);
+  border-radius: 40px;
+  display: block;
+  padding: 20px 40px;
+  border: solid 10px rgb(244, 240, 184);
+  font-size: 16px;
+  min-width: 180px;
+  cursor: pointer;
+  text-align: center;
+}
+#staticPage .contentAreaContainer .contentArea .testCallToActionAreaBottom .testCallToActionButtonArea .testCallToActionButtonAreaAlign .testButton i,
+#staticPage .contentAreaContainer .contentArea .testCallToActionAreaHeader .testCallToActionButtonArea .testCallToActionButtonAreaAlign .testButton i {
+  margin-right: 5px;
+}
+#staticPage .contentAreaContainer .contentArea .testCallToActionAreaHeader > img {
+  visibility: hidden;
+  height: 140px;
+}
+#staticPage .footerContainer {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  text-align: center;
+}
+#staticPage .footerContainer .footerLinkArea {
+  padding: 10px 0;
+}
+#staticPage .footerContainer .footerLinkArea a {
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  padding: 0 10px;
+}
+#staticPage .footerContainer .footerCopyrightArea {
+  padding: 10px;
+  font-size: 12px;
+}
+#staticPage .footerContainer .footerCopyrightArea p {
+  padding-bottom: 5px;
+}
+#staticPage .footerContainer .footerCopyrightArea p.layoutBiggerText {
+  font-size: 14px;
+  padding-bottom: 10px;
+}
+#staticPage .footerContainer .footerCopyrightArea p .emailImage {
+  height: 16px;
+}
+#staticPage .footerContainer .footerLogoArea {
+  padding: 10px 0;
+}
+#staticPage .footerContainer .footerLogoArea img {
+  width: 100px;
+}
+
+@media (max-width: 1200px) {
+  #staticPage .headerContainer .headerTop {
+    width: 100%;
+  }
+  #staticPage .headerContainer .headerTop .headerLogoArea {
+    padding: 10px 20px;
+  }
+  #staticPage .headerContainer .headerTop .headerLogoArea img {
+    width: 120px;
+  }
+  #staticPage .headerContainer .headerHeroImage {
+    width: 100%;
+  }
+  #staticPage .headerContainer .headerHeroImage .heroHeadingContainer .heroHeading {
+    padding: 35px 20px 0 20px;
+    font-size: 36px;
+    width: 430px;
+  }
+  #staticPage .headerContainer .headerHeroImage .heroHeadingContainer .heroSubHeading {
+    padding: 5px 0 0 20px;
+    font-size: 24px;
+  }
+  #staticPage .headerContainer .headerHeroImage .heroImage {
+    width: 75%;
+  }
+  #staticPage .contentAreaContainer .contentArea {
+    width: 100%;
+  }
+  #staticPage .contentAreaContainer .contentArea .imageArea {
+    width: 50%;
+  }
+  #staticPage .contentAreaContainer .contentArea .imageArea img {
+    width: 100%;
+  }
+  #staticPage .contentAreaContainer .contentArea .textBlockArea {
+    width: 50%;
+  }
+  #staticPage .contentAreaContainer .contentArea .textBlockArea h2 {
+    font-size: 24px;
+  }
+  #staticPage .contentAreaContainer .contentArea .testCallToActionAreaTop {
+    text-align: center;
+    overflow: hidden;
+  }
+  #staticPage .contentAreaContainer .contentArea .testCallToActionAreaTop img {
+    width: 100%;
+  }
+  #staticPage .footerContainer .footerLinkArea ul li a {
+    display: block;
+    width: 100%;
+    padding: 7px 0;
+  }
+}
+@media (max-width: 768px) {
+  #staticPage .headerContainer .headerTop {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #staticPage .headerContainer .headerTop .headerLogoArea {
+    padding: 20px 0;
+  }
+  #staticPage .headerContainer .headerTop .headerLogoArea img {
+    width: 125px;
+  }
+  #staticPage .headerContainer .headerTop .headerLanguageArea {
+    background: url("/static/img/staticPage/backTexture.png") center center rgb(244, 255, 219);
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  #staticPage .headerContainer .headerHeroImage {
+    width: 100%;
+  }
+  #staticPage .headerContainer .headerHeroImage .heroHeadingContainer {
+    position: relative;
+    width: 100%;
+  }
+  #staticPage .headerContainer .headerHeroImage .heroHeadingContainer .heroHeading {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 36px;
+    padding: 0 10px;
+    font-weight: bold;
+  }
+  #staticPage .headerContainer .headerHeroImage .heroHeadingContainer .heroHeading strong {
+    color: rgb(154, 205, 31);
+  }
+  #staticPage .headerContainer .headerHeroImage .heroHeadingContainer .heroSubHeading {
+    padding: 0 10px;
+    font-size: 24px;
+  }
+  #staticPage .headerContainer .headerHeroImage .heroImage {
+    padding: 0;
+    width: 100%;
+  }
+  #staticPage .contentAreaContainer .contentArea {
+    max-width: 1200px;
+    width: 100%;
+    display: block;
+  }
+  #staticPage .contentAreaContainer .contentArea .imageArea {
+    width: 100%;
+  }
+  #staticPage .contentAreaContainer .contentArea .imageArea img {
+    width: auto;
+  }
+  #staticPage .contentAreaContainer .contentArea .textBlockArea {
+    width: 100%;
+    text-align: left !important;
+    padding: 25px;
+  }
+  #staticPage .contentAreaContainer .contentArea .textBlockArea h2 {
+    font-size: 24px;
+  }
+  #staticPage .contentAreaContainer .contentArea .textBlockAreaWide h2 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  #staticPage .contentAreaContainer .contentArea .testCallToActionAreaTop {
+    text-align: center;
+    overflow: hidden;
+  }
+  #staticPage .contentAreaContainer .contentArea .testCallToActionAreaTop img {
+    width: 100%;
+  }
+  #staticPage .contentAreaContainer .contentArea .testCallToActionAreaBottom img {
+    width: 100%;
+  }
+  #staticPage .footerContainer .footerLinkArea ul li a {
+    display: block;
+    width: 100%;
+    padding: 7px 0;
+  }
+}
+@media (max-width: 600px) {
+  #staticPage .contentAreaContainer .contentArea .testCallToActionAreaBottom .testCallToActionButtonArea .testCallToActionButtonAreaAlign {
+    padding-top: 2.5%;
+  }
+  #staticPage .contentAreaContainer .contentArea .testCallToActionAreaBottom .testCallToActionButtonArea .testCallToActionButtonAreaAlign .testButton {
+    color: rgb(255, 255, 255);
+    background: rgb(154, 205, 31);
+    border-radius: 40px;
+    display: block;
+    padding: 15px 20px;
+    border: solid 10px rgb(244, 240, 184);
+    font-size: 14px;
+    min-width: 180px;
+    cursor: pointer;
+    text-align: center;
+  }
+  #staticPage .contentAreaContainer .contentArea .testCallToActionAreaBottom .testCallToActionButtonArea img {
+    width: 100%;
+  }
+}
+.accordion-button:not(.collapsed), .accordion-button:focus {
+  color: rgb(0, 0, 0);
+  background-color: rgb(244, 255, 219);
+}
+.accordion-button:not(.collapsed)::after, .accordion-button:focus::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000000'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.btn-success {
+  border-radius: 30px;
+  padding: 10px 20px;
+  border: solid 5px;
+  background-color: rgb(154, 205, 31);
+  border-color: rgb(244, 240, 184);
+}
+.btn-success.disabled, .btn-success:disabled {
+  background-color: rgb(154, 205, 31);
+  border-color: rgb(244, 240, 184);
+}
+.btn-success:hover, .btn-success:active, .btn-success:focus {
+  background-color: rgb(154, 205, 31);
+  border-color: rgb(244, 240, 184);
+  opacity: 0.8;
+}
+
+.btn-danger {
+  border-radius: 30px;
+  padding: 10px 20px;
+  border: solid 5px;
+  background-color: rgb(205, 31, 31);
+  border-color: rgb(247, 214, 214);
+}
+.btn-danger.disabled, .btn-danger:disabled {
+  background-color: rgb(205, 31, 31);
+  border-color: rgb(247, 214, 214);
+}
+.btn-danger:hover, .btn-danger:active, .btn-danger:focus {
+  background-color: rgb(205, 31, 31);
+  border-color: rgb(247, 214, 214);
+  opacity: 0.8;
+}
+
+.btn-secondary {
+  border-radius: 30px;
+  padding: 10px 20px;
+  border: solid 5px;
+  background-color: rgb(181, 181, 181);
+  border-color: rgb(233, 233, 233);
+}
+.btn-secondary.disabled, .btn-secondary:disabled {
+  background-color: rgb(181, 181, 181);
+  border-color: rgb(233, 233, 233);
+}
+.btn-secondary:hover, .btn-secondary:active, .btn-secondary:focus {
+  background-color: rgb(181, 181, 181);
+  border-color: rgb(233, 233, 233);
+  opacity: 0.8;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.text-danger {
+  color: rgb(205, 31, 31) !important;
+}
+
+.text-danger::before {
+  content: "▲";
+  padding-right: 0.2em;
+}
+
+.text-success {
+  color: rgb(154, 205, 31) !important;
+}
+
+.form-control-color {
+  max-width: none;
+}

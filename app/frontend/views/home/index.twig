@@ -1,0 +1,690 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<div id="staticPage">
+
+		<div class="headerContainer">
+			<div class="headerTop">
+				<div class="headerLogoArea">
+					<a href="/">
+						<img src="/static/img/logo.svg?20240507-12">
+					</a>
+				</div>
+			</div>
+			<div class="headerHeroImage">
+				<div class="heroHeadingContainer">
+					<h1 class="heroHeading"><strong>Age</strong> <strong>verification</strong> system</h1>
+					<p class="heroSubHeading">Made easy</p>
+				</div>
+				<img class="heroImage" src="/static/img/peopleHeader.jpg">
+			</div>
+		</div>
+
+		<div class="clear"></div>
+
+		<div id="avsPage">
+			<div class="container">
+				<div class="ageVerificationSolution">
+
+					<div id="accessInformation" class="card accessInformation mb-3">
+						<!-- access keys -->
+						<div class="card-header">
+							<i class="fa fa-key m-1"></i> Configuration
+						</div>
+						<div class="card-body">
+							<div id="accessInformationContentArea" class="">
+								<form>
+									<div class="form-group mb-3">
+										<label for="accessInformationCallbackUrlInput" class="form-label">Verification result callback url:</label>
+										<input id="accessInformationCallbackUrlInput" class="form-control" type="text" value="http://localhost:3300/callback">
+									</div>
+								</form>
+
+							</div>
+						</div>
+					</div>
+
+					<div id="accessSection" class="accessSection">
+
+						<div id="exampleImplementation" class="card accessInformation mb-3">
+							<div class="card-header">
+								<i class="fa fa-check m-1"></i> Example implementation
+							</div>
+							<div class="card-body">
+								<h5 class="layoutPaddingBottom">
+									<strong>Color theme</strong>
+								</h5>
+
+								<div class="colorInputArea mb-3">
+									<p>
+										<strong>Body area</strong>
+									</p>
+
+									<form class="row mb-3">
+										<div class="col-md-4 col-lg-3">
+											<div class="form-group">
+												<label for="colorConfigBodyBackgroundInput">Background</label>
+												<input type="color" id="colorConfigBodyBackgroundInput" class="form-control form-control-color" value="#ffffff">
+											</div>
+										</div>
+										<div class="col-md-4 col-lg-3">
+											<div class="form-group">
+												<label for="colorConfigBodyForegroundInput">Foreground</label>
+												<input type="color" id="colorConfigBodyForegroundInput" class="form-control form-control-color" value="#000000">
+											</div>
+										</div>
+									</form>
+
+									<p>
+										<strong>Buttons</strong>
+									</p>
+
+									<form class="row mb-3">
+										<div class="col-md-4 col-lg-3">
+											<div class="form-group">
+												<label for="colorConfigButtonBackgroundInput">Background</label>
+												<input type="color" id="colorConfigButtonBackgroundInput" class="form-control form-control-color" value="#9acd1f">
+											</div>
+										</div>
+										<div class="col-md-4 col-lg-3">
+											<div class="form-group">
+												<label for="colorConfigButtonForegroundInput">Foreground</label>
+												<input type="color" id="colorConfigButtonForegroundInput" class="form-control form-control-color" value="#ffffff">
+											</div>
+										</div>
+										<div class="col-md-4 col-lg-3">
+											<div class="form-group">
+												<label for="colorConfigButtonForegroundCTAInput">Foreground call to action</label>
+												<input type="color" id="colorConfigButtonForegroundCTAInput" class="form-control form-control-color" value="#ffffff">
+											</div>
+										</div>
+									</form>
+								</div>
+
+								<h5 class="layoutPaddingBottom">
+									<strong>Verify age using a redirect</strong>
+								</h5>
+								<p>
+									By clicking the button below a new browser tab will open with the age verification page using your config data above.
+									The verification result will be posted back to your <strong>verification result callback url</strong> if it's already defined.
+								</p>
+								<p>
+									<button id="exampleImplementationStartRedirectButton" class="btn btn-success btn-sm layoutAgeVerification">
+										<i class="fa fa-eye"></i> Start age verification
+									</button>
+								</p>
+
+								<h5 class="layoutPaddingBottom">
+									<strong>Verify age using the iframe</strong>
+								</h5>
+								<p>
+									By clicking the button below a screen overlay will open with the age verification page using your config data above.
+									The verification result will be posted back to your <strong>verification result callback url</strong> if it's already defined.
+									Since we are using the javascript implementation, we will also listen to the <strong>events</strong> we receive while the detection it's running and <strong>we will log it in the area below</strong>.
+								</p>
+
+								<form>
+									<div class="form-group mb-3">
+										<label for="ageVerificationLogTextarea" class="form-label">Age verification log:</label>
+										<textarea id="ageVerificationLogTextarea" class="form-control" readonly="" rows="7"></textarea>
+									</div>
+									<div class="form-group">
+										<button id="exampleImplementationStartJsButton" class="btn btn-success btn-sm layoutAgeVerification mb-2">
+											<i class="fa fa-eye"></i> Start age verification
+										</button>
+										<button id="exampleImplementationIframeJsButton" class="btn btn-success btn-sm layoutAgeVerification mb-2" disabled="disabled">
+											<i class="fa fa-plus"></i> Open verification iframe
+										</button>
+									</div>
+								</form>
+
+							</div>
+						</div>
+
+						<div id="implementationGuide" class="card implementationGuide">
+							<div class="card-header">
+								<i class="fa fa-info m-1"></i> Implementation guide
+							</div>
+							<div class="card-body">
+
+								<div class="accordion" id="accordion">
+
+									<div class="accordion-item">
+										<div class="accordion-header" id="headingThree">
+											<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+												Frontend event information
+											</button>
+										</div>
+										<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordion">
+											<div class="accordion-body">
+
+												<p>
+													<strong>Javascript events:</strong>
+												</p>
+												<code class="codeHeading">
+													AvsJsSdk.V1.Config.EVENT_ON_CHECK_IFRAME_LOADED
+												</code>
+												<div class="clear"></div>
+												<p>
+													This is the first event that is triggered by the iframe, it's triggered when the iframe document is ready.
+												</p>
+
+												<code class="codeHeading">
+													AvsJsSdk.V1.Config.EVENT_STATUS_REQUEST
+												</code>
+												<div class="clear"></div>
+												Request the age verification iframe the status of the cookie, works only on the initial verification phase.
+												<p>
+												</p>
+
+												<code class="codeHeading">
+													AvsJsSdk.V1.Config.EVENT_ON_INITIAL_VERIFICATION_SUCCESS
+												</code>
+												<div class="clear"></div>
+												<p>
+													The verification cookie it's already present on the user's browser due to a previous successful verification process.
+												</p>
+
+												<code class="codeHeading">
+													AvsJsSdk.V1.Config.EVENT_ON_INITIAL_VERIFICATION_NOT_FOUND
+												</code>
+												<div class="clear"></div>
+												The verification cookie was not found, meaning the user did not yet completed a successful verification process.
+												<p>
+												</p>
+
+												<code class="codeHeading">
+													AvsJsSdk.V1.Config.EVENT_RESOURCE_PRELOAD
+												</code>
+												<div class="clear"></div>
+												<p>
+													Request the age verification iframe to start loading the verification phase and it's needed resources.
+												</p>
+
+												<code class="codeHeading">
+													AvsJsSdk.V1.Config.EVENT_ON_INITIAL_VERIFICATION_FATAL_ERROR
+												</code>
+												<div class="clear"></div>
+												<p>
+													The specified access keys were incorrect or the go.cam resources failed to load.
+												</p>
+
+												<code class="codeHeading">
+													AvsJsSdk.V1.Config.EVENT_ON_START_PAGE_LOADED
+												</code>
+												<div class="clear"></div>
+												The age verification page document it's ready, the resources are still loading.
+												<p>
+												</p>
+
+												<code class="codeHeading">
+													AvsJsSdk.V1.Config.EVENT_ON_RESOURCES_LOADED
+												</code>
+												<div class="clear"></div>
+												<p>
+													The age verification page resources finished to load.
+												</p>
+
+												<code class="codeHeading">
+													AvsJsSdk.V1.Config.EVENT_ON_CLOSE_IFRAME
+												</code>
+												<div class="clear"></div>
+												<p>
+													The iframe overlay close button was clicked.
+												</p>
+
+												<code class="codeHeading">
+													AvsJsSdk.V1.Config.EVENT_ON_VERIFICATION_SUCCESS
+												</code>
+												<div class="clear"></div>
+												The age verification process was completed with success.
+												<p>
+												</p>
+
+												<code class="codeHeading">
+													AvsJsSdk.V1.Config.EVENT_ON_VERIFICATION_ERROR
+												</code>
+												<div class="clear"></div>
+												<p>
+													The age verification process was completed with error.
+												</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion-item">
+										<div class="accordion-header" id="headingFour">
+											<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+												Verification result callback url information
+											</button>
+										</div>
+										<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-bs-parent="#accordion">
+											<div class="accordion-body">
+												<p>
+													It's used to send back the age verification result to your server.
+													The data we send back contains the status of the verification together with some additional data
+													relevant to the age detection process (eg: custom user id, error codes, detection step, device type
+													...).
+													So if you plan to validate the user by it's id or collect some basic statistics this callback url can
+													help.
+												</p>
+												<p>
+													<strong>Post back data example:</strong>
+												</p>
+												<code class="codeBlock">
+													array(
+													'userData' =&gt; array(
+													'colorConfig' =&gt; array(
+													'body' =&gt; array(
+													'background' =&gt; '#900',
+													'foreground' =&gt; '#fff',
+													'button' =&gt; array(
+													'background' =&gt; '#fb0',
+													'foreground' =&gt; '#333',
+													'foregroundCallToAction' =&gt; '#700',
+													)
+													)
+													)
+													),
+													'state' =&gt; 'success',
+													'stateInt' =&gt; 2,
+													'sessionId' =&gt; 12345,
+													'errorCode' =&gt; 0,
+													'deviceType' =&gt; 1,
+													'stepId' =&gt; 2,
+													'websiteHostname' =&gt; 'your-site-name.cam',
+													'ip' =&gt; '127.0.0.1',
+													)
+												</code>
+												<p>
+													<strong>Explanation:</strong>
+												</p>
+
+												<code class="codeHeading">
+													'state' =&gt; 'success'
+												</code>
+
+												<table class="possibleValueTable table table-striped table-hover table-bordered">
+													<thead>
+													<tr>
+														<th scope="col" width="170">Possible value</th>
+														<th scope="col">Meaning</th>
+													</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td scope="row">success</td>
+															<td>the verification was successful</td>
+														</tr>
+														<tr>
+															<td scope="row">fail</td>
+															<td>the verification failed</td>
+														</tr>
+													</tbody>
+												</table>
+
+												<code class="codeHeading">
+													'stateInt' =&gt; 2
+												</code>
+												<table class="possibleValueTable table table-striped table-hover table-bordered">
+													<thead>
+													<tr>
+														<th width="170">Possible value</th>
+														<th>Meaning</th>
+													</tr>
+													</thead>
+													<tbody>												<tr>
+															<td>0</td>
+															<td>unknown</td>
+														</tr>												<tr>
+															<td>1</td>
+															<td>Test not started or aborted</td>
+														</tr>												<tr>
+															<td>2</td>
+															<td>Success</td>
+														</tr>												<tr>
+															<td>3</td>
+															<td>Failed</td>
+														</tr>												<tr>
+															<td>4</td>
+															<td>Link expired</td>
+														</tr>												<tr>
+															<td>5</td>
+															<td>Link already used</td>
+														</tr>											</tbody>
+												</table>
+
+												<code class="codeHeading">
+													'sessionId' =&gt; 12345
+												</code>
+												<table class="possibleValueTable table table-striped table-hover table-bordered">
+													<thead>
+													<tr>
+														<th width="170">Possible value</th>
+														<th>Meaning</th>
+													</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>12345</td>
+															<td>Verification session id</td>
+														</tr>
+													</tbody>
+												</table>
+
+												<code class="codeHeading">
+													'errorCode' =&gt; 0
+												</code>
+												<table class="possibleValueTable table table-striped table-hover table-bordered">
+													<thead>
+													<tr>
+														<th width="170">Possible value</th>
+														<th>Meaning</th>
+													</tr>
+													</thead>
+													<tbody>												<tr>
+															<td>0</td>
+															<td>No error</td>
+														</tr>												<tr>
+															<td>25001</td>
+															<td>Device it is not supported</td>
+														</tr>												<tr>
+															<td>25032</td>
+															<td>Preloading verification resources failed (face api resources)</td>
+														</tr>												<tr>
+															<td>25033</td>
+															<td>Preloading verification resources failed (tesseract resources)</td>
+														</tr>												<tr>
+															<td>25034</td>
+															<td>Could not retrieve your device camera list (selfie detection camera selection step)</td>
+														</tr>												<tr>
+															<td>25055</td>
+															<td>Could not detect enough faces from the device video (age detected is 0)</td>
+														</tr>												<tr>
+															<td>25056</td>
+															<td>Face similarity check fail (all selfie faces comparison)</td>
+														</tr>												<tr>
+															<td>25057</td>
+															<td>Could not detect enough faces from the device video (0 faces detected)</td>
+														</tr>												<tr>
+															<td>25061</td>
+															<td>Could not detect enough faces from the device video (expression check fail)</td>
+														</tr>												<tr>
+															<td>25062</td>
+															<td>Face similarity check fail (expression faces comparison)</td>
+														</tr>												<tr>
+															<td>25047</td>
+															<td>Webcam initialization error (selfie detection step)</td>
+														</tr>												<tr>
+															<td>25035</td>
+															<td>Failed to initialize detection libraries (selfie detection step -&gt; face api detector)</td>
+														</tr>												<tr>
+															<td>25036</td>
+															<td>Failed to initialize detection libraries (selfie detection step -&gt; face api age model)</td>
+														</tr>												<tr>
+															<td>25037</td>
+															<td>Failed to initialize detection libraries (selfie detection step -&gt; face api recognition model)</td>
+														</tr>												<tr>
+															<td>25038</td>
+															<td>Failed to initialize detection libraries (selfie detection step -&gt; face api landmarks model)</td>
+														</tr>												<tr>
+															<td>25058</td>
+															<td>Failed to initialize detection libraries (selfie detection step -&gt; face api expression model)</td>
+														</tr>												<tr>
+															<td>25039</td>
+															<td>Could not retrieve your device camera list (scan id detection camera selection step)</td>
+														</tr>												<tr>
+															<td>25040</td>
+															<td>Failed to initialize detection libraries (scan id detection step -&gt; tesseract worker)</td>
+														</tr>												<tr>
+															<td>25041</td>
+															<td>Failed to initialize detection libraries (scan id detection step -&gt; tesseract language model)</td>
+														</tr>												<tr>
+															<td>25042</td>
+															<td>Failed to initialize detection libraries (scan id detection step -&gt; tesseract language init)</td>
+														</tr>												<tr>
+															<td>25043</td>
+															<td>Failed to initialize detection libraries (scan id detection step -&gt; tesseract worker config)</td>
+														</tr>												<tr>
+															<td>25044</td>
+															<td>Failed to initialize detection libraries (scan id detection step -&gt; face api detector)</td>
+														</tr>												<tr>
+															<td>25045</td>
+															<td>Failed to initialize detection libraries (scan id detection step -&gt; face api recognition model)</td>
+														</tr>												<tr>
+															<td>25051</td>
+															<td>Failed to extract a face from your identity card</td>
+														</tr>												<tr>
+															<td>25052</td>
+															<td>Selfie face does not match the one found on the identity card</td>
+														</tr>												<tr>
+															<td>25053</td>
+															<td>Detected age is lower than 18 years (scan id detection step)</td>
+														</tr>												<tr>
+															<td>25054</td>
+															<td>Failed to extract your age from the current identity card</td>
+														</tr>												<tr>
+															<td>25046</td>
+															<td>Webcam initialization error (scan id detection step)</td>
+														</tr>												<tr>
+															<td>20002</td>
+															<td>Test max allowed time expired (test success callback)</td>
+														</tr>												<tr>
+															<td>20004</td>
+															<td>Invalid step id (test success callback)</td>
+														</tr>												<tr>
+															<td>20000</td>
+															<td>Invalid token (test success callback)</td>
+														</tr>												<tr>
+															<td>20034</td>
+															<td>Invalid xcore api curl response (test success callback)</td>
+														</tr>												<tr>
+															<td>20003</td>
+															<td>Test max allowed time expired (test fail callback)</td>
+														</tr>												<tr>
+															<td>20005</td>
+															<td>Invalid step id (test fail callback)</td>
+														</tr>												<tr>
+															<td>20001</td>
+															<td>Invalid token (test fail callback)</td>
+														</tr>												<tr>
+															<td>20035</td>
+															<td>Invalid xcore api curl response (test fail callback)</td>
+														</tr>												<tr>
+															<td>18001</td>
+															<td>Credit card verification internal error</td>
+														</tr>												<tr>
+															<td>18002</td>
+															<td>Credit card verification maxmind error</td>
+														</tr>											</tbody>
+												</table>
+
+												<code class="codeHeading">
+													'deviceType' =&gt; 1
+												</code>
+												<table class="possibleValueTable table table-striped table-hover table-bordered">
+													<thead>
+													<tr>
+														<th width="170">Possible value</th>
+														<th>Meaning</th>
+													</tr>
+													</thead>
+													<tbody>												<tr>
+															<td>0</td>
+															<td>unknown</td>
+														</tr>												<tr>
+															<td>1</td>
+															<td>mobile</td>
+														</tr>												<tr>
+															<td>2</td>
+															<td>desktop</td>
+														</tr>											</tbody>
+												</table>
+
+												<code class="codeHeading">
+													'stepId' =&gt; 2
+												</code>
+												<table class="possibleValueTable table table-striped table-hover table-bordered">
+													<thead>
+													<tr>
+														<th width="170">Possible value</th>
+														<th>Meaning</th>
+													</tr>
+													</thead>
+													<tbody>												<tr>
+															<td>0</td>
+															<td>Test not started or aborted</td>
+														</tr>												<tr>
+															<td>1</td>
+															<td>Start page</td>
+														</tr>												<tr>
+															<td>2</td>
+															<td>Selfie detection camera selection</td>
+														</tr>												<tr>
+															<td>3</td>
+															<td>Selfie detection</td>
+														</tr>												<tr>
+															<td>4</td>
+															<td>Scan id camera selection</td>
+														</tr>												<tr>
+															<td>5</td>
+															<td>Scan id detection</td>
+														</tr>												<tr>
+															<td>6</td>
+															<td>Credit card verification intro</td>
+														</tr>												<tr>
+															<td>7</td>
+															<td>Credit card verification page</td>
+														</tr>											</tbody>
+												</table>
+
+												<code class="codeHeading">
+													'idCountry' =&gt; 'FR'
+												</code>
+												<table class="possibleValueTable table table-striped table-hover table-bordered">
+													<thead>
+													<tr>
+														<th width="170">Possible value</th>
+														<th>Meaning</th>
+													</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>FR</td>
+															<td>Country short code of the document the user selected to provide for the verification</td>
+														</tr>
+													</tbody>
+												</table>
+
+												<code class="codeHeading">
+													'idState' =&gt; 'TX'
+												</code>
+												<table class="possibleValueTable table table-striped table-hover table-bordered">
+													<thead>
+													<tr>
+														<th width="170">Possible value</th>
+														<th>Meaning</th>
+													</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>TX</td>
+															<td>State short code of the document the user selected to provide for the verification</td>
+														</tr>
+													</tbody>
+												</table>
+
+												<code class="codeHeading">
+													'idType' =&gt; '1'
+												</code>
+												<table class="possibleValueTable table table-striped table-hover table-bordered">
+													<thead>
+													<tr>
+														<th width="170">Possible value</th>
+														<th>Meaning</th>
+													</tr>
+													</thead>
+													<tbody>												<tr>
+															<td>1</td>
+															<td>Id card</td>
+														</tr>												<tr>
+															<td>2</td>
+															<td>Passport</td>
+														</tr>												<tr>
+															<td>3</td>
+															<td>Driver licence</td>
+														</tr>											</tbody>
+												</table>
+
+												<code class="codeHeading">
+													'websiteHostname' =&gt; 'your-site-name.cam'
+												</code>
+												<table class="possibleValueTable table table-striped table-hover table-bordered">
+													<thead>
+													<tr>
+														<th width="170">Possible value</th>
+														<th>Meaning</th>
+													</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>your-site-name.cam</td>
+															<td>Host name from where the test was initiated</td>
+														</tr>
+													</tbody>
+												</table>
+
+												<code class="codeHeading">
+													'ip' =&gt; '127.0.0.1'
+												</code>
+												<table class="possibleValueTable table table-striped table-hover table-bordered">
+													<thead>
+													<tr>
+														<th width="170">Possible value</th>
+														<th>Meaning</th>
+													</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>127.0.0.1</td>
+															<td>Ip from where the test was initiated</td>
+														</tr>
+													</tbody>
+												</table>
+
+											</div>
+										</div>
+									</div>
+
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+{% endblock %}
+
+{% block head %}
+
+	<link rel="stylesheet" href="/static/css/vendor/bootstrap-5.0.2/bootstrap.min.css">
+
+{% endblock %}
+
+{% block javascript %}
+
+	<script type="text/javascript" crossorigin="anonymous" src="/static/js/vendor/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" crossorigin="anonymous" src="/static/js/vendor/bootstrap-5.0.2/bootstrap.min.js"></script>
+
+	<script type="text/javascript" crossorigin="anonymous" src="/static/js/app/common.js?{{ cacheBuster }}"></script>
+	<script type="text/javascript" crossorigin="anonymous" src="/static/js/app/avsFactoryIframeSdk.js?{{ cacheBuster }}"></script>
+
+{% endblock %}

@@ -1,0 +1,660 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+	<div id="avsMainContainer" class="landscape">
+
+		<a id="globalIframeCloseButton" class="isHidden">
+			<i class="fa fa-times" aria-hidden="true"></i> Close
+		</a>
+
+		<div id="webCamAccessHelpArea" class="page layoutStaticPage isHidden">
+			<div class="headerLogo">
+				<img src="/static/img/logo.svg">
+			</div>
+			<h1 class="introHeading">Webcam access help
+			</h1>
+			<h2 class="introText">Webcam access it's allowed in different ways depending on your device platform
+			</h2>
+			<h2 class="introText">
+				<strong class="layoutBiggerText"><i class="fa fa-android" aria-hidden="true"></i> Android chrome</strong>
+			</h2>
+			<h2 class="introText"><ol>
+					<li>On your Android device, open the Chrome app.</li>
+					<li>To the right of the address bar, tap More (triple dots) &gt; Settings &gt; Site Settings.</li>
+					<li>Tap Microphone or Camera.</li>
+					<li>Tap to turn the microphone or camera on or off.</li>
+					<li>Look for go.cam under the Blocked list. If you see it BLOCKED, tap go.cam &gt; Access your camera &gt; Allow.</li>
+					<li>Unblock BOTH camera and mic!</li>
+				</ol>
+
+			</h2>
+			<h2 class="introText">
+				<strong class="layoutBiggerText"><i class="fa fa-apple" aria-hidden="true"></i> iOS Safari</strong>
+			</h2>
+			<h2 class="introText">
+				<p><strong>Refresh the page</strong></p><ol>
+					<li>Refresh the Safari tab</li>
+					<li>You should be alerted for Microphone &amp; Camera Access</li>
+					<li>Tap "Allow"</li>
+				</ol>
+
+				<p><strong>Make sure the camera access it's allowed</strong></p><ol>
+					<li>Open the Settings app</li>
+					<li>Tap on Safari &gt; Camera</li>
+					<li>Scroll down to Camera &amp; Microphone</li>
+					<li>Confirm that "Ask" or "Allow" is checked</li>
+				</ol>
+
+			</h2>
+			<h2 class="introText">
+				<strong class="layoutBiggerText"><i class="fa fa-chrome" aria-hidden="true"></i> Desktop chrome</strong>
+			</h2>
+			<h2 class="introText"><ol>
+					<li>Click the camera icon - in your browsers address bar, top right</li>
+					<li>Make sure that "Always allow" is selected</li>
+					<li>Click done</li>
+					<li>Refresh your browser</li>
+				</ol>
+
+			</h2>
+			<div class="submitArea">
+				<a id="webCamAccessHelpBackButton" class="button layoutGreen">
+					<i class="fa fa-chevron-left" aria-hidden="true"></i>Go Back
+				</a>
+			</div>
+		</div>
+
+		<div id="termsAndConditionsArea" class="page layoutStaticPage layoutTextBlock isHidden">
+			<div class="headerLogo">
+				<img src="/static/img/logo.svg">
+			</div>
+			<h1 class="introHeading">Terms and Conditions
+			</h1><p>If You are referred to GO.CAM by one of our Business Customers and wish to use Age-verification Solution rendered by GO.CAM, You are accepting these Terms and Conditions (<strong>"T&amp;C"</strong>). </p>
+
+			<p>Law no. <a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000042176652">2020-936</a> (Chapter IX: Provisions relating to the protection of minors (Articles 21 to 24) ) requires website operators to verify a person’s age before allowing them access rights to certain websites and/or certain types of content shown on websites. The Business Customer is exploiting websites on which Law no. <a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000042176652">2020-936</a> (Chapter IX: Provisions relating to the protection of minors (Articles 21 to 24) applies. </p>
+
+			<p><span class="textNoIndex firmNameText"></span>  (hereinafter, <strong>"GO.CAM"</strong>; <strong>"we"</strong> or <strong>"our"</strong>) will by means of the GO.CAM platform provide Age-Verification Services to the Business Customer that is verification and confirmation that the person wishing access rights to (certain)  websites and/or certain types of content shown on websites as exploited by the Business Customer (<strong>"End User"</strong>)  is 18 years old and over. </p>
+
+			<p>The End User is the person whose age needs to be verified and confirmed for the Business Customer as the End User wishes access rights to certain websites and/or certain types of content shown on websites  exploited by the Business Customer, which websites and/or content only can accessed by persons of 18 years old and over. </p>
+
+			<p>The objective of GO.CAM is to provide an effective, robust and legally secure solution for the age-verification and confirmation system, processed between End Users and Business Customers. </p>
+
+			<p>In order provide Age-Verification Services to the Business Customers, GO.CAM will need personal data and other information (the <strong>"Information"</strong>) from the End User. </p>
+
+			<p>These terms and conditions (the <strong>"Terms and Conditions"</strong>) govern the submission of the Information (the <strong>"Information"</strong>) by  the End User to GO.CAM  for the purposes of Age-Verification.</p>
+
+			<p>You understand and agree that GO.CAM will provide the Age-verification Service to the Business Customer on the basis of the Information provided by You. The Age-verification Service is provided in order to allow for a transaction between You and the Business Customer, which will be subject to the Business Customer’s terms and conditions, to which You shall agree upon. Please carefully read these Terms and Conditions before submitting the Information.  </p>
+
+			<h2>DEFINITIONS</h2>
+
+			<p>For the purposes of these Terms and Conditions, the following terms - when used capitalized herein -  shall have the following meanings unless they are defined otherwise in this Terms and Conditions:</p>
+
+			<p><strong>"Age-Verification"</strong>: means the verification that the End User is not less than 18 years old. </p>
+
+			<p><strong>"Age-Verification Methods"</strong>: means the verification methods used by GO.CAM as set out under clause number two of these Terms and Conditions. </p>
+
+			<p><strong>"Age-Verification Service"</strong>: means the age verification services GO.CAM renders for the Business Customers in order to verify that the End User’s age is not less than 18 years. </p>
+
+			<p><strong>"Age-Verification Solution"</strong> means a combination of Age-Verification Methods.</p>
+
+			<p><strong>"Business Customer"</strong>: means the online services provider individual or company for whom GO.CAM is rendering the Age-Verification Services, and whose website the End User wants to visit and/or whose online services and/or content the End User wants to access. </p>
+
+			<p><strong>"End User Data"</strong> means any personally identifiable information of the End User provided by the End User through GO.CAM necessary to provide the Age-Verification Services by GO.CAM to the Business Customer.</p>
+
+			<p><strong>"End User"</strong> means the individuals who use GO.CAM, in order to have their age verified so they are able to access age restricted content and/or access to websites that have restricted content and/or websites, which restrict access to certain features. </p>
+
+			<p><strong>"GO.CAM"</strong>, <strong>"we"</strong> or <strong>"our"</strong>: means <span class="textNoIndex firmNameText"></span> with an address at <span class="textNoIndex contactAddressText"></span> as well as the technology that provides age-verification arrangements to verify that the End Users accessing rights to certain websites and/or certain types of content shown on websites are not less than 18 years old. We will refer to GO.CAM in these Terms and Conditions, given that it is the commercial brand for the Services. </p>
+
+			<p><strong>"Terms and Conditions"</strong>: means the content of this document.</p>
+
+			<p><strong>"Parties"</strong>: End User and GO.CAM.</p>
+
+			<p><strong>"Website Services"</strong>: services the Business Customer provides to the End User that is to provide access rights to certain websites and/or certain types of content shown on websites.  </p>
+
+			<h2>CLAUSES</h2>
+
+			<p><strong>1. OBJECT.</strong></p>
+
+			<p>1.1 The End User shall provide GO.CAM with the necessary End User Data in order for GO.CAM to verify  - using Age-Verifications Methods – whether the End User is  not less than 18 years old.  </p>
+
+			<p><strong>2. OTHER APPLICABLE TERMS.</strong></p>
+
+			<p>2.1 The following additional terms also form part of theseTerms and Conditions and also apply to your use of GO.CAM: </p>
+
+			<ul>
+				<li><p>Our Privacy Policy, which sets out the terms on which we process any personal data we collect from You, or that you provide to us.</p></li>
+				<li><p>Our Cookies Policy, which sets out how and which cookies we use. </p></li>
+			</ul>
+
+			<p><strong>3. AGE-VERIFICATION METHODS.</strong></p>
+
+			<p>3.1 The End User does not need an account in GO.CAM and can use GO.CAM without creating an account before proceeding with Age Verification, provided that the End User is referred to the Age Verification by one of our Business Customers. </p>
+
+			<p>3.2 GO.CAM will carry out the Age Verification as follows: </p>
+
+			<p>(1) First GO.CAM shall execute the Age-Verification by way of face recognition whereby you have to take a selfie of yourself. We will make  several snapshots of your face in a mixed combination of smiling/non-smiling poses, in order to verify that there is actually a live person in front of the camera.</p>
+
+			<p>(2) If the age we detected at the first step doesn’t satisfy the age of majority, we will execute the Age-Verification by way of identification of a provided government issued identification form. In this respect we ask you to provide a valid form of identification (ID card, driver license, passport) from which we will extract the relevant information we need in order to decide if you have the proper age to access the Website Services provided by our Business Customer. GO.CAM shall use/extract the data from the End User who chooses any of these: (i) ID card; (ii) driving license; and/or (iii) passport. </p>
+
+			<p>3.3 Absolutely no data are transferred between you/your device and GO.CAM’s servers. All the process takes place in your browser, on your device, without any piece of information being exchanged with us. In case of identification of a provided government issued identification form, the End User Data provided on GO.CAM consisting of a scanned copy / photo of the ID card, passport or driving license of the End User, will reside only on the End User’s device (PC/laptop/smartphone) and will be processed live without being stored on GO.CAM’s servers or network. All the communication between your device and the servers where GO.CAM application is hosted, is encrypted using  a 2048-bit SSL certificate.</p>
+
+			<p>3.4 After the Age-Verification, we will only receive an answer stating either that your age is not less than 18 years old or that your age is less than 18 years old. We will use that answer to let the Business Customer know if he can provide/render the Website Services to You. </p>
+
+			<p>3.5 The Age-Verification Data used in the Age-Verification Methods used by GO.CAM cannot be reasonably known by another person other than the End User, without theft of fraudulent use of data or identification documents nor readily obtained or used by another person. </p>
+
+			<p><strong>4. REPRESENTATIONS AND WARRANTIES.</strong></p>
+
+			<p>4.1 The End User represents and warrants to GO.CAM that:</p>
+
+			<p>4.1.1 All Information used during the verification process by the End User is personal, truthful, accurate and owned by the End User.</p>
+
+			<p>4.1.2 The End User will not use any "worm", "virus", "malware" or use any device that could impair or injure GO.CAM or any other person or entity when using the GO-CAM platform;</p>
+
+			<p>4.2.3 The End User is generally familiar with the nature of the internet and will comply with all rules and regulations that may apply.</p>
+
+			<p>4.3  GO.CAM does not  represent that the websites and/or the content shown on websites which the End User wishes to access after the Age-Verification is appropriate for the End User or available in locations other than France.  </p>
+
+			<p><strong>5. CONFIDENTIALITY.</strong></p>
+
+			<p>5.1 GO.CAM agrees not to disclose any confidential information included in the End Users Data. </p>
+
+			<p>5.2 In case GO.CAM might be ordered by a Court or Administrative Authority to disclose information regarding the End Users Data provided by the End User, GO.CAM will <strong>NOT BE ABLE TO DISCLOSE</strong> such information, simply because GO.CAM does not store any personally identifiable information, as all the verification is processed in the End User’s device, without any data being transmitted and stored on the GO.CAM’s servers.   </p>
+
+			<p><strong>6. INDEMNIFICATION. LIMITATION OF LIABILITY.</strong></p>
+
+			<p>6.1 Under no circumstances will GO.CAM be liable towards the End User with respect to any subject matter of these terms and conditions, tort (including negligence), strict liability or other legal or equitable theory, whether or not GO.CAM has been advised of the possibility of such damage, for indirect, incidental, consequential, special or exemplary damages arising from any provision of these terms. </p>
+
+			<p>6.2 GO.CAM is provided in an "AS IS" and "AS AVAILABLE" basis and we do not warrant or guarantee that any information, content, services or results available using GO.CAM are accurate or reliable or your use of the Age-Verification  will be uninterrupted, secure, or free from error. </p>
+
+			<p><strong>7. INTELLECTUAL PROPERTY RIGHTS</strong></p>
+
+			<p>7.1 Unless otherwise stated, we are the owner or licensee of all intellectual property rights in GO.CAM, and in the materials published on it. Copyright laws and treaties around the world protect those works. All such rights are reserved. </p>
+
+			<p>7.2 Using our products or services does not give you ownership of any intellectual property rights in our products or services, or the content you access. </p>
+
+			<p>7.3 GO.CAM and the services and content provided by GO.CAM is protected by copyright, trademark, patent, trade secret, international treaties, laws and other proprietary rights and also may have security components that protect digital information. You agree that you will not take any action to interfere with anyone’s rights in their content and you will not attempt to circumvent any mechanisms for preventing the unauthorized reproduction or distribution of content. </p>
+
+			<p>7.4 You may not use any of our trade names, trademarks, service marks, logos, domain names, etc. </p>
+
+			<p><strong>8. MODIFICATION.</strong></p>
+
+			<p>8.1 GO.CAM reserves the right to amend the provisions of the present Terms and Conditions that are minor in scope or nature, and to do so without citing any reasons, provided such modifications do not lead to the Terms and Conditions as a whole being changed. The Terms and Conditions applicable at any time will always be available on GO.CAM’s website. </p>
+
+			<p><strong>9. DISPUTE RESOLUTION.</strong></p>
+
+			<p>9.1 This Terms and Conditions shall be governed by and interpreted in accordance with the laws of France.</p>
+
+			<p>9.2 For any matter related to the interpretation or execution of this Terms and Conditions, the parties expressly waive to submit to any courts which might have jurisdiction over the subject matter, and agree to submit to the sole competence and jurisdiction of the Courts of the City of Marseille.</p>
+
+			<p>9.3 If any compulsory law or regulation states that the competent Courts shall be those of the domicile of the End Users or another, such compulsory laws shall prevail in relation to the competence and jurisdictional Courts applicable to this Terms and Conditions.</p>
+
+			<p><strong>10. GENERAL PROVISIONS.</strong></p>
+
+			<p>10.1 Force Majeure.  If either party is prevented from performing or is unable to perform any of its obligations under this Terms and Conditions due to causes beyond the reasonable control of the party invoking this provision, including but not limited to acts of God, acts of civil or military authorities, riots or civil disobedience, wars, strikes or labor disputes (each, a "Force Majeure Event"), such party’s performance shall be excused and the time for performance shall be extended accordingly provided that the party immediately takes all reasonably necessary steps to resume full performance. If such party remains unable to resume full performance fifteen (15) days after the Force Majeure Event, the other party may terminate this Terms and Conditions upon written notice.</p>
+
+			<p>10.2 Severability. If any of the provisions of this Terms and Conditions is declared invalid or unenforceable by any Court or Administrative body such provisions shall be deemed several from the remainder of this Terms and Conditions and not affect the validity or enforceability of the remainder of this Terms and Conditions. In that case, such provisions shall be changed and interpreted to achieve the purposes of those provisions in as much as possible within the extent of relevant laws or judgment of the Court or Administrative body and taking into account the interpretation of the whole Terms and Conditions.</p>
+
+			<p>10.3 Survival. 5 (Confidentiality) and 9 (Dispute Resolution) shall survive termination or expiration of this Terms and Conditions for any reason. All other rights and obligations of the parties under this Terms and Conditions shall expire upon termination of this Terms and Conditions. </p>
+
+			<p>10.4 Assignment. GO.CAM shall be entitled to assign, sublicense, delegate or otherwise transfer any of its rights or obligations under this Terms and Conditions without the prior written consent of the other party if the assignee shall assume all rights and obligations under this Terms and Conditions.</p>
+
+			<p>10.5 Notices. All notices and other communications hereunder amongst the parties shall be in writing and done by email with confirmation receipt.</p>
+
+			<p>Either party may change its address by providing the other party with written notice of the change in accordance with this section.</p>
+
+			<p>10.6 Entire Terms and Conditions. These Terms and Conditions constitutes the entire Terms and Conditions between the Parties and supersedes all previous Terms and Conditions, oral or written, with respect to the subject matter of this Terms and Conditions. </p>
+
+			<p>10.7 No Third Party Beneficiaries. This Terms and Conditions shall be binding upon and inure solely to the benefit of the Parties hereto and their permitted assigns and nothing herein, express or implied, is intended to or shall confer upon any other person any legal or equitable right, benefit or remedy of any nature whatsoever under or by reason of this Terms and Conditions.</p>
+
+			<p>Last amended 10-12-2020</p>
+
+
+			<div class="submitArea">
+				<a id="termsAndConditionsBackButton" class="button layoutGreen">
+					<i class="fa fa-chevron-left" aria-hidden="true"></i>Go Back
+				</a>
+			</div>
+		</div>
+
+		<div id="startPage" class="page layoutIntro">
+			<div class="headerLogo">
+				<img src="/static/img/logo.svg">
+			</div>
+
+			<h1 class="introHeading">Age verification
+			</h1>
+			<h2 class="introText"><strong>Verify</strong> your <strong>age</strong> in a few <strong>easy</strong> steps
+			</h2>
+
+			<div class="selectionArea">
+				<span class="label">Let's start by selecting a verification type:</span>
+				<div class="iconArea" id="verificationTypeTabs">
+					<div class="iconItem avsTab isSelected" data-type="selfie">
+						<i class="iconImage">
+							<svg>
+								<use xlink:href="/static/img/iconPack.svg#selfie" href="/static/img/iconPack.svg#selfie"></use>
+							</svg>
+						</i>
+						<div class="iconLabel">
+							<span class="verificationTypeRadioButton"></span>
+							<span class="iconDescription">Selfie age verification
+						</span>
+						</div>
+					</div>
+					<div class="iconItem avsTab" data-type="scanId">
+						<i class="iconImage">
+							<svg>
+								<use xlink:href="/static/img/iconPack.svg#scanId" href="/static/img/iconPack.svg#scanId"></use>
+							</svg>
+						</i>
+						<div class="iconLabel">
+							<span class="verificationTypeRadioButton isSelected"></span>
+							<span class="iconDescription">Scan id age verification
+						</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="termsArea" id="startPageTermsArea">
+					<label>
+						<input id="termsAndConditionsCheckbox" type="checkbox">I agree with the <a href="/terms/">terms and conditions</a>
+					</label>
+				</div>
+
+				<div class="submitArea">
+					<a id="startButton" class="button layoutGreen">
+						<i class="fa fa-check" aria-hidden="true"></i>Start the verification
+					</a>
+				</div>
+
+				<h2 class="introText">Don't worry, <strong>we do NOT store</strong> any <strong>images</strong> or <strong>data</strong> related to this detection.</h2>
+				<h2 class="introText avsTabContent">We will take a few snapshots of your <strong>webcam</strong> and <strong>detect your age</strong> based on your <strong>face</strong>. You will be also asked to change your <strong>face expression</strong> for a short while. In case of failure you will be asked to provide a real document photo.</h2>
+				<h2 class="introText avsTabContent isHidden">We will ask you to provide us with a <strong>image</strong> of your <strong>document</strong> or take <strong>a snapshot</strong> of it using your <strong>webcam</strong>. Your <strong>date of birth</strong> will be extracted in order to confirm your current age.
+				</h2>
+			</div>
+		</div>
+
+		<div id="faceApiPreloaderArea" class="preloader isHidden" style="display: none;">
+			<div id="faceApiPreloaderTextArea">
+				<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Preloading verification resources:
+			</div>
+			<div id="faceApiPreloaderPercentArea" class="counter">100%</div>
+		</div>
+
+		<div id="tesseractPreloaderArea" class="preloader isHidden">
+			<div id="tesseractPreloaderTextArea">
+				<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>Preloading verification resources:
+			</div>
+			<div id="tesseractPreloaderPercentArea" class="counter"></div>
+		</div>
+
+		<div id="errorMessageArea" class="page layoutError isHidden">
+			<div class="headerLogo">
+				<img src="/static/img/logo.svg">
+			</div>
+			<h1 class="introHeading isHidden">
+				<i class="fa fa-exclamation-triangle" aria-hidden="true"></i>Error
+			</h1>
+			<h2 class="introText" id="errorMessageTextArea"></h2>
+			<h2 class="introText isHidden" id="errorMessageAdditionalTextArea"></h2>
+			<h2 class="introText" id="errorMessageQrTextArea">Or, <strong>continue verification on your mobile</strong> by scanning the QR code below. Make sure you <strong>keep this window open</strong> while using your mobile.
+
+			</h2>
+			<div id="startPageErrorQrCode" class="qrCodeArea"></div>
+			<div class="submitArea">
+				<a id="errorMessageStartOverButton" class="button layoutRed">
+					<i class="fa fa-refresh" aria-hidden="true"></i>Try again
+				</a>
+			</div>
+		</div>
+
+		<div id="selfieAgeDetectionIntro" class="page layoutIntro isHidden">
+			<div class="headerLogo">
+				<img src="/static/img/logo.svg">
+			</div>
+			<div class="introIcon">
+				<img src="/static/img/selfie-icon.svg">
+			</div>
+			<h1 class="introHeading">Selfie age verification:
+			</h1>
+			<h2 class="introText">We will analyze your <strong>selfie</strong>, make sure you look into the <strong>camera</strong> and your <strong>face</strong> it's <strong>visible</strong> and <strong>centered</strong> as much as possible:
+			</h2>		<div class="introText">
+				<p class="layoutRedText">No data, no videos and no pictures are sent to our servers</p>
+			</div>
+			<div id="selfieAgeDetectionDeviceAccessArea" class="informationArea layoutBlack layoutRelative">
+				<div class="loadingArea">
+					<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+					<strong>Detection in progress:</strong>
+				</div>
+				<div class="statusArea">Please allow your camera access in order to continue
+				</div>
+			</div>
+			<div id="selfieAgeDetectionDeviceSelectionArea" class="isHidden">
+				<div class="selectionArea">
+					<span class="label">Please select a camera to use:</span>
+					<select id="selfieAgeDetectionDeviceSelect" class="js-example-basic-single select"></select>
+				</div>
+			</div>
+			<div id="selfieAgeDetectionSubmitArea" class="isHidden">
+				<div class="submitArea">
+					<a id="selfieAgeDetectionStartButton" class="button layoutGreen">Continue
+						<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+					</a>
+					<a id="selfieAgeDetectionCancelButton" class="linkButton">Cancel
+					</a>
+				</div>
+			</div>
+
+		</div>
+
+		<div id="selfieAgeDetectionPage" class="page layoutDetection isHidden">
+			<div class="videoOverlay"></div>
+			<div id="selfieVideoContainer" class="videoSource">
+				<video id="selfieVideo" autoplay="" muted="" playsinline=""></video>
+				<canvas id="selfieVideoOverlayCanvas" class="overlayCanvas"></canvas>
+				<canvas id="selfieVideoResultCanvas" class="resultCanvas"></canvas>
+			</div>
+			<div class="maskGuidContainer">
+				<div id="faceGuide" class="maskGuide layoutFace">
+					<div id="faceGuideAgeArea" class="ageGuideArea">
+						<p>
+							<span id="selfieAgeDetectionCurrentAgeArea"></span>
+						</p>
+						<p>
+							<span id="selfieAgeDetectionAverageAgeArea"></span>
+						</p>
+					</div>
+					<div id="faceGuideSmileStartHintArea" class="isHidden">
+						<p class="emoticonArea">
+							<i class="fa fa-meh-o" aria-hidden="true"></i>
+							<i class="fa fa-arrow-right layoutSmallerEmoticon" aria-hidden="true"></i>
+							<i class="fa fa-smile-o" aria-hidden="true"></i>
+						</p>
+						<p class="hintArea" id="faceGuideSmileStartHintLabel">Please smile</p>
+					</div>
+					<div id="faceGuideSmileStopHintArea" class="isHidden">
+						<p class="emoticonArea">
+							<i class="fa fa-smile-o" aria-hidden="true"></i>
+							<i class="fa fa-arrow-right layoutSmallerEmoticon" aria-hidden="true"></i>
+							<i class="fa fa-meh-o" aria-hidden="true"></i>
+						</p>
+						<p class="hintArea" id="faceGuideSmileStopHintLabel">Please stop smiling</p>
+					</div>
+					<div class="statusArea isHidden" id="selfieAgeDetectionStatusLabel">Please position your face close to the center of the screen
+					</div>
+					<div class="loadingIconArea">
+						<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+					</div>
+				</div>
+			</div>
+			<div class="informationArea layoutTransparent">
+				<div class="loadingArea">
+					<strong>
+						<span id="selfieAgeDetectionLoadingLabelArea"></span>
+						<span id="selfieAgeDetectionLoadingLabelPercentCounter"></span>
+					</strong>
+				</div>
+			</div>
+		</div>
+
+		<div id="scanIdAgeVerificationIntro" class="page layoutIntro isHidden">
+			<div class="headerLogo">
+				<img src="/static/img/logo.svg">
+			</div>
+			<div class="introIcon">
+				<img src="/static/img/scanid-icon.svg">
+			</div>
+			<h1 class="introHeading">Scan id age verification
+			</h1>
+			<h2 class="introText">We will analyze your <strong>document</strong>, make sure the document it's <strong>contained</strong> within the <strong>marked area</strong> on the screen
+			</h2>
+			<div class="documentHelperArea" id="scanIdAgeVerificationDocumentHelperArea"></div>
+			<div id="scanIdAgeVerificationDeviceAccessArea" class="informationArea layoutBlack layoutRelative">
+				<div class="loadingArea">
+					<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+					<strong>Detection in progress</strong>
+				</div>
+				<div class="statusArea">Please allow your camera access in order to continue
+				</div>
+			</div>
+			<div id="scanIdAgeVerificationDeviceSelectionArea" class="isHidden">
+				<div class="selectionArea">
+					<span class="label">Please select a camera to use:</span>
+					<select id="scanIdAgeVerificationDeviceSelect" class="js-example-basic-single select"></select>
+				</div>
+			</div>
+			<div id="scanIdAgeVerificationSubmitArea" class="isHidden">
+				<div class="selectionArea">
+					<span class="label">Country of issue of your identity document:</span>
+					<select id="scanIdAgeVerificationCountrySelect" class="js-example-basic-single select"></select>
+				</div>
+				<div id="scanIdAgeVerificationStateArea" class="selectionArea">
+					<span class="label">State of issue of your identity document:</span>
+					<select id="scanIdAgeVerificationStateSelect" class="js-example-basic-single select"></select>
+				</div>
+				<div id="scanIdAgeVerificationTypeArea" class="selectionArea">
+					<span class="label">Please select your id type:</span>
+					<select id="scanIdAgeVerificationTypeSelect" class="js-example-basic-single select"></select>
+				</div>
+				<div class="browseArea isHidden">
+					<i id="scanIdAgeVerificationUploadImageIntroButton" class="fa fa-cloud-upload icon" aria-hidden="true"></i>
+					<span class="text">Browse image</span>
+				</div>
+				<input type="file" accept="image/*" class="isHidden" id="scanIdAgeVerificationUploadFileIntroInput">
+				<div class="submitArea">
+					<a id="scanIdAgeDetectionStartButton" class="button layoutGreen">Continue
+						<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+					</a>
+					<a id="scanIdAgeDetectionCancelButton" class="linkButton">Cancel
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<div id="scanIdAgeVerificationPage" class="page layoutDetection isHidden">
+
+			<div id="ratioRecommendArea" class="page layoutHint isHidden">
+				<h1 class="introHeading">
+					<i class="fa fa-asterisk" aria-hidden="true"></i>Performance hint
+				</h1>
+				<h2 class="introText" id="ratioRecommendTextArea"></h2>
+				<div class="submitArea">
+					<a id="ratioRecommendButton" class="button">
+						<i class="fa fa-check" aria-hidden="true"></i>OK
+					</a>
+				</div>
+			</div>
+
+			<div id="scanIdAgeVerificationDocumentProcessingArea" class="page layoutDocumentProcessing isHidden">
+				<div class="imageContainer" id="documentProcessingCanvasContainer">
+					<div class="loadingOverlay" id="documentProcessingCanvasLoadingOverlayArea">
+					<span>
+						<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+					</span>
+					</div>
+					<canvas id="documentProcessingCanvas" class="documentProcessingCanvas"></canvas>
+					<canvas id="documentProcessingCanvasOverlay" class="documentProcessingCanvasOverlay"></canvas>
+				</div>
+				<div id="scanIdAgeVerificationDocumentProcessingConfirmationArea" class="confirmationArea isHidden">
+					<div class="introText">Are you sure you want to <strong>continue</strong> using the document <strong>photo above</strong>?
+					</div>
+					<div class="submitArea">
+						<a class="button layoutGreen" id="scanIdAgeVerificationConfirmationYesButton">Yes, it looks good
+							<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+						</a>
+						<a class="button layoutRed" id="scanIdAgeVerificationConfirmationNoButton">No, use another photo
+							<i class="fa fa-refresh" aria-hidden="true"></i>
+						</a>
+					</div>
+					<div class="introText">
+						<p>
+							<strong>
+								<i class="fa fa-info-circle" aria-hidden="true"></i>Hint
+							</strong>
+						</p>
+						<p>For a better detection, make sure the document in the photo it's not rotated, blurry and the light conditions are good
+						</p>
+					</div>
+				</div>
+				<div id="scanIdAgeVerificationDocumentProcessingProcessArea" class="processArea isHidden">
+					<div class="introText"><strong>Processing</strong> your document, <strong>please wait</strong> for all the steps <strong>to complete</strong>
+					</div>
+					<div class="checkOutList">
+						<div class="checkOutItem">
+						<span class="text">Initializing detection libraries -
+							<span id="scanIdAgeVerificationLoadingLabelPercentCounter"></span>
+						</span>
+							<span class="status">
+							<span id="scanIdAgeVerificationLoadingLibraryButton">
+								<i class="fa fa-check statusIcon" aria-hidden="true"></i>
+							</span>
+						</span>
+						</div>
+						<div class="checkOutItem" id="scanIdAgeVerificationFaceSimilarityArea">
+						<span class="text">Checking document face similarity
+						</span>
+							<span class="status">
+							<span class="status">
+							<span id="scanIdAgeVerificationFaceSimilarityButton">
+								<i class="fa fa-check statusIcon" aria-hidden="true"></i>
+							</span>
+						</span>
+						</span>
+						</div>
+						<div class="checkOutItem">
+						<span class="text">Extracting birth date
+						</span>
+							<span class="status">
+							<span class="status">
+							<span id="scanIdAgeVerificationBirthDateButton">
+								<i class="fa fa-check statusIcon" aria-hidden="true"></i>
+							</span>
+						</span>
+						</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="videoOverlay"></div>
+			<div id="scanIdVideoContainer" class="videoSource">
+				<video id="scanIdVideo" autoplay="" muted="" playsinline=""></video>
+				<canvas id="scanIdVideoOverlayCanvas" class="overlayCanvas"></canvas>
+				<canvas id="scanIdVideoResultCanvas" class="resultCanvas"></canvas>
+			</div>
+			<div class="maskGuidContainer">
+				<div id="idCardGuide" class="maskGuide layoutIdentityCardGeneric"></div>
+				<div id="idCardGuideBirthDate" class="maskGuideField"></div>
+			</div>
+			<div class="informationArea layoutTransparent">
+				<div class="imageCaptureArea">
+					<div class="captureOption" id="scanIdAgeVerificationTakePhotoButton">
+						<i class="fa fa-camera icon" aria-hidden="true"></i>
+						<span class="text">Take a photo</span>
+					</div>
+					<div class="captureOption" id="scanIdAgeVerificationUploadImageButton">
+						<i class="fa fa-cloud-upload icon" aria-hidden="true"></i>
+						<span class="text">Browse image</span>
+					</div>
+					<input type="file" accept="image/*" class="isHidden" id="scanIdAgeVerificationUploadFileInput">
+				</div>
+				<div class="statusArea">Take a photo of your document or browse an existing image
+				</div>
+			</div>
+		</div>
+
+
+		<div id="creditCardVerificationIntro" class="page layoutIntro isHidden">
+			<div class="headerLogo">
+				<img src="/static/img/logo.svg">
+			</div>
+			<div class="introIcon">
+				<img src="/static/img/creditcard-icon.svg">
+			</div>
+			<h1 class="introHeading">
+				Credit card age verification
+			</h1>
+			<h2 class="introText">
+				<strong>Verify your age</strong> by using, your <strong>credit card</strong>. By clicking <strong>the button
+					bellow</strong> a new <strong>pop-up window</strong> will open a <strong>secure endpoint</strong> where your
+				credentials will be
+				verified.
+			</h2>
+			<div class="submitArea">
+				<a id="creditCardAgeDetectionStartButton" class="button layoutGreen">Continue
+					<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
+				</a>
+				<a id="creditCardAgeDetectionCancelButton" class="linkButton">Cancel
+				</a>
+			</div>
+		</div>
+		<div id="resultPageSuccess" class="page layoutResult layoutSuccess isHidden">
+			<div class="headerLogo">
+				<img src="/static/img/logo.svg">
+			</div>
+			<div class="introIcon layoutFontIcon layoutGreen">
+				<i class="fa fa-check" aria-hidden="true"></i>
+			</div>
+			<h1 class="introHeading">Verification complete
+			</h1>
+			<h2 class="introText">Information stored locally on your device are now deleted
+			</h2>
+			<h2 class="introText">Your <strong>age</strong> has been <strong>verified</strong>, go <strong>back to your account</strong> using the button below
+			</h2>
+			<h2 class="introText" id="resultPageSuccessSelfieArea"></h2>
+			<h2 class="introText" id="resultPageSuccessScanIdArea"></h2>
+			<div class="submitArea">
+				<a id="resultSuccessButton" class="button layoutGreen">
+					<i class="fa fa-check" aria-hidden="true"></i>Back to the main site
+				</a>
+			</div>
+		</div>
+
+		<div id="resultPageFail" class="page layoutResult layoutFail isHidden">
+			<div class="headerLogo">
+				<img src="/static/img/logo.svg">
+			</div>
+			<h1 class="introHeading">Verification failed
+			</h1>
+			<h2 class="introText">Information stored locally on your device are now deleted
+			</h2>
+			<h2 class="introText" id="resultPageFailReasonArea"></h2>
+			<h2 class="introText" id="resultPageFailQrArea">Or, <strong>continue verification on your mobile</strong> by scanning the QR code below. Make sure you <strong>keep this window open</strong> while using your mobile.
+			</h2>
+			<div id="failPageErrorQrCode" class="qrCodeArea"></div>
+			<div class="submitArea">
+				<a id="resultFailButton" class="button layoutRed">
+					<i class="fa fa-refresh" aria-hidden="true"></i>Start over
+				</a>
+			</div>
+		</div>
+		{% if debug == true %}
+		<div id="debugArea">
+			<p>
+				<strong>Debug:</strong>
+				<a id="debugCloseButton">
+					<i class="fa fa-times" aria-hidden="true"></i> Close
+				</a>
+			</p>
+		</div>
+		{% endif %}
+	</div>
+
+{% endblock %}
+
+{% block javascript %}
+
+<script type="text/javascript" crossorigin="anonymous" src="/static/js/vendor/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" crossorigin="anonymous" src="/static/js/vendor/adapter-7.6.4/adapter.js"></script>
+<script type="text/javascript" crossorigin="anonymous" src="/static/js/vendor/face-api-0.21.0/face-api.js"></script>
+<script type="text/javascript" crossorigin="anonymous" src='/static/js/vendor/tesseract-js-2.1.1/tesseract.min.js'></script>
+<script type="text/javascript" crossorigin="anonymous" src='/static/js/vendor/js-base64-3.5.2/base64.min.js'></script>
+<script type="text/javascript" crossorigin="anonymous" src='/static/js/vendor/qr-code/v1ncc/qr.min.js'></script>
+
+<script type="text/javascript" crossorigin="anonymous" src="/static/js/app/avs.js?{{ cacheBuster }}"></script>
+<script type="text/javascript" crossorigin="anonymous" src="/static/js/app/avsFactory.js?{{ cacheBuster }}"></script>
+<script type="text/javascript" crossorigin="anonymous" src="/static/js/app/common.js?{{ cacheBuster }}"></script>
+
+{% endblock %}

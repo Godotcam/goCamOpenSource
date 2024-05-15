@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"ignoreDeprecations": "5.0",
+		"module": "commonjs",
+		"esModuleInterop": true,
+		"charset": "utf-8",
+		"target": "es2017",
+		"moduleResolution": "node",
+		"removeComments": false,
+		"preserveConstEnums": false,
+		"noImplicitReturns": true,
+		"noUnusedLocals": true,
+		"strictFunctionTypes": true,
+		"sourceMap": false,
+		"listFiles": false,
+		"listEmittedFiles": false,
+		"strict": true,
+		"allowJs": false,
+		"pretty": true
+	}
+}

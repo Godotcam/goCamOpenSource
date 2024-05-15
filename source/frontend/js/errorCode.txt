@@ -1,0 +1,73 @@
+
+Frontend unique error code:
+---------------------------
+
+25060:
+25068:
+25067:
+25066:
+25065: Required qr code library not loaded
+25064:
+25063: Failed to initialize detection libraries
+25062: Face similarity check fail
+25061: Could not detect enough faces from your device video
+25060: Face api expression model must be loaded
+25059: Face api detector must be loaded
+25058: Failed to initialize detection libraries
+25057: Could not detect enough faces from your device video
+25056: Face similarity check fail
+25055: Could not detect any faces from your device video
+25054: Failed to extract your age from the current identity card
+25053: Detected your age is lower than 18 years
+25052: Selfie face does not match the one found on the identity card
+25051: Failed to extract a face from your identity card
+25050: Face api detector must be loaded
+25049: Face api recognition model must be loaded
+25048: Face api detector must be loaded
+25047: Webcam initialization error
+25046: Webcam initialization error
+25045: Failed to initialize detection libraries
+25044: Failed to initialize detection libraries
+25043: Failed to initialize detection libraries
+25042: Failed to initialize detection libraries
+25041: Failed to initialize detection libraries
+25040: Failed to initialize detection libraries
+25039: Could not retrieve your device camera list
+25038: Failed to initialize detection libraries
+25037: Failed to initialize detection libraries
+25036: Failed to initialize detection libraries
+25035: Failed to initialize detection libraries
+25034: Could not retrieve your device camera list
+25033: Preloading verification resources failed
+25032: Preloading verification resources failed
+25031: Tesseract worker was not configured
+25030: Tesseract language was not initialized
+25029: Tesseract language was not loaded
+25028: Tesseract worker was not loaded
+25027: Tesseract language was not initialized
+25026: Tesseract language was not loaded
+25025: Tesseract worker was not loaded
+25024: Initialization request for invalid tesseract language
+25023: Tesseract language was not loaded
+25022: Tesseract worker was not loaded
+25021: Load request for invalid tesseract language
+25020: Tesseract worker was not loaded
+25019: Face api recognition model must be loaded
+25018: Face api detector must be loaded
+25017: Face api recognition model must be loaded
+25016: Face api detector must be loaded
+25015: Face api age and gender model must be loaded
+25014: Face api detector must be loaded
+25013: Face api detector must be loaded
+25012: Required tesseract library not loaded
+25011: Required face api library not loaded
+25010: Failed to preload file
+25009: Could not access user media
+25008: Could not enumerate user devices
+25007:
+25006:
+25005:
+25004:
+25003: Webcam initialization error
+25002: Core ajax library not loaded
+25001: Your device it is not supported

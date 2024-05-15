@@ -1,0 +1,47 @@
+{
+	"name": "gocamopensource",
+	"version": "1.0.0",
+	"description": "Open source implementation of go.cam",
+	"main": "app/backend/app.js",
+	"scripts": {
+		"startDev": "node --watch ./app/backend/app.js",
+		"startProd": "node ./app/backend/app.js",
+		"build": "cd ./script/; gulp build",
+		"buildJsBackend": "cd ./script/; gulp buildJsBackend",
+		"buildJsFrontend": "cd ./script/; gulp buildJsFrontend",
+		"cleanJsFrontend": "cd ./script/; gulp cleanJsFrontend",
+		"buildCssFrontend": "cd ./script/; gulp buildCssFrontend",
+		"watch": "cd ./script/; gulp watch",
+		"watchJsBackend": "cd ./script/; gulp watchJsBackend",
+		"watchJsFrontend": "cd ./script/; gulp watchJsFrontend",
+		"watchCssFrontend": "cd ./script/; gulp watchCssFrontend"
+	},
+	"author": "GoDotCam",
+	"license": "AGPL-3.0",
+	"devDependencies": {
+		"@types/express": "^4.17.21",
+		"@types/express-session": "^1.18.0",
+		"@types/jquery": "^3.5.29",
+		"@types/node": "^20.12.7",
+		"compass-importer": "^0.4.1",
+		"gulp": "^5.0.0",
+		"gulp-clean": "^0.4.0",
+		"gulp-cli": "^3.0.0",
+		"gulp-sass": "^5.1.0",
+		"gulp-typescript": "^6.0.0-alpha.1",
+		"sass": "^1.76.0",
+		"typescript": "^5.4.5"
+	},
+	"dependencies": {
+		"axios": "^1.6.8",
+		"body-parser": "^1.20.2",
+		"cookie-parser": "^1.4.6",
+		"express": "^4.19.2",
+		"express-session": "^1.18.0",
+		"gulp-concat": "^2.6.1",
+		"morgan": "^1.10.0",
+		"serve-favicon": "^2.5.0",
+		"twig": "^1.17.1",
+		"ua-parser-js": "^1.0.37"
+	}
+}

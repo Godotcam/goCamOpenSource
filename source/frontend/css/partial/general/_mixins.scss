@@ -1,0 +1,32 @@
+
+@mixin flexCenter {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@mixin toyStatusBullet($color) {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	bottom: 5px;
+	right: 0;
+	background-color: $color;
+	z-index: 1;
+	border-radius: 10px;
+}
+
+@mixin testButton($color, $borderColor, $background) {
+	color: $color;
+	background: $background;
+	border-radius: 40px;
+	display: block;
+	padding: 20px 40px;
+	border: solid 10px $borderColor;
+	font-size: 16px;
+	min-width: 180px;
+	cursor: pointer;
+	text-align: center;
+}

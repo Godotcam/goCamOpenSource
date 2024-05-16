@@ -1,3 +1,6 @@
+![image](https://github.com/Godotcam/goCamOpenSource/assets/169826477/881f387a-a09d-417e-a1fb-67dab35c5072)
+
+
 # Go.cam - Age verification system
 
 [GO.cam](https://go.cam/) offers a simple, easy-to-use application for verifying age online.

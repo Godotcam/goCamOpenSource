@@ -1,6 +1,6 @@
 # Go.cam - Age verification system
 
-GO.cam offers a simple, easy-to-use application for verifying age online.
+[GO.cam](https://go.cam/) offers a simple, easy-to-use application for verifying age online.
 With just a few clicks, it allows to verify the age of the person who wishes to access certain sites restricted to minors.
 
 Two methods of age verification are available : facial recognition (selfie) and ID documents verification (ID card, passport, or driver's license).

@@ -250,10 +250,6 @@ namespace Avs {
 						this.faceApiClass.detectSingleFace(this.videoElement, this.detectorOptions).withAgeAndGender().then(
 							(result: any) => {
 
-								console.log('===================');
-								console.log(result);
-								console.log('===================');
-
 								// face was detected
 								if (typeof result !== 'undefined' && result.detection) {
 
@@ -301,10 +297,6 @@ namespace Avs {
 
 								// face was detected
 								if (typeof result !== 'undefined') {
-
-									console.log('+++++++++++++++');
-									console.log(result);
-									console.log('+++++++++++++++');
 
 									cb(result);
 

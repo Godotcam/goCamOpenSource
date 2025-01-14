@@ -7992,154 +7992,6 @@ namespace Avs {
 				"countryName": "United States",
 				"hasMultipleState": true,
 				"stateList": {
-					"AL": {
-						"stateName": "Alabama",
-						"idConfig": {
-							"idCard": <any>[],
-							"passport": [
-								{
-									"year": 2006,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 USA",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 3,
-											"month": 2,
-											"year": 1
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 600,
-											"height": 427,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 192,
-											"height": 69,
-											"top": 355,
-											"left": 106
-										},
-										"faceArea": {
-											"width": 117,
-											"height": 112,
-											"top": 156,
-											"left": 54,
-											"birthDateAreaDistance": {
-												"top": 199,
-												"left": 52
-											}
-										}
-									},
-									"idRegionZoom": 2
-								},
-								{
-									"year": 2020,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 USA",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 3,
-											"month": 2,
-											"year": 1
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 600,
-											"height": 414,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 214,
-											"height": 69,
-											"top": 343,
-											"left": 89
-										},
-										"faceArea": {
-											"width": 109,
-											"height": 91,
-											"top": 176,
-											"left": 32,
-											"birthDateAreaDistance": {
-												"top": 167,
-												"left": 57
-											}
-										}
-									},
-									"idRegionZoom": 2
-								}
-							],
-							"driverLicence": [
-								{
-									"year": 2011,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 -",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/([0-9]{2})\\-([0-9]{2})\\-([0-9]{4})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 2,
-											"month": 1,
-											"year": 3
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 550,
-											"height": 348,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 210,
-											"height": 56,
-											"top": 108,
-											"left": 187
-										},
-										"faceArea": {
-											"width": 137,
-											"height": 146,
-											"top": 137,
-											"left": 33,
-											"birthDateAreaDistance": {
-												"top": -29,
-												"left": 154
-											}
-										}
-									},
-									"idRegionZoom": 2
-								}
-							]
-						}
-					},
 					"AR": {
 						"stateName": "Arkansas",
 						"idConfig": {
@@ -8326,588 +8178,6 @@ namespace Avs {
 											"birthDateAreaDistance": {
 												"top": -70,
 												"left": 299
-											}
-										}
-									},
-									"idRegionZoom": 2
-								}
-							]
-						}
-					},
-					"ID": {
-						"stateName": "Idaho",
-						"idConfig": {
-							"idCard": <any>[],
-							"passport": [
-								{
-									"year": 2006,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 USA",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 3,
-											"month": 2,
-											"year": 1
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 600,
-											"height": 427,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 210,
-											"height": 57,
-											"top": 368,
-											"left": 90
-										},
-										"faceArea": {
-											"width": 116,
-											"height": 106,
-											"top": 160,
-											"left": 52,
-											"birthDateAreaDistance": {
-												"top": 208,
-												"left": 38
-											}
-										}
-									},
-									"idRegionZoom": 2
-								},
-								{
-									"year": 2020,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 USA",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 3,
-											"month": 2,
-											"year": 1
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 600,
-											"height": 414,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 195,
-											"height": 65,
-											"top": 347,
-											"left": 109
-										},
-										"faceArea": {
-											"width": 110,
-											"height": 94,
-											"top": 173,
-											"left": 30,
-											"birthDateAreaDistance": {
-												"top": 174,
-												"left": 79
-											}
-										}
-									},
-									"idRegionZoom": 2
-								}
-							],
-							"driverLicence": [
-								{
-									"year": 2016,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "DOB1234567890 /",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/DOB.*([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 2,
-											"month": 1,
-											"year": 3
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 550,
-											"height": 341,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 189,
-											"height": 72,
-											"top": 93,
-											"left": 361
-										},
-										"faceArea": {
-											"width": 113,
-											"height": 108,
-											"top": 132,
-											"left": 38,
-											"birthDateAreaDistance": {
-												"top": -39,
-												"left": 323
-											}
-										}
-									},
-									"idRegionZoom": 2
-								},
-								{
-									"year": 2023,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 /",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{2})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 2,
-											"month": 1,
-											"year": 3
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 550,
-											"height": 349,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 190,
-											"height": 67,
-											"top": 278,
-											"left": 286
-										},
-										"faceArea": {
-											"width": 147,
-											"height": 136,
-											"top": 128,
-											"left": 31,
-											"birthDateAreaDistance": {
-												"top": 150,
-												"left": 255
-											}
-										}
-									},
-									"idRegionZoom": 2
-								}
-							]
-						}
-					},
-					"KS": {
-						"stateName": "Kansas",
-						"idConfig": {
-							"idCard": <any>[],
-							"passport": [
-								{
-									"year": 2006,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 USA",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 3,
-											"month": 2,
-											"year": 1
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 600,
-											"height": 427,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 192,
-											"height": 60,
-											"top": 366,
-											"left": 98
-										},
-										"faceArea": {
-											"width": 115,
-											"height": 105,
-											"top": 158,
-											"left": 52,
-											"birthDateAreaDistance": {
-												"top": 208,
-												"left": 46
-											}
-										}
-									},
-									"idRegionZoom": 2
-								},
-								{
-									"year": 2020,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 USA",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 3,
-											"month": 2,
-											"year": 1
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 600,
-											"height": 414,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 191,
-											"height": 73,
-											"top": 338,
-											"left": 112
-										},
-										"faceArea": {
-											"width": 107,
-											"height": 94,
-											"top": 171,
-											"left": 32,
-											"birthDateAreaDistance": {
-												"top": 167,
-												"left": 80
-											}
-										}
-									},
-									"idRegionZoom": 2
-								}
-							],
-							"driverLicence": [
-								{
-									"year": 2012,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 /",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/.*([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 2,
-											"month": 1,
-											"year": 3
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 550,
-											"height": 347,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 196,
-											"height": 67,
-											"top": 53,
-											"left": 201
-										},
-										"faceArea": {
-											"width": 119,
-											"height": 122,
-											"top": 132,
-											"left": 36,
-											"birthDateAreaDistance": {
-												"top": -79,
-												"left": 165
-											}
-										}
-									},
-									"idRegionZoom": 2
-								},
-								{
-									"year": 2017,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 /",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/.*([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 2,
-											"month": 1,
-											"year": 3
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 550,
-											"height": 347,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 201,
-											"height": 70,
-											"top": 73,
-											"left": 189
-										},
-										"faceArea": {
-											"width": 124,
-											"height": 124,
-											"top": 133,
-											"left": 31,
-											"birthDateAreaDistance": {
-												"top": -60,
-												"left": 158
-											}
-										}
-									},
-									"idRegionZoom": 2
-								}
-							]
-						}
-					},
-					"KY": {
-						"stateName": "Kentucky",
-						"idConfig": {
-							"idCard": <any>[],
-							"passport": [
-								{
-									"year": 2006,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 USA",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 3,
-											"month": 2,
-											"year": 1
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 600,
-											"height": 427,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 188,
-											"height": 68,
-											"top": 356,
-											"left": 112
-										},
-										"faceArea": {
-											"width": 116,
-											"height": 104,
-											"top": 159,
-											"left": 53,
-											"birthDateAreaDistance": {
-												"top": 197,
-												"left": 59
-											}
-										}
-									},
-									"idRegionZoom": 2
-								},
-								{
-									"year": 2020,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 USA",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 3,
-											"month": 2,
-											"year": 1
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 600,
-											"height": 414,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 184,
-											"height": 68,
-											"top": 345,
-											"left": 117
-										},
-										"faceArea": {
-											"width": 111,
-											"height": 95,
-											"top": 174,
-											"left": 31,
-											"birthDateAreaDistance": {
-												"top": 171,
-												"left": 86
-											}
-										}
-									},
-									"idRegionZoom": 2
-								}
-							],
-							"driverLicence": [
-								{
-									"year": 2012,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "DOB1234567890 -",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/.*([0-9]{2})\\-([0-9]{2})\\-([0-9]{4})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 2,
-											"month": 1,
-											"year": 3
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 20,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 550,
-											"height": 353,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 239,
-											"height": 68,
-											"top": 119,
-											"left": 190
-										},
-										"faceArea": {
-											"width": 104,
-											"height": 101,
-											"top": 134,
-											"left": 38,
-											"birthDateAreaDistance": {
-												"top": -15,
-												"left": 152
-											}
-										}
-									},
-									"idRegionZoom": 2
-								},
-								{
-									"year": 2019,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "DOB1234567890 /",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/3.*([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 2,
-											"month": 1,
-											"year": 3
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 30,
-									"contrast": 50,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 550,
-											"height": 347,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 230,
-											"height": 65,
-											"top": 163,
-											"left": 252
-										},
-										"faceArea": {
-											"width": 126,
-											"height": 123,
-											"top": 130,
-											"left": 18,
-											"birthDateAreaDistance": {
-												"top": 33,
-												"left": 234
 											}
 										}
 									},
@@ -9363,200 +8633,6 @@ namespace Avs {
 							]
 						}
 					},
-					"NE": {
-						"stateName": "Nebraska",
-						"idConfig": {
-							"idCard": <any>[],
-							"passport": [
-								{
-									"year": 2006,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 USA",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 3,
-											"month": 2,
-											"year": 1
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 600,
-											"height": 427,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 206,
-											"height": 63,
-											"top": 360,
-											"left": 101
-										},
-										"faceArea": {
-											"width": 116,
-											"height": 106,
-											"top": 160,
-											"left": 52,
-											"birthDateAreaDistance": {
-												"top": 200,
-												"left": 49
-											}
-										}
-									},
-									"idRegionZoom": 2
-								},
-								{
-									"year": 2020,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 USA",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 3,
-											"month": 2,
-											"year": 1
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 600,
-											"height": 414,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 204,
-											"height": 74,
-											"top": 337,
-											"left": 103
-										},
-										"faceArea": {
-											"width": 112,
-											"height": 95,
-											"top": 174,
-											"left": 31,
-											"birthDateAreaDistance": {
-												"top": 163,
-												"left": 72
-											}
-										}
-									},
-									"idRegionZoom": 2
-								}
-							],
-							"driverLicence": [
-								{
-									"year": 2009,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 /",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/.*([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 2,
-											"month": 1,
-											"year": 3
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 20,
-									"contrast": 50,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 550,
-											"height": 348,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 233,
-											"height": 64,
-											"top": 71,
-											"left": 155
-										},
-										"faceArea": {
-											"width": 140,
-											"height": 142,
-											"top": 132,
-											"left": 29,
-											"birthDateAreaDistance": {
-												"top": -61,
-												"left": 126
-											}
-										}
-									},
-									"idRegionZoom": 2
-								},
-								{
-									"year": 2021,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 /",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/.*([0-9]{2})\\/([0-9]{2})\\/([0-9]{2})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 2,
-											"month": 1,
-											"year": 3
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 550,
-											"height": 312,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 190,
-											"height": 62,
-											"top": 250,
-											"left": 275
-										},
-										"faceArea": {
-											"width": 141,
-											"height": 126,
-											"top": 111,
-											"left": 28,
-											"birthDateAreaDistance": {
-												"top": 139,
-												"left": 247
-											}
-										}
-									},
-									"idRegionZoom": 2
-								}
-							]
-						}
-					},
 					"NC": {
 						"stateName": "North Carolina",
 						"idConfig": {
@@ -9703,154 +8779,6 @@ namespace Avs {
 									"idRegionZoom": 2
 								}
 
-							]
-						}
-					},
-					"OK": {
-						"stateName": "Oklahoma",
-						"idConfig": {
-							"idCard": <any>[],
-							"passport": [
-								{
-									"year": 2006,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 USA",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 3,
-											"month": 2,
-											"year": 1
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 600,
-											"height": 427,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 201,
-											"height": 66,
-											"top": 358,
-											"left": 95
-										},
-										"faceArea": {
-											"width": 116,
-											"height": 107,
-											"top": 160,
-											"left": 52,
-											"birthDateAreaDistance": {
-												"top": 198,
-												"left": 43
-											}
-										}
-									},
-									"idRegionZoom": 2
-								},
-								{
-									"year": 2020,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 USA",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 3,
-											"month": 2,
-											"year": 1
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 600,
-											"height": 414,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 194,
-											"height": 69,
-											"top": 342,
-											"left": 107
-										},
-										"faceArea": {
-											"width": 113,
-											"height": 95,
-											"top": 172,
-											"left": 29,
-											"birthDateAreaDistance": {
-												"top": 170,
-												"left": 78
-											}
-										}
-									},
-									"idRegionZoom": 2
-								}
-							],
-							"driverLicence": [
-								{
-									"year": 2020,
-									"tesseractConfig": {
-										"tessedit_char_whitelist": "1234567890 /",
-										"tessedit_ocr_engine_mode": 2
-									},
-									"stripWhiteSpace": false,
-									"textMatcherRule": [
-										"/.*([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
-									],
-									"dateComponentsPosition": [
-										{
-											"day": 2,
-											"month": 1,
-											"year": 3
-										}
-									],
-									"monthNameLanguage": "en",
-									"brightness": 10,
-									"contrast": 40,
-									"threshold": 0,
-									"idSizeList": {
-										"container": {
-											"width": 550,
-											"height": 343,
-											"ratioType": 1
-										},
-										"birthDateArea": {
-											"width": 228,
-											"height": 63,
-											"top": 84,
-											"left": 149
-										},
-										"faceArea": {
-											"width": 117,
-											"height": 126,
-											"top": 144,
-											"left": 36,
-											"birthDateAreaDistance": {
-												"top": -60,
-												"left": 113
-											}
-										}
-									},
-									"idRegionZoom": 2
-								}
 							]
 						}
 					},
@@ -10298,6 +9226,6634 @@ namespace Avs {
 									"idRegionZoom": 2
 								}
 
+							]
+						}
+					},
+
+					"AK": {
+						"stateName": "Alaska",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 203,
+											"height": 67,
+											"top": 356,
+											"left": 94
+										},
+										"faceArea": {
+											"width": 114,
+											"height": 109,
+											"top": 155,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 201,
+												"left": 41
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 180,
+											"height": 65,
+											"top": 344,
+											"left": 125
+										},
+										"faceArea": {
+											"width": 110,
+											"height": 92,
+											"top": 172,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 172,
+												"left": 94
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2013,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 -",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})-([0-9]{2})-([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 349,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 151,
+											"height": 49,
+											"top": 166,
+											"left": 158
+										},
+										"faceArea": {
+											"width": 105,
+											"height": 130,
+											"top": 55,
+											"left": 30,
+											"birthDateAreaDistance": {
+												"top": 111,
+												"left": 128
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2018,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 350,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 103,
+											"height": 48,
+											"top": 59,
+											"left": 162
+										},
+										"faceArea": {
+											"width": 106,
+											"height": 112,
+											"top": 117,
+											"left": 39,
+											"birthDateAreaDistance": {
+												"top": -58,
+												"left": 123
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"AZ": {
+						"stateName": "Arizona",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 196,
+											"height": 71,
+											"top": 352,
+											"left": 94
+										},
+										"faceArea": {
+											"width": 117,
+											"height": 109,
+											"top": 155,
+											"left": 55,
+											"birthDateAreaDistance": {
+												"top": 197,
+												"left": 39
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 174,
+											"height": 64,
+											"top": 343,
+											"left": 127
+										},
+										"faceArea": {
+											"width": 109,
+											"height": 94,
+											"top": 172,
+											"left": 33,
+											"birthDateAreaDistance": {
+												"top": 171,
+												"left": 94
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2016,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 1,
+											"month": 2,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 345,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 177,
+											"height": 51,
+											"top": 103,
+											"left": 355
+										},
+										"faceArea": {
+											"width": 120,
+											"height": 132,
+											"top": 131,
+											"left": 49,
+											"birthDateAreaDistance": {
+												"top": -28,
+												"left": 306
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2023,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 343,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 184,
+											"height": 42,
+											"top": 85,
+											"left": 338
+										},
+										"faceArea": {
+											"width": 100,
+											"height": 101,
+											"top": 142,
+											"left": 27,
+											"birthDateAreaDistance": {
+												"top": -57,
+												"left": 311
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"CA": {
+						"stateName": "California",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 204,
+											"height": 66,
+											"top": 357,
+											"left": 91
+										},
+										"faceArea": {
+											"width": 120,
+											"height": 108,
+											"top": 155,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 202,
+												"left": 38
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 172,
+											"height": 67,
+											"top": 339,
+											"left": 129
+										},
+										"faceArea": {
+											"width": 111,
+											"height": 93,
+											"top": 170,
+											"left": 30,
+											"birthDateAreaDistance": {
+												"top": 169,
+												"left": 99
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2009,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 342,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 165,
+											"height": 46,
+											"top": 185,
+											"left": 187
+										},
+										"faceArea": {
+											"width": 148,
+											"height": 135,
+											"top": 122,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 63,
+												"left": 156
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"CO": {
+						"stateName": "Colorado",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 200,
+											"height": 60,
+											"top": 361,
+											"left": 93
+										},
+										"faceArea": {
+											"width": 115,
+											"height": 110,
+											"top": 154,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 207,
+												"left": 40
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 173,
+											"height": 67,
+											"top": 341,
+											"left": 130
+										},
+										"faceArea": {
+											"width": 109,
+											"height": 95,
+											"top": 170,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 171,
+												"left": 99
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2015,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 354,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 96,
+											"height": 24,
+											"top": 148,
+											"left": 174
+										},
+										"faceArea": {
+											"width": 112,
+											"height": 114,
+											"top": 155,
+											"left": 35,
+											"birthDateAreaDistance": {
+												"top": -7,
+												"left": 139
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 344,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 124,
+											"height": 32,
+											"top": 71,
+											"left": 423
+										},
+										"faceArea": {
+											"width": 132,
+											"height": 125,
+											"top": 160,
+											"left": 15,
+											"birthDateAreaDistance": {
+												"top": -89,
+												"left": 408
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"CT": {
+						"stateName": "Connecticut",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi",
+										"/(?:)/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 201,
+											"height": 64,
+											"top": 360,
+											"left": 94
+										},
+										"faceArea": {
+											"width": 117,
+											"height": 107,
+											"top": 156,
+											"left": 52,
+											"birthDateAreaDistance": {
+												"top": 204,
+												"left": 42
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 171,
+											"height": 64,
+											"top": 343,
+											"left": 131
+										},
+										"faceArea": {
+											"width": 107,
+											"height": 92,
+											"top": 171,
+											"left": 32,
+											"birthDateAreaDistance": {
+												"top": 172,
+												"left": 99
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2009,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 -",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})-([0-9]{2})-([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 334,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 173,
+											"height": 46,
+											"top": 156,
+											"left": 232
+										},
+										"faceArea": {
+											"width": 130,
+											"height": 130,
+											"top": 125,
+											"left": 17,
+											"birthDateAreaDistance": {
+												"top": 31,
+												"left": 215
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2016,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 / ",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 368,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 137,
+											"height": 58,
+											"top": 139,
+											"left": 222
+										},
+										"faceArea": {
+											"width": 131,
+											"height": 140,
+											"top": 147,
+											"left": 52,
+											"birthDateAreaDistance": {
+												"top": -8,
+												"left": 170
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"DE": {
+						"stateName": "Delaware",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 199,
+											"height": 60,
+											"top": 361,
+											"left": 94
+										},
+										"faceArea": {
+											"width": 118,
+											"height": 110,
+											"top": 155,
+											"left": 52,
+											"birthDateAreaDistance": {
+												"top": 206,
+												"left": 42
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 174,
+											"height": 69,
+											"top": 338,
+											"left": 129
+										},
+										"faceArea": {
+											"width": 108,
+											"height": 93,
+											"top": 171,
+											"left": 32,
+											"birthDateAreaDistance": {
+												"top": 167,
+												"left": 97
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2023,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 349,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 122,
+											"height": 44,
+											"top": 224,
+											"left": 411
+										},
+										"faceArea": {
+											"width": 135,
+											"height": 150,
+											"top": 130,
+											"left": 41,
+											"birthDateAreaDistance": {
+												"top": 94,
+												"left": 370
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"FL": {
+						"stateName": "Florida",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 196,
+											"height": 60,
+											"top": 361,
+											"left": 96
+										},
+										"faceArea": {
+											"width": 117,
+											"height": 109,
+											"top": 156,
+											"left": 52,
+											"birthDateAreaDistance": {
+												"top": 205,
+												"left": 44
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 174,
+											"height": 70,
+											"top": 337,
+											"left": 130
+										},
+										"faceArea": {
+											"width": 112,
+											"height": 95,
+											"top": 171,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 166,
+												"left": 99
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2013,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 -",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})-([0-9]{2})-([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 338,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 125,
+											"height": 35,
+											"top": 168,
+											"left": 205
+										},
+										"faceArea": {
+											"width": 138,
+											"height": 137,
+											"top": 79,
+											"left": 21,
+											"birthDateAreaDistance": {
+												"top": 89,
+												"left": 184
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2019,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 11,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 344,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 109,
+											"height": 28,
+											"top": 148,
+											"left": 228
+										},
+										"faceArea": {
+											"width": 114,
+											"height": 114,
+											"top": 146,
+											"left": 41,
+											"birthDateAreaDistance": {
+												"top": 2,
+												"left": 187
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"GA": {
+						"stateName": "Georgia",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 201,
+											"height": 62,
+											"top": 362,
+											"left": 95
+										},
+										"faceArea": {
+											"width": 114,
+											"height": 107,
+											"top": 157,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 205,
+												"left": 42
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 174,
+											"height": 66,
+											"top": 343,
+											"left": 130
+										},
+										"faceArea": {
+											"width": 109,
+											"height": 98,
+											"top": 170,
+											"left": 33,
+											"birthDateAreaDistance": {
+												"top": 173,
+												"left": 97
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2015,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 337,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 162,
+											"height": 40,
+											"top": 67,
+											"left": 372
+										},
+										"faceArea": {
+											"width": 112,
+											"height": 114,
+											"top": 121,
+											"left": 45,
+											"birthDateAreaDistance": {
+												"top": -54,
+												"left": 327
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2018,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 366,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 140,
+											"height": 43,
+											"top": 56,
+											"left": 393
+										},
+										"faceArea": {
+											"width": 112,
+											"height": 118,
+											"top": 143,
+											"left": 35,
+											"birthDateAreaDistance": {
+												"top": -87,
+												"left": 358
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"HI": {
+						"stateName": "Hawaii",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 198,
+											"height": 60,
+											"top": 361,
+											"left": 94
+										},
+										"faceArea": {
+											"width": 114,
+											"height": 111,
+											"top": 153,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 208,
+												"left": 41
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 175,
+											"height": 67,
+											"top": 343,
+											"left": 130
+										},
+										"faceArea": {
+											"width": 110,
+											"height": 95,
+											"top": 171,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 172,
+												"left": 99
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2008,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 90,
+									"contrast": 10,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 364,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 184,
+											"height": 67,
+											"top": 106,
+											"left": 212
+										},
+										"faceArea": {
+											"width": 144,
+											"height": 140,
+											"top": 78,
+											"left": 38,
+											"birthDateAreaDistance": {
+												"top": 28,
+												"left": 174
+											}
+										}
+									},
+									"idRegionZoom": 10
+								},
+								{
+									"year": 2010,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 90,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 346,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 276,
+											"height": 76,
+											"top": 147,
+											"left": 171
+										},
+										"faceArea": {
+											"width": 108,
+											"height": 128,
+											"top": 109,
+											"left": 27,
+											"birthDateAreaDistance": {
+												"top": 38,
+												"left": 144
+											}
+										}
+									},
+									"idRegionZoom": 1
+								}
+							]
+						}
+					},
+					"IL": {
+						"stateName": "Illinois",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 199,
+											"height": 62,
+											"top": 361,
+											"left": 94
+										},
+										"faceArea": {
+											"width": 117,
+											"height": 109,
+											"top": 155,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 206,
+												"left": 41
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 176,
+											"height": 65,
+											"top": 342,
+											"left": 129
+										},
+										"faceArea": {
+											"width": 111,
+											"height": 93,
+											"top": 172,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 170,
+												"left": 98
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2009,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 -",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})-([0-9]{2})-([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 345,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 159,
+											"height": 57,
+											"top": 117,
+											"left": 229
+										},
+										"faceArea": {
+											"width": 126,
+											"height": 115,
+											"top": 117,
+											"left": 32,
+											"birthDateAreaDistance": {
+												"top": 0,
+												"left": 197
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2023,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 345,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 111,
+											"height": 27,
+											"top": 100,
+											"left": 235
+										},
+										"faceArea": {
+											"width": 132,
+											"height": 130,
+											"top": 133,
+											"left": 35,
+											"birthDateAreaDistance": {
+												"top": -33,
+												"left": 200
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"IN": {
+						"stateName": "Indiana",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 199,
+											"height": 63,
+											"top": 361,
+											"left": 95
+										},
+										"faceArea": {
+											"width": 115,
+											"height": 107,
+											"top": 153,
+											"left": 54,
+											"birthDateAreaDistance": {
+												"top": 208,
+												"left": 41
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 178,
+											"height": 69,
+											"top": 338,
+											"left": 127
+										},
+										"faceArea": {
+											"width": 116,
+											"height": 91,
+											"top": 175,
+											"left": 29,
+											"birthDateAreaDistance": {
+												"top": 163,
+												"left": 98
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2021,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 346,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 154,
+											"height": 57,
+											"top": 239,
+											"left": 174
+										},
+										"faceArea": {
+											"width": 103,
+											"height": 108,
+											"top": 135,
+											"left": 39,
+											"birthDateAreaDistance": {
+												"top": 104,
+												"left": 135
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"IA": {
+						"stateName": "Iowa",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 202,
+											"height": 62,
+											"top": 361,
+											"left": 93
+										},
+										"faceArea": {
+											"width": 115,
+											"height": 108,
+											"top": 153,
+											"left": 54,
+											"birthDateAreaDistance": {
+												"top": 208,
+												"left": 39
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 176,
+											"height": 69,
+											"top": 339,
+											"left": 129
+										},
+										"faceArea": {
+											"width": 110,
+											"height": 93,
+											"top": 171,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 168,
+												"left": 98
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2016,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 345,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 141,
+											"height": 34,
+											"top": 279,
+											"left": 217
+										},
+										"faceArea": {
+											"width": 107,
+											"height": 110,
+											"top": 131,
+											"left": 41,
+											"birthDateAreaDistance": {
+												"top": 148,
+												"left": 176
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"ME": {
+						"stateName": "Maine",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 200,
+											"height": 60,
+											"top": 363,
+											"left": 94
+										},
+										"faceArea": {
+											"width": 114,
+											"height": 109,
+											"top": 155,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 208,
+												"left": 41
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 175,
+											"height": 71,
+											"top": 339,
+											"left": 130
+										},
+										"faceArea": {
+											"width": 111,
+											"height": 98,
+											"top": 170,
+											"left": 29,
+											"birthDateAreaDistance": {
+												"top": 169,
+												"left": 101
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2011,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 346,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 103,
+											"height": 32,
+											"top": 219,
+											"left": 408
+										},
+										"faceArea": {
+											"width": 126,
+											"height": 128,
+											"top": 141,
+											"left": 35,
+											"birthDateAreaDistance": {
+												"top": 78,
+												"left": 373
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2021,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 348,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 126,
+											"height": 33,
+											"top": 99,
+											"left": 407
+										},
+										"faceArea": {
+											"width": 114,
+											"height": 126,
+											"top": 143,
+											"left": 37,
+											"birthDateAreaDistance": {
+												"top": -44,
+												"left": 370
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"MD": {
+						"stateName": "Maryland",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 197,
+											"height": 62,
+											"top": 362,
+											"left": 96
+										},
+										"faceArea": {
+											"width": 116,
+											"height": 109,
+											"top": 157,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 205,
+												"left": 43
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 173,
+											"height": 66,
+											"top": 341,
+											"left": 130
+										},
+										"faceArea": {
+											"width": 110,
+											"height": 94,
+											"top": 173,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 168,
+												"left": 99
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2016,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 352,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 92,
+											"height": 38,
+											"top": 253,
+											"left": 165
+										},
+										"faceArea": {
+											"width": 115,
+											"height": 109,
+											"top": 146,
+											"left": 38,
+											"birthDateAreaDistance": {
+												"top": 107,
+												"left": 127
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"MA": {
+						"stateName": "Massachusetts",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 201,
+											"height": 62,
+											"top": 361,
+											"left": 94
+										},
+										"faceArea": {
+											"width": 115,
+											"height": 105,
+											"top": 157,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 204,
+												"left": 41
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 174,
+											"height": 67,
+											"top": 339,
+											"left": 128
+										},
+										"faceArea": {
+											"width": 112,
+											"height": 91,
+											"top": 173,
+											"left": 29,
+											"birthDateAreaDistance": {
+												"top": 166,
+												"left": 99
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2018,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 352,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 147,
+											"height": 58,
+											"top": 121,
+											"left": 388
+										},
+										"faceArea": {
+											"width": 128,
+											"height": 130,
+											"top": 127,
+											"left": 71,
+											"birthDateAreaDistance": {
+												"top": -6,
+												"left": 317
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"MI": {
+						"stateName": "Michigan",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 199,
+											"height": 62,
+											"top": 361,
+											"left": 93
+										},
+										"faceArea": {
+											"width": 117,
+											"height": 108,
+											"top": 156,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 205,
+												"left": 40
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 180,
+											"height": 70,
+											"top": 337,
+											"left": 125
+										},
+										"faceArea": {
+											"width": 111,
+											"height": 93,
+											"top": 172,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 165,
+												"left": 94
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2018,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 -",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})-([0-9]{2})-([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 347,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 112,
+											"height": 33,
+											"top": 100,
+											"left": 193
+										},
+										"faceArea": {
+											"width": 116,
+											"height": 128,
+											"top": 145,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": -45,
+												"left": 162
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2024,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 10,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 345,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 128,
+											"height": 41,
+											"top": 83,
+											"left": 189
+										},
+										"faceArea": {
+											"width": 126,
+											"height": 124,
+											"top": 126,
+											"left": 43,
+											"birthDateAreaDistance": {
+												"top": -43,
+												"left": 146
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"MN": {
+						"stateName": "Minnesota",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 198,
+											"height": 66,
+											"top": 357,
+											"left": 95
+										},
+										"faceArea": {
+											"width": 116,
+											"height": 108,
+											"top": 155,
+											"left": 52,
+											"birthDateAreaDistance": {
+												"top": 202,
+												"left": 43
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 176,
+											"height": 66,
+											"top": 342,
+											"left": 128
+										},
+										"faceArea": {
+											"width": 109,
+											"height": 93,
+											"top": 172,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 170,
+												"left": 97
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2018,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 361,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 121,
+											"height": 36,
+											"top": 173,
+											"left": 209
+										},
+										"faceArea": {
+											"width": 130,
+											"height": 126,
+											"top": 149,
+											"left": 37,
+											"birthDateAreaDistance": {
+												"top": 24,
+												"left": 172
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"MO": {
+						"stateName": "Missouri",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 202,
+											"height": 66,
+											"top": 357,
+											"left": 91
+										},
+										"faceArea": {
+											"width": 120,
+											"height": 105,
+											"top": 157,
+											"left": 51,
+											"birthDateAreaDistance": {
+												"top": 200,
+												"left": 40
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 178,
+											"height": 70,
+											"top": 337,
+											"left": 127
+										},
+										"faceArea": {
+											"width": 110,
+											"height": 96,
+											"top": 170,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 167,
+												"left": 96
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 346,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 175,
+											"height": 45,
+											"top": 111,
+											"left": 341
+										},
+										"faceArea": {
+											"width": 112,
+											"height": 121,
+											"top": 152,
+											"left": 36,
+											"birthDateAreaDistance": {
+												"top": -41,
+												"left": 305
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"NV": {
+						"stateName": "Nevada",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 198,
+											"height": 64,
+											"top": 359,
+											"left": 95
+										},
+										"faceArea": {
+											"width": 117,
+											"height": 109,
+											"top": 155,
+											"left": 52,
+											"birthDateAreaDistance": {
+												"top": 204,
+												"left": 43
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 176,
+											"height": 75,
+											"top": 335,
+											"left": 129
+										},
+										"faceArea": {
+											"width": 110,
+											"height": 94,
+											"top": 173,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 162,
+												"left": 98
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 360,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 144,
+											"height": 31,
+											"top": 286,
+											"left": 280
+										},
+										"faceArea": {
+											"width": 96,
+											"height": 111,
+											"top": 150,
+											"left": 38,
+											"birthDateAreaDistance": {
+												"top": 136,
+												"left": 242
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 346,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 111,
+											"height": 28,
+											"top": 80,
+											"left": 234
+										},
+										"faceArea": {
+											"width": 125,
+											"height": 124,
+											"top": 124,
+											"left": 55,
+											"birthDateAreaDistance": {
+												"top": -44,
+												"left": 179
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"NH": {
+						"stateName": "New Hampshire",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 200,
+											"height": 65,
+											"top": 358,
+											"left": 94
+										},
+										"faceArea": {
+											"width": 115,
+											"height": 111,
+											"top": 154,
+											"left": 54,
+											"birthDateAreaDistance": {
+												"top": 204,
+												"left": 40
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 177,
+											"height": 70,
+											"top": 339,
+											"left": 127
+										},
+										"faceArea": {
+											"width": 108,
+											"height": 92,
+											"top": 172,
+											"left": 33,
+											"birthDateAreaDistance": {
+												"top": 167,
+												"left": 94
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2017,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 344,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 161,
+											"height": 70,
+											"top": 234,
+											"left": 276
+										},
+										"faceArea": {
+											"width": 103,
+											"height": 111,
+											"top": 123,
+											"left": 39,
+											"birthDateAreaDistance": {
+												"top": 111,
+												"left": 237
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"NJ": {
+						"stateName": "New Jersey",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 202,
+											"height": 66,
+											"top": 357,
+											"left": 93
+										},
+										"faceArea": {
+											"width": 115,
+											"height": 106,
+											"top": 157,
+											"left": 54,
+											"birthDateAreaDistance": {
+												"top": 200,
+												"left": 39
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 179,
+											"height": 72,
+											"top": 335,
+											"left": 126
+										},
+										"faceArea": {
+											"width": 111,
+											"height": 94,
+											"top": 171,
+											"left": 30,
+											"birthDateAreaDistance": {
+												"top": 164,
+												"left": 96
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2010,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 -",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})-([0-9]{2})-([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 345,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 169,
+											"height": 40,
+											"top": 115,
+											"left": 202
+										},
+										"faceArea": {
+											"width": 139,
+											"height": 141,
+											"top": 166,
+											"left": 32,
+											"birthDateAreaDistance": {
+												"top": -51,
+												"left": 170
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"NM": {
+						"stateName": "New Mexico",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 204,
+											"height": 65,
+											"top": 358,
+											"left": 91
+										},
+										"faceArea": {
+											"width": 117,
+											"height": 111,
+											"top": 154,
+											"left": 52,
+											"birthDateAreaDistance": {
+												"top": 204,
+												"left": 39
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 179,
+											"height": 72,
+											"top": 337,
+											"left": 127
+										},
+										"faceArea": {
+											"width": 109,
+											"height": 93,
+											"top": 170,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 167,
+												"left": 96
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2007,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 352,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 156,
+											"height": 61,
+											"top": 91,
+											"left": 225
+										},
+										"faceArea": {
+											"width": 111,
+											"height": 114,
+											"top": 141,
+											"left": 44,
+											"birthDateAreaDistance": {
+												"top": -50,
+												"left": 181
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"NY": {
+						"stateName": "New York",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 198,
+											"height": 64,
+											"top": 359,
+											"left": 95
+										},
+										"faceArea": {
+											"width": 114,
+											"height": 110,
+											"top": 155,
+											"left": 54,
+											"birthDateAreaDistance": {
+												"top": 204,
+												"left": 41
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 177,
+											"height": 70,
+											"top": 335,
+											"left": 127
+										},
+										"faceArea": {
+											"width": 113,
+											"height": 93,
+											"top": 171,
+											"left": 29,
+											"birthDateAreaDistance": {
+												"top": 164,
+												"left": 98
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2013,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 346,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 178,
+											"height": 52,
+											"top": 207,
+											"left": 181
+										},
+										"faceArea": {
+											"width": 153,
+											"height": 146,
+											"top": 133,
+											"left": 18,
+											"birthDateAreaDistance": {
+												"top": 74,
+												"left": 163
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2022,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 347,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 181,
+											"height": 41,
+											"top": 205,
+											"left": 165
+										},
+										"faceArea": {
+											"width": 124,
+											"height": 129,
+											"top": 136,
+											"left": 33,
+											"birthDateAreaDistance": {
+												"top": 69,
+												"left": 132
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"ND": {
+						"stateName": "North Dakota",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 202,
+											"height": 64,
+											"top": 359,
+											"left": 91
+										},
+										"faceArea": {
+											"width": 116,
+											"height": 110,
+											"top": 153,
+											"left": 52,
+											"birthDateAreaDistance": {
+												"top": 206,
+												"left": 39
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 178,
+											"height": 72,
+											"top": 335,
+											"left": 126
+										},
+										"faceArea": {
+											"width": 108,
+											"height": 97,
+											"top": 172,
+											"left": 33,
+											"birthDateAreaDistance": {
+												"top": 163,
+												"left": 93
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2013,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 348,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 177,
+											"height": 52,
+											"top": 211,
+											"left": 206
+										},
+										"faceArea": {
+											"width": 144,
+											"height": 138,
+											"top": 127,
+											"left": 29,
+											"birthDateAreaDistance": {
+												"top": 84,
+												"left": 177
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2023,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 343,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 188,
+											"height": 51,
+											"top": 71,
+											"left": 359
+										},
+										"faceArea": {
+											"width": 127,
+											"height": 131,
+											"top": 138,
+											"left": 36,
+											"birthDateAreaDistance": {
+												"top": -67,
+												"left": 323
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"OH": {
+						"stateName": "Ohio",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 202,
+											"height": 65,
+											"top": 359,
+											"left": 93
+										},
+										"faceArea": {
+											"width": 118,
+											"height": 109,
+											"top": 156,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 203,
+												"left": 40
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 178,
+											"height": 76,
+											"top": 334,
+											"left": 127
+										},
+										"faceArea": {
+											"width": 114,
+											"height": 98,
+											"top": 170,
+											"left": 29,
+											"birthDateAreaDistance": {
+												"top": 164,
+												"left": 98
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2013,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 -",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})-([0-9]{2})-([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 349,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 146,
+											"height": 63,
+											"top": 164,
+											"left": 261
+										},
+										"faceArea": {
+											"width": 109,
+											"height": 118,
+											"top": 137,
+											"left": 37,
+											"birthDateAreaDistance": {
+												"top": 27,
+												"left": 224
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2018,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 -",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})-([0-9]{2})-([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 347,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 169,
+											"height": 52,
+											"top": 291,
+											"left": 15
+										},
+										"faceArea": {
+											"width": 115,
+											"height": 124,
+											"top": 147,
+											"left": 33,
+											"birthDateAreaDistance": {
+												"top": 144,
+												"left": -18
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"OR": {
+						"stateName": "Oregon",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 200,
+											"height": 67,
+											"top": 356,
+											"left": 93
+										},
+										"faceArea": {
+											"width": 114,
+											"height": 106,
+											"top": 157,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 199,
+												"left": 40
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 175,
+											"height": 70,
+											"top": 337,
+											"left": 129
+										},
+										"faceArea": {
+											"width": 113,
+											"height": 92,
+											"top": 172,
+											"left": 29,
+											"birthDateAreaDistance": {
+												"top": 165,
+												"left": 100
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2002,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 -",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})-([0-9]{2})-([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 343,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 154,
+											"height": 57,
+											"top": 123,
+											"left": 235
+										},
+										"faceArea": {
+											"width": 128,
+											"height": 126,
+											"top": 66,
+											"left": 46,
+											"birthDateAreaDistance": {
+												"top": 57,
+												"left": 189
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2018,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 40,
+									"contrast": 10,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 345,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 176,
+											"height": 53,
+											"top": 289,
+											"left": 16
+										},
+										"faceArea": {
+											"width": 121,
+											"height": 126,
+											"top": 147,
+											"left": 32,
+											"birthDateAreaDistance": {
+												"top": 142,
+												"left": -16
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"PA": {
+						"stateName": "Pennsylvania",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 200,
+											"height": 65,
+											"top": 359,
+											"left": 93
+										},
+										"faceArea": {
+											"width": 115,
+											"height": 108,
+											"top": 155,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 204,
+												"left": 40
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 178,
+											"height": 74,
+											"top": 336,
+											"left": 127
+										},
+										"faceArea": {
+											"width": 110,
+											"height": 94,
+											"top": 172,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 164,
+												"left": 96
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2012,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 341,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 164,
+											"height": 57,
+											"top": 22,
+											"left": 305
+										},
+										"faceArea": {
+											"width": 140,
+											"height": 128,
+											"top": 81,
+											"left": 147,
+											"birthDateAreaDistance": {
+												"top": -59,
+												"left": 158
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2016,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 348,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 176,
+											"height": 47,
+											"top": 84,
+											"left": 198
+										},
+										"faceArea": {
+											"width": 132,
+											"height": 135,
+											"top": 134,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": -50,
+												"left": 167
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"RI": {
+						"stateName": "Rhode Island",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 203,
+											"height": 65,
+											"top": 359,
+											"left": 92
+										},
+										"faceArea": {
+											"width": 114,
+											"height": 110,
+											"top": 155,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 204,
+												"left": 39
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 178,
+											"height": 72,
+											"top": 337,
+											"left": 125
+										},
+										"faceArea": {
+											"width": 110,
+											"height": 93,
+											"top": 173,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 164,
+												"left": 94
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2016,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 346,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 156,
+											"height": 43,
+											"top": 85,
+											"left": 192
+										},
+										"faceArea": {
+											"width": 126,
+											"height": 123,
+											"top": 133,
+											"left": 35,
+											"birthDateAreaDistance": {
+												"top": -48,
+												"left": 157
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"SC": {
+						"stateName": "South Carolina",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 204,
+											"height": 68,
+											"top": 355,
+											"left": 90
+										},
+										"faceArea": {
+											"width": 116,
+											"height": 106,
+											"top": 157,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 198,
+												"left": 37
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 175,
+											"height": 73,
+											"top": 337,
+											"left": 129
+										},
+										"faceArea": {
+											"width": 115,
+											"height": 92,
+											"top": 171,
+											"left": 28,
+											"birthDateAreaDistance": {
+												"top": 166,
+												"left": 101
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2008,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 -",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})-([0-9]{2})-([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 350,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 165,
+											"height": 56,
+											"top": 127,
+											"left": 256
+										},
+										"faceArea": {
+											"width": 109,
+											"height": 102,
+											"top": 149,
+											"left": 63,
+											"birthDateAreaDistance": {
+												"top": -22,
+												"left": 193
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2017,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 346,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 168,
+											"height": 54,
+											"top": 163,
+											"left": 185
+										},
+										"faceArea": {
+											"width": 105,
+											"height": 91,
+											"top": 118,
+											"left": 47,
+											"birthDateAreaDistance": {
+												"top": 45,
+												"left": 138
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"SD": {
+						"stateName": "South Dakota",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 201,
+											"height": 64,
+											"top": 359,
+											"left": 94
+										},
+										"faceArea": {
+											"width": 116,
+											"height": 108,
+											"top": 155,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 204,
+												"left": 41
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 177,
+											"height": 72,
+											"top": 338,
+											"left": 128
+										},
+										"faceArea": {
+											"width": 113,
+											"height": 98,
+											"top": 172,
+											"left": 30,
+											"birthDateAreaDistance": {
+												"top": 166,
+												"left": 98
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2009,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 345,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 154,
+											"height": 56,
+											"top": 91,
+											"left": 225
+										},
+										"faceArea": {
+											"width": 110,
+											"height": 114,
+											"top": 147,
+											"left": 39,
+											"birthDateAreaDistance": {
+												"top": -56,
+												"left": 186
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"TN": {
+						"stateName": "Tennessee",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 200,
+											"height": 65,
+											"top": 359,
+											"left": 94
+										},
+										"faceArea": {
+											"width": 118,
+											"height": 109,
+											"top": 154,
+											"left": 51,
+											"birthDateAreaDistance": {
+												"top": 205,
+												"left": 43
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 176,
+											"height": 72,
+											"top": 337,
+											"left": 127
+										},
+										"faceArea": {
+											"width": 111,
+											"height": 94,
+											"top": 171,
+											"left": 30,
+											"birthDateAreaDistance": {
+												"top": 166,
+												"left": 97
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2019,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 346,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 160,
+											"height": 48,
+											"top": 111,
+											"left": 380
+										},
+										"faceArea": {
+											"width": 116,
+											"height": 113,
+											"top": 129,
+											"left": 43,
+											"birthDateAreaDistance": {
+												"top": -18,
+												"left": 337
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2024,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 346,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 176,
+											"height": 50,
+											"top": 157,
+											"left": 195
+										},
+										"faceArea": {
+											"width": 139,
+											"height": 137,
+											"top": 137,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 20,
+												"left": 164
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"VT": {
+						"stateName": "Vermont",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 204,
+											"height": 65,
+											"top": 358,
+											"left": 91
+										},
+										"faceArea": {
+											"width": 116,
+											"height": 111,
+											"top": 154,
+											"left": 52,
+											"birthDateAreaDistance": {
+												"top": 204,
+												"left": 39
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 177,
+											"height": 76,
+											"top": 334,
+											"left": 126
+										},
+										"faceArea": {
+											"width": 108,
+											"height": 97,
+											"top": 172,
+											"left": 33,
+											"birthDateAreaDistance": {
+												"top": 162,
+												"left": 93
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2013,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 337,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 160,
+											"height": 61,
+											"top": 77,
+											"left": 286
+										},
+										"faceArea": {
+											"width": 111,
+											"height": 120,
+											"top": 105,
+											"left": 40,
+											"birthDateAreaDistance": {
+												"top": -28,
+												"left": 246
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2018,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 337,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 168,
+											"height": 78,
+											"top": 61,
+											"left": 381
+										},
+										"faceArea": {
+											"width": 148,
+											"height": 126,
+											"top": 139,
+											"left": 20,
+											"birthDateAreaDistance": {
+												"top": -78,
+												"left": 361
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"WA": {
+						"stateName": "Washington",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 199,
+											"height": 64,
+											"top": 359,
+											"left": 96
+										},
+										"faceArea": {
+											"width": 114,
+											"height": 105,
+											"top": 156,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 203,
+												"left": 43
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 177,
+											"height": 71,
+											"top": 337,
+											"left": 127
+										},
+										"faceArea": {
+											"width": 110,
+											"height": 92,
+											"top": 171,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 166,
+												"left": 96
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2015,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 357,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 190,
+											"height": 54,
+											"top": 139,
+											"left": 183
+										},
+										"faceArea": {
+											"width": 124,
+											"height": 128,
+											"top": 139,
+											"left": 35,
+											"birthDateAreaDistance": {
+												"top": 0,
+												"left": 148
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"DC": {
+						"stateName": "Washington DC",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 203,
+											"height": 64,
+											"top": 358,
+											"left": 91
+										},
+										"faceArea": {
+											"width": 114,
+											"height": 107,
+											"top": 156,
+											"left": 55,
+											"birthDateAreaDistance": {
+												"top": 202,
+												"left": 36
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 176,
+											"height": 72,
+											"top": 337,
+											"left": 129
+										},
+										"faceArea": {
+											"width": 108,
+											"height": 92,
+											"top": 171,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 166,
+												"left": 98
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2013,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 346,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 146,
+											"height": 56,
+											"top": 219,
+											"left": 345
+										},
+										"faceArea": {
+											"width": 100,
+											"height": 103,
+											"top": 124,
+											"left": 45,
+											"birthDateAreaDistance": {
+												"top": 95,
+												"left": 300
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2023,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 347,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 141,
+											"height": 50,
+											"top": 212,
+											"left": 303
+										},
+										"faceArea": {
+											"width": 110,
+											"height": 104,
+											"top": 149,
+											"left": 37,
+											"birthDateAreaDistance": {
+												"top": 63,
+												"left": 266
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"WV": {
+						"stateName": "West Virginia",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 201,
+											"height": 64,
+											"top": 358,
+											"left": 91
+										},
+										"faceArea": {
+											"width": 115,
+											"height": 110,
+											"top": 155,
+											"left": 52,
+											"birthDateAreaDistance": {
+												"top": 203,
+												"left": 39
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 177,
+											"height": 68,
+											"top": 339,
+											"left": 128
+										},
+										"faceArea": {
+											"width": 112,
+											"height": 93,
+											"top": 172,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 167,
+												"left": 97
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2016,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 346,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 227,
+											"height": 68,
+											"top": 155,
+											"left": 218
+										},
+										"faceArea": {
+											"width": 104,
+											"height": 99,
+											"top": 111,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 44,
+												"left": 187
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 346,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 190,
+											"height": 63,
+											"top": 82,
+											"left": 187
+										},
+										"faceArea": {
+											"width": 110,
+											"height": 110,
+											"top": 148,
+											"left": 42,
+											"birthDateAreaDistance": {
+												"top": -66,
+												"left": 145
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2023,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 347,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 172,
+											"height": 62,
+											"top": 86,
+											"left": 195
+										},
+										"faceArea": {
+											"width": 122,
+											"height": 125,
+											"top": 139,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": -53,
+												"left": 164
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"WI": {
+						"stateName": "Wisconsin",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2006,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 202,
+											"height": 65,
+											"top": 357,
+											"left": 91
+										},
+										"faceArea": {
+											"width": 116,
+											"height": 109,
+											"top": 156,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 201,
+												"left": 38
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 175,
+											"height": 69,
+											"top": 338,
+											"left": 128
+										},
+										"faceArea": {
+											"width": 108,
+											"height": 91,
+											"top": 172,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 166,
+												"left": 97
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2005,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 -",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})-([0-9]{2})-([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 358,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 199,
+											"height": 71,
+											"top": 168,
+											"left": 181
+										},
+										"faceArea": {
+											"width": 115,
+											"height": 133,
+											"top": 99,
+											"left": 29,
+											"birthDateAreaDistance": {
+												"top": 69,
+												"left": 152
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2010,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 312,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 149,
+											"height": 56,
+											"top": 140,
+											"left": 218
+										},
+										"faceArea": {
+											"width": 136,
+											"height": 135,
+											"top": 108,
+											"left": 32,
+											"birthDateAreaDistance": {
+												"top": 32,
+												"left": 186
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2015,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 347,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 178,
+											"height": 56,
+											"top": 280,
+											"left": 177
+										},
+										"faceArea": {
+											"width": 132,
+											"height": 125,
+											"top": 145,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 135,
+												"left": 146
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							]
+						}
+					},
+					"WY": {
+						"stateName": "Wyoming",
+						"idConfig": {
+							"idCard": <any>[],
+							"passport": [
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 427,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 199,
+											"height": 62,
+											"top": 361,
+											"left": 95
+										},
+										"faceArea": {
+											"width": 114,
+											"height": 109,
+											"top": 154,
+											"left": 53,
+											"birthDateAreaDistance": {
+												"top": 207,
+												"left": 42
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2020,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 USA",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/USA([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 3,
+											"month": 2,
+											"year": 1
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 600,
+											"height": 414,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 178,
+											"height": 72,
+											"top": 336,
+											"left": 127
+										},
+										"faceArea": {
+											"width": 108,
+											"height": 92,
+											"top": 171,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 165,
+												"left": 96
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
+							],
+							"driverLicence": [
+								{
+									"year": 2010,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 346,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 218,
+											"height": 59,
+											"top": 135,
+											"left": 225
+										},
+										"faceArea": {
+											"width": 112,
+											"height": 114,
+											"top": 109,
+											"left": 31,
+											"birthDateAreaDistance": {
+												"top": 26,
+												"left": 194
+											}
+										}
+									},
+									"idRegionZoom": 2
+								},
+								{
+									"year": 2023,
+									"tesseractConfig": {
+										"tessedit_char_whitelist": "1234567890 /",
+										"tessedit_ocr_engine_mode": 2
+									},
+									"stripWhiteSpace": false,
+									"textMatcherRule": [
+										"/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+									],
+									"dateComponentsPosition": [
+										{
+											"day": 2,
+											"month": 1,
+											"year": 3
+										}
+									],
+									"monthNameLanguage": "en",
+									"brightness": 10,
+									"contrast": 40,
+									"threshold": 0,
+									"idSizeList": {
+										"container": {
+											"width": 550,
+											"height": 346,
+											"ratioType": 1
+										},
+										"birthDateArea": {
+											"width": 156,
+											"height": 67,
+											"top": 86,
+											"left": 171
+										},
+										"faceArea": {
+											"width": 118,
+											"height": 113,
+											"top": 152,
+											"left": 39,
+											"birthDateAreaDistance": {
+												"top": -66,
+												"left": 132
+											}
+										}
+									},
+									"idRegionZoom": 2
+								}
 							]
 						}
 					},

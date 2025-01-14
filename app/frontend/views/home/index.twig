@@ -151,12 +151,192 @@
 								<div class="accordion" id="accordion">
 
 									<div class="accordion-item">
-										<div class="accordion-header" id="headingThree">
-											<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+										<div class="accordion-header" id="verificationTypesItem">
+											<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseVerificationTypesItem" aria-expanded="false" aria-controls="collapseVerificationTypesItem">
+												Verification types
+											</button>
+										</div>
+										<div id="collapseVerificationTypesItem" class="collapse" aria-labelledby="verificationTypesItem" data-bs-parent="#accordion">
+											<div class="accordion-body">
+												<h5 class="layoutPaddingBottom">
+													<strong>Selfie age verification</strong>
+												</h5>
+												<p>
+													The selfie age verification check needs webcam access in order to scan in real time the face of the user. So the user must provide this access in order for the verification to run. During the verification the user will be asked to keep his face close to the center of the screen in order for the machine learning model to be able to perform the face extraction and the prediction task. Go.cam runs locally, on device, no images are sent to the server or stored during this process.
+												</p>
+												<p>
+													The age prediction is based on multiple shots of the users face from which an average age is calculated after the detected outliers are excluded. Besides the age evaluation, the face similatity is checked during the detection to be sure the same person is in front of the camera at all times. At the end of the verification, if the user is detected as an adult, he will also be asked to smile or stop smiling, depending on his current face expression, as a measure of liveness detection.
+												</p>
+												<p>
+													If the user is detected as an minor, the verification process will automatically redirect him to the ID document verification to confirm his age. During the ID verification the face shots from the previous steps are compared with the one from the document as a first step. Then if the face matching is correct the birth date will be extracted from the document and the age will be calculated based on that.
+												</p>
+												<p>
+													If the user is detected as an adult after the selfie age or the ID document verification process, he will be marked as verified. Otherwise the process can be retried, for a period of 10 minutes, the current session will expire after that so the process must pe restarted from the start.
+												</p>
+												<p>
+													<i>
+														Hint: Go.cam is "Challenge 25" certified, meaning that anyone who is over 18 but looks under 25 should carry acceptable ID document to validate his age.
+													</i>
+												</p>
+												<p>
+													<strong>
+														Authorities that already certified us are:
+													</strong>
+												</p>
+												<ul>
+													<li>
+														<a href="https://www.kjm-online.de/pressemitteilungen/altersverifikation-persona-gocam/" target="_blank">Central Authority for the Supervision and Protection of Minors on the Internet in Germany</a>
+													</li>
+													<li>
+														<a href="https://accscheme.com/registry/age-estimation/gsi-development-sas/" target="_blank">Age Check Certification Scheme</a>
+													</li>
+												</ul>
+												<p>
+													For the age verification task Go.cam uses a implementation of a open source facial recognition model, you can find more about it <a href="https://github.com/justadudewhohacks/face-api.js" target="_blank"><strong>here</strong></a>.
+												</p>
+												<p>&nbsp;</p>
+
+												<h5 class="layoutPaddingBottom">
+													<strong>ID documents verification</strong>
+												</h5>
+												<p>
+													As a first step of this verification, the user will be asked to select from a list of countries and document types to match the document he is planning to provide as proof. Currently Go.cam supports documents from all European countries and the United States of America. The supported types of documents are: ID card, passport and driver license.
+												</p>
+												<p>
+													The ID documents verification check can be done with the help of a webcam or by loading locally a image of a valid document. The user is not forced to provide webcam access, if he denies it he will be asked to browse for a image as default. Taking a photo with the webcam or selecting a local one will not trigger an upload of the image, like the age verification, the process will run locally.
+												</p>
+												<p>
+													In the case of a ID document verification that is not preceded by a selfie age verification, the face of the person on the document will not be checked. The birthdate of the document will be extracted and the current age of the user will be calculated. Based on the country or state the document is from, there is also a age majority check done. A verification success is triggered if the detected age is greater than the majority age.
+												</p>
+												<p>
+													For the document birthdate extraction task Go.cam uses a implementation of a open source OCR model, you can find more about it <a href="https://github.com/naptha/tesseract.js#tesseractjs" target="_blank"><strong>here</strong></a>.
+												</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion-item">
+										<div class="accordion-header" id="implementationDetailsItem">
+											<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseImplementationDetailsItem" aria-expanded="false" aria-controls="collapseImplementationDetailsItem">
+												Implementation details
+											</button>
+										</div>
+										<div id="collapseImplementationDetailsItem" class="collapse" aria-labelledby="implementationDetailsItem" data-bs-parent="#accordion">
+											<div class="accordion-body">
+
+												<h5 class="layoutPaddingBottom">
+													<strong>
+														Redirect flow
+													</strong>
+												</h5>
+												<p>
+													In the redirect flow, the verification process is done in a new window. The user is presented with a locked page and link that points to a verification URL.  Once the verification process is complete, the user is presented with a additional link to return back to the initial page. This return link does not contain any information about the result of the verification, the result it's sent using a server to server call. The implementer should keep track of this callback and render the unlocked page when the user is sent back.
+												</p>
+												<p>
+													<strong>
+														Here is a walkthrough of the process:
+													</strong>
+												</p>
+												<p>
+													The user visits a site which is guarded by an age verification system
+												</p>
+												<p>
+													The user click on a button to start the age verification process
+												</p>
+												<p>
+													The implementer provides the "cypher key" to the Go.cam SDK together with some user data like a "user id" to generate a age verification URL
+												</p>
+												<p>
+													The user will be redirected to a URL on Go.cam where the verification process starts
+												</p>
+												<p>
+													Depending on the type of verification the user will have to allow access to his webcam for scanning his face or select a ID document image for processing
+												</p>
+												<p>
+													Once the verification is complete, the user will be presented with a success or failure page:
+												</p>
+												<ul>
+													<li>The success page will contain a button to return to the implementer site</li>
+													<li>The failure page will contain a "Retry" button so he can try again</li>
+												</ul>
+												<p>
+													The verification results will be saved on Go.cam
+												</p>
+												<p>
+													Go.cam will forward the verification results also to you defined "verification result callback url" together with the user data you defined like a "user id" so the implementer can mark the user as verified
+												</p>
+												<p>
+													Additionally, a cookie is created on Go.cam containing a encrypted version of some of the verification results that can be decrypted on a future visit, using your encryption keys "cypher key"
+												</p>
+												<p>
+													When the success button is clicked, the user will be redirected to the "link back" URL, the implementer site should be unlocked
+												</p>
+												<p>&nbsp;</p>
+
+												<h5 class="layoutPaddingBottom">
+													<strong>
+														Iframe overlay flow
+													</strong>
+												</h5>
+												<p>
+													In the iframe overlay flow, the verification process is done in a iframe overlay over the current page. The user is presented with a locked page and button that triggers a verification process overlay. Once the verification process is complete, the user is presented with a additional button to close the verification overlay. In this case the current page can communicate with the verification overlay, so once the process will end with success there will be a success event triggered, the result it's also sent using a server to server call. The implementer should keep track of the overlay events in order to render the unlocked page when these arrive.
+												</p>
+												<p>
+													<strong>
+														Here is a walkthrough of the process:
+													</strong>
+												</p>
+												<p>
+													The user visits a site which is guarded by a age verification system
+												</p>
+												<p>
+													The user click on a button to start the age verification process
+												</p>
+												<p>
+													The implementer provides the "cypher key" to the Go.cam SDK together with some user data like a "user id" to generate a age verification URL
+												</p>
+												<p>
+													The implementer uses also the frontend SDK to create a Go.cam verification instance and trigger the iframe overlay loading process
+												</p>
+												<p>
+													Once the iframe is loaded there will be an event announcing it, additionally if the iframe detects that a verification cookie was already set on Go.cam a different event will be triggered to announce it (in this case a verification is no longer needed usually but a cookie integrity check must be performed)
+												</p>
+												<p>
+													Depending on the type of verification the user will have to allow access to his webcam for scanning his face or select a ID document image for processing
+												</p>
+												<p>
+													Once the verification is complete, the user will be presented with a success or failure page:
+												</p>
+												<ul>
+													<li>The success page will contain a button to close the iframe overlay</li>
+													<li>The failure page will contain a "Retry" button so he can try again</li>
+												</ul>
+												<p>
+													The verification results will be saved on Go.cam
+												</p>
+												<p>
+													Go.cam will forward the verification results also to you defined "verification result callback url" together with the user data you defined like a "user id" so the implementer can mark the user as verified
+												</p>
+												<p>
+													Additionally, a cookie is created on Go.cam containing a encrypted version of some of the verification results that can be decrypted on a future visit, using your encryption keys "cypher key"
+												</p>
+												<p>
+													Finally, a javascript event will be triggered to announce the verification success which can be used optionally as a trigger to verify the cookie integrity saved in the previous step
+												</p>
+												<p>
+													When the success button is clicked, the iframe overlay is removed and the implementer site should be unlocked
+												</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="accordion-item">
+										<div class="accordion-header" id="frontEndEventInformationItem">
+											<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFrontEndEventInformationItem" aria-expanded="false" aria-controls="collapseFrontEndEventInformationItem">
 												Frontend event information
 											</button>
 										</div>
-										<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordion">
+										<div id="collapseFrontEndEventInformationItem" class="collapse" aria-labelledby="frontEndEventInformationItem" data-bs-parent="#accordion">
 											<div class="accordion-body">
 
 												<p>
@@ -254,12 +434,12 @@
 									</div>
 
 									<div class="accordion-item">
-										<div class="accordion-header" id="headingFour">
-											<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+										<div class="accordion-header" id="verificationResultCallbackItem">
+											<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseVerificationResultCallbackItem" aria-expanded="false" aria-controls="collapseVerificationResultCallbackItem">
 												Verification result callback url information
 											</button>
 										</div>
-										<div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-bs-parent="#accordion">
+										<div id="collapseVerificationResultCallbackItem" class="collapse" aria-labelledby="verificationResultCallbackItem" data-bs-parent="#accordion">
 											<div class="accordion-body">
 												<p>
 													It's used to send back the age verification result to your server.

@@ -44,7 +44,6 @@ function load(app, storage) {
         let testPathIframe = '/token/iframeCheck';
         let requestPayload = encryption_1.AvsEncryption.encryptObject({
             userData: {
-                userId: 0,
                 colorConfig: {
                     body: {
                         background: colorConfigBodyBackgroundInput,

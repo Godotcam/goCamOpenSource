@@ -60,7 +60,6 @@ function load(app, storage) {
         req.session.accessTime = +new Date();
         req.session.sessionStartId = avsSession.sessionId;
         req.session.payload = payload;
-        let userAgent = typeof req.headers['user-agent'] != 'undefined' ? uaParser(req.headers['user-agent']) : '';
         res.render('token/index.twig', {
             js: {
                 onDocumentReady: 'AvsToken.main',
@@ -76,7 +75,7 @@ function load(app, storage) {
                 sessionId: sessionId,
                 partnerColorConfig: payloadParsed['userData']['colorConfig'],
                 ipCountry: ipCountry,
-                deviceInfo: userAgent,
+                deviceInfo: uaParser(req.headers['user-agent']),
                 countryAgeMajority: config_1.config.countryAgeMajority,
             },
             debug: config_1.config.enableFrontEndDebug,

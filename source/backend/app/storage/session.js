@@ -91,7 +91,7 @@ class AvsStorageSession {
         sessionData.idState = idState;
         sessionData.idType = idType;
         sessionData.errorCode = errorCode;
-        (0, axios_1.default)({
+        axios_1.default({
             method: 'post',
             url: sessionData.callbackUrl,
             headers: {
@@ -117,7 +117,7 @@ class AvsStorageSession {
             console.log('Callback data success!');
         })
             .catch((err) => {
-            console.log('Error: ', err);
+            console.log('Error: ', err.message);
         });
         this.update(sessionId, sessionData);
         let payload = encryption_1.AvsEncryption.decryptString(sessionData.payload);

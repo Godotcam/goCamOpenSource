@@ -80,7 +80,6 @@ export class AvsStorageSession {
 		this.payloadInstance.store(payload);
 
 		let payloadParsed = AvsEncryption.decryptString(payload);
-
 		let sessionId = this.getUniqueId();
 		let uaParsed  = uaParser(payloadParsed.httpParamList.userAgent);
 
@@ -174,7 +173,7 @@ export class AvsStorageSession {
 			)
 			.catch(
 				(err: Error) => {
-					console.log('Error: ', err.message);
+					console.log('Error: ', err);
 				}
 			);
 

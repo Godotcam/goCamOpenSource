@@ -56,6 +56,7 @@ export function load(app: Express.Application, storage: AvsStorageSession) {
 		let requestPayload = AvsEncryption.encryptObject(
 			{
 				userData           : {
+					userId: 0,
 					colorConfig: {
 						body: {
 							background: colorConfigBodyBackgroundInput,

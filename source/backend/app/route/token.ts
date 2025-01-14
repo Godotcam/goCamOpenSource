@@ -58,7 +58,7 @@ export function load(app: Express.Application, storage: AvsStorageSession) {
 			avsSession = storage.start(payload.toString());
 		}
 		catch (e) {
-
+			console.log(e);
 		}
 
 		if (avsSession == null) {
@@ -83,6 +83,8 @@ export function load(app: Express.Application, storage: AvsStorageSession) {
 		req.session.sessionStartId = avsSession.sessionId;
 		req.session.payload        = payload;
 
+		let userAgent = typeof req.headers['user-agent'] != 'undefined' ? uaParser(req.headers['user-agent']) : '';
+
 		res.render('token/index.twig', {
 			js   : {
 				onDocumentReady      : 'AvsToken.main',
@@ -98,7 +100,7 @@ export function load(app: Express.Application, storage: AvsStorageSession) {
 				sessionId            : sessionId,
 				partnerColorConfig   : payloadParsed['userData']['colorConfig'],
 				ipCountry            : ipCountry,
-				deviceInfo           : uaParser(req.headers['user-agent']),
+				deviceInfo           : userAgent,
 				countryAgeMajority   : config.countryAgeMajority,
 			},
 			debug: config.enableFrontEndDebug,

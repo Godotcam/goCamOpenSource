@@ -323,13 +323,8 @@ namespace Avs {
 
 			public static decodeBase64(token: string) {
 
-				let tokenString    = token;
-				let equalSignCount = tokenString.substring(tokenString.length - 1);
-				if (parseInt(equalSignCount) !== 0) {
-					tokenString = tokenString.substring(0, tokenString.length - 1);
-				}
-
-				tokenString = window.Base64.decode(tokenString);
+				let tokenString = token;
+				tokenString     = window.Base64.decode(tokenString);
 
 				return JSON.parse(tokenString);
 

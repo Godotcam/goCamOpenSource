@@ -81,8 +81,8 @@ namespace AvsFactory {
 			public static BOUNDARY_LEFT   = 20;
 			public static BOUNDARY_RIGHT  = 20;
 
-			public static BOUNDARY_MAX_WIDTH  = 1200;
-			public static BOUNDARY_MAX_HEIGHT = 1200;
+			public static BOUNDARY_MAX_WIDTH  = 4800;
+			public static BOUNDARY_MAX_HEIGHT = 4800;
 
 			public static FACING_MODE_REQUIRED = 'environment';
 

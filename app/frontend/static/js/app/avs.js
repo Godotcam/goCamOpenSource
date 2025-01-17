@@ -15906,6 +15906,10 @@ var Avs;
                     {
                         width: Webrtc.RESOLUTION_DOWNGRADE_STEP_2_WIDTH,
                         height: Webrtc.RESOLUTION_DOWNGRADE_STEP_2_HEIGHT
+                    },
+                    {
+                        width: Webrtc.RESOLUTION_DOWNGRADE_STEP_3_WIDTH,
+                        height: Webrtc.RESOLUTION_DOWNGRADE_STEP_3_HEIGHT
                     }
                 ];
                 this.eventNamesPrefix = this.config.options.eventNamesPrefix
@@ -15919,10 +15923,14 @@ var Avs;
                 var _this = this;
                 var streamVideoInputDevice = this.config.options.streamVideoInputDevice;
                 var facingMode = this.config.options.facingMode;
+                var startFromLowerResolution = this.config.options.startFromLowerResolution;
+                if (startFromLowerResolution) {
+                    this.resolutionFallbackList.reverse();
+                }
                 this.debug.info('Trying to start the stream using resolution: ' + JSON.stringify(this.resolutionFallbackList[this.currentFallbackStep]));
                 var videoConstraints = {
-                    width: { exact: this.resolutionFallbackList[this.currentFallbackStep].width },
-                    height: { exact: this.resolutionFallbackList[this.currentFallbackStep].height }
+                    width: { ideal: this.resolutionFallbackList[this.currentFallbackStep].width },
+                    height: { ideal: this.resolutionFallbackList[this.currentFallbackStep].height }
                 };
                 if (streamVideoInputDevice !== null) {
                     videoConstraints.deviceId = { exact: streamVideoInputDevice };
@@ -15960,12 +15968,14 @@ var Avs;
                     track.stop();
                 });
             };
-            Webrtc.DEFAULT_RESOLUTION_WIDTH_MIN = 1280;
-            Webrtc.DEFAULT_RESOLUTION_HEIGHT_MIN = 720;
-            Webrtc.RESOLUTION_DOWNGRADE_STEP_1_WIDTH = 800;
-            Webrtc.RESOLUTION_DOWNGRADE_STEP_1_HEIGHT = 600;
-            Webrtc.RESOLUTION_DOWNGRADE_STEP_2_WIDTH = 640;
-            Webrtc.RESOLUTION_DOWNGRADE_STEP_2_HEIGHT = 480;
+            Webrtc.DEFAULT_RESOLUTION_WIDTH_MIN = 1920;
+            Webrtc.DEFAULT_RESOLUTION_HEIGHT_MIN = 1080;
+            Webrtc.RESOLUTION_DOWNGRADE_STEP_1_WIDTH = 1280;
+            Webrtc.RESOLUTION_DOWNGRADE_STEP_1_HEIGHT = 720;
+            Webrtc.RESOLUTION_DOWNGRADE_STEP_2_WIDTH = 800;
+            Webrtc.RESOLUTION_DOWNGRADE_STEP_2_HEIGHT = 600;
+            Webrtc.RESOLUTION_DOWNGRADE_STEP_3_WIDTH = 640;
+            Webrtc.RESOLUTION_DOWNGRADE_STEP_3_HEIGHT = 480;
             Webrtc.ON_VIDEO_PLAY = 'Avs.Datachannel.WebRtc.onVideoPlay';
             Webrtc.ON_WEBCAM_INIT_ERROR = 'Avs.Datachannel.WebRtc.onStreamingError';
             Webrtc.ON_VIDEO_PLAY_DELAY_MS = 1000;
@@ -16101,20 +16111,57 @@ var Avs;
             ScanIdAgeVerification.prototype.getStateMajorityList = function () {
                 return {
                     "US": {
+                        "AK": 18,
+                        "AL": 19,
                         "AR": 18,
+                        "AZ": 18,
+                        "CA": 18,
+                        "CO": 21,
+                        "CT": 18,
+                        "DC": 18,
+                        "DE": 18,
+                        "FL": 18,
+                        "GA": 18,
+                        "HA": 18,
+                        "IA": 18,
+                        "ID": 18,
+                        "IL": 18,
+                        "IN": 18,
+                        "KS": 18,
+                        "KY": 18,
                         "LA": 18,
+                        "MA": 18,
+                        "MD": 18,
+                        "ME": 18,
+                        "MI": 18,
+                        "MN": 18,
+                        "MO": 18,
                         "MS": 21,
                         "MT": 18,
                         "NC": 18,
+                        "ND": 18,
+                        "NE": 19,
+                        "NH": 18,
+                        "NJ": 18,
+                        "NM": 18,
+                        "NV": 18,
+                        "NY": 18,
+                        "OH": 18,
+                        "OK": 18,
+                        "OR": 18,
+                        "PE": 18,
+                        "RI": 18,
+                        "SC": 18,
+                        "SD": 18,
+                        "TN": 18,
                         "TX": 18,
                         "UT": 18,
                         "VA": 18,
-                        "ID": 18,
-                        "KS": 18,
-                        "KY": 18,
-                        "NE": 19,
-                        "AL": 19,
-                        "OK": 18
+                        "VT": 18,
+                        "WA": 18,
+                        "WI": 18,
+                        "WV": 18,
+                        "WY": 18
                     }
                 };
             };
@@ -18259,6 +18306,7 @@ var Avs;
                 };
                 Button.prototype.onClick = function (callback) {
                     var _this = this;
+                    this.offClick();
                     this.element.click(function (e) {
                         // prevent clicking on disabled buttons
                         if (!_this.states.enabled) {
@@ -18738,6 +18786,63 @@ var Avs;
                 return PercentCounter;
             }(Handler.Common));
             Handler.PercentCounter = PercentCounter;
+        })(Handler = Ui.Handler || (Ui.Handler = {}));
+    })(Ui = Avs.Ui || (Avs.Ui = {}));
+})(Avs || (Avs = {}));
+
+"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var Avs;
+(function (Avs) {
+    var Ui;
+    (function (Ui) {
+        var Handler;
+        (function (Handler) {
+            var ProgressBar = /** @class */ (function (_super) {
+                __extends(ProgressBar, _super);
+                function ProgressBar(event) {
+                    var _this = _super.call(this, event) || this;
+                    _this.event = event;
+                    _this.stepNumber = 1;
+                    _this.stepIncrement = 100;
+                    _this.progressBarElement = $('.' + ProgressBar.PROGRESS_BAR_ELEMENT_CLASS);
+                    return _this;
+                }
+                ProgressBar.prototype.setStepNumber = function (stepNumber) {
+                    this.stepNumber = stepNumber;
+                    this.stepIncrement = Handler.PercentCounter.MAX_VALUE / this.stepNumber;
+                };
+                ProgressBar.prototype.increment = function () {
+                    this.states.value = this.states.value + this.stepIncrement;
+                    this.progressBarElement.css({ width: this.states.value + '%' });
+                };
+                ProgressBar.prototype.decrement = function () {
+                    this.states.value = this.states.value - this.stepIncrement;
+                    this.progressBarElement.css({ width: this.states.value + '%' });
+                };
+                ProgressBar.prototype.setValue = function (value) {
+                    this.states.value = value;
+                    this.progressBarElement.css({ width: this.states.value + '%' });
+                };
+                ProgressBar.MAX_VALUE = 100;
+                ProgressBar.PROGRESS_BAR_ELEMENT_CLASS = 'loadingProgressBar';
+                return ProgressBar;
+            }(Handler.Common));
+            Handler.ProgressBar = ProgressBar;
         })(Handler = Ui.Handler || (Ui.Handler = {}));
     })(Ui = Avs.Ui || (Avs.Ui = {}));
 })(Avs || (Avs = {}));
@@ -20033,7 +20138,8 @@ var Avs;
                                 var dateFoundString = year + '-' + month + '-' + day;
                                 var dateFound = Date.parse(dateFoundString);
                                 var dateNow = (+new Date());
-                                var scanIdPersonYears = ((dateNow - dateFound) / 1000 / 3600 / 24 / 365).toFixed();
+                                // 365.2425 = days in a year with leap day added
+                                var scanIdPersonYears = Math.floor(((dateNow - dateFound) / 1000 / 3600 / 24 / 365.2425));
                                 cb({
                                     birthDate: dateFoundString,
                                     age: scanIdPersonYears
@@ -23892,6 +23998,58 @@ var Avs;
                 return SelfieAgeDetectionLoadingLabelPercentCounter;
             }(Avs.Ui.Handler.PercentCounter));
             Library.SelfieAgeDetectionLoadingLabelPercentCounter = SelfieAgeDetectionLoadingLabelPercentCounter;
+        })(Library = Ui.Library || (Ui.Library = {}));
+    })(Ui = Avs.Ui || (Avs.Ui = {}));
+})(Avs || (Avs = {}));
+
+"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var Avs;
+(function (Avs) {
+    var Ui;
+    (function (Ui) {
+        var Library;
+        (function (Library) {
+            var FaceGuideLoadingProgressBar = /** @class */ (function (_super) {
+                __extends(FaceGuideLoadingProgressBar, _super);
+                function FaceGuideLoadingProgressBar(event, selector) {
+                    var _this = _super.call(this, event) || this;
+                    _this.event = event;
+                    _this.getElement(selector);
+                    _this.initStates();
+                    return _this;
+                }
+                FaceGuideLoadingProgressBar.prototype.getElement = function (selector) {
+                    if (!selector) {
+                        selector = '#faceGuideLoadingProgressBar';
+                    }
+                    this.element = $(selector);
+                };
+                FaceGuideLoadingProgressBar.prototype.initStates = function () {
+                    var entity = Avs.Entity.Ui.getInstance();
+                    entity.states.FaceGuideLoadingProgressBar = {
+                        visible: this.element.is(':visible'),
+                        value: this.element.html()
+                    };
+                    this.states = entity.states.FaceGuideLoadingProgressBar;
+                };
+                return FaceGuideLoadingProgressBar;
+            }(Avs.Ui.Handler.ProgressBar));
+            Library.FaceGuideLoadingProgressBar = FaceGuideLoadingProgressBar;
         })(Library = Ui.Library || (Ui.Library = {}));
     })(Ui = Avs.Ui || (Avs.Ui = {}));
 })(Avs || (Avs = {}));

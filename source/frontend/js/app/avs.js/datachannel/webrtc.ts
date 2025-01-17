@@ -4,14 +4,17 @@ namespace Avs {
 
 		export class Webrtc {
 
-			static readonly DEFAULT_RESOLUTION_WIDTH_MIN  = 1280;
-			static readonly DEFAULT_RESOLUTION_HEIGHT_MIN = 720;
+			static readonly DEFAULT_RESOLUTION_WIDTH_MIN  = 1920;
+			static readonly DEFAULT_RESOLUTION_HEIGHT_MIN = 1080;
 
-			static readonly RESOLUTION_DOWNGRADE_STEP_1_WIDTH  = 800;
-			static readonly RESOLUTION_DOWNGRADE_STEP_1_HEIGHT = 600;
+			static readonly RESOLUTION_DOWNGRADE_STEP_1_WIDTH  = 1280;
+			static readonly RESOLUTION_DOWNGRADE_STEP_1_HEIGHT = 720;
 
-			static readonly RESOLUTION_DOWNGRADE_STEP_2_WIDTH  = 640;
-			static readonly RESOLUTION_DOWNGRADE_STEP_2_HEIGHT = 480;
+			static readonly RESOLUTION_DOWNGRADE_STEP_2_WIDTH  = 800;
+			static readonly RESOLUTION_DOWNGRADE_STEP_2_HEIGHT = 600;
+
+			static readonly RESOLUTION_DOWNGRADE_STEP_3_WIDTH  = 640;
+			static readonly RESOLUTION_DOWNGRADE_STEP_3_HEIGHT = 480;
 
 			static readonly ON_VIDEO_PLAY = 'Avs.Datachannel.WebRtc.onVideoPlay';
 
@@ -68,6 +71,10 @@ namespace Avs {
 					{
 						width : Webrtc.RESOLUTION_DOWNGRADE_STEP_2_WIDTH,
 						height: Webrtc.RESOLUTION_DOWNGRADE_STEP_2_HEIGHT
+					},
+					{
+						width : Webrtc.RESOLUTION_DOWNGRADE_STEP_3_WIDTH,
+						height: Webrtc.RESOLUTION_DOWNGRADE_STEP_3_HEIGHT
 					}
 
 				];
@@ -86,14 +93,19 @@ namespace Avs {
 
 			public startStreaming() {
 
-				let streamVideoInputDevice = this.config.options.streamVideoInputDevice;
-				let facingMode             = this.config.options.facingMode;
+				let streamVideoInputDevice   = this.config.options.streamVideoInputDevice;
+				let facingMode               = this.config.options.facingMode;
+				let startFromLowerResolution = this.config.options.startFromLowerResolution;
+
+				if (startFromLowerResolution) {
+					this.resolutionFallbackList.reverse();
+				}
 
 				this.debug.info('Trying to start the stream using resolution: ' + JSON.stringify(this.resolutionFallbackList[this.currentFallbackStep]))
 
 				let videoConstraints: any = {
-					width : {exact: this.resolutionFallbackList[this.currentFallbackStep].width},
-					height: {exact: this.resolutionFallbackList[this.currentFallbackStep].height},
+					width : {ideal: this.resolutionFallbackList[this.currentFallbackStep].width},
+					height: {ideal: this.resolutionFallbackList[this.currentFallbackStep].height},
 				};
 
 				if (streamVideoInputDevice !== null) {
@@ -144,7 +156,7 @@ namespace Avs {
 
 			public stopStreaming() {
 
-				this.streamInstance.getTracks().forEach(function (track: MediaStreamTrack) {
+				this.streamInstance.getTracks().forEach(function(track: MediaStreamTrack) {
 					track.stop();
 				});
 
@@ -181,6 +193,7 @@ namespace Avs {
 			streamResolution?: IStreamResolution,
 			streamVideoInputDevice?: string,
 			streamAudioInputDevice?: string,
+			startFromLowerResolution?: boolean,
 			uaInfo?: IUaInfoOptions
 		}
 

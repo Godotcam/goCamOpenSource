@@ -16,6 +16,10 @@ a {
   text-decoration: none;
 }
 
+h2 {
+  font-weight: normal;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
 }
@@ -213,7 +217,7 @@ a {
   padding: 10px;
   box-sizing: border-box;
 }
-#avsMainContainer .page.layoutTextBlock h1, #avsMainContainer .page.layoutTextBlock h2 {
+#avsMainContainer .page.layoutTextBlock h1, #avsMainContainer .page.layoutTextBlock h2, #avsMainContainer .page.layoutTextBlock h3 {
   font-weight: bold;
   font-size: 22px;
   margin: 15px;
@@ -289,6 +293,25 @@ a {
 #avsMainContainer .page .introText ol li {
   line-height: 18px;
   margin-bottom: 10px;
+}
+#avsMainContainer .page .introText.avsTabContent {
+  font-size: 12px;
+}
+#avsMainContainer .page .introText .certificationLabel {
+  font-size: 12px;
+  padding-top: 10px;
+  display: block;
+}
+#avsMainContainer .page .introText .certificationImageList {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#avsMainContainer .page .introText .certificationImageList img {
+  width: 40px;
+  border-radius: 100%;
+  margin: 10px;
+  border: solid 3px rgb(255, 255, 255);
 }
 #avsMainContainer .page .selectionArea {
   display: flex;
@@ -636,7 +659,26 @@ a {
   text-shadow: 1px 1px 2px rgb(0, 0, 0);
 }
 #avsMainContainer .page .maskGuide.layoutFace .loadingIconArea {
-  font-size: 28px;
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+}
+#avsMainContainer .page .maskGuide.layoutFace .loadingIconArea .loadingProgressBarContainer {
+  box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px 1px;
+  width: 100px;
+  height: 10px;
+  border: solid 2px rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  margin: 0 8px;
+}
+#avsMainContainer .page .maskGuide.layoutFace .loadingIconArea .loadingProgressBarContainer .loadingProgressBar {
+  display: block;
+  width: 0;
+  background: rgb(154, 205, 31);
+  height: 10px;
+  border-radius: 10px;
+  transition: all 0.5s ease-out;
 }
 #avsMainContainer .page .maskGuide.layoutFace .statusArea {
   padding: 15px;
@@ -649,6 +691,7 @@ a {
   justify-content: center;
   font-size: 28px;
   padding-bottom: 25px;
+  margin: 0;
 }
 #avsMainContainer .page .maskGuide.layoutFace .emoticonArea .layoutSmallerEmoticon {
   font-size: 18px;
@@ -667,10 +710,12 @@ a {
 }
 #avsMainContainer .page .maskGuide.layoutFace .ageGuideArea p {
   padding: 4px;
+  margin: 0;
 }
 #avsMainContainer .page .maskGuide.layoutFace .hintArea {
   font-size: 24px;
   line-height: 24px;
+  margin: 0;
 }
 #avsMainContainer .page .maskGuide.layoutIdentityCardGeneric {
   border-radius: 20px;
@@ -828,33 +873,56 @@ a {
 #staticPage .layoutGreenBackground {
   background: url("/static/img/staticPage/backTexture.png") center center rgb(244, 255, 219);
 }
+#staticPage .layoutRelative {
+  position: relative;
+}
+#staticPage .rectangleComponentHeroFooter {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 85px;
+  background-color: rgb(255, 255, 255);
+}
+#staticPage .testButton {
+  color: rgb(255, 255, 255);
+  background: rgb(154, 205, 31);
+  border-radius: 40px;
+  display: block;
+  padding: 20px 40px;
+  border: solid 10px rgb(244, 240, 184);
+  font-size: 16px;
+  min-width: 180px;
+  cursor: pointer;
+  text-align: center;
+  z-index: 2;
+}
+#staticPage .testButton i {
+  margin-right: 5px;
+}
 #staticPage .headerContainer {
   width: 100%;
   height: auto;
   margin: auto;
   text-align: center;
-}
-#staticPage .headerContainer.error-template {
-  position: relative;
-  margin-top: -15;
-  background: rgb(255, 255, 255);
-  z-index: 1;
+  background: url("/static/img/backgroundHeader.png") center center #343433;
+  background-repeat: no-repeat;
+  z-index: 3;
+  position: sticky;
+  top: 0;
 }
 #staticPage .headerContainer .headerTop {
-  width: 1200px;
+  width: 1310px;
   height: auto;
   margin: auto;
   text-align: left;
-  min-height: 105px;
+  min-height: 80px;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-#staticPage .headerContainer .headerTop .headerLogoArea {
-  padding: 25px 0 0 10px;
-}
 #staticPage .headerContainer .headerTop .headerLogoArea img {
-  width: 175px;
+  width: 120px;
 }
 #staticPage .headerContainer .headerTop .headerLanguageArea {
   width: auto;
@@ -869,7 +937,7 @@ a {
 }
 #staticPage .headerContainer .headerTop .headerLanguageArea a {
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: #eaeaea;
 }
 #staticPage .headerContainer .headerTop .headerLanguageArea select {
   padding: 5px;
@@ -877,27 +945,86 @@ a {
   display: inline;
   height: 28px;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: transparent;
+  color: #eaeaea;
+  outline: none;
+}
+#staticPage .headerContainer .headerTop .headerLanguageArea select:focus > option {
+  color: rgb(0, 0, 0);
 }
 #staticPage .headerContainer .headerTop .headerLanguageArea .authenticationArea {
   padding: 10px;
   font-size: 14px;
 }
-#staticPage .headerContainer .headerTop .headerLanguageArea .authenticationArea a {
+#staticPage .headerContainer .headerTop .headerLanguageArea .authenticationArea > a {
   margin-left: 15px;
 }
-#staticPage .headerContainer .headerTop .headerLanguageArea .authenticationArea a i {
+#staticPage .headerContainer .headerTop .headerLanguageArea .authenticationArea > a i {
+  margin-right: 6px;
+}
+#staticPage .headerContainer .headerTop .headerLanguageArea .authenticationArea a:hover,
+#staticPage .headerContainer .headerTop .headerLanguageArea .authenticationArea div.dropdown-content > a:hover {
+  color: #dffe97;
+}
+#staticPage .headerContainer .headerTop .headerLanguageArea .authenticationArea div.dropdown-content > a.parent:hover {
+  color: #eaeaea;
+  cursor: default;
+}
+#staticPage .headerContainer .headerTop .dropdown-content {
+  position: absolute;
+  top: 80px;
+  right: 8px;
+  background-color: #393938;
+  min-width: 250px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 10px 10px -5px inset;
+  padding: 20px;
+}
+#staticPage .headerContainer .headerTop .dropdown-content a {
+  color: #eaeaea;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  border-bottom: 1px solid #4b4b4b;
+}
+#staticPage .headerContainer .headerTop .dropdown-content a:last-child {
+  border-bottom: 0 none;
+}
+#staticPage .headerContainer .headerTop .dropdown-content a.sub-menu-item {
+  padding-left: 40px;
+}
+#staticPage .headerContainer .headerTop .dropdown-content a i {
   margin-right: 3px;
 }
-#staticPage .headerContainer .headerHeroImage {
-  width: 1200px;
+#staticPage .separator {
+  background-color: #dbf3a4;
+  width: 100%;
+  height: 2px;
+}
+#staticPage .separator.separatorWithButton {
+  position: relative;
+}
+#staticPage .separator.separatorWithButton .testButton {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  padding: 25px 100px;
+  border-radius: 50px;
+}
+#staticPage .headerHeroImage {
+  width: 1310px;
   height: auto;
   margin: auto;
   text-align: left;
+  position: relative;
+  overflow: hidden;
 }
-#staticPage .headerContainer .headerHeroImage .heroHeadingContainer {
+#staticPage .headerHeroImage .heroHeadingContainer {
   position: absolute;
 }
-#staticPage .headerContainer .headerHeroImage .heroHeadingContainer .heroHeading {
+#staticPage .headerHeroImage .heroHeadingContainer .heroHeading {
   font-size: 48px;
   width: 475px;
   padding-top: 35px;
@@ -905,17 +1032,16 @@ a {
   font-weight: bold;
   text-align: left;
 }
-#staticPage .headerContainer .headerHeroImage .heroHeadingContainer .heroHeading strong {
+#staticPage .headerHeroImage .heroHeadingContainer .heroHeading strong {
   color: rgb(154, 205, 31);
 }
-#staticPage .headerContainer .headerHeroImage .heroHeadingContainer .heroSubHeading {
+#staticPage .headerHeroImage .heroHeadingContainer .heroSubHeading {
   font-size: 36px;
   padding-top: 5px;
   padding-left: 10px;
 }
-#staticPage .headerContainer .headerHeroImage .heroImage {
+#staticPage .headerHeroImage .heroImage {
   float: right;
-  padding: 50px 0 20px 0;
 }
 #staticPage .contentAreaContainer {
   width: 100%;
@@ -926,8 +1052,11 @@ a {
 #staticPage .contentAreaContainer.layoutFloat {
   float: left;
 }
+#staticPage .contentAreaContainer.layoutPaddingTop50 {
+  padding-top: 50px;
+}
 #staticPage .contentAreaContainer .contentArea {
-  max-width: 1200px;
+  max-width: 1310px;
   width: 100%;
   height: auto;
   margin: auto;
@@ -973,11 +1102,63 @@ a {
   line-height: 24px;
   padding-bottom: 25px;
 }
+#staticPage .contentAreaContainer .contentArea .textBlockArea .certificationList p {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockArea .certificationList p img {
+  width: 40px;
+  border-radius: 100%;
+  padding: 10px 10px 10px 0;
+}
 #staticPage .contentAreaContainer .contentArea .textBlockAreaWide {
   width: 100%;
   padding: 25px 10px;
   box-sizing: border-box;
   text-align: left;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.devDocLayout p {
+  padding: 5px 0;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.devDocLayout p.layoutImageSchema {
+  text-align: center;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.devDocLayout p.layoutImageSchema img {
+  box-sizing: border-box;
+  max-width: 400px;
+  width: 100%;
+  border: solid 1px rgb(154, 205, 31);
+  padding: 10px;
+  border-radius: 5px;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.devDocLayout p.layoutImageSchema small {
+  font-size: 12px;
+  font-weight: bold;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.devDocLayout blockquote {
+  background: rgb(244, 255, 219);
+  padding: 10px;
+  margin: 10px 0;
+  border-left: solid 2px rgb(154, 205, 31);
+  font-size: 14px;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.devDocLayout h2 {
+  padding: 30px 0 20px 0;
+  line-height: 24px;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.devDocLayout h2 a {
+  border-bottom: solid 3px rgb(154, 205, 31);
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.devDocLayout h3 {
+  padding: 20px 0;
+  line-height: 24px;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.devDocLayout hr {
+  border: none;
+  height: 1px;
+  background: rgb(154, 205, 31);
+  margin: 30px 0 20px 0;
 }
 #staticPage .contentAreaContainer .contentArea .textBlockAreaWide .text-center {
   text-align: center;
@@ -998,6 +1179,14 @@ a {
 #staticPage .contentAreaContainer .contentArea .textBlockAreaWide h2 strong {
   color: rgb(154, 205, 31);
 }
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide h3 {
+  font-size: 18px;
+  font-weight: bold;
+  padding-bottom: 25px;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide h3 strong {
+  color: rgb(154, 205, 31);
+}
 #staticPage .contentAreaContainer .contentArea .textBlockAreaWide p {
   font-size: 16px;
   line-height: 24px;
@@ -1008,21 +1197,28 @@ a {
   text-decoration: underline;
   font-weight: bold;
 }
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide p.hintLayout {
+  background: rgb(244, 255, 219);
+  padding: 10px;
+  margin: 10px 0;
+  border-left: solid 2px rgb(154, 205, 31);
+  font-size: 14px;
+}
 #staticPage .contentAreaContainer .contentArea .textBlockAreaWide .emailImage {
   height: 23px;
   margin-left: -7px;
 }
-#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul {
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide ol {
   padding: 0 10px 25px 10px;
   margin-left: 10px;
 }
-#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul li {
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul li, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide ol li {
   padding: 0 5px;
   line-height: 24px;
   list-style: circle;
   margin-left: 10px;
 }
-#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul li a {
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide ul li a, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide ol li a {
   color: rgb(0, 0, 0);
 }
 #staticPage .contentAreaContainer .contentArea .textBlockAreaWide table {
@@ -1091,19 +1287,19 @@ a {
   width: 100px;
   padding: 5px;
 }
-#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.loginPage .form-top, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.signupPage .form-top {
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.loginPage .form-top, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.signupPage .form-top, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.forgotPasswordPage .form-top, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.newPasswordPage .form-top {
   width: 300px;
   margin: 0 auto;
 }
-#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.loginPage label, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.signupPage label {
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.loginPage label, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.signupPage label, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.forgotPasswordPage label, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.newPasswordPage label {
   font-size: 14px;
   margin-bottom: 5px;
 }
-#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.loginPage a, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.signupPage a {
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.loginPage a, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.signupPage a, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.forgotPasswordPage a, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.newPasswordPage a {
   color: rgb(154, 205, 31);
   text-decoration: none;
 }
-#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.loginPage .submitButton, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.signupPage .submitButton {
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.loginPage .submitButton, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.signupPage .submitButton, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.forgotPasswordPage .submitButton, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.newPasswordPage .submitButton {
   color: rgb(255, 255, 255);
   background: rgb(154, 205, 31);
   border-radius: 40px;
@@ -1117,13 +1313,25 @@ a {
   width: 100%;
   margin: 10px 0;
 }
-#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.loginPage .error, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.signupPage .error {
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.loginPage .error, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.signupPage .error, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.forgotPasswordPage .error, #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.newPasswordPage .error {
   margin-top: 15px;
   color: rgb(205, 31, 31);
   font-size: 14px;
 }
 #staticPage .contentAreaContainer .contentArea .textBlockAreaWide.signupPage #termAcceptance {
   margin-top: 0;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.faqPage h2 {
+  transition: 0.4s;
+  outline: none;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.faqPage h2:hover {
+  cursor: pointer;
+}
+#staticPage .contentAreaContainer .contentArea .textBlockAreaWide.faqPage h2 + blockquote {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
 }
 #staticPage .contentAreaContainer .contentArea.layoutImageRight {
   flex-direction: row-reverse;
@@ -1175,66 +1383,147 @@ a {
   visibility: hidden;
   height: 140px;
 }
+#staticPage .contentAreaContainer .contentArea .signupButton {
+  color: rgb(255, 255, 255);
+  background: rgb(154, 205, 31);
+  border-radius: 40px;
+  display: block;
+  padding: 20px 40px;
+  border: solid 10px rgb(244, 240, 184);
+  font-size: 16px;
+  min-width: 180px;
+  cursor: pointer;
+  text-align: center;
+  min-width: 120px;
+  float: right;
+  padding: 15px 30px;
+}
+#staticPage .contentAreaContainer .contentArea .signupButton i {
+  margin-right: 5px;
+}
 #staticPage .footerContainer {
   width: 100%;
   height: auto;
   margin: auto;
+  padding-top: 30px;
+  text-align: center;
+  background: url("/static/img/layout/backgroundFooter.png") center center #40423d;
+  background-repeat: no-repeat;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 100px 50px -50px inset;
+}
+#staticPage .footerContainer .footerContent {
+  max-width: 1310px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 80px 0;
+  position: relative;
+}
+#staticPage .footerContainer .footerGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px;
+  margin-bottom: 50px;
+}
+#staticPage .footerContainer .footerColumn {
+  text-align: left;
+}
+#staticPage .footerContainer .footerColumn.columnLogo {
+  align-self: flex-start;
   text-align: center;
 }
-#staticPage .footerContainer .footerLinkArea {
-  padding: 10px 0;
+#staticPage .footerContainer .footerColumn.columnLogo img {
+  margin-top: -10px;
 }
-#staticPage .footerContainer .footerLinkArea a {
+#staticPage .footerContainer .footerColumn.columnLogo .avsSloganArea {
+  color: #cbcbcb;
+  font-size: 16px;
+  line-height: 20px;
+}
+#staticPage .footerContainer .footerColumn.columnLogo .avsSloganArea > span:first-child {
+  display: block;
+}
+#staticPage .footerContainer .footerColumn.columnLogo .avsSloganArea > span strong {
+  color: #dbf3a4;
+}
+#staticPage .footerContainer .footerColumn .column-header {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  color: #dbf3a4;
   font-weight: bold;
-  color: rgb(0, 0, 0);
-  font-size: 14px;
-  padding: 0 10px;
+}
+#staticPage .footerContainer .footerColumn .column-header > i {
+  margin-right: 2px;
+}
+#staticPage .footerContainer .footerColumn ul {
+  list-style: none;
+}
+#staticPage .footerContainer .footerColumn ul li {
+  padding: 8px 0;
+}
+#staticPage .footerContainer .footerColumn li a, #staticPage .footerContainer .footerColumn span {
+  color: #cbcbcb;
+  font-weight: 500;
+}
+#staticPage .footerContainer .footerColumn li a:hover {
+  color: #dbf3a4;
+}
+#staticPage .footerContainer .footerColumn span {
+  line-height: 28px;
 }
 #staticPage .footerContainer .footerCopyrightArea {
-  padding: 10px;
-  font-size: 12px;
-}
-#staticPage .footerContainer .footerCopyrightArea p {
-  padding-bottom: 5px;
-}
-#staticPage .footerContainer .footerCopyrightArea p.layoutBiggerText {
-  font-size: 14px;
-  padding-bottom: 10px;
-}
-#staticPage .footerContainer .footerCopyrightArea p .emailImage {
-  height: 16px;
-}
-#staticPage .footerContainer .footerLogoArea {
-  padding: 10px 0;
-}
-#staticPage .footerContainer .footerLogoArea img {
-  width: 100px;
+  color: #828282;
 }
 
+@media (max-width: 1310px) {
+  #staticPage .headerHeroImage {
+    width: 100%;
+  }
+  #staticPage .headerHeroImage .heroHeadingContainer .heroHeading {
+    padding: 35px 20px 0 20px;
+    font-size: 36px;
+    width: 430px;
+  }
+  #staticPage .headerHeroImage .heroHeadingContainer .heroSubHeading {
+    padding: 5px 0 0 20px;
+    font-size: 24px;
+  }
+  #staticPage .headerHeroImage .heroImage {
+    width: 75%;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1300px) {
+  #staticPage .footerContainer .footerContent {
+    padding-left: 30px;
+    padding-right: 30px;
+    box-sizing: border-box;
+  }
+  #staticPage .footerContainer .columnLogo {
+    text-align: left !important;
+  }
+  #staticPage .footerContainer .columnLogo img {
+    margin-left: -20px;
+  }
+  #staticPage .footerContainer .columnLogo .avsSloganArea > span:first-child {
+    display: inline-block;
+  }
+}
 @media (max-width: 1200px) {
   #staticPage .headerContainer .headerTop {
     width: 100%;
   }
   #staticPage .headerContainer .headerTop .headerLogoArea {
-    padding: 10px 20px;
+    margin-left: 10px;
   }
-  #staticPage .headerContainer .headerTop .headerLogoArea img {
-    width: 120px;
+  #staticPage .headerContainer .headerTop .headerLanguageArea {
+    margin-right: 15px;
+    padding: 0;
+    height: auto;
   }
-  #staticPage .headerContainer .headerHeroImage {
-    width: 100%;
+  #staticPage .headerContainer .headerTop .headerLanguageArea select {
+    margin-left: 20px;
   }
-  #staticPage .headerContainer .headerHeroImage .heroHeadingContainer .heroHeading {
-    padding: 35px 20px 0 20px;
-    font-size: 36px;
-    width: 430px;
-  }
-  #staticPage .headerContainer .headerHeroImage .heroHeadingContainer .heroSubHeading {
-    padding: 5px 0 0 20px;
-    font-size: 24px;
-  }
-  #staticPage .headerContainer .headerHeroImage .heroImage {
-    width: 75%;
+  #staticPage .headerContainer .headerTop .headerLanguageArea .authenticationArea {
+    padding: 0;
   }
   #staticPage .contentAreaContainer .contentArea {
     width: 100%;
@@ -1258,57 +1547,92 @@ a {
   #staticPage .contentAreaContainer .contentArea .testCallToActionAreaTop img {
     width: 100%;
   }
-  #staticPage .footerContainer .footerLinkArea ul li a {
-    display: block;
-    width: 100%;
-    padding: 7px 0;
+  #staticPage .footerContainer .footerContent .footerGrid {
+    gap: 25px;
+  }
+}
+@media (max-width: 1024px) {
+  #staticPage .headerTop .dropdown-content {
+    right: 0 !important;
+  }
+  #staticPage .headerTop .headerLogoArea img {
+    width: 100px !important;
+  }
+  #staticPage .separator.separatorWithButton .testButton {
+    top: -34px;
+    font-size: 18px;
+    padding: 18px 50px;
+    border-width: 5px;
+  }
+  #staticPage .separator.separatorNoBorder .testButton {
+    top: -28px;
+  }
+  #staticPage .footerContainer {
+    padding-left: 30px;
+    padding-right: 30px;
+    box-sizing: border-box;
+  }
+  #staticPage .footerContainer .footerContent {
+    padding: 80px 0 30px 0;
+  }
+  #staticPage .footerContainer .footerContent .footerGrid {
+    grid-template-columns: unset;
+  }
+  #staticPage .footerContainer .footerContent .footerGrid .footerColumn {
+    text-align: center;
+  }
+  #staticPage .footerContainer .footerContent .footerGrid .footerColumn.columnLogo {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  #staticPage .footerContainer .footerContent .footerGrid .footerColumn.columnLogo .avsSloganArea {
+    font-size: 14px;
+  }
+  #staticPage .footerContainer .footerContent .footerGrid .footerColumn span {
+    line-height: unset;
   }
 }
 @media (max-width: 768px) {
   #staticPage .headerContainer .headerTop {
+    margin-bottom: 40px;
+  }
+  #staticPage .headerContainer .headerTop .dropdown-content {
+    right: 0;
     width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center !important;
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
   }
-  #staticPage .headerContainer .headerTop .headerLogoArea {
-    padding: 20px 0;
+  #staticPage .headerContainer .headerTop .dropdown-content a {
+    padding: 15px 0 15px 0 !important;
+    text-align: center;
   }
-  #staticPage .headerContainer .headerTop .headerLogoArea img {
-    width: 125px;
-  }
-  #staticPage .headerContainer .headerTop .headerLanguageArea {
-    background: url("/static/img/staticPage/backTexture.png") center center rgb(244, 255, 219);
-    margin-bottom: 10px;
-    width: 100%;
-  }
-  #staticPage .headerContainer .headerHeroImage {
+  #staticPage .headerHeroImage {
     width: 100%;
   }
-  #staticPage .headerContainer .headerHeroImage .heroHeadingContainer {
+  #staticPage .headerHeroImage .heroHeadingContainer {
     position: relative;
     width: 100%;
   }
-  #staticPage .headerContainer .headerHeroImage .heroHeadingContainer .heroHeading {
+  #staticPage .headerHeroImage .heroHeadingContainer .heroHeading {
     width: 100%;
     box-sizing: border-box;
     font-size: 36px;
     padding: 0 10px;
     font-weight: bold;
   }
-  #staticPage .headerContainer .headerHeroImage .heroHeadingContainer .heroHeading strong {
+  #staticPage .headerHeroImage .heroHeadingContainer .heroHeading strong {
     color: rgb(154, 205, 31);
   }
-  #staticPage .headerContainer .headerHeroImage .heroHeadingContainer .heroSubHeading {
+  #staticPage .headerHeroImage .heroHeadingContainer .heroSubHeading {
     padding: 0 10px;
     font-size: 24px;
   }
-  #staticPage .headerContainer .headerHeroImage .heroImage {
+  #staticPage .headerHeroImage .heroImage {
     padding: 0;
     width: 100%;
   }
   #staticPage .contentAreaContainer .contentArea {
-    max-width: 1200px;
     width: 100%;
     display: block;
   }
@@ -1340,10 +1664,10 @@ a {
   #staticPage .contentAreaContainer .contentArea .testCallToActionAreaBottom img {
     width: 100%;
   }
-  #staticPage .footerContainer .footerLinkArea ul li a {
-    display: block;
-    width: 100%;
-    padding: 7px 0;
+  #staticPage .contentAreaContainer .contentArea .signupButton {
+    width: 130px;
+    margin: 0 auto;
+    float: none;
   }
 }
 @media (max-width: 600px) {
@@ -1364,6 +1688,20 @@ a {
   }
   #staticPage .contentAreaContainer .contentArea .testCallToActionAreaBottom .testCallToActionButtonArea img {
     width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  #staticPage .headerTop .authenticationArea > a {
+    font-size: 12px;
+    margin-left: 10px !important;
+  }
+  #staticPage .headerTop .authenticationArea > a:first-child {
+    margin-left: 0 !important;
+  }
+}
+@media (max-width: 380px) {
+  #staticPage .headerContainer .authenticationArea span {
+    display: none;
   }
 }
 .accordion-button:not(.collapsed), .accordion-button:focus {

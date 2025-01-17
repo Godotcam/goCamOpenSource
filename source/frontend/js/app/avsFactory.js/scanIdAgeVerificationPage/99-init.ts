@@ -45,9 +45,10 @@ namespace AvsFactory {
 									rootContainer: Config.CAMERA_SOURCE_ROOT_ELEMENT_CONTAINER,
 									rootElement  : Config.CAMERA_SOURCE_ROOT_ELEMENT,
 									options      : {
-										streamVideoInputDevice: scanIdAgeVerificationEntity.videoDeviceId,
-										facingMode            : scanIdAgeVerificationEntity.facingMode,
-										eventNamesPrefix      : Config.EVENT_NAME_PREFIX
+										streamVideoInputDevice  : scanIdAgeVerificationEntity.videoDeviceId,
+										facingMode              : scanIdAgeVerificationEntity.facingMode,
+										startFromLowerResolution: false,
+										eventNamesPrefix        : Config.EVENT_NAME_PREFIX
 									}
 								}
 							}

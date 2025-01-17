@@ -16,10 +16,13 @@ namespace AvsFactory {
 
 				instance.plugin.Library.Video.CameraSource.getVideoElement().addClass('mirrored');
 
-				instance.ui.SelfieAgeDetectionLoadingLabelArea.setContent('Trying to access your camera');
+				instance.ui.SelfieAgeDetectionStatusLabel.setValue('Trying to access your camera');
 
 				instance.plugin.Library.Video.CameraSource.init();
 				instance.plugin.Library.Video.CameraSource.showVideo();
+
+				instance.ui.FaceGuideLoadingProgressBar.show();
+				instance.ui.FaceGuideLoadingProgressBar.increment();
 
 			}
 
@@ -64,6 +67,7 @@ namespace AvsFactory {
 							instance.entity.SelfieAgeDetection.ageResultList.push(ageResult.age);
 							instance.entity.SelfieAgeDetection.averageAge = ageResult.averageAge;
 
+							instance.ui.FaceGuideAgeArea.show();
 							instance.ui.SelfieAgeDetectionCurrentAgeArea.show();
 							instance.ui.SelfieAgeDetectionCurrentAgeArea.setContent(
 								Method.getAgeAreaString(
@@ -81,6 +85,8 @@ namespace AvsFactory {
 
 								instance.debug.logToContainer(Avs.Helper.Canvas.canvasToImage(canvasFace[0]));
 
+								instance.ui.FaceGuideLoadingProgressBar.increment();
+
 								Method.checkStep();
 
 							});
@@ -88,6 +94,7 @@ namespace AvsFactory {
 						}
 						else {
 
+							instance.ui.FaceGuideAgeArea.hide();
 							instance.ui.SelfieAgeDetectionCurrentAgeArea.hide();
 							instance.ui.SelfieAgeDetectionStatusLabel.show();
 							instance.ui.SelfieAgeDetectionStatusLabel.startBlinking();
@@ -281,6 +288,8 @@ namespace AvsFactory {
 											Method.goToFailStep(25062, 'Face similarity check fail');
 											return;
 										}
+
+										instance.ui.FaceGuideLoadingProgressBar.increment();
 
 										Method.goToSuccessStep();
 										return;

@@ -68,6 +68,7 @@ namespace Avs {
 
 				public onClick(callback: Function) {
 
+					this.offClick();
 					this.element.click((e) => {
 
 						// prevent clicking on disabled buttons

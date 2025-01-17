@@ -652,8 +652,8 @@ var AvsFactory;
             Config.BOUNDARY_BOTTOM = 20;
             Config.BOUNDARY_LEFT = 20;
             Config.BOUNDARY_RIGHT = 20;
-            Config.BOUNDARY_MAX_WIDTH = 1200;
-            Config.BOUNDARY_MAX_HEIGHT = 1200;
+            Config.BOUNDARY_MAX_WIDTH = 4800;
+            Config.BOUNDARY_MAX_HEIGHT = 4800;
             Config.FACING_MODE_REQUIRED = 'environment';
             return Config;
         }());
@@ -1152,6 +1152,7 @@ var AvsFactory;
                                     options: {
                                         streamVideoInputDevice: scanIdAgeVerificationEntity.videoDeviceId,
                                         facingMode: scanIdAgeVerificationEntity.facingMode,
+                                        startFromLowerResolution: false,
                                         eventNamesPrefix: ScanIdAgeVerificationPage.Config.EVENT_NAME_PREFIX
                                     }
                                 }
@@ -1365,8 +1366,8 @@ var AvsFactory;
             Config.BOUNDARY_BOTTOM = 40;
             Config.BOUNDARY_LEFT = 40;
             Config.BOUNDARY_RIGHT = 40;
-            Config.BOUNDARY_MAX_WIDTH = 800;
-            Config.BOUNDARY_MAX_HEIGHT = 800;
+            Config.BOUNDARY_MAX_WIDTH = 4800;
+            Config.BOUNDARY_MAX_HEIGHT = 4800;
             Config.BOUNDARY_WIDTH = 420;
             Config.BOUNDARY_HEIGHT = 600;
             return Config;
@@ -1394,9 +1395,17 @@ var AvsFactory;
                     FaceGuideSmileStopHintArea: new Avs.Ui.Library.FaceGuideSmileStopHintArea(SelfieAgeDetectionPage.instance.event),
                     FaceGuideAgeArea: new Avs.Ui.Library.FaceGuideAgeArea(SelfieAgeDetectionPage.instance.event),
                     FaceGuideSmileStartHintLabel: new Avs.Ui.Library.FaceGuideSmileStartHintLabel(SelfieAgeDetectionPage.instance.event),
-                    FaceGuideSmileStopHintLabel: new Avs.Ui.Library.FaceGuideSmileStopHintLabel(SelfieAgeDetectionPage.instance.event)
+                    FaceGuideSmileStopHintLabel: new Avs.Ui.Library.FaceGuideSmileStopHintLabel(SelfieAgeDetectionPage.instance.event),
+                    FaceGuideLoadingProgressBar: new Avs.Ui.Library.FaceGuideLoadingProgressBar(SelfieAgeDetectionPage.instance.event)
                 };
                 SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionLoadingLabelPercentCounter.setStepNumber(5);
+                SelfieAgeDetectionPage.instance.ui.FaceGuideLoadingProgressBar.hide();
+                SelfieAgeDetectionPage.instance.ui.FaceGuideLoadingProgressBar.setStepNumber(1 /*init*/ + 1 /*expression check*/ + SelfieAgeDetectionPage.Config.MAX_VALID_FACE_SCAN_NUMBER /* face detection*/ + 5 /* loading*/);
+                SelfieAgeDetectionPage.instance.ui.FaceGuideLoadingProgressBar.setValue(0);
+                SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionStatusLabel.show();
+                SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionLoadingLabelArea.hide();
+                SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionLoadingLabelPercentCounter.hide();
+                SelfieAgeDetectionPage.instance.ui.FaceGuideAgeArea.hide();
             };
             return Ui;
         }());
@@ -1437,9 +1446,11 @@ var AvsFactory;
             Method.initVideo = function () {
                 Method.repositionScanId();
                 SelfieAgeDetectionPage.instance.plugin.Library.Video.CameraSource.getVideoElement().addClass('mirrored');
-                SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionLoadingLabelArea.setContent('Trying to access your camera');
+                SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionStatusLabel.setValue('Trying to access your camera');
                 SelfieAgeDetectionPage.instance.plugin.Library.Video.CameraSource.init();
                 SelfieAgeDetectionPage.instance.plugin.Library.Video.CameraSource.showVideo();
+                SelfieAgeDetectionPage.instance.ui.FaceGuideLoadingProgressBar.show();
+                SelfieAgeDetectionPage.instance.ui.FaceGuideLoadingProgressBar.increment();
             };
             Method.getAgeAreaString = function (label, age) {
                 var detectedAgeString = label + ': ';
@@ -1466,6 +1477,7 @@ var AvsFactory;
                             SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.validScanNumber++;
                             SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.ageResultList.push(ageResult.age);
                             SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.averageAge = ageResult.averageAge;
+                            SelfieAgeDetectionPage.instance.ui.FaceGuideAgeArea.show();
                             SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionCurrentAgeArea.show();
                             SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionCurrentAgeArea.setContent(Method.getAgeAreaString('Current detected age', ageResult.age.toFixed()));
                             SelfieAgeDetectionPage.instance.debug.logToContainer('<p>Current: ' + ageResult.age.toFixed() + ' Average: ' + ageResult.averageAge + '</p>');
@@ -1473,10 +1485,12 @@ var AvsFactory;
                                 SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.validCanvasFaceList.push(canvasFace[0]);
                                 SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.validFaceList.push(faceResult);
                                 SelfieAgeDetectionPage.instance.debug.logToContainer(Avs.Helper.Canvas.canvasToImage(canvasFace[0]));
+                                SelfieAgeDetectionPage.instance.ui.FaceGuideLoadingProgressBar.increment();
                                 Method.checkStep();
                             });
                         }
                         else {
+                            SelfieAgeDetectionPage.instance.ui.FaceGuideAgeArea.hide();
                             SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionCurrentAgeArea.hide();
                             SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionStatusLabel.show();
                             SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionStatusLabel.startBlinking();
@@ -1600,6 +1614,7 @@ var AvsFactory;
                                             Method.goToFailStep(25062, 'Face similarity check fail');
                                             return;
                                         }
+                                        SelfieAgeDetectionPage.instance.ui.FaceGuideLoadingProgressBar.increment();
                                         Method.goToSuccessStep();
                                         return;
                                     }
@@ -1667,46 +1682,44 @@ var AvsFactory;
                     return;
                 });
                 SelfieAgeDetectionPage.instance.event.on(SelfieAgeDetectionPage.Config.EVENT_NAME_PREFIX + '.' + Avs.DataChannel.Webrtc.ON_VIDEO_PLAY, function (event) {
-                    SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionLoadingLabelArea.setContent('Initializing detection libraries ... ');
-                    SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionLoadingLabelPercentCounter.setValue(0);
+                    SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionStatusLabel.setValue('Initializing detection libraries');
                     SelfieAgeDetectionPage.instance.debug.logToContainer('<p>Starting face detection.</p>');
                     SelfieAgeDetectionPage.instance.plugin.Library.Ml.FaceApi.loadDetector(function (result) {
                         if (result === null) {
                             AvsFactory.StartPage.Method.renderError(25035, 'Failed to initialize detection libraries');
                             return;
                         }
-                        SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionLoadingLabelPercentCounter.increment();
+                        SelfieAgeDetectionPage.instance.ui.FaceGuideLoadingProgressBar.increment();
                         SelfieAgeDetectionPage.instance.debug.logToContainer('<p>Loaded detector.</p>');
                         SelfieAgeDetectionPage.instance.plugin.Library.Ml.FaceApi.loadAgeGenderModel(function (result) {
                             if (result === null) {
                                 AvsFactory.StartPage.Method.renderError(25036, 'Failed to initialize detection libraries');
                                 return;
                             }
-                            SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionLoadingLabelPercentCounter.increment();
+                            SelfieAgeDetectionPage.instance.ui.FaceGuideLoadingProgressBar.increment();
                             SelfieAgeDetectionPage.instance.debug.logToContainer('<p>Loaded age model.</p>');
                             SelfieAgeDetectionPage.instance.plugin.Library.Ml.FaceApi.loadFaceRecognitionModel(function (result) {
                                 if (result === null) {
                                     AvsFactory.StartPage.Method.renderError(25037, 'Failed to initialize detection libraries');
                                     return;
                                 }
-                                SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionLoadingLabelPercentCounter.increment();
+                                SelfieAgeDetectionPage.instance.ui.FaceGuideLoadingProgressBar.increment();
                                 SelfieAgeDetectionPage.instance.debug.logToContainer('<p>Loaded face recognition model.</p>');
                                 SelfieAgeDetectionPage.instance.plugin.Library.Ml.FaceApi.loadLandmarksModel(function (result) {
                                     if (result === null) {
                                         AvsFactory.StartPage.Method.renderError(25038, 'Failed to initialize detection libraries');
                                         return;
                                     }
-                                    SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionLoadingLabelPercentCounter.increment();
+                                    SelfieAgeDetectionPage.instance.ui.FaceGuideLoadingProgressBar.increment();
                                     SelfieAgeDetectionPage.instance.debug.logToContainer('<p>Loaded face landmarks model.</p>');
                                     SelfieAgeDetectionPage.instance.plugin.Library.Ml.FaceApi.loadFaceExpressionModel(function (result) {
                                         if (result === null) {
                                             AvsFactory.StartPage.Method.renderError(25058, 'Failed to initialize detection libraries');
                                             return;
                                         }
-                                        SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionLoadingLabelPercentCounter.increment();
+                                        SelfieAgeDetectionPage.instance.ui.FaceGuideLoadingProgressBar.increment();
                                         SelfieAgeDetectionPage.instance.debug.logToContainer('<p>Loaded face expression model.</p>');
-                                        SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionLoadingLabelArea.setContent('Detection in progress');
-                                        SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionLoadingLabelPercentCounter.hide();
+                                        SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionStatusLabel.setValue('Please position your face close to the center of the screen');
                                         SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionStatusLabel.show();
                                         SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionStatusLabel.startBlinking();
                                         SelfieAgeDetectionPage.Method.detectFace();
@@ -1763,6 +1776,7 @@ var AvsFactory;
                                     options: {
                                         streamVideoInputDevice: selfieAgeDetectionEntity.videoDeviceId,
                                         facingMode: selfieAgeDetectionEntity.facingMode,
+                                        startFromLowerResolution: true,
                                         eventNamesPrefix: SelfieAgeDetectionPage.Config.EVENT_NAME_PREFIX
                                     }
                                 }
@@ -2042,7 +2056,7 @@ var AvsFactory;
                     if (typeof StartPage.Config.PARTNER_COLOR_CONFIG.body.foregroundCallToAction === 'undefined') {
                         StartPage.Config.PARTNER_COLOR_CONFIG.body.foregroundCallToAction = StartPage.Config.PARTNER_COLOR_CONFIG.body.foreground;
                     }
-                    $("<style type='text/css'>\n\t\t\n\t\t\t\t\t\t\tbody,\n\t\t\t\t\t\t\t#avsMainContainer .page.layoutDocumentProcessing,\n\t\t\t\t\t\t\t#avsMainContainer .page.layoutDocumentProcessing .imageContainer .loadingOverlay,\n\t\t\t\t\t\t\t#avsMainContainer .page.layoutError,\n\t\t\t\t\t\t\t#avsMainContainer .page.layoutStaticPage,\n\t\t\t\t\t\t\t#avsMainContainer .page.layoutTextBlock,\n\t\t\t\t\t\t\t#avsMainContainer .page.layoutTextBlock a,\n\t\t\t\t\t\t\t#avsMainContainer .page .informationArea.layoutBlack,\n\t\t\t\t\t\t\t#avsMainContainer .preloader,\n\t\t\t\t\t\t\t#avsMainContainer .page.layoutDocumentProcessing .processArea .checkOutList .checkOutItem .statusIcon {\n\t\t\t\t\t\t\t\tbackground-color: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.background + ";\n\t\t\t\t\t\t\t\tcolor: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.foreground + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .page.layoutDocumentProcessing .imageContainer .loadingOverlay {\n\t\t\t\t\t\t\t\topacity: 0.7\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .page .iconArea .iconItem .iconImage svg {\n\t\t\t\t\t\t\t\tfill: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.foreground + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .page .iconArea .iconItem.isSelected .iconImage svg {\n\t\t\t\t\t\t\t\tfill: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.button.foregroundCallToAction + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .page .submitArea .button,\n\t\t\t\t\t\t\t#avsMainContainer .page .submitArea .button.layoutRed,\n\t\t\t\t\t\t\t#avsMainContainer .page .submitArea .button.layoutGreen {\n\t\t\t\t\t\t\t\tcolor: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.button.foregroundCallToAction + ";\n\t\t\t\t\t\t\t\tbackground-color: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.button.background + ";\n\t\t\t\t\t\t\t\tborder-color: " + Avs.Helper.Common.hexToRgbA(StartPage.Config.PARTNER_COLOR_CONFIG.body.button.background, 0.4) + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .page .iconArea .iconItem.isSelected .iconImage,\n\t\t\t\t\t\t\t#avsMainContainer .page .introIcon,\n\t\t\t\t\t\t\t#avsMainContainer .page .introIcon.layoutRed,\n\t\t\t\t\t\t\t#avsMainContainer .page .introIcon.layoutGreen {\n\t\t\t\t\t\t\t\tfill: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.button.foreground + ";\n\t\t\t\t\t\t\t\tbackground-color: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.button.background + ";\n\t\t\t\t\t\t\t\tborder-color: " + Avs.Helper.Common.hexToRgbA(StartPage.Config.PARTNER_COLOR_CONFIG.body.button.background, 0.4) + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .page .termsArea label a {\n\t\t\t\t\t\t\t\tcolor: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.foregroundCallToAction + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#globalIframeCloseButton {\n\t\t\t\t\t\t\t\tbackground-color: " + Avs.Helper.Common.hexToRgbA(StartPage.Config.PARTNER_COLOR_CONFIG.body.background, 0.7) + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .page .iconArea .iconItem.isSelected .iconLabel .verificationTypeRadioButton {\n\t\t\t\t\t\t\t\tbackground-color: " + Avs.Helper.Common.hexToRgbA(StartPage.Config.PARTNER_COLOR_CONFIG.body.button.background, 1) + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .page .iconArea .iconItem .iconLabel .verificationTypeRadioButton {\n\t\t\t\t\t\t\t\tborder-color: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.button.background + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .page .iconArea .iconItem.isSelected .iconLabel .verificationTypeRadioButton:after {\n\t\t\t\t\t\t\t\tbackground-color: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.button.foregroundCallToAction + ";\n\t\t\t\t\t\t\t}\n\n\t\t\t\t\t\t</style>").appendTo("head");
+                    $("<style type='text/css'>\n\t\t\n\t\t\t\t\t\t\tbody,\n\t\t\t\t\t\t\t#avsMainContainer .page.layoutDocumentProcessing,\n\t\t\t\t\t\t\t#avsMainContainer .page.layoutDocumentProcessing .imageContainer .loadingOverlay,\n\t\t\t\t\t\t\t#avsMainContainer .page.layoutError,\n\t\t\t\t\t\t\t#avsMainContainer .page.layoutStaticPage,\n\t\t\t\t\t\t\t#avsMainContainer .page.layoutTextBlock,\n\t\t\t\t\t\t\t#avsMainContainer .page.layoutTextBlock a,\n\t\t\t\t\t\t\t#avsMainContainer .page .informationArea.layoutBlack,\n\t\t\t\t\t\t\t#avsMainContainer .preloader,\n\t\t\t\t\t\t\t#avsMainContainer .page.layoutDocumentProcessing .processArea .checkOutList .checkOutItem .statusIcon {\n\t\t\t\t\t\t\t\tbackground-color: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.background + ";\n\t\t\t\t\t\t\t\tcolor: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.foreground + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .preloader {\n\t\t\t\t\t\t\t\tbackground-color: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.button.background + ";\n\t\t\t\t\t\t\t\tcolor: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.button.foreground + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .page.layoutDocumentProcessing .imageContainer .loadingOverlay {\n\t\t\t\t\t\t\t\topacity: 0.7\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .page .iconArea .iconItem .iconImage svg {\n\t\t\t\t\t\t\t\tfill: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.foreground + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .page .iconArea .iconItem.isSelected .iconImage svg {\n\t\t\t\t\t\t\t\tfill: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.button.foregroundCallToAction + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .page .submitArea .button,\n\t\t\t\t\t\t\t#avsMainContainer .page .submitArea .button.layoutRed,\n\t\t\t\t\t\t\t#avsMainContainer .page .submitArea .button.layoutGreen {\n\t\t\t\t\t\t\t\tcolor: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.button.foregroundCallToAction + ";\n\t\t\t\t\t\t\t\tbackground-color: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.button.background + ";\n\t\t\t\t\t\t\t\tborder-color: " + Avs.Helper.Common.hexToRgbA(StartPage.Config.PARTNER_COLOR_CONFIG.body.button.background, 0.4) + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .page .iconArea .iconItem.isSelected .iconImage,\n\t\t\t\t\t\t\t#avsMainContainer .page .introIcon,\n\t\t\t\t\t\t\t#avsMainContainer .page .introIcon.layoutRed,\n\t\t\t\t\t\t\t#avsMainContainer .page .introIcon.layoutGreen {\n\t\t\t\t\t\t\t\tfill: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.button.foreground + ";\n\t\t\t\t\t\t\t\tbackground-color: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.button.background + ";\n\t\t\t\t\t\t\t\tborder-color: " + Avs.Helper.Common.hexToRgbA(StartPage.Config.PARTNER_COLOR_CONFIG.body.button.background, 0.4) + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .page .termsArea label a {\n\t\t\t\t\t\t\t\tcolor: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.foregroundCallToAction + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#globalIframeCloseButton {\n\t\t\t\t\t\t\t\tbackground-color: " + Avs.Helper.Common.hexToRgbA(StartPage.Config.PARTNER_COLOR_CONFIG.body.background, 0.7) + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .page .iconArea .iconItem.isSelected .iconLabel .verificationTypeRadioButton {\n\t\t\t\t\t\t\t\tbackground-color: " + Avs.Helper.Common.hexToRgbA(StartPage.Config.PARTNER_COLOR_CONFIG.body.button.background, 1) + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .page .iconArea .iconItem .iconLabel .verificationTypeRadioButton {\n\t\t\t\t\t\t\t\tborder-color: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.button.background + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .page .iconArea .iconItem.isSelected .iconLabel .verificationTypeRadioButton:after {\n\t\t\t\t\t\t\t\tbackground-color: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.button.foregroundCallToAction + ";\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t#avsMainContainer .preloader {\n\t\t\t\t\t\t\t\tbackground-color: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.button.background + ";\n\t\t\t\t\t\t\t\tcolor: " + StartPage.Config.PARTNER_COLOR_CONFIG.body.button.foreground + ";\n\t\t\t\t\t\t\t}\n\n\t\t\t\t\t\t</style>").appendTo("head");
                     // go.cam logo replace disabled for now
                     // $(`.headerLogo img`).attr('src', Config.PARTNER_COLOR_CONFIG.header.logo);
                 }

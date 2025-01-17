@@ -60,6 +60,11 @@ namespace AvsFactory {
 								color: ` + Config.PARTNER_COLOR_CONFIG.body.foreground + `;
 							}
 							
+							#avsMainContainer .preloader {
+								background-color: ` + Config.PARTNER_COLOR_CONFIG.body.button.background + `;
+								color: ` + Config.PARTNER_COLOR_CONFIG.body.button.foreground + `;
+							}
+							
 							#avsMainContainer .page.layoutDocumentProcessing .imageContainer .loadingOverlay {
 								opacity: 0.7
 							}
@@ -107,6 +112,11 @@ namespace AvsFactory {
 							
 							#avsMainContainer .page .iconArea .iconItem.isSelected .iconLabel .verificationTypeRadioButton:after {
 								background-color: ` + Config.PARTNER_COLOR_CONFIG.body.button.foregroundCallToAction + `;
+							}
+							
+							#avsMainContainer .preloader {
+								background-color: ` + Config.PARTNER_COLOR_CONFIG.body.button.background + `;
+								color: ` + Config.PARTNER_COLOR_CONFIG.body.button.foreground + `;
 							}
 
 						</style>`

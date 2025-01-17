@@ -222,10 +222,7 @@
 				<img src="/static/img/logo.svg">
 			</div>
 
-			<h1 class="introHeading">Age verification
-			</h1>
-			<h2 class="introText"><strong>Verify</strong> your <strong>age</strong> in a few <strong>easy</strong> steps
-			</h2>
+			<h2 class="introText"><strong>Verify</strong> your <strong>age</strong> in a few <strong>easy</strong> steps</h2>
 
 			<div class="selectionArea">
 				<span class="label">Let's start by selecting a verification type:</span>
@@ -270,7 +267,19 @@
 
 				<h2 class="introText">Don't worry, <strong>we do NOT store</strong> any <strong>images</strong> or <strong>data</strong> related to this detection.</h2>
 				<h2 class="introText avsTabContent">We will take a few snapshots of your <strong>webcam</strong> and <strong>detect your age</strong> based on your <strong>face</strong>. You will be also asked to change your <strong>face expression</strong> for a short while. In case of failure you will be asked to provide a real document photo.</h2>
-				<h2 class="introText avsTabContent isHidden">We will ask you to provide us with a <strong>image</strong> of your <strong>document</strong> or take <strong>a snapshot</strong> of it using your <strong>webcam</strong>. Your <strong>date of birth</strong> will be extracted in order to confirm your current age.
+				<h2 class="introText avsTabContent isHidden">We will ask you to provide us with a <strong>image</strong> of your <strong>document</strong> or take <strong>a snapshot</strong> of it using your <strong>webcam</strong>. Your <strong>date of birth</strong> will be extracted in order to confirm your current age.</h2>
+				<h2 class="introText">
+					<small class="certificationLabel">
+						Certified by:
+					</small>
+					<span class="certificationImageList">
+						<a href="https://www.kjm-online.de/pressemitteilungen/altersverifikation-persona-gocam/" target="_blank">
+							<img src="/static/img/kjmLogo.jpg"/>
+						</a>
+						<a href="https://accscheme.com/registry/age-estimation/gsi-development-sas/" target="_blank">
+							<img src="/static/img/accLogo.jpg"/>
+						</a>
+					</span>
 				</h2>
 			</div>
 		</div>
@@ -341,10 +350,23 @@
 					<a id="selfieAgeDetectionStartButton" class="button layoutGreen">Continue
 						<i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
 					</a>
-					<a id="selfieAgeDetectionCancelButton" class="linkButton">Cancel
-					</a>
+					<a id="selfieAgeDetectionCancelButton" class="linkButton">Cancel</a>
 				</div>
 			</div>
+
+			<h2 class="introText">
+				<small class="certificationLabel">
+					Certified by:
+				</small>
+				<span class="certificationImageList">
+						<a href="https://www.kjm-online.de/pressemitteilungen/altersverifikation-persona-gocam/" target="_blank">
+							<img src="/static/img/kjmLogo.jpg"/>
+						</a>
+						<a href="https://accscheme.com/registry/age-estimation/gsi-development-sas/" target="_blank">
+							<img src="/static/img/accLogo.jpg"/>
+						</a>
+					</span>
+			</h2>
 
 		</div>
 
@@ -357,34 +379,38 @@
 			</div>
 			<div class="maskGuidContainer">
 				<div id="faceGuide" class="maskGuide layoutFace">
-					<div id="faceGuideAgeArea" class="ageGuideArea">
-						<p>
-							<span id="selfieAgeDetectionCurrentAgeArea"></span>
-						</p>
-						<p>
-							<span id="selfieAgeDetectionAverageAgeArea"></span>
-						</p>
-					</div>
-					<div id="faceGuideSmileStartHintArea" class="isHidden">
-						<p class="emoticonArea">
-							<i class="fa fa-meh-o" aria-hidden="true"></i>
-							<i class="fa fa-arrow-right layoutSmallerEmoticon" aria-hidden="true"></i>
-							<i class="fa fa-smile-o" aria-hidden="true"></i>
-						</p>
-						<p class="hintArea" id="faceGuideSmileStartHintLabel">Please smile</p>
-					</div>
-					<div id="faceGuideSmileStopHintArea" class="isHidden">
-						<p class="emoticonArea">
-							<i class="fa fa-smile-o" aria-hidden="true"></i>
-							<i class="fa fa-arrow-right layoutSmallerEmoticon" aria-hidden="true"></i>
-							<i class="fa fa-meh-o" aria-hidden="true"></i>
-						</p>
-						<p class="hintArea" id="faceGuideSmileStopHintLabel">Please stop smiling</p>
-					</div>
-					<div class="statusArea isHidden" id="selfieAgeDetectionStatusLabel">Please position your face close to the center of the screen
-					</div>
-					<div class="loadingIconArea">
-						<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+					<div class="statusMessageArea">
+						<div id="faceGuideAgeArea" class="ageGuideArea">
+							<p>
+								<span id="selfieAgeDetectionCurrentAgeArea"></span>
+							</p>
+							<p>
+								<span id="selfieAgeDetectionAverageAgeArea"></span>
+							</p>
+						</div>
+						<div id="faceGuideSmileStartHintArea" class="isHidden">
+							<p class="emoticonArea">
+								<i class="fa fa-meh-o" aria-hidden="true"></i>
+								<i class="fa fa-arrow-right layoutSmallerEmoticon" aria-hidden="true"></i>
+								<i class="fa fa-smile-o" aria-hidden="true"></i>
+							</p>
+							<p class="hintArea" id="faceGuideSmileStartHintLabel">Please smile</p>
+						</div>
+						<div id="faceGuideSmileStopHintArea" class="isHidden">
+							<p class="emoticonArea">
+								<i class="fa fa-smile-o" aria-hidden="true"></i>
+								<i class="fa fa-arrow-right layoutSmallerEmoticon" aria-hidden="true"></i>
+								<i class="fa fa-meh-o" aria-hidden="true"></i>
+							</p>
+							<p class="hintArea" id="faceGuideSmileStopHintLabel">Please stop smiling</p>
+						</div>
+						<div class="statusArea isHidden" id="selfieAgeDetectionStatusLabel"></div>
+						<div class="loadingIconArea">
+							<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+							<span class="loadingProgressBarContainer" id="faceGuideLoadingProgressBar">
+						<span class="loadingProgressBar"></span>
+					</span>
+						</div>
 					</div>
 				</div>
 			</div>

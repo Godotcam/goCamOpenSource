@@ -402,7 +402,8 @@ namespace Avs {
 
 								let dateNow = (+new Date());
 
-								let scanIdPersonYears = ((dateNow - dateFound) / 1000 / 3600 / 24 / 365).toFixed();
+								// 365.2425 = days in a year with leap day added
+								let scanIdPersonYears = Math.floor(((dateNow - dateFound) / 1000 / 3600 / 24 / 365.2425));
 
 								cb({
 									birthDate: dateFoundString,

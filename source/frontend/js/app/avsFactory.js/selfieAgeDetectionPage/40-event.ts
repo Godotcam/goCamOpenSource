@@ -20,8 +20,7 @@ namespace AvsFactory {
 					Config.EVENT_NAME_PREFIX + '.' + Avs.DataChannel.Webrtc.ON_VIDEO_PLAY,
 					(event: Avs.Event.Listener) => {
 
-						instance.ui.SelfieAgeDetectionLoadingLabelArea.setContent('Initializing detection libraries ... ');
-						instance.ui.SelfieAgeDetectionLoadingLabelPercentCounter.setValue(0);
+						instance.ui.SelfieAgeDetectionStatusLabel.setValue('Initializing detection libraries');
 
 						instance.debug.logToContainer('<p>Starting face detection.</p>');
 
@@ -32,7 +31,7 @@ namespace AvsFactory {
 								return;
 							}
 
-							instance.ui.SelfieAgeDetectionLoadingLabelPercentCounter.increment();
+							instance.ui.FaceGuideLoadingProgressBar.increment();
 							instance.debug.logToContainer('<p>Loaded detector.</p>');
 
 							instance.plugin.Library.Ml.FaceApi.loadAgeGenderModel((result: boolean|null) => {
@@ -42,7 +41,7 @@ namespace AvsFactory {
 									return;
 								}
 
-								instance.ui.SelfieAgeDetectionLoadingLabelPercentCounter.increment();
+								instance.ui.FaceGuideLoadingProgressBar.increment();
 								instance.debug.logToContainer('<p>Loaded age model.</p>');
 
 								instance.plugin.Library.Ml.FaceApi.loadFaceRecognitionModel((result: boolean|null) => {
@@ -52,7 +51,7 @@ namespace AvsFactory {
 										return;
 									}
 
-									instance.ui.SelfieAgeDetectionLoadingLabelPercentCounter.increment();
+									instance.ui.FaceGuideLoadingProgressBar.increment();
 									instance.debug.logToContainer('<p>Loaded face recognition model.</p>');
 
 									instance.plugin.Library.Ml.FaceApi.loadLandmarksModel((result: boolean|null) => {
@@ -62,7 +61,7 @@ namespace AvsFactory {
 											return;
 										}
 
-										instance.ui.SelfieAgeDetectionLoadingLabelPercentCounter.increment();
+										instance.ui.FaceGuideLoadingProgressBar.increment();
 										instance.debug.logToContainer('<p>Loaded face landmarks model.</p>');
 
 										instance.plugin.Library.Ml.FaceApi.loadFaceExpressionModel((result: boolean|null) => {
@@ -72,11 +71,10 @@ namespace AvsFactory {
 												return;
 											}
 
-											instance.ui.SelfieAgeDetectionLoadingLabelPercentCounter.increment();
+											instance.ui.FaceGuideLoadingProgressBar.increment();
 											instance.debug.logToContainer('<p>Loaded face expression model.</p>');
 
-											instance.ui.SelfieAgeDetectionLoadingLabelArea.setContent('Detection in progress');
-											instance.ui.SelfieAgeDetectionLoadingLabelPercentCounter.hide();
+											instance.ui.SelfieAgeDetectionStatusLabel.setValue('Please position your face close to the center of the screen');
 
 											instance.ui.SelfieAgeDetectionStatusLabel.show();
 											instance.ui.SelfieAgeDetectionStatusLabel.startBlinking();

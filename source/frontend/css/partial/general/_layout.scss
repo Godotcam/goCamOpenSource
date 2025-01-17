@@ -184,7 +184,7 @@ a {
 			padding: 10px;
 			box-sizing: border-box;
 
-			h1, h2 {
+			h1, h2, h3 {
 				font-weight: bold;
 				font-size: 22px;
 				margin: 15px;
@@ -287,6 +287,31 @@ a {
 					line-height: 18px;
 					margin-bottom: 10px;
 				}
+			}
+
+
+			&.avsTabContent {
+				font-size: 12px;
+			}
+
+			.certificationLabel {
+				font-size: 12px;
+				padding-top: 10px;
+				display: block;
+			}
+
+			.certificationImageList {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				img {
+					width: 40px;
+					border-radius: 100%;
+					margin: 10px;
+					border: solid 3px $colorWhite;
+				}
+
 			}
 
 		}
@@ -696,9 +721,31 @@ a {
 				text-shadow: 1px 1px 2px $colorBlack;
 
 				.loadingIconArea {
-					font-size: 28px;
-				}
+					display: flex;
+					font-size: 16px;
+					align-items: center;
+					justify-content: center;
 
+					.loadingProgressBarContainer {
+						box-shadow: $colorBlackTransparentMore 0 0 3px 1px;
+						width: 100px;
+						height: 10px;
+						border: solid 2px $colorWhiteTransparent;
+						border-radius: 10px;
+						margin: 0 8px;
+
+						.loadingProgressBar {
+							display: block;
+							width: 0;
+							background: $colorLightGreen;
+							height: 10px;
+							border-radius: 10px;
+							transition: all 0.5s ease-out;
+						}
+
+					}
+
+				}
 				.statusArea {
 					padding: 15px;
 					font-size: 20px;
@@ -709,6 +756,7 @@ a {
 					@include flexCenter;
 					font-size: 28px;
 					padding-bottom: 25px;
+					margin: 0;
 
 					.layoutSmallerEmoticon {
 						font-size: 18px;
@@ -729,12 +777,14 @@ a {
 
 					p {
 						padding: 4px;
+						margin: 0;
 					}
 				}
 
 				.hintArea {
 					font-size: 24px;
 					line-height: 24px;
+					margin: 0;
 				}
 
 			}
@@ -937,37 +987,58 @@ a {
 		background: url("/static/img/staticPage/backTexture.png") center center $colorLightGreenLightest;
 	}
 
+	.layoutRelative {
+		position: relative;
+	}
+
+	.rectangleComponentHeroFooter {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		height: 85px;
+		background-color: $colorWhite;
+	}
+
+	.testButton {
+		@include testButton($colorWhite, $colorLightGreenLighter, $colorLightGreen);
+
+		z-index: 2;
+
+		i {
+			margin-right: 5px;
+		}
+	}
+
 	.headerContainer {
 		width: 100%;
+
 		height: auto;
 		margin: auto;
-		text-align: center;
 
-		&.error-template {
-			position: relative;
-			margin-top: -15;
-			background: $colorWhite;
-			z-index: 1;
-		}
+		text-align: center;
+		background: url("/static/img/backgroundHeader.png") center center $headerColorBackground;
+		background-repeat: no-repeat;
+
+		z-index: 3;
+
+		position: sticky;
+		top: 0;
 
 		.headerTop {
-			width: 1200px;
+			width: 1310px;
 			height: auto;
 			margin: auto;
 			text-align: left;
-			min-height: 105px;
+			min-height: 80px;
+
+			top: 0;
 
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
 
-			.headerLogoArea {
-				padding: 25px 0 0 10px;
-
-				img {
-					width: 175px;
-				}
-
+			.headerLogoArea img {
+				width: 120px;
 			}
 
 			.headerLanguageArea {
@@ -981,7 +1052,7 @@ a {
 
 				a {
 					text-decoration: none;
-					color: $colorBlack;
+					color: $headerMenuItemColorFont;
 				}
 
 				select {
@@ -990,62 +1061,134 @@ a {
 					display: inline;
 					height: 28px;
 					font-family: Arial, Helvetica, sans-serif;
+					background-color: transparent;
+					color: $headerMenuItemColorFont;
+					outline: none;
+				}
+
+				select:focus > option {
+					color: $colorBlack;
 				}
 
 				.authenticationArea {
 					padding: 10px;
 					font-size: 14px;
 
-					a {
+					> a {
 						margin-left: 15px;
 
 						i {
-							margin-right: 3px;
+							margin-right: 6px;
 						}
 					}
 
+					a:hover,
+					div.dropdown-content > a:hover {
+						color: $headerMenuItemColorFontHover;
+					}
+
+					div.dropdown-content > a.parent:hover {
+						color: $headerMenuItemColorFont;
+						cursor: default;
+					}
+
+				}
+
+			}
+
+			.dropdown-content {
+				position: absolute;
+				top: 80px;
+				right: 8px;
+				background-color: $headerDropdownMenuColorBackground;
+				min-width: 250px;
+				box-shadow: $headerDropdownMenuColorShadow 0 10px 10px -5px inset;
+				padding: 20px;
+
+				a {
+					color: $headerMenuItemColorFont;
+					padding: 12px 16px;
+					text-decoration: none;
+					display: block;
+					text-align: left;
+					border-bottom: 1px solid $headerDropdownMenuItemBorderColor;
+
+					&:last-child {
+						border-bottom: 0 none;
+					}
+
+					&.sub-menu-item {
+						padding-left: 40px;
+					}
+
+					i {
+						margin-right: 3px;
+					}
 				}
 
 			}
 
 		}
 
-		.headerHeroImage {
-			width: 1200px;
-			height: auto;
-			margin: auto;
-			text-align: left;
+	}
 
-			.heroHeadingContainer {
+	.separator {
+		background-color: $headerSeparatorColorBackground;
+		width: 100%;
+		height: 2px;
+
+		&.separatorWithButton {
+			position: relative;
+
+			.testButton {
 				position: absolute;
+				top: -50px;
+				left: 50%;
+				transform: translateX(-50%);
 
-				.heroHeading {
-					font-size: 48px;
-					width: 475px;
-					padding-top: 35px;
-					padding-left: 10px;
-					font-weight: bold;
-					text-align: left;
+				// Overwrites
+				font-size: 22px;
+				padding: 25px 100px;
+				border-radius: 50px;
+			}
+		}
+	}
 
-					strong {
-						color: $colorLightGreen;
-					}
+	.headerHeroImage {
+		width: 1310px;
+		height: auto;
+		margin: auto;
+		text-align: left;
+		position: relative;
+		overflow: hidden;
 
-				}
+		.heroHeadingContainer {
+			position: absolute;
 
-				.heroSubHeading {
-					font-size: 36px;
-					padding-top: 5px;
-					padding-left: 10px;
+			.heroHeading {
+				font-size: 48px;
+				width: 475px;
+				padding-top: 35px;
+				padding-left: 10px;
+				font-weight: bold;
+				text-align: left;
+
+				strong {
+					color: $colorLightGreen;
 				}
 
 			}
 
-			.heroImage {
-				float: right;
-				padding: 50px 0 20px 0;
+			.heroSubHeading {
+				font-size: 36px;
+				padding-top: 5px;
+				padding-left: 10px;
 			}
 
+		}
+
+		.heroImage {
+			float: right;
 		}
 
 	}
@@ -1060,8 +1203,12 @@ a {
 			float: left;
 		}
 
+		&.layoutPaddingTop50 {
+			padding-top: 50px;
+		}
+
 		.contentArea {
-			max-width: 1200px;
+			max-width: 1310px;
 			width: 100%;
 			height: auto;
 			margin: auto;
@@ -1113,6 +1260,23 @@ a {
 					padding-bottom: 25px;
 				}
 
+				.certificationList {
+
+					p {
+						display: flex;
+						align-items: center;
+						justify-content: start;
+
+						img {
+							width: 40px;
+							border-radius: 100%;
+							padding: 10px 10px 10px 0;
+						}
+
+					}
+
+				}
+
 			}
 
 			.textBlockAreaWide {
@@ -1120,6 +1284,60 @@ a {
 				padding: 25px 10px;
 				box-sizing: border-box;
 				text-align: left;
+
+				&.devDocLayout {
+					p {
+						padding: 5px 0;
+
+						&.layoutImageSchema {
+							text-align: center;
+							img {
+								box-sizing: border-box;
+								max-width: 400px;
+								width: 100%;
+								border: solid 1px $colorLightGreen;
+								padding: 10px;
+								border-radius: 5px;
+							}
+
+							small {
+								font-size: 12px;
+								font-weight: bold;
+							}
+						}
+
+					}
+
+					blockquote {
+						background: $colorLightGreenLightest;
+						padding: 10px;
+						margin: 10px 0;
+						border-left: solid 2px $colorLightGreen;
+						font-size: 14px;
+					}
+
+					h2 {
+						padding: 30px 0 20px 0;
+						line-height: 24px;
+
+						a {
+							border-bottom: solid 3px $colorLightGreen;
+						}
+					}
+
+					h3 {
+						padding: 20px 0;
+						line-height: 24px;
+					}
+
+					hr {
+						border: none;
+						height: 1px;
+						background: $colorLightGreen;
+						margin: 30px 0 20px 0;
+					}
+
+				}
 
 				.text-center {
 					text-align: center;
@@ -1145,6 +1363,16 @@ a {
 					}
 				}
 
+				h3 {
+					font-size: 18px;
+					font-weight: bold;
+					padding-bottom: 25px;
+
+					strong {
+						color: $colorLightGreen;
+					}
+				}
+
 				p {
 					font-size: 16px;
 					line-height: 24px;
@@ -1154,7 +1382,17 @@ a {
 						color: $colorBlack;
 						text-decoration: underline;
 						font-weight: bold;
+
 					}
+
+					&.hintLayout {
+						background: $colorLightGreenLightest;
+						padding: 10px;
+						margin: 10px 0;
+						border-left: solid 2px $colorLightGreen;
+						font-size: 14px;
+					}
+
 				}
 
 				.emailImage {
@@ -1162,7 +1400,7 @@ a {
 					margin-left: -7px;
 				}
 
-				ul {
+				ul, ol {
 					padding: 0 10px 25px 10px;
 					margin-left: 10px;
 
@@ -1265,7 +1503,9 @@ a {
 				}
 
 				&.loginPage,
-				&.signupPage {
+				&.signupPage,
+				&.forgotPasswordPage,
+				&.newPasswordPage {
 					.form-top {
 						width: 300px;
 						margin: 0 auto;
@@ -1298,6 +1538,23 @@ a {
 				&.signupPage {
 					#termAcceptance {
 						margin-top: 0;
+					}
+				}
+
+				&.faqPage {
+					h2 {
+						transition: 0.4s;
+						outline: none;
+					}
+
+					h2:hover {
+						cursor: pointer;
+					}
+
+					h2+blockquote {
+						max-height: 0;
+						overflow: hidden;
+						transition: max-height 0.2s ease-out;
 					}
 				}
 			}
@@ -1350,6 +1607,19 @@ a {
 				height: 140px;
 			}
 
+			.signupButton {
+				@include testButton($colorWhite, $colorLightGreenLighter, $colorLightGreen);
+
+				min-width: 120px;
+				float: right;
+				padding: 15px 30px;
+
+				i {
+					margin-right: 5px;
+				}
+
+			}
+
 		}
 
 	}
@@ -1358,44 +1628,144 @@ a {
 		width: 100%;
 		height: auto;
 		margin: auto;
+		padding-top: 30px;
 		text-align: center;
+		background: url("/static/img/layout/backgroundFooter.png") center center $footerColorBackground;
+		background-repeat: no-repeat;
+		box-shadow: $footerColorShadow 0 100px 50px -50px inset;
 
-		.footerLinkArea {
-			padding: 10px 0;
+		.footerContent {
+			max-width: 1310px;
+			width: 100%;
+			margin: 0 auto;
+			padding: 80px 0;
+			position: relative;
+		}
 
-			a {
+		.footerGrid {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 50px;
+
+			margin-bottom: 50px;
+		}
+
+		.footerColumn {
+			text-align: left;
+
+			&.columnLogo {
+				align-self: flex-start;
+				text-align: center;
+
+				img {
+					margin-top: -10px;
+				}
+
+				.avsSloganArea {
+					color: $footerColorFontPrimary;
+					font-size: 16px;
+					line-height: 20px;
+
+					> span {
+						&:first-child {
+							display: block;
+						}
+
+						strong {
+							color: $footerColorFontSecondary;
+						}
+					}
+				}
+			}
+
+			.column-header {
+				margin-bottom: 20px;
+				text-transform: uppercase;
+				color: $footerColorFontSecondary;
 				font-weight: bold;
-				color: $colorBlack;
-				font-size: 14px;
-				padding: 0 10px;
+
+				> i {
+					margin-right: 2px;
+				}
+			}
+
+			ul {
+				list-style: none;
+
+				li {
+					padding: 8px 0;
+				}
+			}
+
+			li a, span {
+				color: $footerColorFontPrimary;
+				font-weight: 500;
+			}
+
+			li a:hover {
+				color: $footerColorFontSecondary;
+			}
+
+			span {
+				line-height: 28px;
 			}
 		}
 
 		.footerCopyrightArea {
-			padding: 10px;
-			font-size: 12px;
+			color: $footerCopyrightTextColorFont;
+		}
+	}
 
-			p {
-				&.layoutBiggerText {
-					font-size: 14px;
-					padding-bottom: 10px;
+}
+
+@media (max-width: 1310px) {
+	#staticPage {
+		.headerHeroImage {
+			width: 100%;
+
+			.heroHeadingContainer {
+
+				.heroHeading {
+					padding: 35px 20px 0 20px;
+					font-size: 36px;
+					width: 430px;
 				}
 
-				padding-bottom: 5px;
+				.heroSubHeading {
+					padding: 5px 0 0 20px;
+					font-size: 24px;
+				}
+			}
 
-				.emailImage {
-					height: 16px;
+			.heroImage {
+				width: 75%;
+			}
+		}
+	}
+}
+
+@media (min-width: 1025px) and (max-width: 1300px) {
+	#staticPage {
+		.footerContainer {
+			.footerContent {
+				padding-left: 30px;
+				padding-right: 30px;
+				box-sizing: border-box;
+			}
+
+			.columnLogo {
+				text-align: left !important;
+
+				img {
+					margin-left: -20px;
+				}
+
+				.avsSloganArea > span:first-child {
+					display: inline-block;
 				}
 			}
 		}
 
-		.footerLogoArea {
-			padding: 10px 0;
-
-			img {
-				width: 100px;
-			}
-		}
 	}
 
 }
@@ -1410,35 +1780,24 @@ a {
 				width: 100%;
 
 				.headerLogoArea {
-					padding: 10px 20px;
+					margin-left: 10px;
+				}
 
-					img {
-						width: 120px;
+				.headerLanguageArea {
+					margin-right: 15px;
+					padding: 0;
+					height: auto;
+
+					select {
+						margin-left: 20px;
+					}
+
+					.authenticationArea {
+						padding: 0;
 					}
 				}
 			}
 
-			.headerHeroImage {
-				width: 100%;
-
-				.heroHeadingContainer {
-
-					.heroHeading {
-						padding: 35px 20px 0 20px;
-						font-size: 36px;
-						width: 430px;
-					}
-
-					.heroSubHeading {
-						padding: 5px 0 0 20px;
-						font-size: 24px;
-					}
-				}
-
-				.heroImage {
-					width: 75%;
-				}
-			}
 		}
 
 		.contentAreaContainer {
@@ -1477,16 +1836,77 @@ a {
 
 		.footerContainer {
 
-			.footerLinkArea {
+			.footerContent {
+				.footerGrid {
+					gap: 25px;
+				}
 
-				ul {
-					li {
-						a {
-							display: block;
-							width: 100%;
-							padding: 7px 0;
+			}
+
+		}
+
+	}
+
+}
+
+@media (max-width: 1024px) {
+	#staticPage {
+		.headerTop {
+			.dropdown-content {
+				right: 0 !important;
+			}
+
+			.headerLogoArea img {
+				width: 100px !important;
+			}
+		}
+
+		.separator {
+			&.separatorWithButton {
+				.testButton {
+					top: -34px;
+					font-size: 18px;
+					padding: 18px 50px;
+					border-width: 5px;
+				}
+			}
+
+			&.separatorNoBorder {
+				.testButton {
+					top: -28px;
+				}
+			}
+		}
+
+		.footerContainer {
+			padding-left: 30px;
+			padding-right: 30px;
+			box-sizing: border-box;
+
+			.footerContent {
+				padding: 80px 0 30px 0;
+
+				.footerGrid {
+					grid-template-columns: unset;
+
+					.footerColumn {
+						text-align: center;
+
+						&.columnLogo {
+							max-width: 100%;
+							margin-bottom: 20px;
+
+							.avsSloganArea {
+								font-size: 14px;
+							}
 						}
+
+						span {
+							line-height: unset;
+						}
+
 					}
+
 				}
 
 			}
@@ -1504,64 +1924,61 @@ a {
 		.headerContainer {
 
 			.headerTop {
-				width: 100%;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
+				margin-bottom: 40px;
 
-				.headerLogoArea {
-					padding: 20px 0;
-
-					img {
-						width: 125px;
-					}
-				}
-
-				.headerLanguageArea {
-					background: url("/static/img/staticPage/backTexture.png") center center $colorLightGreenLightest;
-					margin-bottom: 10px;
+				.dropdown-content {
+					right: 0;
 					width: 100%;
+					text-align: center !important;
+					box-sizing: border-box;
+					padding: 10px 0 10px 0;
+
+					a {
+						padding: 15px 0 15px 0 !important;
+						text-align: center;
+					}
+
 				}
 
 			}
 
-			.headerHeroImage {
+		}
+
+		.headerHeroImage {
+			width: 100%;
+
+			.heroHeadingContainer {
+				position: relative;
 				width: 100%;
 
-				.heroHeadingContainer {
-					position: relative;
+				.heroHeading {
 					width: 100%;
+					box-sizing: border-box;
+					font-size: 36px;
+					padding: 0 10px;
+					font-weight: bold;
 
-					.heroHeading {
-						width: 100%;
-						box-sizing: border-box;
-						font-size: 36px;
-						padding: 0 10px;
-						font-weight: bold;
-
-						strong {
-							color: $colorLightGreen;
-						}
-
+					strong {
+						color: $colorLightGreen;
 					}
 
-					.heroSubHeading {
-						padding: 0 10px;
-						font-size: 24px;
-					}
 				}
 
-				.heroImage {
-					padding: 0;
-					width: 100%;
+				.heroSubHeading {
+					padding: 0 10px;
+					font-size: 24px;
 				}
+			}
+
+			.heroImage {
+				padding: 0;
+				width: 100%;
 			}
 		}
 
 		.contentAreaContainer {
 
 			.contentArea {
-				max-width: 1200px;
 				width: 100%;
 				display: block;
 
@@ -1610,22 +2027,10 @@ a {
 					}
 				}
 
-			}
-
-		}
-
-		.footerContainer {
-
-			.footerLinkArea {
-
-				ul {
-					li {
-						a {
-							display: block;
-							width: 100%;
-							padding: 7px 0;
-						}
-					}
+				.signupButton {
+					width: 130px;
+					margin: 0 auto;
+					float: none;
 				}
 
 			}
@@ -1682,3 +2087,36 @@ a {
 
 }
 
+@media (max-width: 480px) {
+
+	#staticPage {
+		.headerTop {
+			.authenticationArea {
+				> a {
+					font-size: 12px;
+					margin-left: 10px !important;
+
+					&:first-child {
+						margin-left: 0 !important;
+					}
+				}
+			}
+		}
+	}
+
+}
+
+@media (max-width: 380px) {
+	#staticPage {
+		.headerContainer {
+			.authenticationArea {
+				span {
+					display: none;
+				}
+			}
+
+		}
+
+	}
+
+}

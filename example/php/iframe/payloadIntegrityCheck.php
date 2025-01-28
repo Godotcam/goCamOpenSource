@@ -1,7 +1,7 @@
 <?php
 
 // include the php library
-require_once '../redirect/lib/avsPhpSdkV1.php';
+require_once '../redirect/lib/AvsPhpSdkV1.php';
 
 // provide the access information, find this credentials in your partner account
 $cipherKey = 'zIkmW2zEgzlTLTRC5xeMbcOhHcE5sBHB';

@@ -126,7 +126,7 @@ namespace Avs {
 							throw new Error('Required ocr library not loaded.');
 						}
 
-						this.tesseractClass = (<any>window).Tesseract;
+						this.tesseractClass = window.Tesseract;
 
 						this.workerInstance = new this.tesseractClass.createWorker({
 							workerPath : this.config.workerPath,

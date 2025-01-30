@@ -55,12 +55,12 @@ namespace Avs {
 						this.config = config;
 						this.api    = api;
 
-						if (typeof faceapi === 'undefined') {
+						if (typeof window.faceapi === 'undefined') {
 							this.debug.error(25011, 'Required face detection library not loaded.');
 							throw new Error('Required face detection library not loaded.');
 						}
 
-						this.faceApiClass    = faceapi;
+						this.faceApiClass    = window.faceapi;
 						this.detectorOptions = null;
 						this.predictAgeList  = [];
 

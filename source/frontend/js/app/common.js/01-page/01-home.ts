@@ -1,5 +1,7 @@
-let faceapi: any;
-let Tesseract: any;
+declare interface Window {
+	faceapi: any;
+	Tesseract: any;
+}
 
 declare namespace Application {
 	export var verificationVersion: number;

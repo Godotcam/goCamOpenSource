@@ -19527,11 +19527,11 @@ var Avs;
                         var _this = _super.call(this, config, event, api) || this;
                         _this.config = config;
                         _this.api = api;
-                        if (typeof faceapi === 'undefined') {
+                        if (typeof window.faceapi === 'undefined') {
                             _this.debug.error(25011, 'Required face detection library not loaded.');
                             throw new Error('Required face detection library not loaded.');
                         }
-                        _this.faceApiClass = faceapi;
+                        _this.faceApiClass = window.faceapi;
                         _this.detectorOptions = null;
                         _this.predictAgeList = [];
                         _this.videoElement = $(_this.config.videoElementSelector).get(0);

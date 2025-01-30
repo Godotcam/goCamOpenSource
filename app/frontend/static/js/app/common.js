@@ -636,8 +636,6 @@ var Translation;
 })();
 
 "use strict";
-var faceapi;
-var Tesseract;
 var AvsHome;
 (function (AvsHome) {
     var API_BASE_URL = '/';

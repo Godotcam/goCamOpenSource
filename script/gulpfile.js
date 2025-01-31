@@ -21,26 +21,44 @@ const frontendCssDestinationLocation = '../app/frontend/static/css/';
 const tsBackendProject  = ts.createProject(backendTsConfigLocation);
 const tsFrontendProject = ts.createProject(frontendTsConfigLocation);
 
+/**
+ * Creates and/or cleans out the `frontendJsDestinationLocation` directory
+ * to ensure a fresh copy of the concatenated code is transpiled.
+ *
+ * @param {function} cb callback function
+ */
+function cleanTempLocation(cb) {
+	const options = {
+		recursive: true
+	}
+	if (fs.existsSync(frontendJsDestinationLocation)) {
+		fs.rmSync(frontendJsDestinationLocation, options);
+	}
+	fs.mkdirSync(frontendJsDestinationLocation, options);
+	cb();
+}
+
 function buildJsBackend() {
-	let tsResult = gulp.src(backendJsSourceLocation).pipe(tsBackendProject());
+	const tsResult = gulp.src(backendJsSourceLocation).pipe(tsBackendProject());
 
 	return tsResult.js.pipe(gulp.dest(backendJsDestinationLocation));
 }
 
 function buildJsFrontend(cb) {
 
-	let tsResult = gulp.src(frontendJsSourceLocation).pipe(tsFrontendProject());
-	tsResult.js.pipe(gulp.dest(frontendJsDestinationLocation));
-
-	let folderToConcatList = fs.readdirSync(frontendJsDestinationLocation);
-	for (let i = 0, j = folderToConcatList.length; i < j; i++) {
-		gulp.src([frontendJsDestinationLocation + folderToConcatList[i] + '/**/**/*.js'])
-			.pipe(concat(folderToConcatList[i]))
-			.pipe(gulp.dest(frontendJsConcatLocation))
-	}
-
-	cb()
-
+	const tsResult = gulp.src(frontendJsSourceLocation).pipe(tsFrontendProject());
+	tsResult.js
+	.pipe(gulp.dest(frontendJsDestinationLocation))
+	.on('end', () => {
+		// on stream end, gather the files and move them to the frontend destination directory
+		const folderToConcatList = fs.readdirSync(frontendJsDestinationLocation);
+		for (let i = 0, j = folderToConcatList.length; i < j; i++) {
+			gulp.src([frontendJsDestinationLocation + folderToConcatList[i] + '/**/**/*.js'])
+				.pipe(concat(folderToConcatList[i]))
+				.pipe(gulp.dest(frontendJsConcatLocation))
+		}
+		cb();
+	});
 }
 
 function cleanJsFrontend(cb) {
@@ -72,7 +90,7 @@ function watchCssFrontend(cb) {
 }
 
 
-exports.build            = gulp.series(buildJsBackend, buildJsFrontend, buildCssFrontend);
+exports.build            = gulp.series(cleanTempLocation, buildJsBackend, buildJsFrontend, buildCssFrontend);
 exports.buildJsBackend   = buildJsBackend;
 exports.buildJsFrontend  = buildJsFrontend;
 exports.cleanJsFrontend  = cleanJsFrontend;

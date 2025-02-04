@@ -72,11 +72,9 @@ export function load(app: Express.Application, storage: AvsStorageSession) {
 				httpUserAgent      : userAgent,
 				websiteHostname    : config.httpServerHost,
 				httpParamList      : {
-					userAgent      : userAgent,
-					websiteHostname: config.httpServerHost,
-					paramList      : {
-						showDetectedAgeNumber: true,
-					}
+					userAgent            : userAgent,
+					websiteHostname      : config.httpServerHost,
+					showDetectedAgeNumber: true,
 				},
 				verificationVersion: AvsStorageSession.VERIFICATION_IFRAME_V1,
 				linkBack           : linkBack,

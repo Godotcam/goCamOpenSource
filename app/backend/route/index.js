@@ -62,9 +62,7 @@ function load(app, storage) {
             httpParamList: {
                 userAgent: userAgent,
                 websiteHostname: config_1.config.httpServerHost,
-                paramList: {
-                    showDetectedAgeNumber: true,
-                }
+                showDetectedAgeNumber: true,
             },
             verificationVersion: session_1.AvsStorageSession.VERIFICATION_IFRAME_V1,
             linkBack: linkBack,

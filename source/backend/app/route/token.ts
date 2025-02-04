@@ -94,7 +94,7 @@ export function load(app: Express.Application, storage: AvsStorageSession) {
 					backLink  : avsSession.linkBack,
 				}),
 				isLiveness           : true,
-				showDetectedAgeNumber: false,
+				showDetectedAgeNumber: payloadParsed['httpParamList']['showDetectedAgeNumber'] || false,
 				verificationVersion  : verificationVersion,
 				d                    : payload,
 				sessionId            : sessionId,

@@ -19,6 +19,8 @@ Authorities that already certified us:
 * [Central Authority for the Supervision and Protection of Minors on the Internet in Germany](https://www.kjm-online.de/pressemitteilungen/altersverifikation-persona-gocam/)
 * [Age Check Certification Scheme](https://accscheme.com/registry/age-estimation/gsi-development-sas/)
 
+[ASACP](https://www.asacp.org/) recommends Go.cam as a solution for protecting minors online by guaranteeing secure access to adult content.
+
 ## Install
 
 This project was developed using Nodejs v20, we recommend using a compatible version.

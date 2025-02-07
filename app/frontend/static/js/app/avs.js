@@ -16265,6 +16265,7 @@ var Avs;
                 this.sessionId = null;
                 this.isVerified = false;
                 this.scanIdAgeVerificationInVideoBypassMode = false;
+                this.verificationComplete = false;
             };
             VerificationStepGlobal.VERIFICATION_TYPE_SELFIE_AND_SCAN_ID_OPTIONAL = 1;
             VerificationStepGlobal.VERIFICATION_TYPE_SELFIE_AND_SCAN_ID_FORCED = 2;

@@ -314,6 +314,15 @@ a {
 
 			}
 
+			&.layoutCertification {
+				display: flex;
+
+				.certificationColumn {
+					padding: 0 10px;
+				}
+
+			}
+
 		}
 
 		.selectionArea {
@@ -809,6 +818,14 @@ a {
 			position: fixed;
 			/*bottom: 0;*/
 			top: 110px;
+
+			&.layoutLoading {
+				top: auto;
+			}
+
+			&.layoutNoTop {
+				top: 0;
+			}
 
 			&.layoutTransparent {
 				text-shadow: 1px 1px 2px $colorBlack;

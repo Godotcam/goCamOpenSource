@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+	<title>Age verification using iframe overlay demo</title>
+	<link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+<div class="container">
+	<img class="logo" src="/static/img/logo.svg"/>
+	<h1>Age verification using iframe overlay demo</h1>
+	<p>By clicking the button below a screen overlay will open with the go.cam age verification page. </p>
+	<p>The verification result will be posted back to your verification result callback url.</p>
+	<p>Since we are using the iframe implementation, we will also listen to the events we receive while the detection it's running and we will log it in the area below.</p>
+	<p>
+		<button id="openVerificationIframeButton" disabled>Open verification iframe</button>
+	</p>
+	<p>
+		<small>Age verification log:</small>
+	</p>
+	<p>
+		<textarea id="ageVerificationLogsArea" rows="10" readonly></textarea>
+		<input type="hidden" id="ageVerificationUrlInput" value="{{ goCamIframeUrl }}"/>
+	</p>
+</div>
+<!-- include the js sdk library -->
+<script src="/static/js/avsJsSdkV1.js"></script>
+<!-- handle the verification iframe -->
+<script src="/static/js/demo.js"></script>
+</body>
+</html>

@@ -6,6 +6,10 @@ namespace AvsFactory {
 
 			public static init(): void {
 
+				if (!instance.entity.VerificationStepGlobal.verificationComplete) {
+					return;
+				}
+
 				instance.ui = {
 					ResultPageSuccessScanIdArea: new Avs.Ui.Library.ResultPageSuccessScanIdArea(instance.event),
 					ResultPageSuccessSelfieArea: new Avs.Ui.Library.ResultPageSuccessSelfieArea(instance.event),

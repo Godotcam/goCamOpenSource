@@ -6,6 +6,10 @@ namespace AvsFactory {
 
 			public static init(): void {
 
+				if (!instance.entity.VerificationStepGlobal.verificationComplete) {
+					return;
+				}
+
 				if (instance.entity.SelfieAgeDetection.averageAge > 0) {
 					instance.ui.ResultPageSuccessSelfieArea.setContent(
 						'<strong>' +

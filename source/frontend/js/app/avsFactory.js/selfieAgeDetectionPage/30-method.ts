@@ -186,6 +186,7 @@ namespace AvsFactory {
 							Method.checkExpressionStep();
 						}
 						else {
+							instance.entity.VerificationStepGlobal.verificationComplete = true;
 							Method.goToSuccessStep();
 						}
 
@@ -291,6 +292,7 @@ namespace AvsFactory {
 
 										instance.ui.FaceGuideLoadingProgressBar.increment();
 
+										instance.entity.VerificationStepGlobal.verificationComplete = true;
 										Method.goToSuccessStep();
 										return;
 

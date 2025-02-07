@@ -191,6 +191,9 @@ var AvsFactory;
             function Ui() {
             }
             Ui.init = function () {
+                if (!ResultPageSuccess.instance.entity.VerificationStepGlobal.verificationComplete) {
+                    return;
+                }
                 ResultPageSuccess.instance.ui = {
                     ResultPageSuccessScanIdArea: new Avs.Ui.Library.ResultPageSuccessScanIdArea(ResultPageSuccess.instance.event),
                     ResultPageSuccessSelfieArea: new Avs.Ui.Library.ResultPageSuccessSelfieArea(ResultPageSuccess.instance.event),
@@ -212,6 +215,9 @@ var AvsFactory;
             function Binding() {
             }
             Binding.init = function () {
+                if (!ResultPageSuccess.instance.entity.VerificationStepGlobal.verificationComplete) {
+                    return;
+                }
                 ResultPageSuccess.instance.ui.ResultSuccessButton.onClick(function () {
                     AvsFactory.StartPage.instance.postMessage.emit(AvsFactory.StartPage.Config.EVENT_ON_VERIFICATION_SUCCESS, {
                         status: ResultPageSuccess.instance.entity.VerificationStepGlobal.isVerified,
@@ -242,6 +248,9 @@ var AvsFactory;
             function Method() {
             }
             Method.init = function () {
+                if (!ResultPageSuccess.instance.entity.VerificationStepGlobal.verificationComplete) {
+                    return;
+                }
                 if (ResultPageSuccess.instance.entity.SelfieAgeDetection.averageAge > 0) {
                     ResultPageSuccess.instance.ui.ResultPageSuccessSelfieArea.setContent('<strong>' +
                         AvsFactory.SelfieAgeDetectionPage.Method.getAgeAreaString('Final face average age', ResultPageSuccess.instance.entity.SelfieAgeDetection.averageAge) +
@@ -1010,6 +1019,7 @@ var AvsFactory;
                         Method.goToFailStep(25053, 'Detected your age is lower than ' + Method.getAgeMinimumValue() + ' years');
                         return;
                     }
+                    ScanIdAgeVerificationPage.instance.entity.VerificationStepGlobal.verificationComplete = true;
                     Method.goToSuccessStep();
                     return;
                 }
@@ -1550,6 +1560,7 @@ var AvsFactory;
                             Method.checkExpressionStep();
                         }
                         else {
+                            SelfieAgeDetectionPage.instance.entity.VerificationStepGlobal.verificationComplete = true;
                             Method.goToSuccessStep();
                         }
                         return;
@@ -1615,6 +1626,7 @@ var AvsFactory;
                                             return;
                                         }
                                         SelfieAgeDetectionPage.instance.ui.FaceGuideLoadingProgressBar.increment();
+                                        SelfieAgeDetectionPage.instance.entity.VerificationStepGlobal.verificationComplete = true;
                                         Method.goToSuccessStep();
                                         return;
                                     }

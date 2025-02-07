@@ -6,6 +6,10 @@ namespace AvsFactory {
 
 			public static init(): void {
 
+				if (!instance.entity.VerificationStepGlobal.verificationComplete) {
+					return;
+				}
+
 				instance.ui.ResultSuccessButton.onClick(() => {
 
 					StartPage.instance.postMessage.emit(StartPage.Config.EVENT_ON_VERIFICATION_SUCCESS, {

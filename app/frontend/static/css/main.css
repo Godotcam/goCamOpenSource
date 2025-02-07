@@ -313,6 +313,12 @@ a {
   margin: 10px;
   border: solid 3px rgb(255, 255, 255);
 }
+#avsMainContainer .page .introText.layoutCertification {
+  display: flex;
+}
+#avsMainContainer .page .introText.layoutCertification .certificationColumn {
+  padding: 0 10px;
+}
 #avsMainContainer .page .selectionArea {
   display: flex;
   align-items: center;
@@ -733,6 +739,12 @@ a {
   position: fixed;
   /*bottom: 0;*/
   top: 110px;
+}
+#avsMainContainer .page .informationArea.layoutLoading {
+  top: auto;
+}
+#avsMainContainer .page .informationArea.layoutNoTop {
+  top: 0;
 }
 #avsMainContainer .page .informationArea.layoutTransparent {
   text-shadow: 1px 1px 2px rgb(0, 0, 0);

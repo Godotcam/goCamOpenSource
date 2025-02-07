@@ -378,6 +378,7 @@ namespace AvsFactory {
 						return;
 					}
 
+					instance.entity.VerificationStepGlobal.verificationComplete = true;
 					Method.goToSuccessStep();
 
 					return;

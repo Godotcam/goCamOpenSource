@@ -44,6 +44,7 @@ namespace Avs {
 			public deviceLocationVerification: number;
 			public sessionId: string;
 			public isVerified: boolean;
+			public verificationComplete: boolean;
 
 			public scanIdAgeVerificationInVideoBypassMode: boolean;
 
@@ -81,6 +82,7 @@ namespace Avs {
 				this.sessionId                              = null;
 				this.isVerified                             = false;
 				this.scanIdAgeVerificationInVideoBypassMode = false;
+				this.verificationComplete                   = false;
 
 			}
 

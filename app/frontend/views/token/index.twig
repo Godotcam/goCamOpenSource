@@ -268,17 +268,24 @@
 				<h2 class="introText">Don't worry, <strong>we do NOT store</strong> any <strong>images</strong> or <strong>data</strong> related to this detection.</h2>
 				<h2 class="introText avsTabContent">We will take a few snapshots of your <strong>webcam</strong> and <strong>detect your age</strong> based on your <strong>face</strong>. You will be also asked to change your <strong>face expression</strong> for a short while. In case of failure you will be asked to provide a real document photo.</h2>
 				<h2 class="introText avsTabContent isHidden">We will ask you to provide us with a <strong>image</strong> of your <strong>document</strong> or take <strong>a snapshot</strong> of it using your <strong>webcam</strong>. Your <strong>date of birth</strong> will be extracted in order to confirm your current age.</h2>
-				<h2 class="introText">
-					<small class="certificationLabel">
-						Certified by:
-					</small>
-					<span class="certificationImageList">
-						<a href="https://www.kjm-online.de/pressemitteilungen/altersverifikation-persona-gocam/" target="_blank">
-							<img src="/static/img/kjmLogo.jpg"/>
-						</a>
-						<a href="https://accscheme.com/registry/age-estimation/gsi-development-sas/" target="_blank">
-							<img src="/static/img/accLogo.jpg"/>
-						</a>
+				<h2 class="introText layoutCertification">
+					<span class="certificationColumn">
+						<small class="certificationLabel">Certified by:
+						</small>
+						<span class="certificationImageList">
+							<a href="https://www.kjm-online.de/pressemitteilungen/altersverifikation-persona-gocam/" target="_blank"><img src="/static/img/kjmLogo.jpg">
+							</a>
+							<a href="https://accscheme.com/registry/age-estimation/gsi-development-sas/" target="_blank"><img src="/static/img/accLogo.jpg">
+							</a>
+						</span>
+					</span>
+						<span class="certificationColumn">
+						<small class="certificationLabel">Recommended by:
+						</small>
+						<span class="certificationImageList">
+							<a href="https://www.asacp.org/" target="_blank"><img src="/static/img/asacpLogoWhiteBg.jpg">
+							</a>
+						</span>
 					</span>
 				</h2>
 			</div>
@@ -331,7 +338,7 @@
 			</h2>		<div class="introText">
 				<p class="layoutRedText">No data, no videos and no pictures are sent to our servers</p>
 			</div>
-			<div id="selfieAgeDetectionDeviceAccessArea" class="informationArea layoutBlack layoutRelative">
+			<div id="selfieAgeDetectionDeviceAccessArea" class="informationArea layoutBlack layoutRelative layoutLoading">
 				<div class="loadingArea">
 					<i class="fa fa-spinner fa-spin" aria-hidden="true"></i>
 					<strong>Detection in progress:</strong>
@@ -354,17 +361,24 @@
 				</div>
 			</div>
 
-			<h2 class="introText">
-				<small class="certificationLabel">
-					Certified by:
-				</small>
-				<span class="certificationImageList">
-						<a href="https://www.kjm-online.de/pressemitteilungen/altersverifikation-persona-gocam/" target="_blank">
-							<img src="/static/img/kjmLogo.jpg"/>
-						</a>
-						<a href="https://accscheme.com/registry/age-estimation/gsi-development-sas/" target="_blank">
-							<img src="/static/img/accLogo.jpg"/>
-						</a>
+			<h2 class="introText layoutCertification">
+					<span class="certificationColumn">
+						<small class="certificationLabel">Certified by:
+						</small>
+						<span class="certificationImageList">
+							<a href="https://www.kjm-online.de/pressemitteilungen/altersverifikation-persona-gocam/" target="_blank"><img src="/static/img/kjmLogo.jpg">
+							</a>
+							<a href="https://accscheme.com/registry/age-estimation/gsi-development-sas/" target="_blank"><img src="/static/img/accLogo.jpg">
+							</a>
+						</span>
+					</span>
+				<span class="certificationColumn">
+						<small class="certificationLabel">Recommended by:
+						</small>
+						<span class="certificationImageList">
+							<a href="https://www.asacp.org/" target="_blank"><img src="/static/img/asacpLogoWhiteBg.jpg">
+							</a>
+						</span>
 					</span>
 			</h2>
 
@@ -574,7 +588,7 @@
 				<div id="idCardGuide" class="maskGuide layoutIdentityCardGeneric"></div>
 				<div id="idCardGuideBirthDate" class="maskGuideField"></div>
 			</div>
-			<div class="informationArea layoutTransparent">
+			<div class="informationArea layoutTransparent layoutNoTop">
 				<div class="imageCaptureArea">
 					<div class="captureOption" id="scanIdAgeVerificationTakePhotoButton">
 						<i class="fa fa-camera icon" aria-hidden="true"></i>

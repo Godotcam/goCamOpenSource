@@ -72,6 +72,7 @@ app.set('twig options', {
     strict_variables: false
 });
 app.locals.cacheBuster = config_1.config.cacheBuster;
+app.locals.isProduction = config_1.config.isProduction;
 tokenRoute.load(app, avsStorageInstance);
 resultRoute.load(app, avsStorageInstance);
 indexRoute.load(app, avsStorageInstance);

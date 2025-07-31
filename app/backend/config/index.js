@@ -29,6 +29,7 @@ const configObject = {
     },
     cacheBuster: +new Date(),
     enableFrontEndDebug: process.env.ENABLE_FRONTEND_DEBUG || false,
+    isProduction: process.env.NODE_ENV === 'production',
     countryAgeMajority: {
         "A1": 18,
         "A2": 18,

@@ -515,9 +515,14 @@ var AvsFactory;
             Method.renderStateList = function (countryCode) {
                 if (Avs.Config.scanIdList[countryCode]['hasMultipleState']) {
                     ScanIdAgeVerificationIntro.instance.ui.ScanIdAgeVerificationStateArea.show();
-                    for (var i in Avs.Config.scanIdList[countryCode]['stateList']) {
-                        ScanIdAgeVerificationIntro.instance.ui.ScanIdAgeVerificationStateSelect.addOption(Avs.Config.scanIdList[countryCode]['stateList'][i]['stateName'], i, false);
+                    var keys = Object.keys(Avs.Config.scanIdList[countryCode]['stateList']);
+                    // Alphabetically
+                    keys.sort();
+                    ScanIdAgeVerificationIntro.instance.ui.ScanIdAgeVerificationStateSelect.clearAllOptions();
+                    for (var x = 0; x < keys.length; ++x) {
+                        ScanIdAgeVerificationIntro.instance.ui.ScanIdAgeVerificationStateSelect.addOption(Avs.Config.scanIdList[countryCode]['stateList'][keys[x]]['stateName'], keys[x], false);
                     }
+                    ScanIdAgeVerificationIntro.instance.ui.ScanIdAgeVerificationStateSelect.element.trigger('change');
                     Method.renderDocumentList(ScanIdAgeVerificationIntro.instance.ui.ScanIdAgeVerificationCountrySelect.getSelectedOption(), ScanIdAgeVerificationIntro.instance.ui.ScanIdAgeVerificationStateSelect.getSelectedOption());
                     return;
                 }

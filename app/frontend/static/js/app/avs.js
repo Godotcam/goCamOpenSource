@@ -4,6 +4,1288 @@ var Avs;
     var Config;
     (function (Config) {
         Config.scanIdList = {
+            "AU": {
+                "countryName": "Australia",
+                "hasMultipleState": true,
+                "stateList": {
+                    "ACT": {
+                        "stateName": "Australian Capital Territory",
+                        "idConfig": {
+                            "idCard": [],
+                            "passport": [
+                                {
+                                    "year": 2014,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 AUS",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/AUS([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 3,
+                                            "month": 2,
+                                            "year": 1
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 427,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 178,
+                                            "height": 66,
+                                            "top": 356,
+                                            "left": 104
+                                        },
+                                        "faceArea": {
+                                            "width": 148,
+                                            "height": 148,
+                                            "top": 141,
+                                            "left": 23,
+                                            "birthDateAreaDistance": {
+                                                "top": 215,
+                                                "left": 81
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                },
+                                {
+                                    "year": 2022,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 AUS",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/AUS([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 3,
+                                            "month": 2,
+                                            "year": 1
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 421,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 166,
+                                            "height": 60,
+                                            "top": 357,
+                                            "left": 105
+                                        },
+                                        "faceArea": {
+                                            "width": 139,
+                                            "height": 143,
+                                            "top": 154,
+                                            "left": 13,
+                                            "birthDateAreaDistance": {
+                                                "top": 203,
+                                                "left": 92
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                }
+                            ],
+                            "driverLicence": [
+                                {
+                                    "year": 1970,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "0123456789 / JANFEBMRPYULGSTOCVD",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/([0-9]{1,2})(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEPT|OCT|NOV|DEC)([0-9]{4})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 1,
+                                            "month": 2,
+                                            "year": 3
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 50,
+                                    "contrast": 60,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 512,
+                                            "height": 322,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 180,
+                                            "height": 67,
+                                            "top": 139,
+                                            "left": 72
+                                        },
+                                        "faceArea": {
+                                            "width": 121,
+                                            "height": 121,
+                                            "top": 174,
+                                            "left": 349,
+                                            "birthDateAreaDistance": {
+                                                "top": -35,
+                                                "left": -277
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 5
+                                }
+                            ],
+                        }
+                    },
+                    "NSW": {
+                        "stateName": "New South Wales",
+                        "idConfig": {
+                            "idCard": [],
+                            "passport": [
+                                {
+                                    "year": 2014,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 AUS",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/AUS([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 3,
+                                            "month": 2,
+                                            "year": 1
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 427,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 178,
+                                            "height": 66,
+                                            "top": 356,
+                                            "left": 104
+                                        },
+                                        "faceArea": {
+                                            "width": 148,
+                                            "height": 148,
+                                            "top": 141,
+                                            "left": 23,
+                                            "birthDateAreaDistance": {
+                                                "top": 215,
+                                                "left": 81
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                },
+                                {
+                                    "year": 2022,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 AUS",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/AUS([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 3,
+                                            "month": 2,
+                                            "year": 1
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 421,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 166,
+                                            "height": 60,
+                                            "top": 357,
+                                            "left": 105
+                                        },
+                                        "faceArea": {
+                                            "width": 139,
+                                            "height": 143,
+                                            "top": 154,
+                                            "left": 13,
+                                            "birthDateAreaDistance": {
+                                                "top": 203,
+                                                "left": 92
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                }
+                            ],
+                            "driverLicence": [
+                                {
+                                    "year": 1970,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "0123456789 / JANFEBMRPYULGSTOCVD",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/([0-9]{1,2}).*(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEPT|OCT|NOV|DEC).*([0-9]{4})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 1,
+                                            "month": 2,
+                                            "year": 3
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 385,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 174,
+                                            "height": 74,
+                                            "top": 308,
+                                            "left": 243
+                                        },
+                                        "faceArea": {
+                                            "width": 130,
+                                            "height": 125,
+                                            "top": 163,
+                                            "left": 437,
+                                            "birthDateAreaDistance": {
+                                                "top": 145,
+                                                "left": -194
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                }
+                            ],
+                        }
+                    },
+                    "NT": {
+                        "stateName": "Northern Territory",
+                        "idConfig": {
+                            "idCard": [],
+                            "passport": [
+                                {
+                                    "year": 2014,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 AUS",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/AUS([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 3,
+                                            "month": 2,
+                                            "year": 1
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 427,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 178,
+                                            "height": 66,
+                                            "top": 356,
+                                            "left": 104
+                                        },
+                                        "faceArea": {
+                                            "width": 148,
+                                            "height": 148,
+                                            "top": 141,
+                                            "left": 23,
+                                            "birthDateAreaDistance": {
+                                                "top": 215,
+                                                "left": 81
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                },
+                                {
+                                    "year": 2022,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 AUS",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/AUS([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 3,
+                                            "month": 2,
+                                            "year": 1
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 421,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 166,
+                                            "height": 60,
+                                            "top": 357,
+                                            "left": 105
+                                        },
+                                        "faceArea": {
+                                            "width": 139,
+                                            "height": 143,
+                                            "top": 154,
+                                            "left": 13,
+                                            "birthDateAreaDistance": {
+                                                "top": 203,
+                                                "left": 92
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                }
+                            ],
+                            "driverLicence": [
+                                {
+                                    "year": 1970,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 /",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 1,
+                                            "month": 2,
+                                            "year": 3
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 387,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 235,
+                                            "height": 95,
+                                            "top": 95,
+                                            "left": 101
+                                        },
+                                        "faceArea": {
+                                            "width": 125,
+                                            "height": 127,
+                                            "top": 223,
+                                            "left": 441,
+                                            "birthDateAreaDistance": {
+                                                "top": -128,
+                                                "left": -340
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                },
+                                {
+                                    "year": 2020,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 /",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 1,
+                                            "month": 2,
+                                            "year": 3
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 379,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 181,
+                                            "height": 85,
+                                            "top": 293,
+                                            "left": 287
+                                        },
+                                        "faceArea": {
+                                            "width": 111,
+                                            "height": 103,
+                                            "top": 183,
+                                            "left": 36,
+                                            "birthDateAreaDistance": {
+                                                "top": 110,
+                                                "left": 251
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                }
+                            ],
+                        }
+                    },
+                    "QLD": {
+                        "stateName": "Queensland",
+                        "idConfig": {
+                            "idCard": [],
+                            "passport": [
+                                {
+                                    "year": 2014,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 AUS",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/AUS([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 3,
+                                            "month": 2,
+                                            "year": 1
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 427,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 178,
+                                            "height": 66,
+                                            "top": 356,
+                                            "left": 104
+                                        },
+                                        "faceArea": {
+                                            "width": 148,
+                                            "height": 148,
+                                            "top": 141,
+                                            "left": 23,
+                                            "birthDateAreaDistance": {
+                                                "top": 215,
+                                                "left": 81
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                },
+                                {
+                                    "year": 2022,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 AUS",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/AUS([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 3,
+                                            "month": 2,
+                                            "year": 1
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 421,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 166,
+                                            "height": 60,
+                                            "top": 357,
+                                            "left": 105
+                                        },
+                                        "faceArea": {
+                                            "width": 139,
+                                            "height": 143,
+                                            "top": 154,
+                                            "left": 13,
+                                            "birthDateAreaDistance": {
+                                                "top": 203,
+                                                "left": 92
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                }
+                            ],
+                            "driverLicence": [
+                                {
+                                    "year": 1970,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "0123456789 JANFEBMRPYULGSTOCVDjanfebmrpyulgstocvd",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/ ([0-9]{1,2}).*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sept|Oct|Nov|Dec).*([0-9]{4})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 1,
+                                            "month": 2,
+                                            "year": 3
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 20,
+                                    "contrast": 70,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 378,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 190,
+                                            "height": 75,
+                                            "top": 87,
+                                            "left": 163
+                                        },
+                                        "faceArea": {
+                                            "width": 116,
+                                            "height": 120,
+                                            "top": 153,
+                                            "left": 442,
+                                            "birthDateAreaDistance": {
+                                                "top": -66,
+                                                "left": -279
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 3
+                                },
+                                {
+                                    "year": 2019,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "0123456789 JANFEBMRPYULGSTOCVDjanfebmrpyulgstocvd",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/([0-9]{1,2}).*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sept|Oct|Nov|Dec).*([0-9]{4})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 1,
+                                            "month": 2,
+                                            "year": 3
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 80,
+                                    "contrast": 50,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 381,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 228,
+                                            "height": 79,
+                                            "top": 85,
+                                            "left": 137
+                                        },
+                                        "faceArea": {
+                                            "width": 134,
+                                            "height": 129,
+                                            "top": 160,
+                                            "left": 433,
+                                            "birthDateAreaDistance": {
+                                                "top": -75,
+                                                "left": -296
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 5
+                                }
+                            ],
+                        }
+                    },
+                    "SA": {
+                        "stateName": "South Australia",
+                        "idConfig": {
+                            "idCard": [],
+                            "passport": [
+                                {
+                                    "year": 2014,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 AUS",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/AUS([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 3,
+                                            "month": 2,
+                                            "year": 1
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 427,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 178,
+                                            "height": 66,
+                                            "top": 356,
+                                            "left": 104
+                                        },
+                                        "faceArea": {
+                                            "width": 148,
+                                            "height": 148,
+                                            "top": 141,
+                                            "left": 23,
+                                            "birthDateAreaDistance": {
+                                                "top": 215,
+                                                "left": 81
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                },
+                                {
+                                    "year": 2022,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 AUS",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/AUS([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 3,
+                                            "month": 2,
+                                            "year": 1
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 421,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 166,
+                                            "height": 60,
+                                            "top": 357,
+                                            "left": 105
+                                        },
+                                        "faceArea": {
+                                            "width": 139,
+                                            "height": 143,
+                                            "top": 154,
+                                            "left": 13,
+                                            "birthDateAreaDistance": {
+                                                "top": 203,
+                                                "left": 92
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                }
+                            ],
+                            "driverLicence": [
+                                {
+                                    "year": 1970,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 /",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/([0-9]{2})\\/([0-9]{2})\\/([0-9]{4})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 2,
+                                            "month": 1,
+                                            "year": 3
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 616,
+                                            "height": 386,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 176,
+                                            "height": 80,
+                                            "top": 65,
+                                            "left": 142
+                                        },
+                                        "faceArea": {
+                                            "width": 132,
+                                            "height": 125,
+                                            "top": 228,
+                                            "left": 435,
+                                            "birthDateAreaDistance": {
+                                                "top": -163,
+                                                "left": -293
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                }
+                            ],
+                        }
+                    },
+                    "TAS": {
+                        "stateName": "Tasmania",
+                        "idConfig": {
+                            "idCard": [],
+                            "passport": [
+                                {
+                                    "year": 2014,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 AUS",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/AUS([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 3,
+                                            "month": 2,
+                                            "year": 1
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 427,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 178,
+                                            "height": 66,
+                                            "top": 356,
+                                            "left": 104
+                                        },
+                                        "faceArea": {
+                                            "width": 148,
+                                            "height": 148,
+                                            "top": 141,
+                                            "left": 23,
+                                            "birthDateAreaDistance": {
+                                                "top": 215,
+                                                "left": 81
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                },
+                                {
+                                    "year": 2022,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 AUS",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/AUS([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 3,
+                                            "month": 2,
+                                            "year": 1
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 421,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 166,
+                                            "height": 60,
+                                            "top": 357,
+                                            "left": 105
+                                        },
+                                        "faceArea": {
+                                            "width": 139,
+                                            "height": 143,
+                                            "top": 154,
+                                            "left": 13,
+                                            "birthDateAreaDistance": {
+                                                "top": 203,
+                                                "left": 92
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                }
+                            ],
+                            "driverLicence": [
+                                {
+                                    "year": 1970,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "0123456789 / JANFEBMRPYULGSTOCVD",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/([0-9]{1,2}).*(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEPT|OCT|NOV|DEC).*([0-9]{4})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 1,
+                                            "month": 2,
+                                            "year": 3
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 100,
+                                    "contrast": 20,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 340,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 212,
+                                            "height": 103,
+                                            "top": 143,
+                                            "left": 380
+                                        },
+                                        "faceArea": {
+                                            "width": 143,
+                                            "height": 140,
+                                            "top": 166,
+                                            "left": 32,
+                                            "birthDateAreaDistance": {
+                                                "top": -23,
+                                                "left": 348
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 4
+                                }
+                            ],
+                        }
+                    },
+                    "VIC": {
+                        "stateName": "Victoria",
+                        "idConfig": {
+                            "idCard": [],
+                            "passport": [
+                                {
+                                    "year": 2014,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 AUS",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/AUS([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 3,
+                                            "month": 2,
+                                            "year": 1
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 427,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 178,
+                                            "height": 66,
+                                            "top": 356,
+                                            "left": 104
+                                        },
+                                        "faceArea": {
+                                            "width": 148,
+                                            "height": 148,
+                                            "top": 141,
+                                            "left": 23,
+                                            "birthDateAreaDistance": {
+                                                "top": 215,
+                                                "left": 81
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                },
+                                {
+                                    "year": 2022,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 AUS",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/AUS([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 3,
+                                            "month": 2,
+                                            "year": 1
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 421,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 166,
+                                            "height": 60,
+                                            "top": 357,
+                                            "left": 105
+                                        },
+                                        "faceArea": {
+                                            "width": 139,
+                                            "height": 143,
+                                            "top": 154,
+                                            "left": 13,
+                                            "birthDateAreaDistance": {
+                                                "top": 203,
+                                                "left": 92
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                }
+                            ],
+                            "driverLicence": [
+                                {
+                                    "year": 2022,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 -",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/([0-9]{2}).*([0-9]{2}).*([0-9]{4})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 1,
+                                            "month": 2,
+                                            "year": 3
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 383,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 194,
+                                            "height": 81,
+                                            "top": 179,
+                                            "left": 183
+                                        },
+                                        "faceArea": {
+                                            "width": 128,
+                                            "height": 117,
+                                            "top": 154,
+                                            "left": 431,
+                                            "birthDateAreaDistance": {
+                                                "top": 25,
+                                                "left": -248
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                }
+                            ],
+                        }
+                    },
+                    "WA": {
+                        "stateName": "Western Australia",
+                        "idConfig": {
+                            "idCard": [],
+                            "passport": [
+                                {
+                                    "year": 2014,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 AUS",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/AUS([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 3,
+                                            "month": 2,
+                                            "year": 1
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 427,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 178,
+                                            "height": 66,
+                                            "top": 356,
+                                            "left": 104
+                                        },
+                                        "faceArea": {
+                                            "width": 148,
+                                            "height": 148,
+                                            "top": 141,
+                                            "left": 23,
+                                            "birthDateAreaDistance": {
+                                                "top": 215,
+                                                "left": 81
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                },
+                                {
+                                    "year": 2022,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "1234567890 AUS",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/AUS([0-9]{2})([0-9]{2})([0-9]{2})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 3,
+                                            "month": 2,
+                                            "year": 1
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 421,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 166,
+                                            "height": 60,
+                                            "top": 357,
+                                            "left": 105
+                                        },
+                                        "faceArea": {
+                                            "width": 139,
+                                            "height": 143,
+                                            "top": 154,
+                                            "left": 13,
+                                            "birthDateAreaDistance": {
+                                                "top": 203,
+                                                "left": 92
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                }
+                            ],
+                            "driverLicence": [
+                                {
+                                    "year": 1970,
+                                    "tesseractConfig": {
+                                        "tessedit_char_whitelist": "0123456789 JANFEBMRPYULGSTOCVDjanfebmrpyulgstocvd",
+                                        "tessedit_ocr_engine_mode": 2
+                                    },
+                                    "stripWhiteSpace": false,
+                                    "textMatcherRule": [
+                                        "/([0-9]{1,2}).*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sept|Oct|Nov|Dec).*([0-9]{4})/gi"
+                                    ],
+                                    "dateComponentsPosition": [
+                                        {
+                                            "day": 1,
+                                            "month": 2,
+                                            "year": 3
+                                        }
+                                    ],
+                                    "monthNameLanguage": "en",
+                                    "brightness": 10,
+                                    "contrast": 40,
+                                    "threshold": 0,
+                                    "idSizeList": {
+                                        "container": {
+                                            "width": 600,
+                                            "height": 374,
+                                            "ratioType": 1
+                                        },
+                                        "birthDateArea": {
+                                            "width": 211,
+                                            "height": 79,
+                                            "top": 214,
+                                            "left": 157
+                                        },
+                                        "faceArea": {
+                                            "width": 143,
+                                            "height": 123,
+                                            "top": 188,
+                                            "left": 423,
+                                            "birthDateAreaDistance": {
+                                                "top": 26,
+                                                "left": -266
+                                            }
+                                        }
+                                    },
+                                    "idRegionZoom": 2
+                                }
+                            ],
+                        }
+                    },
+                }
+            },
             "AT": {
                 "countryName": "Austria",
                 "hasMultipleState": false,
@@ -15949,7 +17231,7 @@ var Avs;
                         }
                     },
                 }
-            }
+            },
         };
     })(Config = Avs.Config || (Avs.Config = {}));
 })(Avs || (Avs = {}));
@@ -16278,6 +17560,16 @@ var Avs;
                         "WI": 18,
                         "WV": 18,
                         "WY": 18,
+                    },
+                    "AU": {
+                        "ACT": 18,
+                        "NSW": 18,
+                        "NT": 18,
+                        "QLD": 18,
+                        "SA": 18,
+                        "TAS": 18,
+                        "VIC": 18,
+                        "WA": 18
                     }
                 };
             };

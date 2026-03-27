@@ -97,9 +97,17 @@ namespace AvsFactory {
 				if (Avs.Config.scanIdList[countryCode]['hasMultipleState']) {
 					instance.ui.ScanIdAgeVerificationStateArea.show();
 
-					for (let i in Avs.Config.scanIdList[countryCode]['stateList']) {
-						instance.ui.ScanIdAgeVerificationStateSelect.addOption(Avs.Config.scanIdList[countryCode]['stateList'][i]['stateName'], i, false);
+					const keys = Object.keys(Avs.Config.scanIdList[countryCode]['stateList']);
+
+					// Alphabetically
+					keys.sort();
+
+					instance.ui.ScanIdAgeVerificationStateSelect.clearAllOptions();
+					for (let x = 0; x < keys.length; ++x) {
+						instance.ui.ScanIdAgeVerificationStateSelect.addOption(Avs.Config.scanIdList[countryCode]['stateList'][keys[x]]['stateName'], keys[x], false);
 					}
+
+					instance.ui.ScanIdAgeVerificationStateSelect.element.trigger('change');
 
 					Method.renderDocumentList(
 						instance.ui.ScanIdAgeVerificationCountrySelect.getSelectedOption(),

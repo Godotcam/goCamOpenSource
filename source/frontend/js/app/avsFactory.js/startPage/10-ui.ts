@@ -74,11 +74,8 @@ namespace AvsFactory {
 
 				}
 
-				let termsWereAgreed = Avs.Helper.Common.getLocalStorageBooleanValue(Config.KEY_LOCAL_STORAGE_TERMS_AGREED);
-				if (termsWereAgreed === true) {
-					instance.ui.TermsAndConditionsCheckbox.check();
-					instance.entity.VerificationStepGlobal.termsAndConditionAgreement = true;
-				}
+				instance.ui.TermsAndConditionsCheckbox.check();
+				instance.entity.VerificationStepGlobal.termsAndConditionAgreement = true;
 
 				instance.ui.ErrorMessageAdditionalTextArea.hide();
 

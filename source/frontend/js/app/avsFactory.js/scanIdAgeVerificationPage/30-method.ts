@@ -30,7 +30,7 @@ namespace AvsFactory {
 
 			public static initVideo() {
 
-				instance.ui.ScanIdAgeVerificationLoadingLabelArea.setContent('Trying to access your camera');
+				instance.ui.ScanIdAgeVerificationLoadingLabelArea.setContent('Versuch auf Ihre Kamera zuzugreifen');
 
 				instance.plugin.Library.Video.CameraSource.init();
 				instance.plugin.Library.Video.CameraSource.showVideo();

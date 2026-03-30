@@ -16,7 +16,7 @@ namespace AvsFactory {
 
 				instance.plugin.Library.Video.CameraSource.getVideoElement().addClass('mirrored');
 
-				instance.ui.SelfieAgeDetectionStatusLabel.setValue('Trying to access your camera');
+				instance.ui.SelfieAgeDetectionStatusLabel.setValue('Versuch auf Ihre Kamera zuzugreifen');
 
 				// Show brightness indicator when video starts
 				instance.ui.BrightnessIndicatorArea.show();

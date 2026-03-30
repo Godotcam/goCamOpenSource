@@ -636,6 +636,7 @@ a {
 		}
 
 		.termsArea {
+			display: none;
 			font-size: 14px;
 			@include flexCenter;
 			margin-bottom: 15px;

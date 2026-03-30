@@ -13,7 +13,7 @@ namespace AvsFactory {
 				instance.ui.StartButton.onClick(() => {
 
 					if (!instance.entity.VerificationStepGlobal.termsAndConditionAgreement) {
-						alert('Please agree with the terms and conditions first');
+						alert('Bitte stimmen Sie zuerst den Allgemeinen Geschäftsbedingungen zu');
 						return;
 					}
 

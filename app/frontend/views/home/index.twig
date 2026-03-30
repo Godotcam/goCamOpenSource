@@ -15,8 +15,8 @@
 		</div>
 		<div class="headerHeroImage">
 			<div class="heroHeadingContainer">
-				<h1 class="heroHeading"><strong>Age</strong> <strong>verification</strong> system</h1>
-				<p class="heroSubHeading">Made easy</p>
+				<h1 class="heroHeading"><strong>Alters</strong><strong>verifizierung</strong></h1>
+				<p class="heroSubHeading">Einfach gemacht</p>
 			</div>
 			<img class="heroImage" src="/static/img/heroHeader.jpg">
 		</div>
@@ -28,15 +28,15 @@
 				<div class="ageVerificationSolution">
 
 					<div id="accessInformation" class="card accessInformation mb-3">
-						<!-- access keys -->
+						<!-- Zugangsdaten -->
 						<div class="card-header">
-							<i class="fa fa-key m-1"></i> Configuration
+							<i class="fa fa-key m-1"></i> Konfiguration
 						</div>
 						<div class="card-body">
 							<div id="accessInformationContentArea" class="">
 								<form>
 									<div class="form-group mb-3">
-										<label for="accessInformationCallbackUrlInput" class="form-label">Verification result callback url:</label>
+										<label for="accessInformationCallbackUrlInput" class="form-label">Callback-URL f&uuml;r Verifizierungsergebnis:</label>
 										<input id="accessInformationCallbackUrlInput" class="form-control" type="text" value="http://localhost:3300/callback">
 									</div>
 								</form>
@@ -49,53 +49,53 @@
 
 						<div id="exampleImplementation" class="card accessInformation mb-3">
 							<div class="card-header">
-								<i class="fa fa-check m-1"></i> Example implementation
+								<i class="fa fa-check m-1"></i> Beispiel-Implementierung
 							</div>
 							<div class="card-body">
 								<h5 class="layoutPaddingBottom">
-									<strong>Color theme</strong>
+									<strong>Farbschema</strong>
 								</h5>
 
 								<div class="colorInputArea mb-3">
 									<p>
-										<strong>Body area</strong>
+										<strong>Seitenbereich</strong>
 									</p>
 
 									<form class="row mb-3">
 										<div class="col-md-4 col-lg-3">
 											<div class="form-group">
-												<label for="colorConfigBodyBackgroundInput">Background</label>
+												<label for="colorConfigBodyBackgroundInput">Hintergrund</label>
 												<input type="color" id="colorConfigBodyBackgroundInput" class="form-control form-control-color" value="#ffffff">
 											</div>
 										</div>
 										<div class="col-md-4 col-lg-3">
 											<div class="form-group">
-												<label for="colorConfigBodyForegroundInput">Foreground</label>
+												<label for="colorConfigBodyForegroundInput">Vordergrund</label>
 												<input type="color" id="colorConfigBodyForegroundInput" class="form-control form-control-color" value="#000000">
 											</div>
 										</div>
 									</form>
 
 									<p>
-										<strong>Buttons</strong>
+										<strong>Schaltfl&auml;chen</strong>
 									</p>
 
 									<form class="row mb-3">
 										<div class="col-md-4 col-lg-3">
 											<div class="form-group">
-												<label for="colorConfigButtonBackgroundInput">Background</label>
-												<input type="color" id="colorConfigButtonBackgroundInput" class="form-control form-control-color" value="#9acd1f">
+												<label for="colorConfigButtonBackgroundInput">Hintergrund</label>
+												<input type="color" id="colorConfigButtonBackgroundInput" class="form-control form-control-color" value="#db2979">
 											</div>
 										</div>
 										<div class="col-md-4 col-lg-3">
 											<div class="form-group">
-												<label for="colorConfigButtonForegroundInput">Foreground</label>
+												<label for="colorConfigButtonForegroundInput">Vordergrund</label>
 												<input type="color" id="colorConfigButtonForegroundInput" class="form-control form-control-color" value="#ffffff">
 											</div>
 										</div>
 										<div class="col-md-4 col-lg-3">
 											<div class="form-group">
-												<label for="colorConfigButtonForegroundCTAInput">Foreground call to action</label>
+												<label for="colorConfigButtonForegroundCTAInput">Vordergrund Handlungsaufforderung</label>
 												<input type="color" id="colorConfigButtonForegroundCTAInput" class="form-control form-control-color" value="#ffffff">
 											</div>
 										</div>
@@ -103,38 +103,38 @@
 								</div>
 
 								<h5 class="layoutPaddingBottom">
-									<strong>Verify age using a redirect</strong>
+									<strong>Altersverifizierung per Weiterleitung</strong>
 								</h5>
 								<p>
-									By clicking the button below a new browser tab will open with the age verification page using your config data above.
-									The verification result will be posted back to your <strong>verification result callback url</strong> if it's already defined.
+									Durch Klicken auf die Schaltfl&auml;che unten wird ein neuer Browser-Tab mit der Altersverifizierungsseite ge&ouml;ffnet, der Ihre obige Konfiguration verwendet.
+									Das Verifizierungsergebnis wird an Ihre <strong>Callback-URL f&uuml;r das Verifizierungsergebnis</strong> gesendet, sofern diese bereits definiert ist.
 								</p>
 								<p>
-									<button id="exampleImplementationStartRedirectButton" class="btn btn-success btn-sm layoutAgeVerification">
-										<i class="fa fa-eye"></i> Start age verification
+									<button id="exampleImplementationStartRedirectButton" class="btn btn-primary btn-sm layoutAgeVerification">
+										<i class="fa fa-eye"></i> Altersverifizierung starten
 									</button>
 								</p>
 
 								<h5 class="layoutPaddingBottom">
-									<strong>Verify age using the iframe</strong>
+									<strong>Altersverifizierung per Iframe</strong>
 								</h5>
 								<p>
-									By clicking the button below a screen overlay will open with the age verification page using your config data above.
-									The verification result will be posted back to your <strong>verification result callback url</strong> if it's already defined.
-									Since we are using the javascript implementation, we will also listen to the <strong>events</strong> we receive while the detection it's running and <strong>we will log it in the area below</strong>.
+									Durch Klicken auf die Schaltfl&auml;che unten wird ein Bildschirm-Overlay mit der Altersverifizierungsseite ge&ouml;ffnet, das Ihre obige Konfiguration verwendet.
+									Das Verifizierungsergebnis wird an Ihre <strong>Callback-URL f&uuml;r das Verifizierungsergebnis</strong> gesendet, sofern diese bereits definiert ist.
+									Da wir die JavaScript-Implementierung verwenden, werden wir auch die <strong>Ereignisse</strong> empfangen, die w&auml;hrend der Erkennung ausgel&ouml;st werden, und <strong>diese im unteren Bereich protokollieren</strong>.
 								</p>
 
 								<form>
 									<div class="form-group mb-3">
-										<label for="ageVerificationLogTextarea" class="form-label">Age verification log:</label>
+										<label for="ageVerificationLogTextarea" class="form-label">Altersverifizierungs-Protokoll:</label>
 										<textarea id="ageVerificationLogTextarea" class="form-control" readonly="" rows="7"></textarea>
 									</div>
 									<div class="form-group">
-										<button id="exampleImplementationStartJsButton" class="btn btn-success btn-sm layoutAgeVerification mb-2">
-											<i class="fa fa-eye"></i> Start age verification
+										<button id="exampleImplementationStartJsButton" class="btn btn-primary btn-sm layoutAgeVerification mb-2">
+											<i class="fa fa-eye"></i> Altersverifizierung starten
 										</button>
-										<button id="exampleImplementationIframeJsButton" class="btn btn-success btn-sm layoutAgeVerification mb-2" disabled="disabled">
-											<i class="fa fa-plus"></i> Open verification iframe
+										<button id="exampleImplementationIframeJsButton" class="btn btn-primary btn-sm layoutAgeVerification mb-2" disabled="disabled">
+											<i class="fa fa-plus"></i> Verifizierungs-Iframe &ouml;ffnen
 										</button>
 									</div>
 								</form>
@@ -144,7 +144,7 @@
 
 						<div id="implementationGuide" class="card implementationGuide">
 							<div class="card-header">
-								<i class="fa fa-info m-1"></i> Implementation guide
+								<i class="fa fa-info m-1"></i> Implementierungsleitfaden
 							</div>
 							<div class="card-body">
 
@@ -153,63 +153,63 @@
 									<div class="accordion-item">
 										<div class="accordion-header" id="verificationTypesItem">
 											<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseVerificationTypesItem" aria-expanded="false" aria-controls="collapseVerificationTypesItem">
-												Verification types
+												Verifizierungsarten
 											</button>
 										</div>
 										<div id="collapseVerificationTypesItem" class="collapse" aria-labelledby="verificationTypesItem" data-bs-parent="#accordion">
 											<div class="accordion-body">
 												<h5 class="layoutPaddingBottom">
-													<strong>Selfie age verification</strong>
+													<strong>Selfie-Altersverifizierung</strong>
 												</h5>
 												<p>
-													The selfie age verification check needs webcam access in order to scan in real time the face of the user. So the user must provide this access in order for the verification to run. During the verification the user will be asked to keep his face close to the center of the screen in order for the machine learning model to be able to perform the face extraction and the prediction task. Go.cam runs locally, on device, no images are sent to the server or stored during this process.
+													Die Selfie-Altersverifizierung ben&ouml;tigt Webcam-Zugriff, um das Gesicht des Nutzers in Echtzeit zu scannen. Der Nutzer muss diesen Zugriff gew&auml;hren, damit die Verifizierung durchgef&uuml;hrt werden kann. W&auml;hrend der Verifizierung wird der Nutzer gebeten, sein Gesicht nah an der Bildschirmmitte zu halten, damit das Machine-Learning-Modell die Gesichtserkennung und Alterssch&auml;tzung durchf&uuml;hren kann. Go.cam l&auml;uft lokal auf dem Ger&auml;t &ndash; es werden keine Bilder an den Server gesendet oder gespeichert.
 												</p>
 												<p>
-													The age prediction is based on multiple shots of the users face from which an average age is calculated after the detected outliers are excluded. Besides the age evaluation, the face similatity is checked during the detection to be sure the same person is in front of the camera at all times. At the end of the verification, if the user is detected as an adult, he will also be asked to smile or stop smiling, depending on his current face expression, as a measure of liveness detection.
+													Die Alterssch&auml;tzung basiert auf mehreren Aufnahmen des Nutzergesichts, aus denen ein Durchschnittsalter berechnet wird, nachdem erkannte Ausrei&szlig;er ausgeschlossen wurden. Neben der Altersbewertung wird die Gesichts&auml;hnlichkeit w&auml;hrend der Erkennung &uuml;berpr&uuml;ft, um sicherzustellen, dass dieselbe Person die ganze Zeit vor der Kamera ist. Am Ende der Verifizierung wird der Nutzer, sofern er als Erwachsener erkannt wurde, gebeten zu l&auml;cheln oder aufzuh&ouml;ren zu l&auml;cheln &ndash; je nach aktuellem Gesichtsausdruck &ndash; als Ma&szlig;nahme zur Lebenderkennung.
 												</p>
 												<p>
-													If the user is detected as an minor, the verification process will automatically redirect him to the ID document verification to confirm his age. During the ID verification the face shots from the previous steps are compared with the one from the document as a first step. Then if the face matching is correct the birth date will be extracted from the document and the age will be calculated based on that.
+													Wird der Nutzer als minderj&auml;hrig erkannt, wird er automatisch zur Ausweisdokument-Verifizierung weitergeleitet, um sein Alter zu best&auml;tigen. Bei der Ausweisverifizierung werden zun&auml;chst die Gesichtsaufnahmen aus den vorherigen Schritten mit dem Foto auf dem Dokument verglichen. Stimmt die Gesichtserkennung &uuml;berein, wird das Geburtsdatum aus dem Dokument extrahiert und das Alter daraus berechnet.
 												</p>
 												<p>
-													If the user is detected as an adult after the selfie age or the ID document verification process, he will be marked as verified. Otherwise the process can be retried, for a period of 10 minutes, the current session will expire after that so the process must pe restarted from the start.
+													Wird der Nutzer nach der Selfie- oder Ausweisdokument-Verifizierung als erwachsen erkannt, wird er als verifiziert markiert. Andernfalls kann der Vorgang innerhalb von 10 Minuten wiederholt werden. Danach l&auml;uft die aktuelle Sitzung ab und der Prozess muss von vorne gestartet werden.
 												</p>
 												<p>
 													<i>
-														Hint: Go.cam is "Challenge 25" certified, meaning that anyone who is over 18 but looks under 25 should carry acceptable ID document to validate his age.
+														Hinweis: Go.cam ist &bdquo;Challenge 25&ldquo;-zertifiziert. Das bedeutet, dass jeder, der &uuml;ber 18 ist, aber j&uuml;nger als 25 aussieht, ein g&uuml;ltiges Ausweisdokument vorlegen muss.
 													</i>
 												</p>
 												<p>
 													<strong>
-														Authorities that already certified us are:
+														Beh&ouml;rden, die uns bereits zertifiziert haben:
 													</strong>
 												</p>
 												<ul>
 													<li>
-														<a href="https://www.kjm-online.de/pressemitteilungen/altersverifikation-persona-gocam/" target="_blank">Central Authority for the Supervision and Protection of Minors on the Internet in Germany</a>
+														<a href="https://www.kjm-online.de/pressemitteilungen/altersverifikation-persona-gocam/" target="_blank">Kommission f&uuml;r Jugendmedienschutz (KJM) in Deutschland</a>
 													</li>
 													<li>
 														<a href="https://accscheme.com/registry/age-estimation/gsi-development-sas/" target="_blank">Age Check Certification Scheme</a>
 													</li>
 												</ul>
 												<p>
-													For the age verification task Go.cam uses a implementation of a open source facial recognition model, you can find more about it <a href="https://github.com/justadudewhohacks/face-api.js" target="_blank"><strong>here</strong></a>.
+													F&uuml;r die Altersverifizierung verwendet Go.cam eine Implementierung eines Open-Source-Gesichtserkennungsmodells. Mehr dazu finden Sie <a href="https://github.com/justadudewhohacks/face-api.js" target="_blank"><strong>hier</strong></a>.
 												</p>
 												<p>&nbsp;</p>
 
 												<h5 class="layoutPaddingBottom">
-													<strong>ID documents verification</strong>
+													<strong>Ausweisdokument-Verifizierung</strong>
 												</h5>
 												<p>
-													As a first step of this verification, the user will be asked to select from a list of countries and document types to match the document he is planning to provide as proof. Currently Go.cam supports documents from all European countries and the United States of America. The supported types of documents are: ID card, passport and driver license.
+													Im ersten Schritt dieser Verifizierung wird der Nutzer gebeten, aus einer Liste von L&auml;ndern und Dokumenttypen das passende Dokument auszuw&auml;hlen, das er als Nachweis vorlegen m&ouml;chte. Derzeit unterst&uuml;tzt Go.cam Dokumente aus allen europ&auml;ischen L&auml;ndern und den Vereinigten Staaten von Amerika. Die unterst&uuml;tzten Dokumenttypen sind: Personalausweis, Reisepass und F&uuml;hrerschein.
 												</p>
 												<p>
-													The ID documents verification check can be done with the help of a webcam or by loading locally a image of a valid document. The user is not forced to provide webcam access, if he denies it he will be asked to browse for a image as default. Taking a photo with the webcam or selecting a local one will not trigger an upload of the image, like the age verification, the process will run locally.
+													Die Ausweisdokument-Verifizierung kann mithilfe einer Webcam oder durch lokales Laden eines Bildes eines g&uuml;ltigen Dokuments durchgef&uuml;hrt werden. Der Nutzer muss keinen Webcam-Zugriff gew&auml;hren &ndash; lehnt er ab, wird er standardm&auml;&szlig;ig gebeten, ein Bild auszuw&auml;hlen. Das Aufnehmen eines Fotos mit der Webcam oder die Auswahl eines lokalen Bildes l&ouml;st keinen Upload aus &ndash; wie bei der Altersverifizierung l&auml;uft der Prozess lokal.
 												</p>
 												<p>
-													In the case of a ID document verification that is not preceded by a selfie age verification, the face of the person on the document will not be checked. The birthdate of the document will be extracted and the current age of the user will be calculated. Based on the country or state the document is from, there is also a age majority check done. A verification success is triggered if the detected age is greater than the majority age.
+													Bei einer Ausweisdokument-Verifizierung ohne vorherige Selfie-Altersverifizierung wird das Gesicht der Person auf dem Dokument nicht &uuml;berpr&uuml;ft. Das Geburtsdatum wird aus dem Dokument extrahiert und das aktuelle Alter des Nutzers berechnet. Je nach Land oder Bundesstaat des Dokuments wird auch eine Vollj&auml;hrigkeitspr&uuml;fung durchgef&uuml;hrt. Die Verifizierung ist erfolgreich, wenn das erkannte Alter &uuml;ber dem Vollj&auml;hrigkeitsalter liegt.
 												</p>
 												<p>
-													For the document birthdate extraction task Go.cam uses a implementation of a open source OCR model, you can find more about it <a href="https://github.com/naptha/tesseract.js#tesseractjs" target="_blank"><strong>here</strong></a>.
+													F&uuml;r die Geburtsdatum-Extraktion verwendet Go.cam eine Implementierung eines Open-Source-OCR-Modells. Mehr dazu finden Sie <a href="https://github.com/naptha/tesseract.js#tesseractjs" target="_blank"><strong>hier</strong></a>.
 												</p>
 											</div>
 										</div>
@@ -218,7 +218,7 @@
 									<div class="accordion-item">
 										<div class="accordion-header" id="implementationDetailsItem">
 											<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseImplementationDetailsItem" aria-expanded="false" aria-controls="collapseImplementationDetailsItem">
-												Implementation details
+												Implementierungsdetails
 											</button>
 										</div>
 										<div id="collapseImplementationDetailsItem" class="collapse" aria-labelledby="implementationDetailsItem" data-bs-parent="#accordion">
@@ -226,105 +226,105 @@
 
 												<h5 class="layoutPaddingBottom">
 													<strong>
-														Redirect flow
+														Weiterleitungs-Ablauf
 													</strong>
 												</h5>
 												<p>
-													In the redirect flow, the verification process is done in a new window. The user is presented with a locked page and link that points to a verification URL.  Once the verification process is complete, the user is presented with a additional link to return back to the initial page. This return link does not contain any information about the result of the verification, the result it's sent using a server to server call. The implementer should keep track of this callback and render the unlocked page when the user is sent back.
+													Beim Weiterleitungs-Ablauf findet die Verifizierung in einem neuen Fenster statt. Dem Nutzer wird eine gesperrte Seite mit einem Link zur Verifizierungs-URL angezeigt. Nach Abschluss der Verifizierung erh&auml;lt der Nutzer einen weiteren Link, um zur urspr&uuml;nglichen Seite zur&uuml;ckzukehren. Dieser R&uuml;cklink enth&auml;lt keine Informationen &uuml;ber das Verifizierungsergebnis &ndash; das Ergebnis wird per Server-zu-Server-Aufruf gesendet. Der Implementierer sollte diesen Callback verfolgen und die entsperrte Seite anzeigen, wenn der Nutzer zur&uuml;ckgeleitet wird.
 												</p>
 												<p>
 													<strong>
-														Here is a walkthrough of the process:
+														Ablauf im &Uuml;berblick:
 													</strong>
 												</p>
 												<p>
-													The user visits a site which is guarded by an age verification system
+													Der Nutzer besucht eine Seite, die durch ein Altersverifizierungssystem gesch&uuml;tzt ist
 												</p>
 												<p>
-													The user click on a button to start the age verification process
+													Der Nutzer klickt auf eine Schaltfl&auml;che, um die Altersverifizierung zu starten
 												</p>
 												<p>
-													The implementer provides the "cypher key" to the Go.cam SDK together with some user data like a "user id" to generate a age verification URL
+													Der Implementierer &uuml;bergibt den &bdquo;Chiffrierschl&uuml;ssel&ldquo; an das Go.cam SDK zusammen mit Nutzerdaten wie einer &bdquo;Nutzer-ID&ldquo;, um eine Altersverifizierungs-URL zu generieren
 												</p>
 												<p>
-													The user will be redirected to a URL on Go.cam where the verification process starts
+													Der Nutzer wird zu einer URL auf Go.cam weitergeleitet, wo der Verifizierungsprozess beginnt
 												</p>
 												<p>
-													Depending on the type of verification the user will have to allow access to his webcam for scanning his face or select a ID document image for processing
+													Je nach Art der Verifizierung muss der Nutzer den Zugriff auf seine Webcam erlauben, um sein Gesicht zu scannen, oder ein Ausweisdokument-Bild zur Verarbeitung ausw&auml;hlen
 												</p>
 												<p>
-													Once the verification is complete, the user will be presented with a success or failure page:
+													Nach Abschluss der Verifizierung wird dem Nutzer eine Erfolgs- oder Fehlerseite angezeigt:
 												</p>
 												<ul>
-													<li>The success page will contain a button to return to the implementer site</li>
-													<li>The failure page will contain a "Retry" button so he can try again</li>
+													<li>Die Erfolgsseite enth&auml;lt eine Schaltfl&auml;che zur R&uuml;ckkehr zur Implementierer-Seite</li>
+													<li>Die Fehlerseite enth&auml;lt eine &bdquo;Erneut versuchen&ldquo;-Schaltfl&auml;che</li>
 												</ul>
 												<p>
-													The verification results will be saved on Go.cam
+													Die Verifizierungsergebnisse werden auf Go.cam gespeichert
 												</p>
 												<p>
-													Go.cam will forward the verification results also to you defined "verification result callback url" together with the user data you defined like a "user id" so the implementer can mark the user as verified
+													Go.cam leitet die Verifizierungsergebnisse auch an Ihre definierte &bdquo;Callback-URL f&uuml;r das Verifizierungsergebnis&ldquo; weiter, zusammen mit den von Ihnen definierten Nutzerdaten wie einer &bdquo;Nutzer-ID&ldquo;, damit der Implementierer den Nutzer als verifiziert markieren kann
 												</p>
 												<p>
-													Additionally, a cookie is created on Go.cam containing a encrypted version of some of the verification results that can be decrypted on a future visit, using your encryption keys "cypher key"
+													Zus&auml;tzlich wird ein Cookie auf Go.cam erstellt, das eine verschl&uuml;sselte Version der Verifizierungsergebnisse enth&auml;lt, die bei einem zuk&uuml;nftigen Besuch mit Ihren Verschl&uuml;sselungsschl&uuml;sseln (&bdquo;Chiffrierschl&uuml;ssel&ldquo;) entschl&uuml;sselt werden kann
 												</p>
 												<p>
-													When the success button is clicked, the user will be redirected to the "link back" URL, the implementer site should be unlocked
+													Wenn die Erfolgs-Schaltfl&auml;che geklickt wird, wird der Nutzer zur &bdquo;R&uuml;cklink&ldquo;-URL weitergeleitet und die Implementierer-Seite sollte entsperrt sein
 												</p>
 												<p>&nbsp;</p>
 
 												<h5 class="layoutPaddingBottom">
 													<strong>
-														Iframe overlay flow
+														Iframe-Overlay-Ablauf
 													</strong>
 												</h5>
 												<p>
-													In the iframe overlay flow, the verification process is done in a iframe overlay over the current page. The user is presented with a locked page and button that triggers a verification process overlay. Once the verification process is complete, the user is presented with a additional button to close the verification overlay. In this case the current page can communicate with the verification overlay, so once the process will end with success there will be a success event triggered, the result it's also sent using a server to server call. The implementer should keep track of the overlay events in order to render the unlocked page when these arrive.
+													Beim Iframe-Overlay-Ablauf findet die Verifizierung in einem Iframe-Overlay &uuml;ber der aktuellen Seite statt. Dem Nutzer wird eine gesperrte Seite mit einer Schaltfl&auml;che angezeigt, die das Verifizierungs-Overlay ausl&ouml;st. Nach Abschluss der Verifizierung erh&auml;lt der Nutzer eine weitere Schaltfl&auml;che zum Schlie&szlig;en des Overlays. In diesem Fall kann die aktuelle Seite mit dem Verifizierungs-Overlay kommunizieren &ndash; bei erfolgreichem Abschluss wird ein Erfolgs-Ereignis ausgel&ouml;st. Das Ergebnis wird auch per Server-zu-Server-Aufruf gesendet. Der Implementierer sollte die Overlay-Ereignisse verfolgen, um die entsperrte Seite anzuzeigen, wenn diese eintreffen.
 												</p>
 												<p>
 													<strong>
-														Here is a walkthrough of the process:
+														Ablauf im &Uuml;berblick:
 													</strong>
 												</p>
 												<p>
-													The user visits a site which is guarded by a age verification system
+													Der Nutzer besucht eine Seite, die durch ein Altersverifizierungssystem gesch&uuml;tzt ist
 												</p>
 												<p>
-													The user click on a button to start the age verification process
+													Der Nutzer klickt auf eine Schaltfl&auml;che, um die Altersverifizierung zu starten
 												</p>
 												<p>
-													The implementer provides the "cypher key" to the Go.cam SDK together with some user data like a "user id" to generate a age verification URL
+													Der Implementierer &uuml;bergibt den &bdquo;Chiffrierschl&uuml;ssel&ldquo; an das Go.cam SDK zusammen mit Nutzerdaten wie einer &bdquo;Nutzer-ID&ldquo;, um eine Altersverifizierungs-URL zu generieren
 												</p>
 												<p>
-													The implementer uses also the frontend SDK to create a Go.cam verification instance and trigger the iframe overlay loading process
+													Der Implementierer verwendet au&szlig;erdem das Frontend-SDK, um eine Go.cam-Verifizierungsinstanz zu erstellen und den Iframe-Overlay-Ladevorgang auszul&ouml;sen
 												</p>
 												<p>
-													Once the iframe is loaded there will be an event announcing it, additionally if the iframe detects that a verification cookie was already set on Go.cam a different event will be triggered to announce it (in this case a verification is no longer needed usually but a cookie integrity check must be performed)
+													Sobald der Iframe geladen ist, wird ein Ereignis ausgel&ouml;st. Wenn der Iframe erkennt, dass bereits ein Verifizierungs-Cookie auf Go.cam gesetzt wurde, wird ein anderes Ereignis ausgel&ouml;st (in diesem Fall ist eine Verifizierung normalerweise nicht mehr n&ouml;tig, aber eine Cookie-Integrit&auml;tspr&uuml;fung muss durchgef&uuml;hrt werden)
 												</p>
 												<p>
-													Depending on the type of verification the user will have to allow access to his webcam for scanning his face or select a ID document image for processing
+													Je nach Art der Verifizierung muss der Nutzer den Zugriff auf seine Webcam erlauben, um sein Gesicht zu scannen, oder ein Ausweisdokument-Bild zur Verarbeitung ausw&auml;hlen
 												</p>
 												<p>
-													Once the verification is complete, the user will be presented with a success or failure page:
+													Nach Abschluss der Verifizierung wird dem Nutzer eine Erfolgs- oder Fehlerseite angezeigt:
 												</p>
 												<ul>
-													<li>The success page will contain a button to close the iframe overlay</li>
-													<li>The failure page will contain a "Retry" button so he can try again</li>
+													<li>Die Erfolgsseite enth&auml;lt eine Schaltfl&auml;che zum Schlie&szlig;en des Iframe-Overlays</li>
+													<li>Die Fehlerseite enth&auml;lt eine &bdquo;Erneut versuchen&ldquo;-Schaltfl&auml;che</li>
 												</ul>
 												<p>
-													The verification results will be saved on Go.cam
+													Die Verifizierungsergebnisse werden auf Go.cam gespeichert
 												</p>
 												<p>
-													Go.cam will forward the verification results also to you defined "verification result callback url" together with the user data you defined like a "user id" so the implementer can mark the user as verified
+													Go.cam leitet die Verifizierungsergebnisse auch an Ihre definierte &bdquo;Callback-URL f&uuml;r das Verifizierungsergebnis&ldquo; weiter, zusammen mit den von Ihnen definierten Nutzerdaten wie einer &bdquo;Nutzer-ID&ldquo;, damit der Implementierer den Nutzer als verifiziert markieren kann
 												</p>
 												<p>
-													Additionally, a cookie is created on Go.cam containing a encrypted version of some of the verification results that can be decrypted on a future visit, using your encryption keys "cypher key"
+													Zus&auml;tzlich wird ein Cookie auf Go.cam erstellt, das eine verschl&uuml;sselte Version der Verifizierungsergebnisse enth&auml;lt, die bei einem zuk&uuml;nftigen Besuch mit Ihren Verschl&uuml;sselungsschl&uuml;sseln (&bdquo;Chiffrierschl&uuml;ssel&ldquo;) entschl&uuml;sselt werden kann
 												</p>
 												<p>
-													Finally, a javascript event will be triggered to announce the verification success which can be used optionally as a trigger to verify the cookie integrity saved in the previous step
+													Schlie&szlig;lich wird ein JavaScript-Ereignis ausgel&ouml;st, das den Verifizierungserfolg ank&uuml;ndigt und optional als Ausl&ouml;ser zur &Uuml;berpr&uuml;fung der im vorherigen Schritt gespeicherten Cookie-Integrit&auml;t verwendet werden kann
 												</p>
 												<p>
-													When the success button is clicked, the iframe overlay is removed and the implementer site should be unlocked
+													Wenn die Erfolgs-Schaltfl&auml;che geklickt wird, wird das Iframe-Overlay entfernt und die Implementierer-Seite sollte entsperrt sein
 												</p>
 											</div>
 										</div>
@@ -333,28 +333,28 @@
 									<div class="accordion-item">
 										<div class="accordion-header" id="frontEndEventInformationItem">
 											<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseFrontEndEventInformationItem" aria-expanded="false" aria-controls="collapseFrontEndEventInformationItem">
-												Frontend event information
+												Frontend-Ereignisinformationen
 											</button>
 										</div>
 										<div id="collapseFrontEndEventInformationItem" class="collapse" aria-labelledby="frontEndEventInformationItem" data-bs-parent="#accordion">
 											<div class="accordion-body">
 
 												<p>
-													<strong>Javascript events:</strong>
+													<strong>JavaScript-Ereignisse:</strong>
 												</p>
 												<code class="codeHeading">
 													AvsJsSdk.V1.Config.EVENT_ON_CHECK_IFRAME_LOADED
 												</code>
 												<div class="clear"></div>
 												<p>
-													This is the first event that is triggered by the iframe, it's triggered when the iframe document is ready.
+													Dies ist das erste Ereignis, das vom Iframe ausgel&ouml;st wird. Es wird ausgel&ouml;st, wenn das Iframe-Dokument bereit ist.
 												</p>
 
 												<code class="codeHeading">
 													AvsJsSdk.V1.Config.EVENT_STATUS_REQUEST
 												</code>
 												<div class="clear"></div>
-												Request the age verification iframe the status of the cookie, works only on the initial verification phase.
+												Fordert den Status des Cookies vom Altersverifizierungs-Iframe an. Funktioniert nur in der initialen Verifizierungsphase.
 												<p>
 												</p>
 
@@ -363,14 +363,14 @@
 												</code>
 												<div class="clear"></div>
 												<p>
-													The verification cookie it's already present on the user's browser due to a previous successful verification process.
+													Das Verifizierungs-Cookie ist bereits im Browser des Nutzers vorhanden, aufgrund einer fr&uuml;heren erfolgreichen Verifizierung.
 												</p>
 
 												<code class="codeHeading">
 													AvsJsSdk.V1.Config.EVENT_ON_INITIAL_VERIFICATION_NOT_FOUND
 												</code>
 												<div class="clear"></div>
-												The verification cookie was not found, meaning the user did not yet completed a successful verification process.
+												Das Verifizierungs-Cookie wurde nicht gefunden. Der Nutzer hat noch keine erfolgreiche Verifizierung abgeschlossen.
 												<p>
 												</p>
 
@@ -379,7 +379,7 @@
 												</code>
 												<div class="clear"></div>
 												<p>
-													Request the age verification iframe to start loading the verification phase and it's needed resources.
+													Fordert den Altersverifizierungs-Iframe auf, mit dem Laden der Verifizierungsphase und der ben&ouml;tigten Ressourcen zu beginnen.
 												</p>
 
 												<code class="codeHeading">
@@ -387,14 +387,14 @@
 												</code>
 												<div class="clear"></div>
 												<p>
-													The specified access keys were incorrect or the go.cam resources failed to load.
+													Die angegebenen Zugangsdaten waren fehlerhaft oder die Go.cam-Ressourcen konnten nicht geladen werden.
 												</p>
 
 												<code class="codeHeading">
 													AvsJsSdk.V1.Config.EVENT_ON_START_PAGE_LOADED
 												</code>
 												<div class="clear"></div>
-												The age verification page document it's ready, the resources are still loading.
+												Das Dokument der Altersverifizierungsseite ist bereit, die Ressourcen werden noch geladen.
 												<p>
 												</p>
 
@@ -403,7 +403,7 @@
 												</code>
 												<div class="clear"></div>
 												<p>
-													The age verification page resources finished to load.
+													Die Ressourcen der Altersverifizierungsseite wurden vollst&auml;ndig geladen.
 												</p>
 
 												<code class="codeHeading">
@@ -411,14 +411,14 @@
 												</code>
 												<div class="clear"></div>
 												<p>
-													The iframe overlay close button was clicked.
+													Die Schlie&szlig;en-Schaltfl&auml;che des Iframe-Overlays wurde geklickt.
 												</p>
 
 												<code class="codeHeading">
 													AvsJsSdk.V1.Config.EVENT_ON_VERIFICATION_SUCCESS
 												</code>
 												<div class="clear"></div>
-												The age verification process was completed with success.
+												Die Altersverifizierung wurde erfolgreich abgeschlossen.
 												<p>
 												</p>
 
@@ -427,7 +427,7 @@
 												</code>
 												<div class="clear"></div>
 												<p>
-													The age verification process was completed with error.
+													Die Altersverifizierung wurde mit einem Fehler abgeschlossen.
 												</p>
 											</div>
 										</div>
@@ -436,21 +436,21 @@
 									<div class="accordion-item">
 										<div class="accordion-header" id="verificationResultCallbackItem">
 											<button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapseVerificationResultCallbackItem" aria-expanded="false" aria-controls="collapseVerificationResultCallbackItem">
-												Verification result callback url information
+												Informationen zur Callback-URL f&uuml;r Verifizierungsergebnisse
 											</button>
 										</div>
 										<div id="collapseVerificationResultCallbackItem" class="collapse" aria-labelledby="verificationResultCallbackItem" data-bs-parent="#accordion">
 											<div class="accordion-body">
 												<p>
-													It's used to send back the age verification result to your server.
-													The data we send back contains the status of the verification together with some additional data
-													relevant to the age detection process (eg: custom user id, error codes, detection step, device type
+													Die Callback-URL wird verwendet, um das Altersverifizierungsergebnis an Ihren Server zur&uuml;ckzusenden.
+													Die zur&uuml;ckgesendeten Daten enthalten den Status der Verifizierung sowie zus&auml;tzliche Daten
+													zum Alterserkennungsprozess (z.B. benutzerdefinierte Nutzer-ID, Fehlercodes, Erkennungsschritt, Ger&auml;tetyp
 													...).
-													So if you plan to validate the user by it's id or collect some basic statistics this callback url can
-													help.
+													Wenn Sie den Nutzer anhand seiner ID validieren oder grundlegende Statistiken erfassen m&ouml;chten, kann diese Callback-URL
+													hilfreich sein.
 												</p>
 												<p>
-													<strong>Post back data example:</strong>
+													<strong>Beispiel der zur&uuml;ckgesendeten Daten:</strong>
 												</p>
 												<code class="codeBlock">
 													array(
@@ -478,7 +478,7 @@
 													)
 												</code>
 												<p>
-													<strong>Explanation:</strong>
+													<strong>Erkl&auml;rung:</strong>
 												</p>
 
 												<code class="codeHeading">
@@ -488,18 +488,18 @@
 												<table class="possibleValueTable table table-striped table-hover table-bordered">
 													<thead>
 													<tr>
-														<th scope="col" width="170">Possible value</th>
-														<th scope="col">Meaning</th>
+														<th scope="col" width="170">M&ouml;glicher Wert</th>
+														<th scope="col">Bedeutung</th>
 													</tr>
 													</thead>
 													<tbody>
 														<tr>
 															<td scope="row">success</td>
-															<td>the verification was successful</td>
+															<td>Die Verifizierung war erfolgreich</td>
 														</tr>
 														<tr>
 															<td scope="row">fail</td>
-															<td>the verification failed</td>
+															<td>Die Verifizierung ist fehlgeschlagen</td>
 														</tr>
 													</tbody>
 												</table>
@@ -510,28 +510,28 @@
 												<table class="possibleValueTable table table-striped table-hover table-bordered">
 													<thead>
 													<tr>
-														<th width="170">Possible value</th>
-														<th>Meaning</th>
+														<th width="170">M&ouml;glicher Wert</th>
+														<th>Bedeutung</th>
 													</tr>
 													</thead>
 													<tbody>												<tr>
 															<td>0</td>
-															<td>unknown</td>
+															<td>Unbekannt</td>
 														</tr>												<tr>
 															<td>1</td>
-															<td>Test not started or aborted</td>
+															<td>Test nicht gestartet oder abgebrochen</td>
 														</tr>												<tr>
 															<td>2</td>
-															<td>Success</td>
+															<td>Erfolgreich</td>
 														</tr>												<tr>
 															<td>3</td>
-															<td>Failed</td>
+															<td>Fehlgeschlagen</td>
 														</tr>												<tr>
 															<td>4</td>
-															<td>Link expired</td>
+															<td>Link abgelaufen</td>
 														</tr>												<tr>
 															<td>5</td>
-															<td>Link already used</td>
+															<td>Link bereits verwendet</td>
 														</tr>											</tbody>
 												</table>
 
@@ -541,14 +541,14 @@
 												<table class="possibleValueTable table table-striped table-hover table-bordered">
 													<thead>
 													<tr>
-														<th width="170">Possible value</th>
-														<th>Meaning</th>
+														<th width="170">M&ouml;glicher Wert</th>
+														<th>Bedeutung</th>
 													</tr>
 													</thead>
 													<tbody>
 														<tr>
 															<td>12345</td>
-															<td>Verification session id</td>
+															<td>Verifizierungs-Sitzungs-ID</td>
 														</tr>
 													</tbody>
 												</table>
@@ -559,124 +559,124 @@
 												<table class="possibleValueTable table table-striped table-hover table-bordered">
 													<thead>
 													<tr>
-														<th width="170">Possible value</th>
-														<th>Meaning</th>
+														<th width="170">M&ouml;glicher Wert</th>
+														<th>Bedeutung</th>
 													</tr>
 													</thead>
 													<tbody>												<tr>
 															<td>0</td>
-															<td>No error</td>
+															<td>Kein Fehler</td>
 														</tr>												<tr>
 															<td>25001</td>
-															<td>Device it is not supported</td>
+															<td>Ger&auml;t wird nicht unterst&uuml;tzt</td>
 														</tr>												<tr>
 															<td>25032</td>
-															<td>Preloading verification resources failed (face api resources)</td>
+															<td>Vorladen der Verifizierungsressourcen fehlgeschlagen (Face-API-Ressourcen)</td>
 														</tr>												<tr>
 															<td>25033</td>
-															<td>Preloading verification resources failed (tesseract resources)</td>
+															<td>Vorladen der Verifizierungsressourcen fehlgeschlagen (Tesseract-Ressourcen)</td>
 														</tr>												<tr>
 															<td>25034</td>
-															<td>Could not retrieve your device camera list (selfie detection camera selection step)</td>
+															<td>Kameralist des Ger&auml;ts konnte nicht abgerufen werden (Selfie-Erkennung Kameraauswahl)</td>
 														</tr>												<tr>
 															<td>25055</td>
-															<td>Could not detect enough faces from the device video (age detected is 0)</td>
+															<td>Nicht gen&uuml;gend Gesichter im Ger&auml;tevideo erkannt (erkanntes Alter ist 0)</td>
 														</tr>												<tr>
 															<td>25056</td>
-															<td>Face similarity check fail (all selfie faces comparison)</td>
+															<td>Gesichts&auml;hnlichkeitspr&uuml;fung fehlgeschlagen (Vergleich aller Selfie-Gesichter)</td>
 														</tr>												<tr>
 															<td>25057</td>
-															<td>Could not detect enough faces from the device video (0 faces detected)</td>
+															<td>Nicht gen&uuml;gend Gesichter im Ger&auml;tevideo erkannt (0 Gesichter erkannt)</td>
 														</tr>												<tr>
 															<td>25061</td>
-															<td>Could not detect enough faces from the device video (expression check fail)</td>
+															<td>Nicht gen&uuml;gend Gesichter im Ger&auml;tevideo erkannt (Gesichtsausdruckpr&uuml;fung fehlgeschlagen)</td>
 														</tr>												<tr>
 															<td>25062</td>
-															<td>Face similarity check fail (expression faces comparison)</td>
+															<td>Gesichts&auml;hnlichkeitspr&uuml;fung fehlgeschlagen (Vergleich der Gesichtsausdruck-Aufnahmen)</td>
 														</tr>												<tr>
 															<td>25047</td>
-															<td>Webcam initialization error (selfie detection step)</td>
+															<td>Webcam-Initialisierungsfehler (Selfie-Erkennungsschritt)</td>
 														</tr>												<tr>
 															<td>25035</td>
-															<td>Failed to initialize detection libraries (selfie detection step -&gt; face api detector)</td>
+															<td>Erkennungsbibliotheken konnten nicht initialisiert werden (Selfie-Erkennung &rarr; Face-API-Detektor)</td>
 														</tr>												<tr>
 															<td>25036</td>
-															<td>Failed to initialize detection libraries (selfie detection step -&gt; face api age model)</td>
+															<td>Erkennungsbibliotheken konnten nicht initialisiert werden (Selfie-Erkennung &rarr; Face-API-Altersmodell)</td>
 														</tr>												<tr>
 															<td>25037</td>
-															<td>Failed to initialize detection libraries (selfie detection step -&gt; face api recognition model)</td>
+															<td>Erkennungsbibliotheken konnten nicht initialisiert werden (Selfie-Erkennung &rarr; Face-API-Erkennungsmodell)</td>
 														</tr>												<tr>
 															<td>25038</td>
-															<td>Failed to initialize detection libraries (selfie detection step -&gt; face api landmarks model)</td>
+															<td>Erkennungsbibliotheken konnten nicht initialisiert werden (Selfie-Erkennung &rarr; Face-API-Landmarks-Modell)</td>
 														</tr>												<tr>
 															<td>25058</td>
-															<td>Failed to initialize detection libraries (selfie detection step -&gt; face api expression model)</td>
+															<td>Erkennungsbibliotheken konnten nicht initialisiert werden (Selfie-Erkennung &rarr; Face-API-Ausdrucksmodell)</td>
 														</tr>												<tr>
 															<td>25039</td>
-															<td>Could not retrieve your device camera list (scan id detection camera selection step)</td>
+															<td>Kameralist des Ger&auml;ts konnte nicht abgerufen werden (Ausweis-Erkennung Kameraauswahl)</td>
 														</tr>												<tr>
 															<td>25040</td>
-															<td>Failed to initialize detection libraries (scan id detection step -&gt; tesseract worker)</td>
+															<td>Erkennungsbibliotheken konnten nicht initialisiert werden (Ausweis-Erkennung &rarr; Tesseract-Worker)</td>
 														</tr>												<tr>
 															<td>25041</td>
-															<td>Failed to initialize detection libraries (scan id detection step -&gt; tesseract language model)</td>
+															<td>Erkennungsbibliotheken konnten nicht initialisiert werden (Ausweis-Erkennung &rarr; Tesseract-Sprachmodell)</td>
 														</tr>												<tr>
 															<td>25042</td>
-															<td>Failed to initialize detection libraries (scan id detection step -&gt; tesseract language init)</td>
+															<td>Erkennungsbibliotheken konnten nicht initialisiert werden (Ausweis-Erkennung &rarr; Tesseract-Sprachinitialisierung)</td>
 														</tr>												<tr>
 															<td>25043</td>
-															<td>Failed to initialize detection libraries (scan id detection step -&gt; tesseract worker config)</td>
+															<td>Erkennungsbibliotheken konnten nicht initialisiert werden (Ausweis-Erkennung &rarr; Tesseract-Worker-Konfiguration)</td>
 														</tr>												<tr>
 															<td>25044</td>
-															<td>Failed to initialize detection libraries (scan id detection step -&gt; face api detector)</td>
+															<td>Erkennungsbibliotheken konnten nicht initialisiert werden (Ausweis-Erkennung &rarr; Face-API-Detektor)</td>
 														</tr>												<tr>
 															<td>25045</td>
-															<td>Failed to initialize detection libraries (scan id detection step -&gt; face api recognition model)</td>
+															<td>Erkennungsbibliotheken konnten nicht initialisiert werden (Ausweis-Erkennung &rarr; Face-API-Erkennungsmodell)</td>
 														</tr>												<tr>
 															<td>25051</td>
-															<td>Failed to extract a face from your identity card</td>
+															<td>Gesicht konnte nicht aus dem Ausweisdokument extrahiert werden</td>
 														</tr>												<tr>
 															<td>25052</td>
-															<td>Selfie face does not match the one found on the identity card</td>
+															<td>Selfie-Gesicht stimmt nicht mit dem auf dem Ausweisdokument &uuml;berein</td>
 														</tr>												<tr>
 															<td>25053</td>
-															<td>Detected age is lower than 18 years (scan id detection step)</td>
+															<td>Erkanntes Alter ist unter 18 Jahren (Ausweis-Erkennungsschritt)</td>
 														</tr>												<tr>
 															<td>25054</td>
-															<td>Failed to extract your age from the current identity card</td>
+															<td>Alter konnte nicht aus dem aktuellen Ausweisdokument extrahiert werden</td>
 														</tr>												<tr>
 															<td>25046</td>
-															<td>Webcam initialization error (scan id detection step)</td>
+															<td>Webcam-Initialisierungsfehler (Ausweis-Erkennungsschritt)</td>
 														</tr>												<tr>
 															<td>20002</td>
-															<td>Test max allowed time expired (test success callback)</td>
+															<td>Maximal erlaubte Testzeit abgelaufen (Erfolgs-Callback)</td>
 														</tr>												<tr>
 															<td>20004</td>
-															<td>Invalid step id (test success callback)</td>
+															<td>Ung&uuml;ltige Schritt-ID (Erfolgs-Callback)</td>
 														</tr>												<tr>
 															<td>20000</td>
-															<td>Invalid token (test success callback)</td>
+															<td>Ung&uuml;ltiges Token (Erfolgs-Callback)</td>
 														</tr>												<tr>
 															<td>20034</td>
-															<td>Invalid xcore api curl response (test success callback)</td>
+															<td>Ung&uuml;ltige xcore-API-curl-Antwort (Erfolgs-Callback)</td>
 														</tr>												<tr>
 															<td>20003</td>
-															<td>Test max allowed time expired (test fail callback)</td>
+															<td>Maximal erlaubte Testzeit abgelaufen (Fehler-Callback)</td>
 														</tr>												<tr>
 															<td>20005</td>
-															<td>Invalid step id (test fail callback)</td>
+															<td>Ung&uuml;ltige Schritt-ID (Fehler-Callback)</td>
 														</tr>												<tr>
 															<td>20001</td>
-															<td>Invalid token (test fail callback)</td>
+															<td>Ung&uuml;ltiges Token (Fehler-Callback)</td>
 														</tr>												<tr>
 															<td>20035</td>
-															<td>Invalid xcore api curl response (test fail callback)</td>
+															<td>Ung&uuml;ltige xcore-API-curl-Antwort (Fehler-Callback)</td>
 														</tr>												<tr>
 															<td>18001</td>
-															<td>Credit card verification internal error</td>
+															<td>Interner Fehler bei der Kreditkartenverifizierung</td>
 														</tr>												<tr>
 															<td>18002</td>
-															<td>Credit card verification maxmind error</td>
+															<td>Kreditkartenverifizierung MaxMind-Fehler</td>
 														</tr>											</tbody>
 												</table>
 
@@ -686,19 +686,19 @@
 												<table class="possibleValueTable table table-striped table-hover table-bordered">
 													<thead>
 													<tr>
-														<th width="170">Possible value</th>
-														<th>Meaning</th>
+														<th width="170">M&ouml;glicher Wert</th>
+														<th>Bedeutung</th>
 													</tr>
 													</thead>
 													<tbody>												<tr>
 															<td>0</td>
-															<td>unknown</td>
+															<td>Unbekannt</td>
 														</tr>												<tr>
 															<td>1</td>
-															<td>mobile</td>
+															<td>Mobilger&auml;t</td>
 														</tr>												<tr>
 															<td>2</td>
-															<td>desktop</td>
+															<td>Desktop</td>
 														</tr>											</tbody>
 												</table>
 
@@ -708,34 +708,34 @@
 												<table class="possibleValueTable table table-striped table-hover table-bordered">
 													<thead>
 													<tr>
-														<th width="170">Possible value</th>
-														<th>Meaning</th>
+														<th width="170">M&ouml;glicher Wert</th>
+														<th>Bedeutung</th>
 													</tr>
 													</thead>
 													<tbody>												<tr>
 															<td>0</td>
-															<td>Test not started or aborted</td>
+															<td>Test nicht gestartet oder abgebrochen</td>
 														</tr>												<tr>
 															<td>1</td>
-															<td>Start page</td>
+															<td>Startseite</td>
 														</tr>												<tr>
 															<td>2</td>
-															<td>Selfie detection camera selection</td>
+															<td>Selfie-Erkennung Kameraauswahl</td>
 														</tr>												<tr>
 															<td>3</td>
-															<td>Selfie detection</td>
+															<td>Selfie-Erkennung</td>
 														</tr>												<tr>
 															<td>4</td>
-															<td>Scan id camera selection</td>
+															<td>Ausweis-Erkennung Kameraauswahl</td>
 														</tr>												<tr>
 															<td>5</td>
-															<td>Scan id detection</td>
+															<td>Ausweis-Erkennung</td>
 														</tr>												<tr>
 															<td>6</td>
-															<td>Credit card verification intro</td>
+															<td>Kreditkartenverifizierung Einf&uuml;hrung</td>
 														</tr>												<tr>
 															<td>7</td>
-															<td>Credit card verification page</td>
+															<td>Kreditkartenverifizierungsseite</td>
 														</tr>											</tbody>
 												</table>
 
@@ -745,14 +745,14 @@
 												<table class="possibleValueTable table table-striped table-hover table-bordered">
 													<thead>
 													<tr>
-														<th width="170">Possible value</th>
-														<th>Meaning</th>
+														<th width="170">M&ouml;glicher Wert</th>
+														<th>Bedeutung</th>
 													</tr>
 													</thead>
 													<tbody>
 														<tr>
 															<td>FR</td>
-															<td>Country short code of the document the user selected to provide for the verification</td>
+															<td>L&auml;nderk&uuml;rzel des Dokuments, das der Nutzer f&uuml;r die Verifizierung ausgew&auml;hlt hat</td>
 														</tr>
 													</tbody>
 												</table>
@@ -763,14 +763,14 @@
 												<table class="possibleValueTable table table-striped table-hover table-bordered">
 													<thead>
 													<tr>
-														<th width="170">Possible value</th>
-														<th>Meaning</th>
+														<th width="170">M&ouml;glicher Wert</th>
+														<th>Bedeutung</th>
 													</tr>
 													</thead>
 													<tbody>
 														<tr>
 															<td>TX</td>
-															<td>State short code of the document the user selected to provide for the verification</td>
+															<td>Bundesstaatk&uuml;rzel des Dokuments, das der Nutzer f&uuml;r die Verifizierung ausgew&auml;hlt hat</td>
 														</tr>
 													</tbody>
 												</table>
@@ -781,19 +781,19 @@
 												<table class="possibleValueTable table table-striped table-hover table-bordered">
 													<thead>
 													<tr>
-														<th width="170">Possible value</th>
-														<th>Meaning</th>
+														<th width="170">M&ouml;glicher Wert</th>
+														<th>Bedeutung</th>
 													</tr>
 													</thead>
 													<tbody>												<tr>
 															<td>1</td>
-															<td>Id card</td>
+															<td>Personalausweis</td>
 														</tr>												<tr>
 															<td>2</td>
-															<td>Passport</td>
+															<td>Reisepass</td>
 														</tr>												<tr>
 															<td>3</td>
-															<td>Driver licence</td>
+															<td>F&uuml;hrerschein</td>
 														</tr>											</tbody>
 												</table>
 
@@ -803,14 +803,14 @@
 												<table class="possibleValueTable table table-striped table-hover table-bordered">
 													<thead>
 													<tr>
-														<th width="170">Possible value</th>
-														<th>Meaning</th>
+														<th width="170">M&ouml;glicher Wert</th>
+														<th>Bedeutung</th>
 													</tr>
 													</thead>
 													<tbody>
 														<tr>
 															<td>your-site-name.cam</td>
-															<td>Host name from where the test was initiated</td>
+															<td>Hostname, von dem der Test gestartet wurde</td>
 														</tr>
 													</tbody>
 												</table>
@@ -821,14 +821,14 @@
 												<table class="possibleValueTable table table-striped table-hover table-bordered">
 													<thead>
 													<tr>
-														<th width="170">Possible value</th>
-														<th>Meaning</th>
+														<th width="170">M&ouml;glicher Wert</th>
+														<th>Bedeutung</th>
 													</tr>
 													</thead>
 													<tbody>
 														<tr>
 															<td>127.0.0.1</td>
-															<td>Ip from where the test was initiated</td>
+															<td>IP-Adresse, von der der Test gestartet wurde</td>
 														</tr>
 													</tbody>
 												</table>
@@ -852,13 +852,65 @@
 	</div>
 	<div class="clear"></div>
 	<p>&nbsp;</p>
-	<p class="text-center"><small>Node env: {{ nodeEnv }}</small></p>
+	<p class="text-center"><small>Node-Umgebung: {{ nodeEnv }}</small></p>
 
 {% endblock %}
 
 {% block head %}
 
 	<link rel="stylesheet" href="/static/css/vendor/bootstrap-5.0.2/bootstrap.min.css">
+	<style>
+		/* CleverMetrics Brand Colors Override */
+		.btn-primary,
+		.btn-success {
+			background-color: #db2979 !important;
+			border-color: #db2979 !important;
+			color: #ffffff !important;
+		}
+		.btn-primary:hover,
+		.btn-success:hover {
+			background-color: #c12469 !important;
+			border-color: #c12469 !important;
+		}
+		.card-header {
+			background-color: rgba(219, 41, 121, 0.08);
+			border-bottom-color: #ededed;
+			color: #0a0a0a;
+		}
+		.accordion-button:not(.collapsed) {
+			background-color: rgba(219, 41, 121, 0.08);
+			color: #db2979;
+		}
+		.accordion-button:focus {
+			box-shadow: 0 0 0 0.25rem rgba(219, 41, 121, 0.25);
+			border-color: #db2979;
+		}
+		a {
+			color: #db2979;
+		}
+		a:hover {
+			color: #c12469;
+		}
+		#staticPage .headerContainer {
+			background: #db2979 !important;
+		}
+		#staticPage .headerContainer .headerTop .headerLanguageArea {
+			color: #ffffff;
+		}
+		#staticPage .headerContainer .headerTop .headerLanguageArea a:hover {
+			color: rgba(255, 255, 255, 0.8);
+		}
+		.heroHeading strong {
+			color: #db2979;
+		}
+		.heroSubHeading {
+			color: #db2979 !important;
+		}
+		.form-control:focus {
+			border-color: #db2979;
+			box-shadow: 0 0 0 0.25rem rgba(219, 41, 121, 0.25);
+		}
+	</style>
 
 {% endblock %}
 

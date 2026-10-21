@@ -261,7 +261,7 @@ namespace Avs {
 							return;
 						}
 
-						this.faceApiClass.detectSingleFace(this.videoElement, this.detectorOptions).withAgeAndGender().then(
+						this.faceApiClass.detectSingleFace(this.videoElement, this.detectorOptions).withFaceLandmarks().withAgeAndGender().then(
 							(result: any) => {
 
 								// face was detected
@@ -275,6 +275,7 @@ namespace Avs {
 									cb({
 										detection : result.detection,
 										age       : age,
+										detectionRaw: result,
 										averageAge: averageAge
 									});
 

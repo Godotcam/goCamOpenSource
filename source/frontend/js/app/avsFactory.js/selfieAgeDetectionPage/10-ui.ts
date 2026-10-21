@@ -24,7 +24,7 @@ namespace AvsFactory {
 				instance.ui.SelfieAgeDetectionLoadingLabelPercentCounter.setStepNumber(5);
 
 				instance.ui.FaceGuideLoadingProgressBar.hide();
-				instance.ui.FaceGuideLoadingProgressBar.setStepNumber(1/*init*/ + 1/*expression check*/ + Config.MAX_VALID_FACE_SCAN_NUMBER/* face detection*/ + 5/* loading*/);
+				instance.ui.FaceGuideLoadingProgressBar.setStepNumber(1/*init*/ + 1/*expression check*/ + Config.MAX_VALID_FACE_SCAN_NUMBER/* face detection*/ + 1 /*patch*/ + 5/* loading*/);
 				instance.ui.FaceGuideLoadingProgressBar.setValue(0);
 
 				instance.ui.SelfieAgeDetectionStatusLabel.show();

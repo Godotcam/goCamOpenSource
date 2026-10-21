@@ -77,12 +77,23 @@ namespace AvsFactory {
 											instance.ui.FaceGuideLoadingProgressBar.increment();
 											instance.debug.logToContainer('<p>Loaded face expression model.</p>');
 
-											instance.ui.SelfieAgeDetectionStatusLabel.setValue('Please position your face close to the center of the screen');
+											instance.plugin.Library.Ml.Challenge25.loadModel((result: boolean | null) => {
 
-											instance.ui.SelfieAgeDetectionStatusLabel.show();
-											instance.ui.SelfieAgeDetectionStatusLabel.startBlinking();
+												if (result === null) {
+													StartPage.Method.renderError(25101, 'Failed to initialize detection libraries');
+													return;
+												}
 
-											Method.detectFace();
+												instance.debug.logToContainer('<p>Loaded challenge 25 model.</p>');
+
+												instance.ui.SelfieAgeDetectionStatusLabel.setValue('Please position your face close to the center of the screen');
+
+												instance.ui.SelfieAgeDetectionStatusLabel.show();
+												instance.ui.SelfieAgeDetectionStatusLabel.startBlinking();
+
+												Method.detectFace();
+
+											});
 
 										});
 

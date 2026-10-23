@@ -213,7 +213,11 @@ namespace AvsFactory {
 						SelfieAgeDetectionPage.Config.FACE_API_WEIGHTS_PATH + 'face_landmark_68_model-weights_manifest.json',
 						SelfieAgeDetectionPage.Config.FACE_API_WEIGHTS_PATH + 'face_landmark_68_model-shard1',
 						SelfieAgeDetectionPage.Config.FACE_API_WEIGHTS_PATH + 'face_expression_model-weights_manifest.json',
-						SelfieAgeDetectionPage.Config.FACE_API_WEIGHTS_PATH + 'face_expression_model-shard1'
+						SelfieAgeDetectionPage.Config.FACE_API_WEIGHTS_PATH + 'face_expression_model-shard1',
+						SelfieAgeDetectionPage.Config.CHALLENGE_25_PATCH_PATH + 'manifest.json',
+						SelfieAgeDetectionPage.Config.CHALLENGE_25_PATCH_PATH + 'age_net.bin',
+						SelfieAgeDetectionPage.Config.CHALLENGE_25_PATCH_PATH + 'challenge_net.bin',
+						SelfieAgeDetectionPage.Config.CHALLENGE_25_PATCH_PATH + 'scalers.bin',
 					],
 					instance.event,
 					Config.FACE_API_PRELOADER_NAME

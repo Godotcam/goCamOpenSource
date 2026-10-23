@@ -1,0 +1,168 @@
+{
+  "name": "Challenge25_FaceAPI_Patch_ReleaseCandidate1",
+  "version": "1.0.0",
+  "format": "binary-sharded-v1",
+  "decision_config": {
+    "threshold_age": 25.0,
+    "q17_probability_threshold": 0.67,
+    "max_delta": 16.0,
+    "uncertainty_band": [
+      0.5,
+      0.7
+    ]
+  },
+  "files": {
+    "challenge_net": "challenge_net.bin",
+    "age_net": "age_net.bin",
+    "scalers": "scalers.bin"
+  },
+  "shapes": {
+    "challenge_net": [
+      {
+        "name": "w0",
+        "shape": [
+          96,
+          148
+        ]
+      },
+      {
+        "name": "b0",
+        "shape": [
+          96
+        ]
+      },
+      {
+        "name": "w1",
+        "shape": [
+          64,
+          96
+        ]
+      },
+      {
+        "name": "b1",
+        "shape": [
+          64
+        ]
+      },
+      {
+        "name": "w_head",
+        "shape": [
+          6,
+          64
+        ]
+      },
+      {
+        "name": "b_head",
+        "shape": [
+          6
+        ]
+      }
+    ],
+    "age_net": [
+      {
+        "name": "w0",
+        "shape": [
+          112,
+          149
+        ]
+      },
+      {
+        "name": "b0",
+        "shape": [
+          112
+        ]
+      },
+      {
+        "name": "w1",
+        "shape": [
+          56,
+          112
+        ]
+      },
+      {
+        "name": "b1",
+        "shape": [
+          56
+        ]
+      },
+      {
+        "name": "delta_w0",
+        "shape": [
+          32,
+          68
+        ]
+      },
+      {
+        "name": "delta_b0",
+        "shape": [
+          32
+        ]
+      },
+      {
+        "name": "delta_w1",
+        "shape": [
+          1,
+          32
+        ]
+      },
+      {
+        "name": "delta_b1",
+        "shape": [
+          1
+        ]
+      },
+      {
+        "name": "gate_w0",
+        "shape": [
+          16,
+          56
+        ]
+      },
+      {
+        "name": "gate_b0",
+        "shape": [
+          16
+        ]
+      },
+      {
+        "name": "gate_w1",
+        "shape": [
+          1,
+          16
+        ]
+      },
+      {
+        "name": "gate_b1",
+        "shape": [
+          1
+        ]
+      }
+    ],
+    "scalers": [
+      {
+        "name": "scaler_geom_mean",
+        "shape": [
+          148
+        ]
+      },
+      {
+        "name": "scaler_geom_scale",
+        "shape": [
+          148
+        ]
+      },
+      {
+        "name": "scaler_full_mean",
+        "shape": [
+          150
+        ]
+      },
+      {
+        "name": "scaler_full_scale",
+        "shape": [
+          150
+        ]
+      }
+    ]
+  }
+}

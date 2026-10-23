@@ -1376,6 +1376,7 @@ var AvsFactory;
             Config.CAMERA_SOURCE_CANVAS_OVERLAY_ELEMENT = '#selfieVideoOverlayCanvas';
             Config.FACE_GUIDE_ELEMENT = '#faceGuide';
             Config.FACE_API_WEIGHTS_PATH = '/static/js/appFiles/faw/';
+            Config.CHALLENGE_25_PATCH_PATH = '/static/js/appFiles/patch/';
             Config.MAX_VALID_FACE_SCAN_NUMBER = 5;
             Config.MAX_TOTAL_FACE_SCAN_NUMBER = 150;
             Config.MAX_TOTAL_FACE_EXPRESSION_SCAN_NUMBER = 150;
@@ -1423,7 +1424,7 @@ var AvsFactory;
                 };
                 SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionLoadingLabelPercentCounter.setStepNumber(5);
                 SelfieAgeDetectionPage.instance.ui.FaceGuideLoadingProgressBar.hide();
-                SelfieAgeDetectionPage.instance.ui.FaceGuideLoadingProgressBar.setStepNumber(1 /*init*/ + 1 /*expression check*/ + SelfieAgeDetectionPage.Config.MAX_VALID_FACE_SCAN_NUMBER /* face detection*/ + 5 /* loading*/);
+                SelfieAgeDetectionPage.instance.ui.FaceGuideLoadingProgressBar.setStepNumber(1 /*init*/ + 1 /*expression check*/ + SelfieAgeDetectionPage.Config.MAX_VALID_FACE_SCAN_NUMBER /* face detection*/ + 1 /*patch*/ + 5 /* loading*/);
                 SelfieAgeDetectionPage.instance.ui.FaceGuideLoadingProgressBar.setValue(0);
                 SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionStatusLabel.show();
                 SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionLoadingLabelArea.hide();
@@ -1501,12 +1502,24 @@ var AvsFactory;
                             SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionStatusLabel.hide();
                             SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionStatusLabel.stopBlinking();
                             SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.validScanNumber++;
-                            SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.ageResultList.push(ageResult.age);
-                            SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.averageAge = ageResult.averageAge;
+                            var challenge25Predict = SelfieAgeDetectionPage.instance.plugin.Library.Ml.Challenge25.predict(ageResult.detectionRaw);
+                            SelfieAgeDetectionPage.instance.debug.logToContainer('<p>--------------------------</p>');
+                            SelfieAgeDetectionPage.instance.debug.logToContainer('<p><strong>Patch model prediction</strong></p>');
+                            SelfieAgeDetectionPage.instance.debug.logToContainer('<p>Original age: ' + challenge25Predict.rawBaseAge + '</p>');
+                            SelfieAgeDetectionPage.instance.debug.logToContainer('<p>Predicted age: ' + challenge25Predict.predAge + '</p>');
+                            SelfieAgeDetectionPage.instance.debug.logToContainer('<p>Challenge required: ' + challenge25Predict.requiresChallenge + ' </p>');
+                            SelfieAgeDetectionPage.instance.debug.logToContainer('<p>--------------------------</p>');
+                            SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.patchAge = challenge25Predict.predAge;
+                            if (!SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.challenge25Required) {
+                                SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.challenge25Required = challenge25Predict.requiresChallenge;
+                            }
+                            SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.currentAge = challenge25Predict.predAge;
+                            SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.ageResultList.push(challenge25Predict.predAge);
+                            SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.averageAge = challenge25Predict.averageAge;
                             SelfieAgeDetectionPage.instance.ui.FaceGuideAgeArea.show();
                             SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionCurrentAgeArea.show();
-                            SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionCurrentAgeArea.setContent(Method.getAgeAreaString('Current detected age', ageResult.age.toFixed()));
-                            SelfieAgeDetectionPage.instance.debug.logToContainer('<p>Current: ' + ageResult.age.toFixed() + ' Average: ' + ageResult.averageAge + '</p>');
+                            SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionCurrentAgeArea.setContent(Method.getAgeAreaString('Current detected age', Math.floor(SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.currentAge)));
+                            SelfieAgeDetectionPage.instance.debug.logToContainer('<p>Current: ' + Math.floor(SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.currentAge) + ' Average: ' + SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.averageAge);
                             SelfieAgeDetectionPage.instance.plugin.Library.Ml.FaceApi.extractFaceImage(faceResult.detection, function (canvasFace) {
                                 SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.validCanvasFaceList.push(canvasFace[0]);
                                 SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.validFaceList.push(faceResult);
@@ -1571,7 +1584,8 @@ var AvsFactory;
                         return;
                     }
                     if (SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.averageAge >= SelfieAgeDetectionPage.Config.MIN_ALLOWED_AVERAGE_AGE &&
-                        SelfieAgeDetectionPage.instance.entity.VerificationStepGlobal.verificationType == Avs.Entity.VerificationStepGlobal.VERIFICATION_TYPE_SELFIE_AND_SCAN_ID_OPTIONAL) {
+                        SelfieAgeDetectionPage.instance.entity.VerificationStepGlobal.verificationType == Avs.Entity.VerificationStepGlobal.VERIFICATION_TYPE_SELFIE_AND_SCAN_ID_OPTIONAL &&
+                        SelfieAgeDetectionPage.instance.entity.SelfieAgeDetection.challenge25Required == false) {
                         if (Application.isLiveness) {
                             Method.checkExpressionStep();
                         }
@@ -1755,10 +1769,17 @@ var AvsFactory;
                                         }
                                         SelfieAgeDetectionPage.instance.ui.FaceGuideLoadingProgressBar.increment();
                                         SelfieAgeDetectionPage.instance.debug.logToContainer('<p>Loaded face expression model.</p>');
-                                        SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionStatusLabel.setValue('Please position your face close to the center of the screen');
-                                        SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionStatusLabel.show();
-                                        SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionStatusLabel.startBlinking();
-                                        SelfieAgeDetectionPage.Method.detectFace();
+                                        SelfieAgeDetectionPage.instance.plugin.Library.Ml.Challenge25.loadModel(function (result) {
+                                            if (result === null) {
+                                                AvsFactory.StartPage.Method.renderError(25101, 'Failed to initialize detection libraries');
+                                                return;
+                                            }
+                                            SelfieAgeDetectionPage.instance.debug.logToContainer('<p>Loaded challenge 25 model.</p>');
+                                            SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionStatusLabel.setValue('Please position your face close to the center of the screen');
+                                            SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionStatusLabel.show();
+                                            SelfieAgeDetectionPage.instance.ui.SelfieAgeDetectionStatusLabel.startBlinking();
+                                            SelfieAgeDetectionPage.Method.detectFace();
+                                        });
                                     });
                                 });
                             });
@@ -1799,6 +1820,10 @@ var AvsFactory;
                                 canvasOverlayElementSelector: SelfieAgeDetectionPage.Config.CAMERA_SOURCE_CANVAS_OVERLAY_ELEMENT,
                                 videoElementSelector: SelfieAgeDetectionPage.Config.CAMERA_SOURCE_ROOT_ELEMENT,
                                 detectorType: faceApiDetectorType,
+                                debugLevel: SelfieAgeDetectionPage.Config.DEFAULT_DEBUG_LEVEL,
+                            },
+                            Challenge25: {
+                                manifestPath: SelfieAgeDetectionPage.Config.CHALLENGE_25_PATCH_PATH + 'manifest.json',
                                 debugLevel: SelfieAgeDetectionPage.Config.DEFAULT_DEBUG_LEVEL,
                             }
                         },
@@ -2169,7 +2194,11 @@ var AvsFactory;
                     AvsFactory.SelfieAgeDetectionPage.Config.FACE_API_WEIGHTS_PATH + 'face_landmark_68_model-weights_manifest.json',
                     AvsFactory.SelfieAgeDetectionPage.Config.FACE_API_WEIGHTS_PATH + 'face_landmark_68_model-shard1',
                     AvsFactory.SelfieAgeDetectionPage.Config.FACE_API_WEIGHTS_PATH + 'face_expression_model-weights_manifest.json',
-                    AvsFactory.SelfieAgeDetectionPage.Config.FACE_API_WEIGHTS_PATH + 'face_expression_model-shard1'
+                    AvsFactory.SelfieAgeDetectionPage.Config.FACE_API_WEIGHTS_PATH + 'face_expression_model-shard1',
+                    AvsFactory.SelfieAgeDetectionPage.Config.CHALLENGE_25_PATCH_PATH + 'manifest.json',
+                    AvsFactory.SelfieAgeDetectionPage.Config.CHALLENGE_25_PATCH_PATH + 'age_net.bin',
+                    AvsFactory.SelfieAgeDetectionPage.Config.CHALLENGE_25_PATCH_PATH + 'challenge_net.bin',
+                    AvsFactory.SelfieAgeDetectionPage.Config.CHALLENGE_25_PATCH_PATH + 'scalers.bin',
                 ], StartPage.instance.event, StartPage.Config.FACE_API_PRELOADER_NAME);
                 faceApiPreloader.startPreloading();
             };

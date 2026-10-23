@@ -2,6 +2,57 @@
 Frontend unique error code:
 ---------------------------
 
+
+
+25109: Detection result must contain 68 face landmarks
+25108: Challenge 25 model bundle not loaded
+25107: Failed to fetch challenge 25 manifest
+25106: Failed to parse challenge 25 manifest
+25105: Failed to fetch challenge 25 binary model shards
+25104: Failed to decode challenge 25 binary model shards
+25103: Failed to fetch challenge 25 binary model shards
+25102: Failed to fetch challenge 25 manifest
+25101: Failed to initialize detection libraries
+25100:
+25099:
+25098:
+25097:
+25096:
+25095:
+25094:
+25093:
+25092:
+25091:
+25090:
+25089:
+25088:
+25087:
+25086:
+25085:
+25084:
+25083:
+25082:
+25081:
+25080:
+25079:
+25078:
+25077:
+25076:
+25075:
+25074:
+25073:
+25072:
+25071:
+25070:
+25069:
+25068:
+25067:
+25066:
+25065:
+25064:
+25063:
+25062:
+25061:
 25060:
 25068:
 25067: Could not detect enough faces from your device video

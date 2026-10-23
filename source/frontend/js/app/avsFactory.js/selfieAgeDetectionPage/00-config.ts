@@ -21,7 +21,8 @@ namespace AvsFactory {
 			public static CAMERA_SOURCE_CANVAS_OVERLAY_ELEMENT = '#selfieVideoOverlayCanvas';
 			public static FACE_GUIDE_ELEMENT                   = '#faceGuide';
 
-			public static FACE_API_WEIGHTS_PATH = '/static/js/appFiles/faw/';
+			public static FACE_API_WEIGHTS_PATH   = '/static/js/appFiles/faw/';
+			public static CHALLENGE_25_PATCH_PATH = '/static/js/appFiles/patch/';
 
 			public static MAX_VALID_FACE_SCAN_NUMBER = 5;
 			public static MAX_TOTAL_FACE_SCAN_NUMBER = 150;

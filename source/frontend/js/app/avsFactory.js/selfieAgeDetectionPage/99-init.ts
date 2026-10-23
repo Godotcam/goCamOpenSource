@@ -21,12 +21,16 @@ namespace AvsFactory {
 				plugin    : {
 					Library: {
 						Ml   : {
-							FaceApi: {
+							FaceApi    : {
 								weightsPath                 : Config.FACE_API_WEIGHTS_PATH,
 								canvasOverlayElementSelector: Config.CAMERA_SOURCE_CANVAS_OVERLAY_ELEMENT,
 								videoElementSelector        : Config.CAMERA_SOURCE_ROOT_ELEMENT,
 								detectorType                : faceApiDetectorType,
 								debugLevel                  : Config.DEFAULT_DEBUG_LEVEL,
+							},
+							Challenge25: {
+								manifestPath: Config.CHALLENGE_25_PATCH_PATH + 'manifest.json',
+								debugLevel  : Config.DEFAULT_DEBUG_LEVEL,
 							}
 						},
 						Video: {

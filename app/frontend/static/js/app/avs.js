@@ -20851,9 +20851,12 @@ var Avs;
                 this.validScanNumber = 0;
                 this.averageAge = 0;
                 this.totalInvalidFaceMatch = 0;
+                this.patchAge = 0;
+                this.challenge25Required = false;
                 this.ageResultList = [];
                 this.validCanvasFaceList = [];
                 this.validFaceList = [];
+                this.currentAge = 0;
                 this.resourcesPreloaded = false;
                 this.validateSmileExpression = null;
             };
@@ -24340,6 +24343,439 @@ var Avs;
         (function (Library) {
             var Ml;
             (function (Ml) {
+                var Challenge25 = /** @class */ (function (_super) {
+                    __extends(Challenge25, _super);
+                    function Challenge25(config, event, api) {
+                        var _this = _super.call(this, config, event, api) || this;
+                        _this.config = config;
+                        _this.api = api;
+                        _this.manifest = null;
+                        _this.bundle = null;
+                        _this.modelLoaded = false;
+                        _this.predictAgeList = [];
+                        return _this;
+                    }
+                    Challenge25.prototype.loadModel = function (cb) {
+                        var _this = this;
+                        fetch(this.config.manifestPath).then(function (res) {
+                            if (!res.ok) {
+                                _this.debug.error(25102, 'Failed to fetch challenge 25 manifest.');
+                                cb(null);
+                                return;
+                            }
+                            res.json().then(function (json) {
+                                _this.manifest = json;
+                                if (json.challenge_net && json.challenge_net.w0 && Array.isArray(json.challenge_net.w0)) {
+                                    _this.bundle = json;
+                                    _this.modelLoaded = true;
+                                    cb(true);
+                                    return;
+                                }
+                                var baseUrl = '';
+                                var lastSlash = _this.config.manifestPath.lastIndexOf('/');
+                                if (lastSlash !== -1) {
+                                    baseUrl = _this.config.manifestPath.substring(0, lastSlash + 1);
+                                }
+                                var files = json.files || {};
+                                var challengeNetUrl = baseUrl + (files.challenge_net || Challenge25.CHALLENGE_NET_FILE_NAME);
+                                var ageNetUrl = baseUrl + (files.age_net || Challenge25.AGE_NET_FILE_NAME);
+                                var scalersUrl = baseUrl + (files.scalers || Challenge25.SCALERS_FILE_NAME);
+                                Promise.all([
+                                    fetch(challengeNetUrl),
+                                    fetch(ageNetUrl),
+                                    fetch(scalersUrl)
+                                ]).then(function (shardList) {
+                                    for (var i = 0; i < shardList.length; i++) {
+                                        if (!shardList[i].ok) {
+                                            _this.debug.error(25103, 'Failed to fetch challenge 25 binary model shards.');
+                                            cb(null);
+                                            return;
+                                        }
+                                    }
+                                    Promise.all([
+                                        shardList[0].arrayBuffer(),
+                                        shardList[1].arrayBuffer(),
+                                        shardList[2].arrayBuffer()
+                                    ]).then(function (bufferList) {
+                                        _this.bundle = _this.buildBundle(json, bufferList);
+                                        _this.modelLoaded = true;
+                                        cb(true);
+                                    }, function (error) {
+                                        _this.debug.error(25104, 'Failed to decode challenge 25 binary model shards.');
+                                        cb(null);
+                                    });
+                                }, function (error) {
+                                    _this.debug.error(25105, 'Failed to fetch challenge 25 binary model shards.');
+                                    cb(null);
+                                });
+                            }, function (error) {
+                                _this.debug.error(25106, 'Failed to parse challenge 25 manifest.');
+                                cb(null);
+                            });
+                        }, function (error) {
+                            _this.debug.error(25107, 'Failed to fetch challenge 25 manifest.');
+                            cb(null);
+                        });
+                    };
+                    Challenge25.prototype.buildBundle = function (manifest, bufferList) {
+                        var challengeNetF32 = new Float32Array(bufferList[0]);
+                        var ageNetF32 = new Float32Array(bufferList[1]);
+                        var scalersF32 = new Float32Array(bufferList[2]);
+                        var cnOffset = { value: 0 };
+                        var cnW0 = Challenge25.unpack2D(challengeNetF32, Challenge25.CHALLENGE_NET_W0_ROWS, Challenge25.CHALLENGE_NET_W0_COLS, cnOffset);
+                        var cnB0 = Challenge25.unpack1D(challengeNetF32, Challenge25.CHALLENGE_NET_W0_ROWS, cnOffset);
+                        var cnW1 = Challenge25.unpack2D(challengeNetF32, Challenge25.CHALLENGE_NET_W1_ROWS, Challenge25.CHALLENGE_NET_W0_ROWS, cnOffset);
+                        var cnB1 = Challenge25.unpack1D(challengeNetF32, Challenge25.CHALLENGE_NET_W1_ROWS, cnOffset);
+                        var cnWHead = Challenge25.unpack2D(challengeNetF32, Challenge25.CHALLENGE_NET_HEAD_ROWS, Challenge25.CHALLENGE_NET_W1_ROWS, cnOffset);
+                        var cnBHead = Challenge25.unpack1D(challengeNetF32, Challenge25.CHALLENGE_NET_HEAD_ROWS, cnOffset);
+                        var anOffset = { value: 0 };
+                        var anW0 = Challenge25.unpack2D(ageNetF32, Challenge25.AGE_NET_W0_ROWS, Challenge25.AGE_NET_W0_COLS, anOffset);
+                        var anB0 = Challenge25.unpack1D(ageNetF32, Challenge25.AGE_NET_W0_ROWS, anOffset);
+                        var anW1 = Challenge25.unpack2D(ageNetF32, Challenge25.AGE_NET_W1_ROWS, Challenge25.AGE_NET_W0_ROWS, anOffset);
+                        var anB1 = Challenge25.unpack1D(ageNetF32, Challenge25.AGE_NET_W1_ROWS, anOffset);
+                        var anDeltaW0 = Challenge25.unpack2D(ageNetF32, Challenge25.AGE_NET_DELTA_W0_ROWS, Challenge25.AGE_NET_DELTA_W0_COLS, anOffset);
+                        var anDeltaB0 = Challenge25.unpack1D(ageNetF32, Challenge25.AGE_NET_DELTA_W0_ROWS, anOffset);
+                        var anDeltaW1 = Challenge25.unpack2D(ageNetF32, 1, Challenge25.AGE_NET_DELTA_W0_ROWS, anOffset);
+                        var anDeltaB1 = Challenge25.unpack1D(ageNetF32, 1, anOffset);
+                        var anGateW0 = Challenge25.unpack2D(ageNetF32, Challenge25.AGE_NET_GATE_W0_ROWS, Challenge25.AGE_NET_W1_ROWS, anOffset);
+                        var anGateB0 = Challenge25.unpack1D(ageNetF32, Challenge25.AGE_NET_GATE_W0_ROWS, anOffset);
+                        var anGateW1 = Challenge25.unpack2D(ageNetF32, 1, Challenge25.AGE_NET_GATE_W0_ROWS, anOffset);
+                        var anGateB1 = Challenge25.unpack1D(ageNetF32, 1, anOffset);
+                        var sOffset = { value: 0 };
+                        var sGeomMean = Challenge25.unpack1D(scalersF32, Challenge25.SCALER_GEOM_SIZE, sOffset);
+                        var sGeomScale = Challenge25.unpack1D(scalersF32, Challenge25.SCALER_GEOM_SIZE, sOffset);
+                        var sFullMean = Challenge25.unpack1D(scalersF32, Challenge25.SCALER_FULL_SIZE, sOffset);
+                        var sFullScale = Challenge25.unpack1D(scalersF32, Challenge25.SCALER_FULL_SIZE, sOffset);
+                        return {
+                            decision_config: manifest.decision_config,
+                            scalers: {
+                                scaler_geom: {
+                                    mean: sGeomMean,
+                                    scale: sGeomScale
+                                },
+                                scaler_full: {
+                                    mean: sFullMean,
+                                    scale: sFullScale
+                                }
+                            },
+                            challenge_net: {
+                                w0: cnW0,
+                                b0: cnB0,
+                                w1: cnW1,
+                                b1: cnB1,
+                                w_head: cnWHead,
+                                b_head: cnBHead
+                            },
+                            age_net: {
+                                w0: anW0,
+                                b0: anB0,
+                                w1: anW1,
+                                b1: anB1,
+                                delta_w0: anDeltaW0,
+                                delta_b0: anDeltaB0,
+                                delta_w1: anDeltaW1,
+                                delta_b1: anDeltaB1,
+                                gate_w0: anGateW0,
+                                gate_b0: anGateB0,
+                                gate_w1: anGateW1,
+                                gate_b1: anGateB1
+                            }
+                        };
+                    };
+                    Challenge25.unpack2D = function (f32, rows, cols, offset) {
+                        var mat = [];
+                        for (var i = 0; i < rows; i++) {
+                            mat.push(f32.subarray(offset.value, offset.value + cols));
+                            offset.value += cols;
+                        }
+                        return mat;
+                    };
+                    Challenge25.unpack1D = function (f32, length, offset) {
+                        var vec = f32.subarray(offset.value, offset.value + length);
+                        offset.value += length;
+                        return vec;
+                    };
+                    Challenge25.prototype.predict = function (detectionResult) {
+                        if (!this.modelLoaded) {
+                            this.debug.error(25108, 'Challenge 25 model bundle not loaded.');
+                            throw new Error('Challenge 25 model bundle not loaded. Call loadModel first.');
+                        }
+                        var rawBaseAge = detectionResult.age !== undefined ? detectionResult.age : Challenge25.DEFAULT_BASE_AGE;
+                        var gender = detectionResult.gender;
+                        var landmarks = detectionResult.landmarks;
+                        if (!landmarks) {
+                            this.debug.error(25109, 'Detection result must contain 68 face landmarks.');
+                            throw new Error('Detection result must contain 68 face landmarks.');
+                        }
+                        var extracted = Challenge25.extractFeatures(landmarks, rawBaseAge, gender);
+                        var normGeom = Challenge25.standardize(extracted.xGeom, this.bundle.scalers.scaler_geom);
+                        var normFull = Challenge25.standardize(extracted.xFull, this.bundle.scalers.scaler_full);
+                        var cn = this.bundle.challenge_net;
+                        var cnH0 = Challenge25.matvec(cn.w0, cn.b0, normGeom, Challenge25.ACTIVATION_GELU);
+                        var cnH1 = Challenge25.matvec(cn.w1, cn.b1, cnH0, Challenge25.ACTIVATION_GELU);
+                        var rawHead = Challenge25.matvec(cn.w_head, cn.b_head, cnH1);
+                        var qProbabilities = Challenge25.ordinalProbabilities(rawHead);
+                        var q17 = qProbabilities[2];
+                        var an = this.bundle.age_net;
+                        var ageInput = new Float32Array(normFull.length - 1);
+                        ageInput[0] = normFull[0];
+                        for (var i = 2; i < normFull.length; i++) {
+                            ageInput[i - 1] = normFull[i];
+                        }
+                        var anH0 = Challenge25.matvec(an.w0, an.b0, ageInput, Challenge25.ACTIVATION_GELU);
+                        var anH1 = Challenge25.matvec(an.w1, an.b1, anH0, Challenge25.ACTIVATION_GELU);
+                        var poseScores = normFull.subarray(normFull.length - (Challenge25.POSE_FEATURE_NUMBER + Challenge25.RATIO_FEATURE_NUMBER));
+                        var deltaInput = new Float32Array(anH1.length + poseScores.length);
+                        deltaInput.set(anH1, 0);
+                        deltaInput.set(poseScores, anH1.length);
+                        var deltaH0 = Challenge25.matvec(an.delta_w0, an.delta_b0, deltaInput, Challenge25.ACTIVATION_GELU);
+                        var rawDelta = Challenge25.matvec(an.delta_w1, an.delta_b1, deltaH0)[0];
+                        var maxDelta = this.bundle.decision_config.max_delta || Challenge25.DEFAULT_MAX_DELTA;
+                        var delta = maxDelta * Math.tanh(rawDelta / maxDelta);
+                        var gateH0 = Challenge25.matvec(an.gate_w0, an.gate_b0, anH1, Challenge25.ACTIVATION_GELU);
+                        var gamma = Challenge25.sigmoid(Challenge25.matvec(an.gate_w1, an.gate_b1, gateH0)[0]);
+                        var predAge = Math.max(0.0, Math.min(120.0, rawBaseAge + gamma * delta));
+                        var q17Opt = this.bundle.decision_config.q17_probability_threshold;
+                        var thresholdAge = this.bundle.decision_config.threshold_age;
+                        var requiresChallenge = (predAge < thresholdAge) || (q17 >= q17Opt);
+                        var riskBand = Challenge25.RISK_BAND_LOW_RISK_ADULT;
+                        if (predAge < Challenge25.DEFERRED_CHALLENGE_MINOR_AGE || q17 >= Challenge25.DEFAULT_Q17_MINOR) {
+                            riskBand = Challenge25.RISK_BAND_DEFINITE_MINOR;
+                        }
+                        else if (requiresChallenge) {
+                            riskBand = Challenge25.RISK_BAND_BORDERLINE_CHALLENGE_25;
+                        }
+                        return {
+                            rawBaseAge: Number(rawBaseAge.toFixed(1)),
+                            predAge: Number(predAge.toFixed(1)),
+                            averageAge: Number(this.interpolateAgePredictions(parseInt(predAge.toFixed(1))).toFixed()),
+                            ageDelta: Number((gamma * delta).toFixed(2)),
+                            gateGamma: Number(gamma.toFixed(3)),
+                            q17MinorProbability: Number(q17.toFixed(3)),
+                            ordinalProbabilities: {
+                                pUnder12: Number(qProbabilities[0].toFixed(3)),
+                                pUnder15: Number(qProbabilities[1].toFixed(3)),
+                                pUnder17: Number(qProbabilities[2].toFixed(3)),
+                                pUnder20: Number(qProbabilities[3].toFixed(3)),
+                                pUnder24: Number(qProbabilities[4].toFixed(3)),
+                                pUnder29: Number(qProbabilities[5].toFixed(3))
+                            },
+                            requiresChallenge: requiresChallenge,
+                            riskBand: riskBand,
+                        };
+                    };
+                    Challenge25.ordinalProbabilities = function (rawHead) {
+                        var baseLogit = rawHead[0];
+                        var logits = [baseLogit];
+                        var current = baseLogit;
+                        for (var i = 1; i < Challenge25.ORDINAL_BUCKET_NUMBER; i++) {
+                            current += Challenge25.softplus(rawHead[i]) + 1e-4;
+                            logits.push(current);
+                        }
+                        var probabilities = new Float32Array(logits.length);
+                        for (var i = 0; i < logits.length; i++) {
+                            probabilities[i] = Challenge25.sigmoid(logits[i]);
+                        }
+                        return probabilities;
+                    };
+                    Challenge25.standardize = function (featureList, scaler) {
+                        var normalized = new Float32Array(featureList.length);
+                        for (var i = 0; i < featureList.length; i++) {
+                            normalized[i] = (featureList[i] - scaler.mean[i]) / scaler.scale[i];
+                        }
+                        return normalized;
+                    };
+                    Challenge25.gelu = function (x) {
+                        return 0.5 * x * (1.0 + Math.tanh(Math.sqrt(2.0 / Math.PI) * (x + 0.044715 * Math.pow(x, 3))));
+                    };
+                    Challenge25.softplus = function (x) {
+                        return Math.log(1.0 + Math.exp(Math.min(x, 20.0)));
+                    };
+                    Challenge25.sigmoid = function (x) {
+                        return 1.0 / (1.0 + Math.exp(-x));
+                    };
+                    Challenge25.matvec = function (W, b, x, activation) {
+                        if (activation === void 0) { activation = null; }
+                        var out = new Float32Array(W.length);
+                        for (var i = 0; i < W.length; i++) {
+                            var sum = b[i];
+                            var row = W[i];
+                            for (var j = 0; j < row.length; j++) {
+                                sum += row[j] * x[j];
+                            }
+                            if (activation === Challenge25.ACTIVATION_GELU) {
+                                out[i] = Challenge25.gelu(sum);
+                            }
+                            else if (activation === Challenge25.ACTIVATION_SIGMOID) {
+                                out[i] = Challenge25.sigmoid(sum);
+                            }
+                            else {
+                                out[i] = sum;
+                            }
+                        }
+                        return out;
+                    };
+                    Challenge25.computePediatricRatios = function (alignedPts) {
+                        var chin = alignedPts[8];
+                        var nasion = alignedPts[27];
+                        var subnasale = alignedPts[33];
+                        var leftJaw = alignedPts[0];
+                        var rightJaw = alignedPts[16];
+                        var leftCheek = alignedPts[3];
+                        var rightCheek = alignedPts[13];
+                        var leftInner = alignedPts[39];
+                        var leftOuter = alignedPts[36];
+                        var rightInner = alignedPts[42];
+                        var rightOuter = alignedPts[45];
+                        var distance = function (p1, p2) { return Math.hypot(p1[0] - p2[0], p1[1] - p2[1]); };
+                        var totalH = distance(chin, nasion) + 1e-6;
+                        var lowerH = distance(chin, subnasale) + 1e-6;
+                        var faceW = distance(rightCheek, leftCheek) + 1e-6;
+                        var jawW = distance(rightJaw, leftJaw) + 1e-6;
+                        var intercanthal = distance(rightInner, leftInner) + 1e-6;
+                        var leftEyeH = distance(alignedPts[37], alignedPts[41]) + distance(alignedPts[38], alignedPts[40]);
+                        var rightEyeH = distance(alignedPts[43], alignedPts[47]) + distance(alignedPts[44], alignedPts[46]);
+                        var eyeH = (leftEyeH + rightEyeH) / 4.0;
+                        var leftTilt = (leftOuter[1] - leftInner[1]) / (Math.abs(leftOuter[0] - leftInner[0]) + 1e-6);
+                        var rightTilt = (rightOuter[1] - rightInner[1]) / (Math.abs(rightOuter[0] - rightInner[0]) + 1e-6);
+                        var vector1 = [nasion[0] - subnasale[0], nasion[1] - subnasale[1]];
+                        var vector2 = [chin[0] - subnasale[0], chin[1] - subnasale[1]];
+                        var dot = vector1[0] * vector2[0] + vector1[1] * vector2[1];
+                        var norm1 = Math.hypot(vector1[0], vector1[1]);
+                        var norm2 = Math.hypot(vector2[0], vector2[1]);
+                        var convexity = dot / (norm1 * norm2 + 1e-6);
+                        var eyeArea = (distance(leftOuter, leftInner) + distance(rightOuter, rightInner)) * eyeH;
+                        return [
+                            lowerH / totalH,
+                            eyeH / totalH,
+                            intercanthal / faceW,
+                            convexity,
+                            jawW / faceW,
+                            (leftTilt + rightTilt) / 2.0,
+                            totalH / faceW,
+                            eyeArea / (totalH * faceW + 1e-6)
+                        ];
+                    };
+                    Challenge25.extractFeatures = function (landmarks, rawBaseAge, gender) {
+                        var positions = landmarks._positions || landmarks.positions || landmarks;
+                        var pts = positions.map(function (p) { return [p._x !== undefined ? p._x : p.x, p._y !== undefined ? p._y : p.y]; });
+                        var leftEyeX = 0;
+                        var leftEyeY = 0;
+                        var rightEyeX = 0;
+                        var rightEyeY = 0;
+                        for (var i = 36; i < 42; i++) {
+                            leftEyeX += pts[i][0];
+                            leftEyeY += pts[i][1];
+                        }
+                        for (var i = 42; i < 48; i++) {
+                            rightEyeX += pts[i][0];
+                            rightEyeY += pts[i][1];
+                        }
+                        var leftEye = [leftEyeX / 6, leftEyeY / 6];
+                        var rightEye = [rightEyeX / 6, rightEyeY / 6];
+                        var eyeVector = [rightEye[0] - leftEye[0], rightEye[1] - leftEye[1]];
+                        var roll = Math.atan2(eyeVector[1], eyeVector[0]);
+                        var cosRoll = Math.cos(-roll);
+                        var sinRoll = Math.sin(-roll);
+                        var midEye = [(leftEye[0] + rightEye[0]) / 2, (leftEye[1] + rightEye[1]) / 2];
+                        var aligned = pts.map(function (p) {
+                            var dx = p[0] - midEye[0];
+                            var dy = p[1] - midEye[1];
+                            return [dx * cosRoll - dy * sinRoll, dx * sinRoll + dy * cosRoll];
+                        });
+                        var eyeDistance = Math.hypot(eyeVector[0], eyeVector[1]);
+                        var canonical = [];
+                        for (var i = 0; i < Challenge25.LANDMARK_NUMBER; i++) {
+                            canonical.push(aligned[i][0] / eyeDistance);
+                            canonical.push(aligned[i][1] / eyeDistance);
+                        }
+                        var nose = aligned[30];
+                        var leftCorner = aligned[36];
+                        var rightCorner = aligned[45];
+                        var leftDistance = Math.abs(nose[0] - leftCorner[0]);
+                        var rightDistance = Math.abs(rightCorner[0] - nose[0]);
+                        var yaw = (rightDistance - leftDistance) / (rightDistance + leftDistance + 1e-6);
+                        var pitch = Math.abs(nose[1] - aligned[27][1]) / (Math.abs(aligned[8][1] - nose[1]) + 1e-6);
+                        var pose = [yaw, pitch, Math.sin(roll), Math.cos(roll)];
+                        var ratios = Challenge25.computePediatricRatios(aligned);
+                        var xGeom = canonical.concat(pose).concat(ratios);
+                        var genderScore = (gender === 'female' || gender === 'Female') ? 1.0 : ((gender === 'male' || gender === 'Male') ? -1.0 : 0.0);
+                        var xFull = [(rawBaseAge - Challenge25.GEOMETRY_FEATURE_MEAN) / Challenge25.GEOMETRY_FEATURE_SCALE, genderScore].concat(xGeom);
+                        return { xGeom: xGeom, xFull: xFull, ratios: ratios };
+                    };
+                    Challenge25.prototype.interpolateAgePredictions = function (age) {
+                        this.predictAgeList = [age].concat(this.predictAgeList).slice(0, 30);
+                        if (this.predictAgeList.length === 1) {
+                            return this.predictAgeList[0];
+                        }
+                        return this.predictAgeList.reduce(function (total, a) { return total + a; }) / this.predictAgeList.length;
+                    };
+                    Challenge25.MANIFEST_FILE_NAME = 'manifest.json';
+                    Challenge25.CHALLENGE_NET_FILE_NAME = 'challenge_net.bin';
+                    Challenge25.AGE_NET_FILE_NAME = 'age_net.bin';
+                    Challenge25.SCALERS_FILE_NAME = 'scalers.bin';
+                    Challenge25.DEFAULT_MAX_DELTA = 16.0;
+                    Challenge25.DEFAULT_BASE_AGE = 25.0;
+                    Challenge25.DEFAULT_Q17_MINOR = 0.85;
+                    Challenge25.DEFERRED_CHALLENGE_MINOR_AGE = 18.0;
+                    Challenge25.LANDMARK_NUMBER = 68;
+                    Challenge25.ORDINAL_BUCKET_NUMBER = 6;
+                    Challenge25.POSE_FEATURE_NUMBER = 4;
+                    Challenge25.RATIO_FEATURE_NUMBER = 8;
+                    Challenge25.GEOMETRY_FEATURE_MEAN = 30.0;
+                    Challenge25.GEOMETRY_FEATURE_SCALE = 20.0;
+                    Challenge25.SCALER_GEOM_SIZE = 148;
+                    Challenge25.SCALER_FULL_SIZE = 150;
+                    // challenge net shapes
+                    Challenge25.CHALLENGE_NET_W0_ROWS = 96;
+                    Challenge25.CHALLENGE_NET_W0_COLS = 148;
+                    Challenge25.CHALLENGE_NET_W1_ROWS = 64;
+                    Challenge25.CHALLENGE_NET_HEAD_ROWS = 6;
+                    // age net shapes
+                    Challenge25.AGE_NET_W0_ROWS = 112;
+                    Challenge25.AGE_NET_W0_COLS = 149;
+                    Challenge25.AGE_NET_W1_ROWS = 56;
+                    Challenge25.AGE_NET_DELTA_W0_ROWS = 32;
+                    Challenge25.AGE_NET_DELTA_W0_COLS = 68;
+                    Challenge25.AGE_NET_GATE_W0_ROWS = 16;
+                    // Pure JS math & activations
+                    Challenge25.ACTIVATION_GELU = 'gelu';
+                    Challenge25.ACTIVATION_SIGMOID = 'sigmoid';
+                    Challenge25.RISK_BAND_DEFINITE_MINOR = 'DEFINITE_MINOR';
+                    Challenge25.RISK_BAND_BORDERLINE_CHALLENGE_25 = 'BORDERLINE_CHALLENGE_25';
+                    Challenge25.RISK_BAND_LOW_RISK_ADULT = 'LOW_RISK_ADULT';
+                    return Challenge25;
+                }(Avs.Plugin.Handler));
+                Ml.Challenge25 = Challenge25;
+            })(Ml = Library.Ml || (Library.Ml = {}));
+        })(Library = Plugin.Library || (Plugin.Library = {}));
+    })(Plugin = Avs.Plugin || (Avs.Plugin = {}));
+})(Avs || (Avs = {}));
+
+"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var Avs;
+(function (Avs) {
+    var Plugin;
+    (function (Plugin) {
+        var Library;
+        (function (Library) {
+            var Ml;
+            (function (Ml) {
                 var FaceApi = /** @class */ (function (_super) {
                     __extends(FaceApi, _super);
                     function FaceApi(config, event, api) {
@@ -24460,7 +24896,7 @@ var Avs;
                             cb(null);
                             return;
                         }
-                        this.faceApiClass.detectSingleFace(this.videoElement, this.detectorOptions).withAgeAndGender().then(function (result) {
+                        this.faceApiClass.detectSingleFace(this.videoElement, this.detectorOptions).withFaceLandmarks().withAgeAndGender().then(function (result) {
                             // face was detected
                             if (typeof result !== 'undefined' && result.detection) {
                                 var age = result.age;
@@ -24469,6 +24905,7 @@ var Avs;
                                 cb({
                                     detection: result.detection,
                                     age: age,
+                                    detectionRaw: result,
                                     averageAge: averageAge
                                 });
                             }

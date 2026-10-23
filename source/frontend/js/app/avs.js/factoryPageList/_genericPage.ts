@@ -165,6 +165,7 @@ namespace Avs {
 		Ml?: {
 			FaceApi?: Avs.Plugin.Library.Ml.FaceApi,
 			Tesseract?: Avs.Plugin.Library.Ml.Tesseract,
+			Challenge25?: Avs.Plugin.Library.Ml.Challenge25,
 		},
 
 		Video?: {

@@ -13,7 +13,10 @@ namespace Avs {
 			public totalExpressionScanNumber: number;
 			public validScanNumber: number;
 			public ageResultList: Array<number>;
+			public currentAge: number;
 			public averageAge: number;
+			public patchAge: number;
+			public challenge25Required: boolean;
 
 			public totalInvalidFaceMatch: number;
 
@@ -49,10 +52,14 @@ namespace Avs {
 				this.validScanNumber           = 0;
 				this.averageAge                = 0;
 				this.totalInvalidFaceMatch     = 0;
+				this.patchAge                  = 0;
+				this.challenge25Required       = false;
 
 				this.ageResultList       = [];
 				this.validCanvasFaceList = [];
 				this.validFaceList       = [];
+
+				this.currentAge = 0;
 
 				this.resourcesPreloaded = false;
 

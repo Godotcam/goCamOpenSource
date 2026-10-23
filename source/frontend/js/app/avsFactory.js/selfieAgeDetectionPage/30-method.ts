@@ -20,7 +20,7 @@ namespace AvsFactory {
 
 				// Show brightness indicator when video starts
 				instance.ui.BrightnessIndicatorArea.show();
-				
+
 				instance.plugin.Library.Video.CameraSource.init();
 				instance.plugin.Library.Video.CameraSource.showVideo();
 
@@ -67,19 +67,36 @@ namespace AvsFactory {
 
 							instance.entity.SelfieAgeDetection.validScanNumber++;
 
-							instance.entity.SelfieAgeDetection.ageResultList.push(ageResult.age);
-							instance.entity.SelfieAgeDetection.averageAge = ageResult.averageAge;
+							let challenge25Predict = instance.plugin.Library.Ml.Challenge25.predict(ageResult.detectionRaw);
+
+							instance.debug.logToContainer('<p>--------------------------</p>');
+							instance.debug.logToContainer('<p><strong>Patch model prediction</strong></p>');
+							instance.debug.logToContainer('<p>Original age: ' + challenge25Predict.rawBaseAge + '</p>');
+							instance.debug.logToContainer('<p>Predicted age: ' + challenge25Predict.predAge + '</p>');
+							instance.debug.logToContainer('<p>Challenge required: ' + challenge25Predict.requiresChallenge + ' </p>');
+							instance.debug.logToContainer('<p>--------------------------</p>');
+
+							instance.entity.SelfieAgeDetection.patchAge = challenge25Predict.predAge;
+
+							if (!instance.entity.SelfieAgeDetection.challenge25Required) {
+								instance.entity.SelfieAgeDetection.challenge25Required = challenge25Predict.requiresChallenge;
+							}
+
+							instance.entity.SelfieAgeDetection.currentAge = challenge25Predict.predAge;
+							instance.entity.SelfieAgeDetection.ageResultList.push(challenge25Predict.predAge);
+							instance.entity.SelfieAgeDetection.averageAge = challenge25Predict.averageAge;
+
 
 							instance.ui.FaceGuideAgeArea.show();
 							instance.ui.SelfieAgeDetectionCurrentAgeArea.show();
 							instance.ui.SelfieAgeDetectionCurrentAgeArea.setContent(
 								Method.getAgeAreaString(
 									'Current detected age',
-									ageResult.age.toFixed()
+									Math.floor(instance.entity.SelfieAgeDetection.currentAge)
 								)
 							);
 
-							instance.debug.logToContainer('<p>Current: ' + ageResult.age.toFixed() + ' Average: ' + ageResult.averageAge + '</p>');
+							instance.debug.logToContainer('<p>Current: ' + Math.floor(instance.entity.SelfieAgeDetection.currentAge) + ' Average: ' + instance.entity.SelfieAgeDetection.averageAge);
 
 							instance.plugin.Library.Ml.FaceApi.extractFaceImage(faceResult.detection, (canvasFace: any) => {
 
@@ -182,7 +199,8 @@ namespace AvsFactory {
 
 					if (
 						instance.entity.SelfieAgeDetection.averageAge >= Config.MIN_ALLOWED_AVERAGE_AGE &&
-						instance.entity.VerificationStepGlobal.verificationType == Avs.Entity.VerificationStepGlobal.VERIFICATION_TYPE_SELFIE_AND_SCAN_ID_OPTIONAL
+						instance.entity.VerificationStepGlobal.verificationType == Avs.Entity.VerificationStepGlobal.VERIFICATION_TYPE_SELFIE_AND_SCAN_ID_OPTIONAL &&
+						instance.entity.SelfieAgeDetection.challenge25Required == false
 					) {
 
 						if ((<any>Application).isLiveness) {

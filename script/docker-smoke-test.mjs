@@ -117,6 +117,7 @@ try {
   docker('exec', name, 'node', '-e', `
     const assert = require('node:assert/strict');
     const fs = require('node:fs');
+    assert.equal(process.version, 'v24.22.1');
     assert.equal(process.getuid(), 1000);
     for (const path of ['.env', '.env.docker', '.git', 'source', 'node_modules/typescript', 'node_modules/gulp', 'node_modules/gulp-concat']) {
       assert.ok(!fs.existsSync(path), path + ' must not be in the runtime image');

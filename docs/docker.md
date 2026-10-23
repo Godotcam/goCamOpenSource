@@ -119,10 +119,10 @@ docker compose --env-file .env.docker up -d --no-build --wait
 
 Keep the previous release tag for rollback, then repeat these commands with that
 tag if needed. Each replacement interrupts in-memory verification sessions.
-The base uses the Node 24 `bookworm-slim` tag to receive patch updates on rebuild;
-for a fixed base, pass `--build-arg NODE_IMAGE=node:24-bookworm-slim@sha256:...`
-with a reviewed digest. Rebuild regularly and scan the resulting image/dependency
-lockfile before release. `/healthz` checks the HTTP process only; it does not
+The base is pinned to the reviewed multi-platform Node 24.22.1 `bookworm-slim`
+image. Update both the version and digest when adopting a newer Node security
+release. Rebuild regularly and scan the resulting image and dependency lockfile
+before release. `/healthz` checks the HTTP process only; it does not
 exercise camera access, age estimation, external callbacks, or session durability.
 Docker health status alone does not restart an unhealthy but running process.
 

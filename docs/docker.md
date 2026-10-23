@@ -119,7 +119,7 @@ docker compose --env-file .env.docker up -d --no-build --wait
 
 Keep the previous release tag for rollback, then repeat these commands with that
 tag if needed. Each replacement interrupts in-memory verification sessions.
-The base is pinned to the reviewed multi-platform Node 24.22.1 `bookworm-slim`
+The base is pinned to the reviewed multi-platform Node 24.22.1 `alpine3.24`
 image. Update both the version and digest when adopting a newer Node security
 release. Rebuild regularly and scan the resulting image and dependency lockfile
 before release. `/healthz` checks the HTTP process only; it does not

@@ -1,0 +1,64 @@
+# The application's in-memory stores support only one replica.
+replicaCount: 1
+
+image:
+  # Published and tested for AMD64 and ARM64 by this repository's Docker workflow.
+  repository: ghcr.io/yiidiir/gocamopensource-helm
+  tag: sha-cbd6e6222d16f67f7ad66bfbcc2709f8595aff27
+  # A digest takes precedence over the tag when set.
+  digest: ""
+  pullPolicy: IfNotPresent
+imagePullSecrets: []
+
+nameOverride: ""
+fullnameOverride: ""
+
+# This chart references a Secret; it never generates or stores secret values.
+# The Secret must exist in the Helm release's namespace before installation.
+secret:
+  existingSecret: gocam-secrets
+  encryptionKeyKey: ENCRYPTION_KEY
+  sessionSecretKey: SESSION_SECRET
+  callbackSecretKey: ""
+
+config:
+  host: localhost
+  port: 3300
+  protocol: https
+  # Set to "1" behind exactly one trusted ingress proxy, or use its IP/subnets.
+  trustProxy: "0"
+  encryptionAlgorithm: aes-256-cbc
+  enableFrontendDebug: false
+  apiIntegration: false
+  callbackSecretHeader: x-gocam-callback-secret
+  callbackAllowedOrigins: []
+  callbackAllowedHostSuffixes: []
+
+service:
+  port: 80
+  annotations: {}
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  # Routes config.host at /; the app requires deployment at the URL root.
+  tls:
+    enabled: true
+    secretName: ""
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: "1"
+    memory: 512Mi
+
+podAnnotations: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+tests:
+  enabled: true

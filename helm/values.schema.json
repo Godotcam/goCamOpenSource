@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "global": { "type": "object" },
+    "replicaCount": { "type": "integer", "enum": [1], "description": "The in-memory stores require exactly one replica." },
+    "nameOverride": { "type": "string" },
+    "fullnameOverride": { "type": "string" },
+    "image": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["repository", "tag", "digest", "pullPolicy"],
+      "properties": {
+        "repository": { "type": "string", "minLength": 1 },
+        "tag": { "type": "string" },
+        "digest": { "type": "string", "pattern": "^(sha256:[a-fA-F0-9]{64})?$" },
+        "pullPolicy": { "enum": ["Always", "IfNotPresent", "Never"] }
+      },
+      "if": { "properties": { "digest": { "const": "" } } },
+      "then": { "properties": { "tag": { "minLength": 1 } } }
+    },
+    "imagePullSecrets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name"],
+        "properties": { "name": { "$ref": "#/definitions/nonEmptyString" } }
+      }
+    },
+    "secret": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["existingSecret", "encryptionKeyKey", "sessionSecretKey"],
+      "properties": {
+        "existingSecret": { "$ref": "#/definitions/nonEmptyString" },
+        "encryptionKeyKey": { "$ref": "#/definitions/nonEmptyString" },
+        "sessionSecretKey": { "$ref": "#/definitions/nonEmptyString" },
+        "callbackSecretKey": { "type": "string" }
+      }
+    },
+    "config": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["host", "port", "protocol", "trustProxy", "encryptionAlgorithm", "enableFrontendDebug"],
+      "properties": {
+        "host": { "type": "string", "minLength": 1, "pattern": "^[a-zA-Z0-9]([a-zA-Z0-9.-]*[a-zA-Z0-9])?$" },
+        "port": { "$ref": "#/definitions/port" },
+        "protocol": { "enum": ["http", "https"] },
+        "trustProxy": { "$ref": "#/definitions/nonEmptyString" },
+        "encryptionAlgorithm": { "$ref": "#/definitions/nonEmptyString" },
+        "enableFrontendDebug": { "type": "boolean" },
+        "apiIntegration": { "type": "boolean" },
+        "callbackSecretHeader": { "type": "string", "pattern": "^[!#$%&'*+\\-.^_`|~0-9A-Za-z]+$" },
+        "callbackAllowedOrigins": { "type": "array", "items": { "type": "string", "pattern": "^https?://[^/]+$" } },
+        "callbackAllowedHostSuffixes": { "type": "array", "items": { "type": "string", "pattern": "^\\.[a-zA-Z0-9.-]+$" } }
+      }
+    },
+    "service": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["port", "annotations"],
+      "properties": {
+        "port": { "$ref": "#/definitions/port" },
+        "annotations": { "$ref": "#/definitions/stringMap" }
+      }
+    },
+    "ingress": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled", "className", "annotations", "tls"],
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "className": { "type": "string" },
+        "annotations": { "$ref": "#/definitions/stringMap" },
+        "tls": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["enabled", "secretName"],
+          "properties": {
+            "enabled": { "type": "boolean" },
+            "secretName": { "type": "string" }
+          }
+        }
+      }
+    },
+    "resources": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "requests": { "type": "object", "additionalProperties": { "type": ["string", "number"] } },
+        "limits": { "type": "object", "additionalProperties": { "type": ["string", "number"] } }
+      }
+    },
+    "podAnnotations": { "$ref": "#/definitions/stringMap" },
+    "nodeSelector": { "$ref": "#/definitions/stringMap" },
+    "tolerations": { "type": "array", "items": { "type": "object" } },
+    "affinity": { "type": "object" },
+    "tests": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled"],
+      "properties": { "enabled": { "type": "boolean" } }
+    }
+  },
+  "required": ["replicaCount", "image", "secret", "config", "service", "ingress", "tests"],
+  "allOf": [{
+    "if": { "properties": { "config": { "properties": { "apiIntegration": { "const": true } } } } },
+    "then": { "properties": {
+      "secret": { "properties": { "callbackSecretKey": { "minLength": 1 } } },
+      "config": { "properties": { "callbackAllowedOrigins": { "minItems": 1 } } }
+    } }
+  }],
+  "definitions": {
+    "port": { "type": "integer", "minimum": 1, "maximum": 65535 },
+    "nonEmptyString": { "type": "string", "minLength": 1 },
+    "stringMap": { "type": "object", "additionalProperties": { "type": "string" } }
+  }
+}

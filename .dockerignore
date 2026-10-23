@@ -1,0 +1,22 @@
+# Only build inputs are sent to the builder; local secrets and dependencies stay out.
+**
+!package.json
+!package-lock.json
+!LICENSE
+!script/
+!script/gulpfile.js
+!source/
+!source/**
+!app/
+!app/frontend/
+!app/frontend/**
+!docker/
+!docker/healthcheck.cjs
+
+# Regenerate tracked build outputs instead of using stale assets.
+app/frontend/static/js/app/
+app/frontend/static/css/main.css
+**/.env
+**/.env.*
+**/node_modules
+**/.DS_Store

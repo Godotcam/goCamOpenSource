@@ -1,3 +1,5 @@
+import { randomInt } from 'node:crypto';
+import { config } from '../config';
 import axios, { AxiosResponse } from "axios";
 import uaParser from 'ua-parser-js';
 import { AvsEncryption } from "../lib/encryption";
@@ -32,7 +34,7 @@ export class AvsStorageSession {
 
 	constructor() {
 
-		this.sessionIdStart  = this.getNow();
+		this.sessionIdStart  = randomInt(1, 2 ** 30);
 		this.sessionList     = {};
 		this.payloadInstance = new AvsStoragePayload();
 
@@ -76,21 +78,23 @@ export class AvsStorageSession {
 
 	public start(payload: string) {
 
-		this.payloadInstance.store(payload);
-
 		let payloadParsed = AvsEncryption.decryptString(payload);
-		let sessionId = this.getUniqueId();
+		let sessionId = payloadParsed.sessionId || this.getUniqueId();
+		if (!Number.isInteger(sessionId) || sessionId < 1 || sessionId >= 2 ** 31) {
+			throw new Error('Invalid verification session ID');
+		}
 		let uaParsed  = uaParser(payloadParsed.httpParamList.userAgent);
 
 		let sessionState = AvsStorageSession.SESSION_STATE_IN_PROGRESS;
 		if (this.payloadInstance.isStored(payload)) {
-			sessionState = AvsStorageSession.SESSION_STATE_LINK_ALREADY_USED;
+			throw new Error('Verification link already used');
 		}
 
-		if (this.payloadInstance.isExpired(payload)) {
-			sessionState = AvsStorageSession.SESSION_STATE_LINK_EXPIRED;
+		if (payloadParsed.creationTimestamp + config.storage.payloadExpirationTime <= Date.now()) {
+			throw new Error('Verification link expired');
 		}
 
+		this.payloadInstance.store(payload);
 		this.create({
 			sessionId          : sessionId,
 			userData           : payloadParsed.userData,
@@ -145,10 +149,13 @@ export class AvsStorageSession {
 
 		axios({
 			method : 'post',
+			timeout: 10000,
+			maxRedirects: 0,
 			url    : sessionData.callbackUrl,
 			headers: {
 				'Content-Type'               : 'application/x-www-form-urlencoded; charset=UTF-8',
 				"Access-Control-Allow-Origin": "*",
+				...(config.apiIntegration ? { [config.callbackSecretHeader]: config.callbackSecret } : {}),
 			},
 			data   : {
 				userData       : JSON.stringify(sessionData.userData),
@@ -172,7 +179,7 @@ export class AvsStorageSession {
 			)
 			.catch(
 				(err: Error) => {
-					console.log('Error: ', err);
+					console.error('Verification callback failed:', err.message);
 				}
 			);
 
@@ -230,8 +237,9 @@ export class AvsStorageSession {
 
 	}
 
-	private getUniqueId() {
+	public getUniqueId() {
 
+		if (this.sessionIdStart >= 2 ** 31 - 1) throw new Error('Session ID capacity exhausted');
 		this.sessionIdStart++;
 
 		return this.sessionIdStart;
@@ -257,12 +265,6 @@ export class AvsStorageSession {
 	private update(sessionId: number, sessionData: ISessionListItem) {
 
 		this.sessionList[sessionId] = sessionData;
-
-	}
-
-	private getNow() {
-
-		return +new Date();
 
 	}
 

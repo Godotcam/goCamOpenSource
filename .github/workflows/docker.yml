@@ -1,0 +1,93 @@
+name: Docker
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: docker-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: ubuntu-24.04
+            arch: amd64
+          - runner: ubuntu-24.04-arm
+            arch: arm64
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Build production image
+        run: |
+          docker build --pull -t gocam:production \
+            --label "org.opencontainers.image.source=https://github.com/${GITHUB_REPOSITORY}" \
+            --label "org.opencontainers.image.revision=${GITHUB_SHA}" .
+      - name: Test production image
+        run: node script/docker-smoke-test.mjs
+      - name: Test external API integration
+        run: node script/api-integration-smoke-test.mjs
+      - name: Audit production dependencies
+        run: |
+          docker build --target dependencies -t gocam:dependencies .
+          docker run --rm gocam:dependencies npm audit --omit=dev
+      - name: Validate Compose configuration
+        env:
+          ENCRYPTION_KEY: ci-only-placeholder-not-a-secret!
+          SESSION_SECRET: ci-only-placeholder-not-a-secret!
+        run: docker compose config --quiet
+      - name: Log in to GHCR
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: docker/login-action@ba754150c9dbbaa912ae0ac3cfba43f84195cef2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish tested architecture image
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        env:
+          IMAGE_ARCH: ${{ matrix.arch }}
+        run: |
+          image="ghcr.io/${GITHUB_REPOSITORY,,}"
+          tag="${image}:sha-${GITHUB_SHA}-${IMAGE_ARCH}"
+          docker tag gocam:production "$tag"
+          docker push "$tag"
+
+  publish:
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Log in to GHCR
+        uses: docker/login-action@ba754150c9dbbaa912ae0ac3cfba43f84195cef2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish multi-platform image
+        run: |
+          image="ghcr.io/${GITHUB_REPOSITORY,,}"
+          docker buildx imagetools create \
+            --tag "${image}:sha-${GITHUB_SHA}" \
+            --tag "${image}:latest" \
+            "${image}:sha-${GITHUB_SHA}-amd64" \
+            "${image}:sha-${GITHUB_SHA}-arm64"
+          docker buildx imagetools inspect "${image}:sha-${GITHUB_SHA}"

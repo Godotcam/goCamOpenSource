@@ -5,16 +5,45 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.config = void 0;
 const dotenv_1 = __importDefault(require("dotenv"));
+const crypto_1 = __importDefault(require("crypto"));
 // Load the `.env` file
 dotenv_1.default.config({ quiet: true });
+const production = process.env.NODE_ENV === 'production';
+const defaultEncryptionKey = 'zIkmW2zEgzlTLTRC5xeMbcOhHcE5sBHB';
+const encryptionKey = process.env.ENCRYPTION_KEY || defaultEncryptionKey;
+const encryptionAlgorithm = process.env.ENCRYPTION_ALGORITHM || 'aes-256-cbc';
+const httpServerPort = Number(process.env.HTTP_SERVER_PORT || 3300);
+const httpServerProtocol = process.env.HTTP_SERVER_PROTOCOL || 'http';
+const trustProxy = process.env.TRUST_PROXY || '';
+if (!Number.isInteger(httpServerPort) || httpServerPort < 1 || httpServerPort > 65535) {
+    throw new Error('HTTP_SERVER_PORT must be an integer between 1 and 65535');
+}
+if (httpServerProtocol !== 'http' && httpServerProtocol !== 'https') {
+    throw new Error('HTTP_SERVER_PROTOCOL must be http or https');
+}
+if (production) {
+    if (!process.env.ENCRYPTION_KEY || encryptionKey === defaultEncryptionKey) {
+        throw new Error('Set a unique ENCRYPTION_KEY for production');
+    }
+    const cipher = crypto_1.default.getCipherInfo(encryptionAlgorithm);
+    if (!cipher || cipher.ivLength !== 16 || Buffer.byteLength(encryptionKey) !== cipher.keyLength) {
+        throw new Error('ENCRYPTION_KEY and ENCRYPTION_ALGORITHM must support a 16-byte IV and a matching key length (aes-256-cbc requires 32 bytes)');
+    }
+    if (Buffer.byteLength(process.env.SESSION_SECRET || '') < 32) {
+        throw new Error('Set SESSION_SECRET to a random secret of at least 32 bytes for production');
+    }
+}
 const configObject = {
-    httpServerProtocol: process.env.HTTP_SERVER_PROTOCOL || 'http',
+    httpServerProtocol: httpServerProtocol,
     httpServerHost: process.env.HTTP_SERVER_HOST || 'localhost',
-    httpServerPort: process.env.HTTP_SERVER_PORT || 3300,
+    httpBindAddress: process.env.HTTP_BIND_ADDRESS || process.env.HTTP_SERVER_HOST || 'localhost',
+    httpServerPort: httpServerPort,
+    trustProxy: /^\d+$/.test(trustProxy) ? Number(trustProxy) : trustProxy || false,
+    sessionSecret: process.env.SESSION_SECRET,
     htmlFilePath: './app/frontend/views/',
     encryption: {
-        key: process.env.ENCRYPTION_KEY || 'zIkmW2zEgzlTLTRC5xeMbcOhHcE5sBHB',
-        algorithm: process.env.ENCRYPTION_ALGORITHM || 'aes-256-cbc',
+        key: encryptionKey,
+        algorithm: encryptionAlgorithm,
     },
     storage: {
         payloadExpirationTime: 10 * 60 * 1000,
@@ -28,7 +57,7 @@ const configObject = {
         maxAge: 30 * 24 * 60 * 60 * 1000
     },
     cacheBuster: +new Date(),
-    enableFrontEndDebug: process.env.ENABLE_FRONTEND_DEBUG || false,
+    enableFrontEndDebug: process.env.ENABLE_FRONTEND_DEBUG === 'true',
     countryAgeMajority: {
         "A1": 18,
         "A2": 18,

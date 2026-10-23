@@ -3,6 +3,9 @@
 	"version": "1.0.0",
 	"description": "Open source implementation of go.cam",
 	"main": "app/backend/app.js",
+	"engines": {
+		"node": ">=22"
+	},
 	"scripts": {
 		"startDev": "node --watch ./app/backend/app.js",
 		"startProd": "node ./app/backend/app.js",
@@ -18,6 +21,11 @@
 	},
 	"author": "GoDotCam",
 	"license": "AGPL-3.0",
+	"overrides": {
+		"express": {
+			"qs": "^6.16.0"
+		}
+	},
 	"devDependencies": {
 		"@types/cookie-parser": "^1.4.9",
 		"@types/dotenv": "^6.1.1",
@@ -32,6 +40,7 @@
 		"gulp": "^5.0.0",
 		"gulp-clean": "^0.4.0",
 		"gulp-cli": "^3.0.0",
+		"gulp-concat": "^2.6.1",
 		"gulp-sass": "^5.1.0",
 		"gulp-typescript": "^6.0.0-alpha.1",
 		"sass": "^1.76.0",
@@ -44,10 +53,9 @@
 		"dotenv": "^17.2.0",
 		"express": "^4.19.2",
 		"express-session": "^1.18.0",
-		"gulp-concat": "^2.6.1",
 		"morgan": "^1.10.0",
 		"serve-favicon": "^2.5.0",
-		"twig": "^1.17.1",
+		"twig": "^3.0.0",
 		"ua-parser-js": "^1.0.37"
 	}
 }

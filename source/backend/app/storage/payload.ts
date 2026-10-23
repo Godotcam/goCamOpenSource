@@ -39,7 +39,7 @@ export class AvsStoragePayload {
 		let created     = payloadData.created;
 		let now         = this.getNow();
 
-		return created + config.storage.payloadExpirationTime > now;
+		return created + config.storage.payloadExpirationTime <= now;
 
 	}
 

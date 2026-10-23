@@ -1,0 +1,36 @@
+services:
+  gocam:
+    image: ${GOCAM_IMAGE:-gocam:production}
+    build: .
+    restart: unless-stopped
+    init: true
+    environment:
+      NODE_ENV: production
+      HTTP_BIND_ADDRESS: 0.0.0.0
+      HTTP_SERVER_PORT: "3300"
+      HTTP_SERVER_HOST: ${HTTP_SERVER_HOST:-localhost}
+      HTTP_SERVER_PROTOCOL: ${HTTP_SERVER_PROTOCOL:-https}
+      TRUST_PROXY: ${TRUST_PROXY:-1}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY:?Set ENCRYPTION_KEY to a random 32-byte string}
+      ENCRYPTION_ALGORITHM: aes-256-cbc
+      SESSION_SECRET: ${SESSION_SECRET:?Set SESSION_SECRET to a random secret of at least 32 bytes}
+      ENABLE_FRONTEND_DEBUG: "false"
+    ports:
+      - "127.0.0.1:${GOCAM_PORT:-3300}:3300"
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+      - /app/log:size=16m,uid=1000,gid=1000,mode=0700
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    stop_grace_period: 30s
+    pids_limit: 100
+    mem_limit: 512m
+    cpus: 1.0
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

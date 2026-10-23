@@ -1,0 +1,135 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "gocam.fullname" . }}
+  labels:
+    {{- include "gocam.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  # Rolling updates would split requests between independent in-memory stores.
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "gocam.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "gocam.selectorLabels" . | nindent 8 }}
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+    spec:
+      automountServiceAccountToken: false
+      terminationGracePeriodSeconds: 30
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: gocam
+          image: {{ include "gocam.image" . | quote }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          securityContext:
+            {{- include "gocam.containerSecurityContext" . | nindent 12 }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.config.port }}
+              protocol: TCP
+          env:
+            - name: API_INTEGRATION
+              value: {{ .Values.config.apiIntegration | quote }}
+            - name: CALLBACK_SECRET_HEADER
+              value: {{ .Values.config.callbackSecretHeader | quote }}
+            - name: CALLBACK_ALLOWED_ORIGINS
+              value: {{ join "," .Values.config.callbackAllowedOrigins | quote }}
+            - name: CALLBACK_ALLOWED_HOST_SUFFIXES
+              value: {{ join "," .Values.config.callbackAllowedHostSuffixes | quote }}
+            {{- if .Values.config.apiIntegration }}
+            - name: CALLBACK_WEBHOOK_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secret.existingSecret | quote }}
+                  key: {{ .Values.secret.callbackSecretKey | quote }}
+            {{- end }}
+            - name: NODE_ENV
+              value: production
+            - name: HTTP_BIND_ADDRESS
+              value: "0.0.0.0"
+            - name: HTTP_SERVER_PORT
+              value: {{ .Values.config.port | quote }}
+            - name: HTTP_SERVER_HOST
+              value: {{ .Values.config.host | quote }}
+            - name: HTTP_SERVER_PROTOCOL
+              value: {{ .Values.config.protocol | quote }}
+            - name: TRUST_PROXY
+              value: {{ .Values.config.trustProxy | quote }}
+            - name: ENCRYPTION_ALGORITHM
+              value: {{ .Values.config.encryptionAlgorithm | quote }}
+            - name: ENABLE_FRONTEND_DEBUG
+              value: {{ .Values.config.enableFrontendDebug | quote }}
+            - name: ENCRYPTION_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secret.existingSecret | quote }}
+                  key: {{ .Values.secret.encryptionKeyKey | quote }}
+            - name: SESSION_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Values.secret.existingSecret | quote }}
+                  key: {{ .Values.secret.sessionSecretKey | quote }}
+          startupProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            periodSeconds: 2
+            timeoutSeconds: 3
+            failureThreshold: 30
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            periodSeconds: 5
+            timeoutSeconds: 3
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            periodSeconds: 30
+            timeoutSeconds: 3
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
+            - name: callback-logs
+              mountPath: /app/log
+      volumes:
+        - name: tmp
+          emptyDir:
+            medium: Memory
+            sizeLimit: 16Mi
+        - name: callback-logs
+          emptyDir:
+            medium: Memory
+            sizeLimit: 16Mi
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

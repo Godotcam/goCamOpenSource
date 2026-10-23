@@ -52,14 +52,22 @@ const resultRoute = __importStar(require("./route/result"));
 const tokenRoute = __importStar(require("./route/token"));
 const app = (0, express_1.default)();
 const avsStorageInstance = new session_1.AvsStorageSession();
+app.set('trust proxy', config_1.config.trustProxy);
+// Health probes must not allocate sessions or depend on cookies/templates.
+app.get('/healthz', (_req, res) => {
+    res.set('Cache-Control', 'no-store').status(200).json({ status: 'ok' });
+});
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use((0, cookie_parser_1.default)());
 app.use((0, express_session_1.default)({
-    secret: random_1.AvsRandom.generateRandomString(),
+    secret: config_1.config.sessionSecret || random_1.AvsRandom.generateRandomString(),
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: {
-        secure: false
+        secure: config_1.config.httpServerProtocol === 'https',
+        // HTTPS iframe integrations need an explicit cross-site session cookie.
+        sameSite: config_1.config.httpServerProtocol === 'https' ? 'none' : 'lax',
+        maxAge: config_1.config.test.maxDuration
     }
 }));
 app.use(express_1.default.static('app/frontend'));
@@ -76,6 +84,21 @@ app.locals.nodeEnv = process.env.NODE_ENV || 'not defined';
 tokenRoute.load(app, avsStorageInstance);
 resultRoute.load(app, avsStorageInstance);
 indexRoute.load(app, avsStorageInstance);
-server.listen(config_1.config.httpServerPort, config_1.config.httpServerHost, () => {
-    console.log('http server started on: ' + config_1.config.httpServerProtocol + '://' + config_1.config.httpServerHost + ':' + config_1.config.httpServerPort);
+server.listen(config_1.config.httpServerPort, config_1.config.httpBindAddress, () => {
+    console.log('http server listening on: ' + config_1.config.httpBindAddress + ':' + config_1.config.httpServerPort);
 });
+let shuttingDown = false;
+function shutdown() {
+    if (shuttingDown)
+        return;
+    shuttingDown = true;
+    console.log('Stopping HTTP server');
+    const timeout = setTimeout(() => process.exit(1), 25000);
+    timeout.unref();
+    server.close((error) => {
+        clearTimeout(timeout);
+        process.exit(error ? 1 : 0);
+    });
+}
+process.on('SIGTERM', shutdown);
+process.on('SIGINT', shutdown);

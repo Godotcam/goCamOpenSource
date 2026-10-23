@@ -1,0 +1,15 @@
+goCam is deployed as {{ include "gocam.fullname" . }} in namespace {{ .Release.Namespace }}.
+The image must be accessible to cluster nodes and Secret {{ .Values.secret.existingSecret }}
+must contain {{ .Values.secret.encryptionKeyKey }} and {{ .Values.secret.sessionSecretKey }}.
+
+{{ if .Values.ingress.enabled -}}
+Open https://{{ .Values.config.host }}/ after your ingress controller, DNS and TLS are ready.
+{{ else -}}
+The ClusterIP service is {{ include "gocam.fullname" . }}:{{ .Values.service.port }}.
+Configure an HTTPS proxy before opening the application to users.
+{{ end }}
+{{ if .Values.tests.enabled -}}
+Test HTTP availability: helm test {{ .Release.Name }} --namespace {{ .Release.Namespace }} --logs
+{{ end }}
+Only one replica is supported. Recreate upgrades interrupt active verification
+sessions. State is in memory and lost on restart; see helm/README.md for limits.

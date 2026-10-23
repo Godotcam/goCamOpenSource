@@ -1,0 +1,88 @@
+name: Helm
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint-and-render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: azure/setup-helm@v5
+        with:
+          # Test the chart's minimum supported Helm version.
+          version: v3.17.1
+      - name: Install render-test dependency
+        run: |
+          python3 -m venv /tmp/helm-tests
+          /tmp/helm-tests/bin/python -m pip install PyYAML==6.0.3
+      - name: Lint chart and production example
+        run: |
+          helm lint --strict helm
+          helm lint --strict helm -f helm/values-production.example.yaml
+      - name: Test rendered Kubernetes resources
+        run: /tmp/helm-tests/bin/python script/helm-test.py
+      - name: Package chart
+        run: helm package helm --destination /tmp
+
+  publish:
+    needs: lint-and-render
+    if: >-
+      github.ref == 'refs/heads/main' &&
+      github.event_name != 'pull_request' &&
+      vars.HELM_PUBLISH_ENABLED == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    concurrency:
+      group: helm-pages-${{ github.repository }}
+      cancel-in-progress: false
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: azure/setup-helm@v5
+        with:
+          version: v3.17.1
+      - name: Configure release author
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+      - name: Publish new chart versions and update repository index
+        uses: helm/chart-releaser-action@v1.7.0
+        with:
+          # Chart.yaml is directly in helm/, so discover charts from the root.
+          charts_dir: .
+          skip_existing: true
+        env:
+          CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Check out the published index
+        uses: actions/checkout@v7
+        with:
+          ref: gh-pages
+          path: helm-repository
+          persist-credentials: false
+      - name: Verify published index exists
+        run: test -s helm-repository/index.yaml
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: helm-repository
+      - name: Deploy Helm repository to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

@@ -1,0 +1,11 @@
+apiVersion: v2
+name: gocam
+description: Deploy the goCam age verification application
+type: application
+version: 0.1.4
+appVersion: "1.0.0"
+kubeVersion: ">=1.25.0-0"
+home: https://github.com/Yiidiir/goCamOpenSource-helm
+sources:
+  - https://github.com/Yiidiir/goCamOpenSource-helm
+  - https://github.com/Godotcam/goCamOpenSource

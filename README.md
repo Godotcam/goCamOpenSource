@@ -31,7 +31,8 @@ cp .env.example .env
 
 ## Install
 
-This project was developed using Nodejs v20, we recommend using a compatible version.
+Use Node.js 22 or newer. The Docker image builds and runs the project with
+Node.js 24 LTS. Twig 3 requires Node.js 22+, so Node.js 20 is no longer supported.
 
 Clone this repository and install the required packages by running on the root the of the project the following command:
 
@@ -51,6 +52,32 @@ To run the project in production mode run:
 `npm run startProd`
 
 By default the project will run on `http://localhost:3300`. Due to the fact that this project requires access to some features that are restricted to https (e.g. webcam access), we recommend you running it on `localhost` on your first run.
+
+## Docker
+
+See the [Docker deployment guide](docs/docker.md) for building the image, configuring
+secrets and HTTPS, running with Compose, and publishing AMD64/ARM64 images.
+The guide also describes the application's existing in-memory storage limits:
+one replica, active sessions lost on restart, and storage work required for
+sustained production use. With `NODE_ENV=production`, a unique `ENCRYPTION_KEY`
+and a `SESSION_SECRET` of at least 32 bytes are required at startup.
+
+## Kubernetes / Helm
+
+The [Helm chart](helm/README.md) in `helm/` deploys the Docker image with an existing
+Kubernetes Secret, health probes, a ClusterIP Service, and optional HTTPS ingress.
+It enforces a single replica and uses `Recreate` upgrades for the application's
+in-memory storage. See the chart guide for installation and configuration.
+
+The chart is published by CI to a GitHub Pages Helm repository:
+
+```sh
+helm repo add gocam https://yiidiir.github.io/goCamOpenSource-helm
+helm repo update
+```
+
+See the [chart release instructions](helm/README.md#publish-chart-releases) for
+versioning and enabling publishing in a fork.
 
 ## Example implementation
 
@@ -119,4 +146,3 @@ If you wish to develop the project further you might find the following commands
 ### Watch only the styling:
 
 `npm run watchCssFrontend`
-

@@ -23,14 +23,23 @@ declare module 'express-session' {
 
 const avsStorageInstance = new AvsStorageSession();
 
+app.set('trust proxy', config.trustProxy);
+// Health probes must not allocate sessions or depend on cookies/templates.
+app.get('/healthz', (_req, res) => {
+	res.set('Cache-Control', 'no-store').status(200).json({status: 'ok'});
+});
+
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(session({
-	secret           : AvsRandom.generateRandomString(),
+	secret           : config.sessionSecret || AvsRandom.generateRandomString(),
 	resave           : false,
-	saveUninitialized: true,
+	saveUninitialized: false,
 	cookie           : {
-		secure: false
+		secure: config.httpServerProtocol === 'https',
+		// HTTPS iframe integrations need an explicit cross-site session cookie.
+		sameSite: config.httpServerProtocol === 'https' ? 'none' : 'lax',
+		maxAge: config.test.maxDuration
 	}
 }));
 app.use(express.static('app/frontend'));
@@ -51,6 +60,21 @@ tokenRoute.load(app, avsStorageInstance);
 resultRoute.load(app, avsStorageInstance);
 indexRoute.load(app, avsStorageInstance);
 
-server.listen(config.httpServerPort, config.httpServerHost, () => {
-	console.log('http server started on: ' + config.httpServerProtocol + '://' + config.httpServerHost + ':' + config.httpServerPort);
+server.listen(config.httpServerPort, config.httpBindAddress, () => {
+	console.log('http server listening on: ' + config.httpBindAddress + ':' + config.httpServerPort);
 });
+
+let shuttingDown = false;
+function shutdown() {
+	if (shuttingDown) return;
+	shuttingDown = true;
+	console.log('Stopping HTTP server');
+	const timeout = setTimeout(() => process.exit(1), 25000);
+	timeout.unref();
+	server.close((error) => {
+		clearTimeout(timeout);
+		process.exit(error ? 1 : 0);
+	});
+}
+process.on('SIGTERM', shutdown);
+process.on('SIGINT', shutdown);

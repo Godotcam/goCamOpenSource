@@ -1,0 +1,42 @@
+{{- if .Values.ingress.enabled }}
+{{- if eq .Values.config.host "localhost" }}
+{{- fail "Set config.host to the public hostname when ingress is enabled" }}
+{{- end }}
+{{- if ne .Values.config.protocol "https" }}
+{{- fail "Ingress requires config.protocol=https for camera access and secure cookies" }}
+{{- end }}
+{{- if eq .Values.config.trustProxy "0" }}
+{{- fail "Set config.trustProxy for your ingress proxy topology (for example, '1' for exactly one proxy)" }}
+{{- end }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "gocam.fullname" . }}
+  labels:
+    {{- include "gocam.labels" . | nindent 4 }}
+  {{- with .Values.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  {{- with .Values.ingress.className }}
+  ingressClassName: {{ . | quote }}
+  {{- end }}
+  {{- if .Values.ingress.tls.enabled }}
+  tls:
+    - hosts:
+        - {{ .Values.config.host | quote }}
+      secretName: {{ required "Set ingress.tls.secretName to the TLS certificate Secret" .Values.ingress.tls.secretName | quote }}
+  {{- end }}
+  rules:
+    - host: {{ .Values.config.host | quote }}
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ include "gocam.fullname" . }}
+                port:
+                  name: http
+{{- end }}

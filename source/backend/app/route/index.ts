@@ -36,7 +36,22 @@ export function load(app: Express.Application, storage: AvsStorageSession) {
 		let callbackUrl                         = req.body['callbackUrl'];
 		let demoPageUrl                         = req.body['demoPageUrl'];
 
-		var demoPageUrlInstance = new URL(demoPageUrl);
+		let demoPageUrlInstance: URL;
+		try {
+			demoPageUrlInstance = new URL(demoPageUrl || `${config.httpServerProtocol}://${config.httpServerHost}`);
+			const callback = new URL(callbackUrl);
+			const allowed = config.callbackAllowedOrigins.includes(callback.origin) ||
+				(callback.protocol === 'https:' && !callback.port && config.callbackAllowedHostSuffixes.some(
+					suffix => suffix.startsWith('.') && callback.hostname.endsWith(suffix)
+				));
+			if (config.apiIntegration && (!allowed || callback.username || callback.password)) {
+				res.status(400).send(AvsResponse.errorResponse(30000, 'Callback origin is not allowed'));
+				return;
+			}
+		} catch {
+			res.status(400).send(AvsResponse.errorResponse(30000, 'Invalid verification URL configuration'));
+			return;
+		}
 
 		if (
 			colorConfigBodyBackgroundInput == undefined ||
@@ -58,8 +73,10 @@ export function load(app: Express.Application, storage: AvsStorageSession) {
 		let testPathRedirect  = '/token';
 		let testPathIframe    = '/token/iframeCheck';
 
+		const sessionId = storage.getUniqueId();
 		let requestPayload = AvsEncryption.encryptObject(
 			{
+				sessionId,
 				userData           : {
 					userId: 0,
 					colorConfig: {
@@ -115,7 +132,7 @@ export function load(app: Express.Application, storage: AvsStorageSession) {
 		const urlIframeString = url.format(urlIframe);
 
 		res.send(AvsResponse.successResponse({
-			payload  : requestPayload,
+			payload  : config.apiIntegration ? JSON.stringify({ sessionId }) : requestPayload,
 			url      : urlTokenString,
 			iframeUrl: urlIframeString
 		}));

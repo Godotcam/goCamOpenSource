@@ -1,0 +1,47 @@
+{{- if .Values.tests.enabled }}
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ include "gocam.fullname" . | trunc 56 | trimSuffix "-" }}-health
+  labels:
+    app.kubernetes.io/name: {{ include "gocam.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/component: health-test
+  annotations:
+    helm.sh/hook: test
+    helm.sh/hook-delete-policy: before-hook-creation
+spec:
+  automountServiceAccountToken: false
+  restartPolicy: Never
+  activeDeadlineSeconds: 30
+  {{- with .Values.imagePullSecrets }}
+  imagePullSecrets:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+  containers:
+    - name: health
+      image: {{ include "gocam.image" . | quote }}
+      imagePullPolicy: {{ .Values.image.pullPolicy }}
+      securityContext:
+        {{- include "gocam.containerSecurityContext" . | nindent 8 }}
+      env:
+        - name: HEALTH_URL
+          value: {{ printf "http://%s:%v/healthz" (include "gocam.fullname" .) .Values.service.port | quote }}
+      command: [node, -e]
+      args:
+        - |
+          const http = require('node:http');
+          const request = http.get(process.env.HEALTH_URL, { timeout: 5000 }, (response) => {
+            response.resume();
+            process.exitCode = response.statusCode === 200 ? 0 : 1;
+          });
+          request.on('timeout', () => request.destroy(new Error('Health check timed out')));
+          request.on('error', (error) => { console.error(error.message); process.exitCode = 1; });
+      resources:
+        requests:
+          cpu: 10m
+          memory: 32Mi
+        limits:
+          cpu: 100m
+          memory: 64Mi
+{{- end }}

@@ -1,0 +1,16 @@
+# Uses the chart's published image by default.
+secret:
+  existingSecret: gocam-secrets
+
+config:
+  host: verify.example.com
+  protocol: https
+  # Exactly one ingress proxy; use IP/subnet trust rules for other topologies.
+  trustProxy: "1"
+
+ingress:
+  enabled: true
+  className: your-ingress-class
+  tls:
+    enabled: true
+    secretName: gocam-tls

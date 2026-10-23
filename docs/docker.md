@@ -139,9 +139,11 @@ TEST_PLATFORM=linux/amd64 node script/docker-smoke-test.mjs gocam:production-amd
 The tests run with a read-only filesystem and dropped capabilities, check health,
 render pages and encrypted payloads, verify compiled assets/models, check proxy
 session cookies and secret validation, and confirm clean shutdown on SIGTERM.
-They use temporary containers and generated test secrets. GitHub Actions runs the
-same build and smoke tests on native AMD64 and ARM64 runners for pull requests.
-Publishing runs only on `main`, as described below.
+They use temporary containers and generated test secrets. The runtime image omits
+npm, Corepack, and Yarn. GitHub Actions runs the same build and smoke tests on
+native AMD64 and ARM64 runners, checks that Node is the latest patch release for
+its major, and rejects fixable high or critical Trivy findings. Publishing runs
+only on `main`, as described below.
 
 ## Published images
 

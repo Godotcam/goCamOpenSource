@@ -29,7 +29,11 @@ COPY --from=build /app/app ./app
 COPY package.json LICENSE ./
 COPY docker/healthcheck.cjs ./docker/healthcheck.cjs
 # The example /callback endpoint writes here. Mount a volume or tmpfs at runtime.
-RUN mkdir log && chown node:node log
+RUN rm -rf /usr/local/lib/node_modules/npm /usr/local/lib/node_modules/corepack /opt/yarn-v1.22.22 \
+        /usr/local/bin/npm /usr/local/bin/npx /usr/local/bin/corepack \
+        /usr/local/bin/yarn /usr/local/bin/yarnpkg \
+    && mkdir log \
+    && chown node:node log
 USER node
 EXPOSE 3300
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \

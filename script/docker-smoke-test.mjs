@@ -119,7 +119,7 @@ try {
     const fs = require('node:fs');
     assert.equal(process.version, 'v24.22.1');
     assert.equal(process.getuid(), 1000);
-    for (const path of ['.env', '.env.docker', '.git', 'source', 'node_modules/typescript', 'node_modules/gulp', 'node_modules/gulp-concat']) {
+    for (const path of ['.env', '.env.docker', '.git', 'source', 'node_modules/typescript', 'node_modules/gulp', 'node_modules/gulp-concat', '/usr/local/bin/npm', '/usr/local/bin/npx', '/usr/local/bin/corepack', '/usr/local/bin/yarn']) {
       assert.ok(!fs.existsSync(path), path + ' must not be in the runtime image');
     }
     assert.throws(() => fs.writeFileSync('/app/unexpected-write', 'test'));

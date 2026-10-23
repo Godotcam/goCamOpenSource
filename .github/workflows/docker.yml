@@ -41,6 +41,21 @@ jobs:
         run: node script/docker-smoke-test.mjs
       - name: Test external API integration
         run: node script/api-integration-smoke-test.mjs
+      - name: Verify current Node patch release
+        run: |
+          runtime_version="$(docker run --rm --entrypoint node gocam:production --version)"
+          runtime_major="${runtime_version#v}"
+          runtime_major="${runtime_major%%.*}"
+          latest_version="$(curl -fsSL https://nodejs.org/dist/index.json | jq -r \
+            --arg prefix "v${runtime_major}." '[.[] | select(.version | startswith($prefix))][0].version')"
+          test -n "$latest_version"
+          test "$runtime_version" = "$latest_version"
+      - name: Scan fixable high and critical vulnerabilities
+        run: |
+          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
+            aquasec/trivy:0.76.1@sha256:790fd66d1697395d8693d1acaa1ea702406a20f109b6fc7bac8db623eca6c06c \
+            image --skip-version-check --scanners vuln --detection-priority comprehensive \
+            --ignore-unfixed --severity HIGH,CRITICAL --exit-code 1 gocam:production
       - name: Audit production dependencies
         run: |
           docker build --target dependencies -t gocam:dependencies .
